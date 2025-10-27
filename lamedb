@@ -3083,9 +3083,9 @@ p:
 0001:03112bac:0000:0000:0:0
 SNG ABADAN
 p:SNG ABADAN,f:40
-0001:0370aaea:0000:0000:0:0
-
-p:
+0001:0370aaea:0000:0000:1:0
+Majan
+p:88E,f:01
 0001:03a80f94:0000:0001:0:0
 DD Malayalam
 p:Doordarshan,f:40
@@ -45534,4 +45534,4 @@ p:SkyItalia
 12226H SID 0x232e
 p:DVB-S QPSK 12226H 19.2°E
 end
-Edited with dreamboxEDIT 7.2.1.0 on 27أكتوبر2025 18:17:27
+Edited with dreamboxEDIT 7.2.1.0 on 27أكتوبر2025 18:31:17
