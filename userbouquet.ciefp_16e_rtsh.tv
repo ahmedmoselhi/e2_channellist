@@ -1,5 +1,5 @@
 #NAME • 16,1 E - RTSH 
-#SERVICE 1:64:2E0:0:0:0:0:0:0:0::•••••::| RTSH |::•••••
+#SERVICE 1:64:2E0:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| RTSH |::•••••
-#SERVICE 1:64:2E1:0:0:0:0:0:0:0::- - - Radio - - -
+#SERVICE 1:64:2E1:0:0:0:0:0:0:0:
 #DESCRIPTION - - - Radio - - -

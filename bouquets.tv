@@ -1,190 +1,190 @@
 #NAME User - bouquets (TV)
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.novatv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_exyu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_pinktv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_maxtv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_kids.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_docu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_movie.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_music.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_uhd.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_adult.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_multistream.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_t2mi.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_abertis.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_emu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_slovak.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_skylink.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_antiksat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.buket_upc.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_80e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_68e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_62e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_55e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_53e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_52e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_52e_aref.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_51e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_46e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_45e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_42e_turksat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_42e_digiturk.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_42e_dsmart.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_42e_tivibu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_hellas.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_hellas_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_ert.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_polaris.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_dolce.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_39e_a1bg.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_36e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_31e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_astra.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyuk_icam.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyukmovie.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyukdocuments.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyuksports.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyukkids.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyukgeneral.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_28e_skyukfreesat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_26e_badr.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_26e_mbc.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_astra.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_skylinkgeneral.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_skylink.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_canaldigital.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_23e_telekomsrbija.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_21e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_astra.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_movistarsport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_movistarmovies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_movistardocu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_skyde_icam.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_skydemovies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_skydedocu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_skydesport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_hdplus.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_ORF.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_fta.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_canaldigitaal.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_19e_canalsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_oivzagreb.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_maxtv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_pink.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_antiksat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_totaltv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_vipnet.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_digitalbania.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_freesatromania.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_16e_rtsh.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_hotbird.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_polandmovies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_polanddocu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_polandgeneral.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_polandsport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_sfi.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_orangefrance.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_raimediaset.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_vivacom.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_skyitaliahd.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_skyitalia_icam.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_13e_novagreece.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_10e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_kabelkiosk.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_cosmote.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_afn.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_mediaset.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_9e_persidera.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_7e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5e_fta_powervu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5e_ukraina.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5e_brt_t2mi.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_3e_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_2e_bulgariasat1.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_2e_neosat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_thor.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_docu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_music.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_allente_sve_den.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_allente_movie_music.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_directone_svk.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_directone_movies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_focussat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_focussat_movies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_digitv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_08w_slovaktelekom.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_4w_amos.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5w_eutelsat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5w_rai.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5w_france_multistream.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_5w_francesat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_7w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_14w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_15w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_30w_hispasat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_30w_hispasatsport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_30w_nos.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_30w_meotv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_30w_abertis.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_35w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_terrestrial_fta.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_terrestrial_paytv.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefp_satellite_analyzer.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.marker_vod_exyu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_webcam.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_exyu.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_exyu2.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_news_music.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_mix.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_mix2.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_sport.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_movies.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ciefpsettings_iptv_movies2.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.link_0_marker.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.link_5.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.LastScanned.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.favourites.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_nilesat.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_amos40w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_thor08w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_bulgarisat19e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat30e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_astra4a48e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat70e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat90e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_ote.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat100e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_hotbird130e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat160e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_astra192e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.skydestream.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat216e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_astra235e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_badr260e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_arabsat305e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat360e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_hellassat390e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_turksat420e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_azerspace460e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_yahsat525e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_intelsat620e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_intelsat685e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_eutelsat705b.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_thaicom785e.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.ec_hispasat300w.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.dbe02.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.dbe00.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.dbe01.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.RD_Quran.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_BEIN_SPORTS_ᵁᴴᴰ.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_MAJESTIC_4K.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_HBO.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_HULU.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_GOBX_GROUP.tv" ORDER BY bouquet
-#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET "userbouquet.AR_OSN.tv" ORDER BY bouquet
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.novatv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_exyu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_pinktv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_maxtv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_kids.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_docu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_movie.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_music.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_uhd.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_adult.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_multistream.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_t2mi.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_abertis.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_emu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_slovak.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_skylink.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_antiksat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.buket_upc.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_80e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_68e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_62e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_55e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_53e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_52e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_52e_aref.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_51e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_46e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_45e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_42e_turksat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_42e_digiturk.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_42e_dsmart.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_42e_tivibu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_hellas.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_hellas_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_ert.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_polaris.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_dolce.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_39e_a1bg.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_36e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_31e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_astra.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyuk_icam.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyukmovie.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyukdocuments.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyuksports.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyukkids.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyukgeneral.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_28e_skyukfreesat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_26e_badr.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_26e_mbc.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_astra.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_skylinkgeneral.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_skylink.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_canaldigital.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_23e_telekomsrbija.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_21e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_astra.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_movistarsport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_movistarmovies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_movistardocu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_skyde_icam.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_skydemovies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_skydedocu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_skydesport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_hdplus.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_ORF.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_fta.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_canaldigitaal.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_19e_canalsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_oivzagreb.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_maxtv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_pink.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_antiksat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_totaltv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_vipnet.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_digitalbania.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_freesatromania.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_16e_rtsh.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_hotbird.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_polandmovies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_polanddocu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_polandgeneral.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_polandsport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_sfi.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_orangefrance.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_raimediaset.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_vivacom.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_skyitaliahd.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_skyitalia_icam.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_13e_novagreece.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_10e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_kabelkiosk.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_cosmote.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_afn.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_mediaset.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_9e_persidera.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_7e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5e_fta_powervu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5e_ukraina.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5e_brt_t2mi.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_3e_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_2e_bulgariasat1.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_2e_neosat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_thor.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_docu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_music.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_allente_sve_den.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_allente_movie_music.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_directone_svk.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_directone_movies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_focussat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_focussat_movies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_digitv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_08w_slovaktelekom.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_4w_amos.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5w_eutelsat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5w_rai.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5w_france_multistream.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_5w_francesat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_7w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_14w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_15w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_30w_hispasat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_30w_hispasatsport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_30w_nos.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_30w_meotv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_30w_abertis.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_35w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_terrestrial_fta.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_terrestrial_paytv.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefp_satellite_analyzer.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.marker_vod_exyu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_webcam.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_exyu.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_exyu2.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_news_music.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_mix.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_mix2.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_sport.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_movies.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ciefpsettings_iptv_movies2.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.link_0_marker.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.link_5.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.LastScanned.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.favourites.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_nilesat.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_amos40w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_thor08w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_bulgarisat19e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat30e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_astra4a48e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat70e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat90e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_ote.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat100e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_hotbird130e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat160e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_astra192e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.skydestream.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat216e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_astra235e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_badr260e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_arabsat305e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat360e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_hellassat390e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_turksat420e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_azerspace460e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_yahsat525e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_intelsat620e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_intelsat685e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_eutelsat705b.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_thaicom785e.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.ec_hispasat300w.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.dbe02.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.dbe00.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.dbe01.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.RD_Quran.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_BEIN_SPORTS_ᵁᴴᴰ.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_MAJESTIC_4K.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_HBO.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_HULU.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_GOBX_GROUP.tv
+#SERVICE: 1:7:1:0:0:0:0:0:0:0:userbouquet.AR_OSN.tv

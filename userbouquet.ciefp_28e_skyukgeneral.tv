@@ -1,15 +1,15 @@
 #NAME • 28,2 E - SKY General
-#SERVICE 1:64:1C7:0:0:0:0:0:0:0::•••••::| News |::•••••
+#SERVICE 1:64:1C7:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| News |::•••••
-#SERVICE 1:64:1C8:0:0:0:0:0:0:0::•••••::| RTE |::•••••
+#SERVICE 1:64:1C8:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| RTE |::•••••
-#SERVICE 1:64:1C9:0:0:0:0:0:0:0::•••••::| Virgin |::•••••
+#SERVICE 1:64:1C9:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Virgin |::•••••
-#SERVICE 1:64:1CA:0:0:0:0:0:0:0::•••••::| Challenge |::•••••
+#SERVICE 1:64:1CA:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Challenge |::•••••
-#SERVICE 1:64:1CB:0:0:0:0:0:0:0::•••••::| Shoping |::•••••
+#SERVICE 1:64:1CB:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Shoping |::•••••
-#SERVICE 1:64:1CC:0:0:0:0:0:0:0::•••••::| Others |::•••••
+#SERVICE 1:64:1CC:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Others |::•••••
-#SERVICE 1:64:1CD:0:0:0:0:0:0:0::* * * ciefpsettings * * *
+#SERVICE 1:64:1CD:0:0:0:0:0:0:0:
 #DESCRIPTION * * * ciefpsettings * * *

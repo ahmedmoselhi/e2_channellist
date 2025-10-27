@@ -1,5 +1,5 @@
 #NAME •••••| 4,0 W - AMOS |••••• :: 41 ::
-#SERVICE 1:64:414:0:0:0:0:0:0:0::•••••::| Conax |::•••••
+#SERVICE 1:64:414:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Conax |::•••••
-#SERVICE 1:64:415:0:0:0:0:0:0:0::* * * ciefpsettings * * *
+#SERVICE 1:64:415:0:0:0:0:0:0:0:
 #DESCRIPTION * * * ciefpsettings * * *

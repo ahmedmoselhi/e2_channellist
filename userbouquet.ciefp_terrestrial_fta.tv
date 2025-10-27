@@ -1,19 +1,19 @@
 #NAME •••••| :: T2 :: Terrestrial FTA |•••••
-#SERVICE 1:64:479:0:0:0:0:0:0:0::•••••| :: T2 :: 24,30 :: ETV :: Čot |•••••
+#SERVICE 1:64:479:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 24,30 :: ETV :: Čot |•••••
-#SERVICE 1:64:47A:0:0:0:0:0:0:0::--- Radio ---
+#SERVICE 1:64:47A:0:0:0:0:0:0:0:
 #DESCRIPTION --- Radio ---
-#SERVICE 1:64:47B:0:0:0:0:0:0:0::•••••| :: T2 :: 43 :: ETV :: Čot :: |•••••
+#SERVICE 1:64:47B:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 43 :: ETV :: Čot :: |•••••
-#SERVICE 1:64:47C:0:0:0:0:0:0:0::--- Radio ---
+#SERVICE 1:64:47C:0:0:0:0:0:0:0:
 #DESCRIPTION --- Radio ---
-#SERVICE 1:64:47D:0:0:0:0:0:0:0::•••••| :: T2 :: 36 :: OIV Hrvatska  |•••••
+#SERVICE 1:64:47D:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 36 :: OIV Hrvatska  |•••••
-#SERVICE 1:64:47E:0:0:0:0:0:0:0::•••••| :: T2 :: 44 :: OIV Hrvatska |•••••
+#SERVICE 1:64:47E:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 44 :: OIV Hrvatska |•••••
-#SERVICE 1:64:47F:0:0:0:0:0:0:0::•••••| :: T2 :: 37 :: Mađarska |•••••
+#SERVICE 1:64:47F:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 37 :: Mađarska |•••••
-#SERVICE 1:64:480:0:0:0:0:0:0:0::--- Radio ---
+#SERVICE 1:64:480:0:0:0:0:0:0:0:
 #DESCRIPTION --- Radio ---
-#SERVICE 1:64:481:0:0:0:0:0:0:0::•••••| :: T2 :: 47 :: Mađarska |•••••
+#SERVICE 1:64:481:0:0:0:0:0:0:0:
 #DESCRIPTION •••••| :: T2 :: 47 :: Mađarska |•••••

@@ -1,18 +1,18 @@
 #NAME • 52.0 E - Alem TV
-#SERVICE 1:64:144:0:0:0:0:0:0:0::•••••::| General |::•••••
+#SERVICE 1:64:144:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| General |::•••••
-#SERVICE 1:0:1:9:117E:117E:2080000:0:0:0:
-#SERVICE 1:64:145:0:0:0:0:0:0:0::•••••::| Sport |::•••••
+#SERVICE 1:0:1:9:117e:117e:2080000:0:0:0:
+#SERVICE 1:64:145:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Sport |::•••••
-#SERVICE 1:64:146:0:0:0:0:0:0:0::•••••::| News |::•••••
+#SERVICE 1:64:146:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| News |::•••••
-#SERVICE 1:64:147:0:0:0:0:0:0:0::•••••::| Music |::•••••
+#SERVICE 1:64:147:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Music |::•••••
-#SERVICE 1:64:148:0:0:0:0:0:0:0::•••••::| Movies |::•••••
+#SERVICE 1:64:148:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Movies |::•••••
-#SERVICE 1:64:149:0:0:0:0:0:0:0::•••••::| Documentaries |::•••••
+#SERVICE 1:64:149:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Documentaries |::•••••
-#SERVICE 1:64:14A:0:0:0:0:0:0:0::•••••::| Kids |::•••••
+#SERVICE 1:64:14A:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Kids |::•••••
-#SERVICE 1:64:14B:0:0:0:0:0:0:0::-- Test --
+#SERVICE 1:64:14B:0:0:0:0:0:0:0:
 #DESCRIPTION -- Test --

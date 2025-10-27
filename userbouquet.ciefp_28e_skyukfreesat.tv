@@ -1,13 +1,13 @@
 #NAME • 28,2 E - SKY UK Freesat • UK Beams
-#SERVICE 1:64:1CE:0:0:0:0:0:0:0::•••••::| Regional |::•••••
+#SERVICE 1:64:1CE:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Regional |::•••••
-#SERVICE 1:64:1CF:0:0:0:0:0:0:0::•••••::| BBC One |::•••••
+#SERVICE 1:64:1CF:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| BBC One |::•••••
-#SERVICE 1:64:1D0:0:0:0:0:0:0:0::•••••::| BBC Two |::•••••
+#SERVICE 1:64:1D0:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| BBC Two |::•••••
-#SERVICE 1:64:1D1:0:0:0:0:0:0:0::•••••::| ITV1 |::•••••
+#SERVICE 1:64:1D1:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| ITV1 |::•••••
-#SERVICE 1:64:1D2:0:0:0:0:0:0:0::•••••::| Channel 4 |::•••••
+#SERVICE 1:64:1D2:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Channel 4 |::•••••
-#SERVICE 1:64:1D3:0:0:0:0:0:0:0::•••••::| Other |::•••••
+#SERVICE 1:64:1D3:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Other |::•••••

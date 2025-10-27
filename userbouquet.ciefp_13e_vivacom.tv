@@ -1,19 +1,19 @@
 #NAME • 13,0 E - Vivacom
-#SERVICE 1:64:31E:0:0:0:0:0:0:0::•••••::| Sport |::•••••
+#SERVICE 1:64:31E:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Sport |::•••••
-#SERVICE 1:64:31F:0:0:0:0:0:0:0::•••••::| Movies |::•••••
+#SERVICE 1:64:31F:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Movies |::•••••
-#SERVICE 1:64:320:0:0:0:0:0:0:0::•••••::| Documentaries |::•••••
+#SERVICE 1:64:320:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Documentaries |::•••••
-#SERVICE 1:64:321:0:0:0:0:0:0:0::•••••::| Music |::•••••
+#SERVICE 1:64:321:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Music |::•••••
-#SERVICE 1:64:322:0:0:0:0:0:0:0::•••••::| Kids |::•••••
+#SERVICE 1:64:322:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Kids |::•••••
-#SERVICE 1:64:323:0:0:0:0:0:0:0::•••••::| News |::•••••
+#SERVICE 1:64:323:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| News |::•••••
-#SERVICE 1:64:324:0:0:0:0:0:0:0::•••••::| Genaral |::•••••
+#SERVICE 1:64:324:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Genaral |::•••••
-#SERVICE 1:64:325:0:0:0:0:0:0:0::•••••::| Other |::•••••
+#SERVICE 1:64:325:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| Other |::•••••
-#SERVICE 1:64:326:0:0:0:0:0:0:0::•••••::| XXX |::•••••
+#SERVICE 1:64:326:0:0:0:0:0:0:0:
 #DESCRIPTION •••••::| XXX |::•••••
