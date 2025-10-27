@@ -1,0 +1,229 @@
+#NAME >>>>>>Quran (Radio)
+#SERVICE 1:64:4FF:0:0:0:0:0:0:0::•••••::| Favourites |::•••••
+#DESCRIPTION •••••::| Favourites |::•••••
+#SERVICE 4097:0:1:1:2:1:1:0:0:0:http%3a//live.mp3quran.net%3a9974/;:عبدالباسط عبدالصمد
+#DESCRIPTION عبدالباسط عبدالصمد
+#SERVICE 4097:0:1:1:2:2:2:0:0:0:http%3a//live.mp3quran.net%3a9956/;:عبدالباسط عبدالصمد
+#DESCRIPTION عبدالباسط عبدالصمد
+#SERVICE 4097:0:1:1:2:3:3:0:0:0:http%3a//live.mp3quran.net%3a9980/;:عبدالباسط عبدالصمد
+#DESCRIPTION عبدالباسط عبدالصمد
+#SERVICE 4097:0:1:1:2:4:4:0:0:0:http%3a//live.mp3quran.net%3a9978/;:محمد صديق المنشاوي
+#DESCRIPTION محمد صديق المنشاوي
+#SERVICE 4097:0:1:1:2:5:5:0:0:0:http%3a//live.mp3quran.net%3a9826/;:محمد صديق المنشاوي
+#DESCRIPTION محمد صديق المنشاوي
+#SERVICE 4097:0:1:1:2:6:6:0:0:0:http%3a//live.mp3quran.net%3a9806/;:محمود خليل الحصري
+#DESCRIPTION محمود خليل الحصري
+#SERVICE 4097:0:1:1:2:7:7:0:0:0:http%3a//live.mp3quran.net%3a9804/;:محمود خليل الحصري
+#DESCRIPTION محمود خليل الحصري
+#SERVICE 4097:0:1:1:2:8:8:0:0:0:http%3a//live.mp3quran.net%3a9958/;:محمود خليل الحصري
+#DESCRIPTION محمود خليل الحصري
+#SERVICE 4097:0:1:1:2:9:9:0:0:0:http%3a//live.mp3quran.net%3a9994/;:ناصر القطامي
+#DESCRIPTION ناصر القطامي
+#SERVICE 4097:0:1:1:2:A:A:0:0:0:http%3a//live.mp3quran.net%3a9968/;:إدريس أبكر
+#DESCRIPTION إدريس أبكر
+#SERVICE 4097:0:1:1:2:B:B:0:0:0:http%3a//live.mp3quran.net%3a9972/;:فارس عباد
+#DESCRIPTION فارس عباد
+#SERVICE 4097:0:1:1:2:C:C:0:0:0:http%3a//live.mp3quran.net%3a8002/;:ماهر المعيقلي
+#DESCRIPTION ماهر المعيقلي
+#SERVICE 4097:0:1:1:2:D:D:0:0:0:http%3a//live.mp3quran.net%3a9984/;:ياسر الدوسري
+#DESCRIPTION ياسر الدوسري
+#SERVICE 1:64:500:0:0:0:0:0:0:0::•••••::| Alphabetically |::•••••
+#DESCRIPTION •••••::| Alphabetically |::•••••
+#SERVICE 4097:0:1:1:2:E:E:0:0:0:http%3a//live.mp3quran.net%3a9722/;:-سورة البقرة - لعدد من القراء-
+#DESCRIPTION -سورة البقرة - لعدد من القراء-
+#SERVICE 4097:0:1:1:2:F:F:0:0:0:http%3a//live.mp3quran.net%3a8006/;:-الإذاعة العامة - اذاعة متنوعة لمختلف القراء-
+#DESCRIPTION -الإذاعة العامة - اذاعة متنوعة لمختلف القراء-
+#SERVICE 4097:0:1:1:2:10:10:0:0:0:http%3a//live.mp3quran.net%3a9936/;:-الرقية الشرعية-
+#DESCRIPTION -الرقية الشرعية-
+#SERVICE 4097:0:1:1:2:11:11:0:0:0:http%3a//live.mp3quran.net%3a8014/;:-الفتاوى-
+#DESCRIPTION -الفتاوى-
+#SERVICE 4097:0:1:1:2:12:12:0:0:0:http%3a//live.mp3quran.net%3a9718/;:-تفسير القرآن الكريم-
+#DESCRIPTION -تفسير القرآن الكريم-
+#SERVICE 4097:0:1:1:2:13:13:0:0:0:http%3a//live.mp3quran.net%3a9728/;:-تكبيرات العيد-
+#DESCRIPTION -تكبيرات العيد-
+#SERVICE 4097:0:1:1:2:14:14:0:0:0:http%3a//live.mp3quran.net%3a9992/;:-تلاوات خاشعة-
+#DESCRIPTION -تلاوات خاشعة-
+#SERVICE 4097:0:1:1:2:15:15:0:0:0:http%3a//live.mp3quran.net%3a9928/;:أحمد الحواشي
+#DESCRIPTION أحمد الحواشي
+#SERVICE 4097:0:1:1:2:16:16:0:0:0:http%3a//live.mp3quran.net%3a9926/;:أحمد الطرابلسي
+#DESCRIPTION أحمد الطرابلسي
+#SERVICE 4097:0:1:1:2:17:17:0:0:0:http%3a//live.mp3quran.net%3a8008/;:أحمد بن علي العجمي
+#DESCRIPTION أحمد بن علي العجمي
+#SERVICE 4097:0:1:1:2:18:18:0:0:0:http%3a//live.mp3quran.net%3a9924/;:أحمد خضر الطرابلسي
+#DESCRIPTION أحمد خضر الطرابلسي
+#SERVICE 4097:0:1:1:2:19:19:0:0:0:http%3a//live.mp3quran.net%3a9922/;:أحمد صابر
+#DESCRIPTION أحمد صابر
+#SERVICE 4097:0:1:1:2:1A:1A:0:0:0:http%3a//live.mp3quran.net%3a9920/;:أحمد عامر
+#DESCRIPTION أحمد عامر
+#SERVICE 4097:0:1:1:2:1B:1B:0:0:0:http%3a//live.mp3quran.net%3a9904/;:أحمد نعينع
+#DESCRIPTION أحمد نعينع
+#SERVICE 4097:0:1:1:2:1C:1C:0:0:0:http%3a//live.mp3quran.net%3a9918/;:أكرم العلاقمي
+#DESCRIPTION أكرم العلاقمي
+#SERVICE 4097:0:1:1:2:1D:1D:0:0:0:http%3a//live.mp3quran.net%3a9946/;:إبراهيم الأخضر
+#DESCRIPTION إبراهيم الأخضر
+#SERVICE 4097:0:1:1:2:1E:0:0:0:0:http%3a//live.mp3quran.net%3a9902/;:ابراهيم الدوسري
+#DESCRIPTION ابراهيم الدوسري
+#SERVICE 4097:0:1:1:2:1F:1F:0:0:0:http%3a//live.mp3quran.net%3a9916/;:الدوكالي محمد العالم
+#DESCRIPTION الدوكالي محمد العالم
+#SERVICE 4097:0:1:1:2:20:20:0:0:0:http%3a//live.mp3quran.net%3a9914/;:الزين محمد أحمد
+#DESCRIPTION الزين محمد أحمد
+#SERVICE 4097:0:1:1:2:21:21:0:0:0:http%3a//live.mp3quran.net%3a9912/;:العيون الكوشي
+#DESCRIPTION العيون الكوشي
+#SERVICE 4097:0:1:1:2:22:22:0:0:0:http%3a//live.mp3quran.net%3a9910/;:الفاتح محمد الزبير
+#DESCRIPTION الفاتح محمد الزبير
+#SERVICE 4097:0:1:1:2:23:23:0:0:0:http%3a//live.mp3quran.net%3a9908/;:القارئ ياسين
+#DESCRIPTION القارئ ياسين
+#SERVICE 4097:0:1:1:2:24:24:0:0:0:http%3a//live.mp3quran.net%3a9906/;:توفيق الصايغ
+#DESCRIPTION توفيق الصايغ
+#SERVICE 4097:0:1:1:2:25:25:0:0:0:http%3a//live.mp3quran.net%3a9900/;:جمال شاكر عبدالله
+#DESCRIPTION جمال شاكر عبدالله
+#SERVICE 4097:0:1:1:2:26:26:0:0:0:http%3a//live.mp3quran.net%3a9950/;:جمعان العصيمي
+#DESCRIPTION جمعان العصيمي
+#SERVICE 4097:0:1:1:2:27:27:0:0:0:http%3a//live.mp3quran.net%3a9898/;:حاتم فريد الواعر
+#DESCRIPTION حاتم فريد الواعر
+#SERVICE 4097:0:1:1:2:28:28:0:0:0:http%3a//live.mp3quran.net%3a9970/;:خالد القحطاني
+#DESCRIPTION خالد القحطاني
+#SERVICE 4097:0:1:1:2:29:29:0:0:0:http%3a//live.mp3quran.net%3a9896/;:خالد المهنا
+#DESCRIPTION خالد المهنا
+#SERVICE 4097:0:1:1:2:2A:2A:0:0:0:http%3a//live.mp3quran.net%3a9894/;:خالد عبدالكافي
+#DESCRIPTION خالد عبدالكافي
+#SERVICE 4097:0:1:1:2:2B:2B:0:0:0:http%3a//live.mp3quran.net%3a9892/;:خليفة الطنيجي
+#DESCRIPTION خليفة الطنيجي
+#SERVICE 4097:0:1:1:2:2C:2C:0:0:0:http%3a//live.mp3quran.net%3a9890/;:زكي داغستاني
+#DESCRIPTION زكي داغستاني
+#SERVICE 4097:0:1:1:2:2D:2D:0:0:0:http%3a//live.mp3quran.net%3a8004/;:سعد الغامدي
+#DESCRIPTION سعد الغامدي
+#SERVICE 4097:0:1:1:2:2E:2E:0:0:0:http%3a//live.mp3quran.net%3a9986/;:سعود الشريم
+#DESCRIPTION سعود الشريم
+#SERVICE 4097:0:1:1:2:2F:2F:0:0:0:http%3a//live.mp3quran.net%3a9888/;:سهل ياسين
+#DESCRIPTION سهل ياسين
+#SERVICE 4097:0:1:1:2:30:30:0:0:0:http%3a//live.mp3quran.net%3a9886/;:سيد رمضان
+#DESCRIPTION سيد رمضان
+#SERVICE 4097:0:1:1:2:31:31:0:0:0:http%3a//live.mp3quran.net%3a9966/;:شيخ أبو بكر الشاطري
+#DESCRIPTION شيخ أبو بكر الشاطري
+#SERVICE 4097:0:1:1:2:32:32:0:0:0:http%3a//live.mp3quran.net%3a9884/;:شيرزاد عبدالرحمن طاهر
+#DESCRIPTION شيرزاد عبدالرحمن طاهر
+#SERVICE 4097:0:1:1:2:33:33:0:0:0:http%3a//live.mp3quran.net%3a9952/;:صابر عبدالحكم
+#DESCRIPTION صابر عبدالحكم
+#SERVICE 4097:0:1:1:2:34:34:0:0:0:http%3a//live.mp3quran.net%3a9882/;:صلاح البدير
+#DESCRIPTION صلاح البدير
+#SERVICE 4097:0:1:1:2:35:35:0:0:0:http%3a//live.mp3quran.net%3a9880/;:صلاح الهاشم
+#DESCRIPTION صلاح الهاشم
+#SERVICE 4097:0:1:1:2:36:36:0:0:0:http%3a//live.mp3quran.net%3a9878/;:صلاح بو خاطر
+#DESCRIPTION صلاح بو خاطر
+#SERVICE 4097:0:1:1:2:37:37:0:0:0:http%3a//live.mp3quran.net%3a9876/;:طارق عبدالغني دعوب
+#DESCRIPTION طارق عبدالغني دعوب
+#SERVICE 4097:0:1:1:2:38:38:0:0:0:http%3a//live.mp3quran.net%3a9874/;:عادل الكلباني
+#DESCRIPTION عادل الكلباني
+#SERVICE 4097:0:1:1:2:39:39:0:0:0:http%3a//live.mp3quran.net%3a9872/;:عادل ريان
+#DESCRIPTION عادل ريان
+#SERVICE 4097:0:1:1:2:3A:3A:0:0:0:http%3a//live.mp3quran.net%3a9870/;:عبدالبارئ الثبيتي
+#DESCRIPTION عبدالبارئ الثبيتي
+#SERVICE 4097:0:1:1:2:3B:3B:0:0:0:http%3a//live.mp3quran.net%3a9868/;:عبدالبارئ محمد
+#DESCRIPTION عبدالبارئ محمد
+#SERVICE 4097:0:1:1:2:3C:3C:0:0:0:http%3a//live.mp3quran.net%3a9988/;:عبدالرحمن السديس
+#DESCRIPTION عبدالرحمن السديس
+#SERVICE 4097:0:1:1:2:3D:3D:0:0:0:http%3a//live.mp3quran.net%3a9726/;:عبدالرحمن الماجد
+#DESCRIPTION عبدالرحمن الماجد
+#SERVICE 4097:0:1:1:2:3E:3E:0:0:0:http%3a//live.mp3quran.net%3a9864/;:عبدالرشيد صوفي
+#DESCRIPTION عبدالرشيد صوفي
+#SERVICE 4097:0:1:1:2:3F:3F:0:0:0:http%3a//live.mp3quran.net%3a9866/;:عبدالرشيد صوفي
+#DESCRIPTION عبدالرشيد صوفي
+#SERVICE 4097:0:1:1:2:40:40:0:0:0:http%3a//live.mp3quran.net%3a9862/;:عبدالعزيز الأحمد
+#DESCRIPTION عبدالعزيز الأحمد
+#SERVICE 4097:0:1:1:2:41:41:0:0:0:http%3a//live.mp3quran.net%3a9860/;:عبدالله الكندري
+#DESCRIPTION عبدالله الكندري
+#SERVICE 4097:0:1:1:2:42:42:0:0:0:http%3a//live.mp3quran.net%3a9858/;:عبدالله المطرود
+#DESCRIPTION عبدالله المطرود
+#SERVICE 4097:0:1:1:2:43:43:0:0:0:http%3a//live.mp3quran.net%3a9954/;:عبدالله بصفر
+#DESCRIPTION عبدالله بصفر
+#SERVICE 4097:0:1:1:2:44:44:0:0:0:http%3a//live.mp3quran.net%3a9948/;:عبدالله خياط
+#DESCRIPTION عبدالله خياط
+#SERVICE 4097:0:1:1:2:45:45:0:0:0:http%3a//live.mp3quran.net%3a9944/;:عبدالله عواد الجهني
+#DESCRIPTION عبدالله عواد الجهني
+#SERVICE 4097:0:1:1:2:46:46:0:0:0:http%3a//live.mp3quran.net%3a9856/;:عبدالمحسن الحارثي
+#DESCRIPTION عبدالمحسن الحارثي
+#SERVICE 4097:0:1:1:2:47:47:0:0:0:http%3a//live.mp3quran.net%3a9854/;:عبدالمحسن العبيكان
+#DESCRIPTION عبدالمحسن العبيكان
+#SERVICE 4097:0:1:1:2:48:48:0:0:0:http%3a//live.mp3quran.net%3a9852/;:عبدالمحسن القاسم
+#DESCRIPTION عبدالمحسن القاسم
+#SERVICE 4097:0:1:1:2:49:49:0:0:0:http%3a//live.mp3quran.net%3a9850/;:عبدالهادي أحمد كناكري
+#DESCRIPTION عبدالهادي أحمد كناكري
+#SERVICE 4097:0:1:1:2:4A:4A:0:0:0:http%3a//live.mp3quran.net%3a9848/;:عبدالودود حنيف
+#DESCRIPTION عبدالودود حنيف
+#SERVICE 4097:0:1:1:2:4B:4B:0:0:0:http%3a//live.mp3quran.net%3a9846/;:علي الحذيفي
+#DESCRIPTION علي الحذيفي
+#SERVICE 4097:0:1:1:2:4C:4C:0:0:0:http%3a//live.mp3quran.net%3a9844/;:علي بن عبدالرحمن الحذيفي
+#DESCRIPTION علي بن عبدالرحمن الحذيفي
+#SERVICE 4097:0:1:1:2:4D:4D:0:0:0:http%3a//live.mp3quran.net%3a9964/;:علي جابر
+#DESCRIPTION علي جابر
+#SERVICE 4097:0:1:1:2:4E:4E:0:0:0:http%3a//live.mp3quran.net%3a9842/;:علي حجاج السويسي
+#DESCRIPTION علي حجاج السويسي
+#SERVICE 4097:0:1:1:2:4F:4F:0:0:0:http%3a//live.mp3quran.net%3a9840/;:عماد زهير حافظ
+#DESCRIPTION عماد زهير حافظ
+#SERVICE 4097:0:1:1:2:50:50:0:0:0:http%3a//live.mp3quran.net%3a9838/;:عمر القزابري
+#DESCRIPTION عمر القزابري
+#SERVICE 4097:0:1:1:2:51:51:0:0:0:http%3a//live.mp3quran.net%3a9836/;:ماهر شخاشيرو
+#DESCRIPTION ماهر شخاشيرو
+#SERVICE 4097:0:1:1:2:52:52:0:0:0:http%3a//live.mp3quran.net%3a9960/;:محمد أيوب
+#DESCRIPTION محمد أيوب
+#SERVICE 4097:0:1:1:2:53:53:0:0:0:http%3a//live.mp3quran.net%3a9834/;:محمد الطبلاوي
+#DESCRIPTION محمد الطبلاوي
+#SERVICE 4097:0:1:1:2:54:54:0:0:0:http%3a//live.mp3quran.net%3a9832/;:محمد اللحيدان
+#DESCRIPTION محمد اللحيدان
+#SERVICE 4097:0:1:1:2:55:55:0:0:0:http%3a//live.mp3quran.net%3a9962/;:محمد جبريل
+#DESCRIPTION محمد جبريل
+#SERVICE 4097:0:1:1:2:56:56:0:0:0:http%3a//live.mp3quran.net%3a9830/;:محمد رشاد الشريف
+#DESCRIPTION محمد رشاد الشريف
+#SERVICE 4097:0:1:1:2:57:57:0:0:0:http%3a//live.mp3quran.net%3a9828/;:محمد صالح عالم شاه
+#DESCRIPTION محمد صالح عالم شاه
+#SERVICE 4097:0:1:1:2:58:58:0:0:0:http%3a//live.mp3quran.net%3a9816/;:محمد عبدالحكيم سعيد العبدالله
+#DESCRIPTION محمد عبدالحكيم سعيد العبدالله
+#SERVICE 4097:0:1:1:2:59:59:0:0:0:http%3a//live.mp3quran.net%3a9814/;:محمد عبدالحكيم سعيد العبدالله
+#DESCRIPTION محمد عبدالحكيم سعيد العبدالله
+#SERVICE 4097:0:1:1:2:5A:5A:0:0:0:http%3a//live.mp3quran.net%3a9824/;:محمد عبدالكريم
+#DESCRIPTION محمد عبدالكريم
+#SERVICE 4097:0:1:1:2:5B:5B:0:0:0:http%3a//live.mp3quran.net%3a9822/;:محمد عبدالكريم
+#DESCRIPTION محمد عبدالكريم
+#SERVICE 4097:0:1:1:2:5C:5C:0:0:0:http%3a//live.mp3quran.net%3a9820/;:محمد عثمان خان ( من الهند )
+#DESCRIPTION محمد عثمان خان ( من الهند )
+#SERVICE 4097:0:1:1:2:5D:5D:0:0:0:http%3a//live.mp3quran.net%3a9818/;:محمود الرفاعي
+#DESCRIPTION محمود الرفاعي
+#SERVICE 4097:0:1:1:2:5E:5E:0:0:0:http%3a//live.mp3quran.net%3a9812/;:محمود الشيمي
+#DESCRIPTION محمود الشيمي
+#SERVICE 4097:0:1:1:2:5F:5F:0:0:0:http%3a//live.mp3quran.net%3a9808/;:محمود علي البنا
+#DESCRIPTION محمود علي البنا
+#SERVICE 4097:0:1:1:2:60:60:0:0:0:http%3a//live.mp3quran.net%3a9810/;:محمود علي البنا
+#DESCRIPTION محمود علي البنا
+#SERVICE 4097:0:1:1:2:61:61:0:0:0:http%3a//live.mp3quran.net%3a8010/;:مشاري العفاسي
+#DESCRIPTION مشاري العفاسي
+#SERVICE 4097:0:1:1:2:62:62:0:0:0:http%3a//live.mp3quran.net%3a9800/;:مصطفى إسماعيل
+#DESCRIPTION مصطفى إسماعيل
+#SERVICE 4097:0:1:1:2:63:63:0:0:0:http%3a//live.mp3quran.net%3a9798/;:مصطفى اللاهوني
+#DESCRIPTION مصطفى اللاهوني
+#SERVICE 4097:0:1:1:2:64:64:0:0:0:http%3a//live.mp3quran.net%3a9796/;:مصطفى رعد العزاوي
+#DESCRIPTION مصطفى رعد العزاوي
+#SERVICE 4097:0:1:1:2:65:65:0:0:0:http%3a//live.mp3quran.net%3a9802/;:معيض الحارثي
+#DESCRIPTION معيض الحارثي
+#SERVICE 4097:0:1:1:2:66:66:0:0:0:http%3a//live.mp3quran.net%3a9788/;:مفتاح السلطني
+#DESCRIPTION مفتاح السلطني
+#SERVICE 4097:0:1:1:2:67:67:0:0:0:http%3a//live.mp3quran.net%3a9786/;:موسى بلال
+#DESCRIPTION موسى بلال
+#SERVICE 4097:0:1:1:2:68:68:0:0:0:http%3a//live.mp3quran.net%3a9784/;:نبيل الرفاعي
+#DESCRIPTION نبيل الرفاعي
+#SERVICE 4097:0:1:1:2:69:69:0:0:0:http%3a//live.mp3quran.net%3a9782/;:نعمة الحسان
+#DESCRIPTION نعمة الحسان
+#SERVICE 4097:0:1:1:2:6A:6A:0:0:0:http%3a//live.mp3quran.net%3a9780/;:هاني الرفاعي
+#DESCRIPTION هاني الرفاعي
+#SERVICE 4097:0:1:1:2:6B:6B:0:0:0:http%3a//live.mp3quran.net%3a9778/;:وليد النائحي
+#DESCRIPTION وليد النائحي
+#SERVICE 4097:0:1:1:2:6C:6C:0:0:0:http%3a//live.mp3quran.net%3a9776/;:ياسر القرشي
+#DESCRIPTION ياسر القرشي
+#SERVICE 4097:0:1:1:2:6D:6D:0:0:0:http%3a//live.mp3quran.net%3a9774/;:ياسر المزروعي
+#DESCRIPTION ياسر المزروعي
+#SERVICE 4097:0:1:1:2:6E:6E:0:0:0:http%3a//live.mp3quran.net%3a9772/;:يحيى حوا
+#DESCRIPTION يحيى حوا
+#SERVICE 4097:0:1:1:2:6F:6F:0:0:0:http%3a//live.mp3quran.net%3a9770/;:يوسف الشويعي
+#DESCRIPTION يوسف الشويعي
+#SERVICE 4097:0:1:1:2:70:70:0:0:0:http%3a//live.mp3quran.net%3a9768/;:يوسف بن نوح أحمد
+#DESCRIPTION يوسف بن نوح أحمد

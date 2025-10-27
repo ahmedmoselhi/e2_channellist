@@ -1,0 +1,51 @@
+#NAME • 5,0 W - Rai • Multistream
+#SERVICE 1:64:416:0:0:0:0:0:0:0::--- 12536 ---
+#DESCRIPTION --- 12536 ---
+#SERVICE 1:64:417:0:0:0:0:0:0:0::--- 12564 ---
+#DESCRIPTION --- 12564 ---
+#SERVICE 1:64:418:0:0:0:0:0:0:0::-- 12585 --
+#DESCRIPTION -- 12585 --
+#SERVICE 1:64:419:0:0:0:0:0:0:0::--- 12606 ---
+#DESCRIPTION --- 12606 ---
+#SERVICE 1:64:41A:0:0:0:0:0:0:0::##### RAI MuxB T2Mi  PID 4096 #####
+#DESCRIPTION ##### RAI MuxB T2Mi  PID 4096 #####
+#SERVICE 1:0:1:41B:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai 1 HD (provvisorio)
+#DESCRIPTION Rai 1 HD (provvisorio)
+#SERVICE 1:0:1:41C:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb  :Rai 2 HD (provvisorio)
+#DESCRIPTION Rai 2 HD (provvisorio)
+#SERVICE 1:0:1:41D:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb :Rai Radio 2 Visual HD
+#DESCRIPTION Rai Radio 2 Visual HD
+#SERVICE 1:0:1:41F:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai 3 HD (provvisorio)
+#DESCRIPTION Rai 3 HD (provvisorio)
+#SERVICE 1:0:1:420:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai 4 HD
+#DESCRIPTION Rai 4 HD
+#SERVICE 1:0:1:421:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb :Rai News 24 HD
+#DESCRIPTION Rai News 24 HD
+#SERVICE 1:0:1:41E:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Scuola HD
+#DESCRIPTION Rai Scuola HD
+#SERVICE 1:0:1:423:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb :Rai Storia HD
+#DESCRIPTION Rai Storia HD
+#SERVICE 1:0:1:42F:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Premium HD
+#DESCRIPTION Rai Premium HD
+#SERVICE 1:0:1:422:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb :RTV San Marino
+#DESCRIPTION RTV San Marino
+#SERVICE 1:0:1:425:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Sport HD
+#DESCRIPTION Rai Sport HD
+#SERVICE 1:0:1:426:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Movie HD
+#DESCRIPTION Rai Movie HD
+#SERVICE 1:0:1:427:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai 5 HD
+#DESCRIPTION Rai 5 HD
+#SERVICE 1:0:1:429:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Gulp HD
+#DESCRIPTION Rai Gulp HD
+#SERVICE 1:0:1:42A:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai YoYo HD
+#DESCRIPTION Rai YoYo HD
+#SERVICE 1:0:1:42D:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Play
+#DESCRIPTION Rai Play
+#SERVICE 1:0:1:42E:313E:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai Play Sound
+#DESCRIPTION Rai Play Sound
+#SERVICE 1:0:1:430:1DB06:32:0:0:0:0:http%3a//0.0.0.0%3a9999/raimuxb/f12606raimuxb:Rai 4K Test
+#DESCRIPTION Rai 4K Test
+#SERVICE 1:64:41B:0:0:0:0:0:0:0::--- 12627 ---
+#DESCRIPTION --- 12627 ---
+#SERVICE 1:64:41C:0:0:0:0:0:0:0::-- 12690 v --
+#DESCRIPTION -- 12690 v --
