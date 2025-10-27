@@ -1,0 +1,40 @@
+name: Release current branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., 1.0.0)'
+        required: true
+        default: 1.0
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # This permission is required to create a release.
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create release zip file
+        id: create_zip
+        run: |
+          BRANCH_NAME="${{ github.ref_name }}"
+          DATE=$(date +'%d-%m-%Y')
+          FILENAME="${DATE}_${BRANCH_NAME}.zip"
+          echo "ZIP_FILENAME=${FILENAME}" >> "$GITHUB_OUTPUT"
+          zip -r $FILENAME . -x "*.git*" "*.github*" "*/node_modules/*"
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ github.event.inputs.version }}"
+          name: "Release v${{ github.event.inputs.version }}"
+          draft: false
+          prerelease: false
+          files: ${{ steps.create_zip.outputs.ZIP_FILENAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
