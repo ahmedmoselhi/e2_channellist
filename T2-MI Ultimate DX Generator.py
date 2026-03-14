@@ -2,6 +2,27 @@ import os
 import sys
 import shutil
 import time
+from prompt_toolkit.completion import PathCompleter
+# --- Ensure prompt_toolkit exists ---
+try:
+    from prompt_toolkit import prompt as pt_prompt
+    from prompt_toolkit.history import FileHistory
+    from prompt_toolkit.shortcuts import radiolist_dialog
+except ImportError:
+    print("Installing required module: prompt_toolkit ...")
+    import subprocess
+    import sys
+    subprocess.check_call([
+        sys.executable,
+        "-m",
+        "pip",
+        "install",
+        "--break-system-packages",
+        "prompt_toolkit"
+    ])
+    from prompt_toolkit import prompt as pt_prompt
+    from prompt_toolkit.history import FileHistory
+    from prompt_toolkit.shortcuts import radiolist_dialog
 
 class Color:
     BLUE = '\033[94m'
@@ -48,15 +69,27 @@ def ask(prompt, default=None, help_text="", icon="ℹ"):
         for line in full_help.strip().split('\n'):
             print(f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─"*78 + "┘" + Color.END)
-        val = input(f"  {Color.BOLD}{prompt}{Color.END}: ").strip()
+        prompt_text = f"  {prompt}: "
+        val = pt_prompt(prompt_text, history=history).strip()
         if val == "" and default is not None: return default
         if val != "": return val
         print(f"  {Color.RED}⚠ ALERT: Value required for database integrity.{Color.END}")
+
+def choose_option(title, text, options, default=None):
+    result = radiolist_dialog(
+        title=title,
+        text=text,
+        values=options,
+        default=default
+    ).run()
+    return result
 
 # --- Initialize ---
 clear_screen()
 print_header()
 
+path_completer = PathCompleter(expanduser=True)
+history = FileHistory(".dx_history")
 cleanup = ask(
     "Clean workspace?", 
     "n", 
@@ -74,7 +107,17 @@ if cleanup.lower() == 'y':
 new_tps, new_srvs, bouquet, astra_blocks = {}, {}, [], []
 ONID, TSID, marker_count = "0001", "0001", 1
 
-merge_path = ask("Source lamedb path", "./lamedb", "Location of your Enigma2 lamedb file to modify.", "📂")
+print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " + "─" * 61 + "┐")
+print(f"│ {Color.BLUE}📂 Path to your existing lamedb for merging.                             {Color.END}{Color.YELLOW} │")
+print(f"│ {Color.BLUE}ℹ  Leave blank to create a new file in the current directory (./lamedb)  {Color.END}{Color.YELLOW} │")
+print(f"└" + "─" * 78 + "┘" + Color.END)
+
+merge_path = pt_prompt(
+    "  Source lamedb path: ",
+    completer=path_completer,
+    history=history
+).strip() or "./lamedb"
+
 bouquet_name = ask("Bouquet name", "T2MI DX", "The name of the favorites group in your channel list.", "🏷️")
 bouquet_file = f"userbouquet.{bouquet_name.lower().replace(' ', '_')}.tv"
 
@@ -85,8 +128,17 @@ while True:
     
     freq = int(ask("Frequency MHz", "4014", "Downlink Frequency (e.g., 4014, 3665, 11495).", "📡"))
     sr = int(ask("Symbol Rate", "15284", "Transponder Symbol Rate (e.g., 15284, 30000, 7325).", "📶"))
-    pol = ask("Polarization", "L", 
-        "Antenna Polarization:\nH = Horizontal (0) | V = Vertical (1) | L = Left (2) | R = Right (3).", "🔄").upper()
+    pol = choose_option(
+        "Polarization",
+        "Select antenna polarization:",
+        [
+            ("H", "Horizontal"),
+            ("V", "Vertical"),
+            ("L", "Left Circular"),
+            ("R", "Right Circular")
+        ],
+        "L"
+    )
     sat_pos = float(ask("Satellite position", "18.1", "Orbital position (e.g., 18.1, 40.0, 4.8).", "🌍"))
     sat_dir = ask("Direction (E/W)", "W", "Orbital direction:\nE = East | W = West (Affects D5B0FAE calculation).", "🧭").upper()
 
@@ -98,8 +150,22 @@ while True:
     # RESTORED: EXHAUSTIVE CHOICE DOCUMENTATION
     inv = ask("Inversion", "2", 
         "Spectral Inversion settings:\n0 = Off | 1 = On | 2 = Auto (Recommended for most LNBs).", "🛠️")
-    fec = ask("FEC", "9", 
-        "Forward Error Correction Rate:\n1=1/2, 2=2/3, 3=3/4, 4=5/6, 5=7/8, 6=8/9, 7=3/5, 8=4/5, 9=Auto.", "🛠️")
+    fec = choose_option(
+        "FEC",
+        "Forward Error Correction:",
+        [
+            ("1","1/2"),
+            ("2","2/3"),
+            ("3","3/4"),
+            ("4","5/6"),
+            ("5","7/8"),
+            ("6","8/9"),
+            ("7","3/5"),
+            ("8","4/5"),
+            ("9","Auto")
+        ],
+        "9"
+    )
     sys_type = ask("System", "1", 
         "DVB Delivery System:\n0 = DVB-S (Legacy) | 1 = DVB-S2 (Modern/T2-MI Standard).", "🛠️")
     mod = ask("Modulation", "2", 
@@ -110,7 +176,15 @@ while True:
         "DVB-S2 Pilot Tones:\n0 = Off | 1 = On | 2 = Auto.", "🛠️")
 
     tp_key = f"{ns_hex}:{TSID}:{ONID}"
-    p_digit = {"H":"0","V":"1","L":"2","R":"3"}.get(pol,"0")
+# Accept both letter or numeric input
+    pol_map = {
+        "H": "0", "0": "0",
+        "V": "1", "1": "1",
+        "L": "2", "2": "2",
+        "R": "3", "3": "3"
+    }
+
+    p_digit = pol_map.get(pol, "0")
     new_tps[tp_key] = f"{tp_key}\n\ts {freq*1000}:{sr*1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}\n/\n"
     
     sid = int(ask("Feed SID", "320", "Service ID (Decimal) for the raw T2-MI PID carrier.", "🆔"))
