@@ -220,8 +220,18 @@ while True:
             block += f"    output = {{ \"http://0.0.0.0:9999/{path}/a{1280 + marker_count}\", }},\n}})\n"
             astra_blocks.append(block)
 
-            # Channel Import Logic
-            ch_file = ask(f"Channel file for PLP {plp}", "", "CSV (SID,NAME,TYPE) for sub-channel mapping.", "📁")
+
+        # --- Decorated Channel File Selection with Path Completion ---
+            print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING{Color.END}{Color.YELLOW} " + "─" * 57 + "┐")
+            print(f"│ {Color.BLUE}📁 CSV File (SID,NAME,TYPE) for sub-channel mapping.                     {Color.END}{Color.YELLOW} │")
+            print(f"│ {Color.BLUE}ℹ  Use TAB to browse files. Leave blank to skip mapping.                 {Color.END}{Color.YELLOW} │")
+            print(f"└" + "─" * 78 + "┘" + Color.END)
+
+            ch_file = pt_prompt(
+                f"  Channel file for PLP {plp}: ",
+                completer=path_completer,
+                history=history
+            ).strip()
             if ch_file and os.path.exists(ch_file):
                 sub_url = f"http://0.0.0.0:9999/{path}/a{1280 + marker_count}".replace(":", "%3a")
                 with open(ch_file, "r", encoding="utf8") as f:
