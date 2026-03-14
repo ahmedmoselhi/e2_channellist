@@ -1,0 +1,710 @@
+#!/usr/bin/env python3
+"""
+LyngSat DX Master Suite - Version 17.13
+ARCHIVED FINAL VERSION
+- Robust Link Finding (Relative & Absolute URLs)
+- Fixed UnboundLocalError in PLP fallback logic
+- Fixed Provider Extraction (Header/Table priority)
+- Fixed C-Band position override from history
+- Silent Audit Logs (Queue/Reject messages hidden from console)
+- Filtering of zero-channel transponders
+"""
+
+import os
+import sys
+import re
+import csv
+import time
+import signal
+import unicodedata
+from datetime import datetime
+from typing import Optional, Dict, List, Tuple, Any
+
+# Platform-specific input handling
+if sys.platform == 'win32':
+    import msvcrt
+else:
+    import select
+
+
+# ==============================================================================
+# [ 🎨 COLOR THEMES ]
+# ==============================================================================
+class ColorTheme:
+    BASE = "\033[38;5;250m"
+    GOLD = "\033[38;5;220m"
+    SKY = "\033[38;5;117m"
+    LIME = "\033[38;5;121m"
+    CRIMSON = "\033[38;5;196m"
+    VIOLET = "\033[38;5;141m"
+    TEAL = "\033[38;5;51m"
+    BOLD = "\033[1m"
+    ENDC = "\033[0m"
+
+
+# ==============================================================================
+# [ 🖼️ UI RENDERER ]
+# ==============================================================================
+class UIRenderer:
+    ANSI_ESCAPE = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    DEFAULT_WIDTH = 80
+
+    def __init__(self, color: ColorTheme):
+        self.color = color
+        self.terminal_width = self._get_terminal_width()
+
+    def _get_terminal_width(self) -> int:
+        try: return os.get_terminal_size().columns
+        except: return self.DEFAULT_WIDTH
+
+    @staticmethod
+    def strip_ansi(text: str) -> str:
+        return UIRenderer.ANSI_ESCAPE.sub('', text)
+
+    @staticmethod
+    def visible_width(text: str) -> int:
+        stripped = UIRenderer.strip_ansi(text)
+        width = 0
+        for char in stripped:
+            eaw = unicodedata.east_asian_width(char)
+            if eaw in ('F', 'W'): width += 2
+            elif unicodedata.category(char) in ('Mn', 'Me', 'Cf'): width += 0
+            else: width += 1
+        return width
+
+    def _pad_to_width(self, text: str, target_width: int, align: str = 'left') -> str:
+        visible_len = self.visible_width(text)
+        padding_needed = target_width - visible_len
+        if padding_needed <= 0: return text
+        if align == 'left': return text + ' ' * padding_needed
+        elif align == 'right': return ' ' * padding_needed + text
+        else: return ' ' * (padding_needed // 2) + text + ' ' * (padding_needed - padding_needed // 2)
+
+    def render_banner(self, title: str, version: str, width: int = None) -> List[str]:
+        if width is None: width = self.terminal_width
+        inner_width = width - 2
+        lines = []
+        lines.append(self.color.GOLD + "█" + "▀" * inner_width + "█" + self.color.ENDC)
+        title_text = f"  {title}"
+        version_text = f"{version}  "
+        gap = inner_width - self.visible_width(title_text) - self.visible_width(version_text)
+        lines.append(f"{self.color.GOLD}█{self.color.ENDC}{self.color.SKY}{self.color.BOLD}{title_text}{self.color.ENDC}{' ' * gap}{self.color.GOLD}{version_text}█{self.color.ENDC}")
+        lines.append(self.color.GOLD + "█" + "▄" * inner_width + "█" + self.color.ENDC)
+        return lines
+
+    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.13 | ARCHIVE") -> None:
+        for line in self.render_banner(title, version): print(line)
+
+    def print_instructions_box(self, instructions: List[str], notes: List[str]) -> None:
+        c = self.color
+        width = self.terminal_width
+        inner_width = width - 2
+        print(f"{c.BASE}┌{'─' * inner_width}┐{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.13{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.LIME}Instructions:{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        for instr in instructions: print(f"{c.BASE}│{self._pad_to_width(f'  • {instr}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.GOLD}System Notes:{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        for note in notes: print(f"{c.BASE}│{self._pad_to_width(f'  • {note}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}└{'─' * inner_width}┘{c.ENDC}")
+
+    def print_channel_table(self, channels: List[List[str]], plp: str, isi: str, indent: str = "      ") -> None:
+        c = self.color
+        border = c.VIOLET
+        sid_width, name_width, type_width = 10, 45, 10
+        for ch in channels: name_width = max(name_width, min(len(ch[1]) + 2, 60))
+        print(f"\n{indent}{border}┌{'─' * sid_width}┬{'─' * name_width}┬{'─' * type_width}┐{c.ENDC}")
+        print(f"{indent}{border}│{c.ENDC} {'SID':<{sid_width - 2}} {border}│{c.ENDC} {f'SERVICE NAME (Matrix: {plp}/{isi})':<{name_width - 2}} {border}│{c.ENDC} {'TYPE':<{type_width - 2}} {border}│{c.ENDC}")
+        print(f"{indent}{border}├{'─' * sid_width}┼{'─' * name_width}┼{'─' * type_width}┤{c.ENDC}")
+        for ch in channels:
+            ch_type = "TV" if ch[2] == "1" else "Radio"
+            print(f"{indent}{border}│{c.ENDC} {ch[0]:<{sid_width - 2}} {border}│{c.ENDC} {ch[1][:name_width - 2]:<{name_width - 2}} {border}│{c.ENDC} {ch_type:<{type_width - 2}} {border}│{c.ENDC}")
+        print(f"{indent}{border}└{'─' * sid_width}┴{'─' * name_width}┴{'─' * type_width}┘{c.ENDC}")
+
+    def print_transponder_table(self, transponders: List[Dict], indent: str = "") -> None:
+        c = self.color
+        border = c.TEAL
+        freq_w, pol_w, sr_w, mod_w, url_w = 10, 8, 10, 10, 42
+        for tp in transponders: url_w = max(url_w, min(len(tp['mux_url'].split('/')[-1]) + 2, 60))
+        print(f"\n{indent}{border}┌{'─' * freq_w}┬{'─' * pol_w}┬{'─' * sr_w}┬{'─' * mod_w}┬{'─' * url_w}┐{c.ENDC}")
+        print(f"{indent}{border}│{c.ENDC} {c.SKY}{'FREQ':<{freq_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'POL':<{pol_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'SR':<{sr_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MOD':<{mod_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MUX URL / BEAM REFERENCE':<{url_w - 2}}{c.ENDC} {border}│{c.ENDC}")
+        print(f"{indent}{border}├{'─' * freq_w}┼{'─' * pol_w}┼{'─' * sr_w}┼{'─' * mod_w}┼{'─' * url_w}┤{c.ENDC}")
+        for tp in transponders:
+            print(f"{indent}{border}│{c.ENDC} {c.LIME}{tp['f_v']:<{freq_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.BASE}{tp['p_r']:<{pol_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.GOLD}{tp['sr']:<{sr_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.VIOLET}{tp['mod']:<{mod_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.BASE}{tp['mux_url'].split('/')[-1][:url_w - 2]:<{url_w - 2}}{c.ENDC} {border}│{c.ENDC}")
+        print(f"{indent}{border}└{'─' * freq_w}┴{'─' * pol_w}┴{'─' * sr_w}┴{'─' * mod_w}┴{'─' * url_w}┘{c.ENDC}")
+
+    def print_band_config_box(self, sat_slug: str, sat_deg: float, sat_dir: str, auto_suggest_cband: bool) -> None:
+        c = self.color
+        border = c.VIOLET
+        width = self.terminal_width
+        inner = width - 2
+        print(f"\n{border}┌──[ BAND CONFIGURATION ]{'─' * (inner - 24)}┐{c.ENDC}")
+        print(f"{border}│{c.ENDC}{c.GOLD}  Target: {sat_slug}{' ' * (inner - self.visible_width(f'  Target: {sat_slug}'))}{c.ENDC}{border}│{c.ENDC}")
+        print(f"{border}│{c.ENDC}{c.SKY}  Sat Degree: {sat_deg}° {sat_dir}{' ' * (inner - self.visible_width(f'  Sat Degree: {sat_deg}° {sat_dir}'))}{c.ENDC}{border}│{c.ENDC}")
+        val = 'C-BAND' if auto_suggest_cband else 'KU-BAND'
+        col = c.LIME if auto_suggest_cband else c.BASE
+        print(f"{border}│{c.ENDC}  Auto-Detection Suggestion: {col}{val}{c.ENDC}{' ' * (inner - self.visible_width(f'  Auto-Detection Suggestion: {val}'))}{border}│{c.ENDC}")
+        print(f"{border}└{'─' * inner}┘{c.ENDC}")
+
+    def print_satellite_header(self, sat_deg: float, sat_dir: str, sat_slug: str) -> None:
+        c = self.color
+        width = min(self.terminal_width, 90)
+        inner = width - 2
+        pos_text = f"SATELLITE POSITION: {sat_deg}°{sat_dir}"
+        target_text = f"TARGET: {sat_slug}"
+        gap = inner - self.visible_width(pos_text) - self.visible_width(target_text) - 2
+        print(f"\n{c.GOLD}╔{'═' * inner}╗{c.ENDC}")
+        print(f"{c.GOLD}║{c.ENDC} {c.BOLD}{c.SKY}{pos_text}{c.ENDC}{' ' * gap}{c.BOLD}{c.SKY}{target_text}{c.ENDC} {c.GOLD}║{c.ENDC}")
+        print(f"{c.GOLD}╚{'═' * inner}╝{c.ENDC}")
+
+    def print_summary_banner(self, stats: Dict[str, Any], width: int = None) -> None:
+        c = self.color
+        if width is None: width = self.terminal_width
+        inner = width - 2
+        print(f"\n{c.GOLD}█{'▀' * inner}█{c.ENDC}")
+        title = "GLOBAL DX EXECUTION SUMMARY"
+        print(f"{c.GOLD}█{c.ENDC} {c.SKY}{title}{' ' * (inner - self.visible_width(title) - 1)}{c.GOLD}█{c.ENDC}")
+        for label, value in stats.items():
+            plain_text = f"├─ {label}: {value}"
+            padding = inner - self.visible_width(plain_text) - 1
+            print(f"{c.GOLD}█{c.ENDC} {c.BASE}{plain_text}{' ' * max(0, padding)}{c.GOLD}█{c.ENDC}")
+        print(f"{c.GOLD}█{'▄' * inner}█{c.ENDC}\n")
+
+
+# ==============================================================================
+# [ 📝 LOGGING ENGINE ]
+# ==============================================================================
+class MasterLogger:
+    ANSI_ESCAPE = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    def __init__(self, filename: str = "dx_session.log"):
+        self.terminal = sys.stdout
+        self.log_file = open(filename, "a", encoding="utf-8")
+        self._closed = False
+    def write(self, message: str) -> None:
+        self.terminal.write(message)
+        if not self._closed: self.log_file.write(self.ANSI_ESCAPE.sub('', message))
+    def flush(self) -> None:
+        self.terminal.flush()
+        if not self._closed: self.log_file.flush()
+    def log_debug(self, msg: str) -> None:
+        if self._closed: return
+        self.log_file.write(f"[DEBUG][{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {msg}\n")
+        self.log_file.flush()
+    def close(self) -> None:
+        if not self._closed: self._closed = True; self.log_file.close()
+
+
+# ==============================================================================
+# [ 🛰️ MAIN APPLICATION CLASS ]
+# ==============================================================================
+class LyngSatDXMaster:
+    JUNK_KEYWORDS = ["ROLL-OFF", "FOOTPRINT", "C BAND", "KU BAND", "DVB-S", "CLEAR", "MPEG", "HEVC", "DBW", "INDEX", "VERIFIED"]
+    URL_HISTORY_FILE = "url.txt"
+
+    def __init__(self):
+        self.color = ColorTheme()
+        self.ui = UIRenderer(self.color)
+        self.logger: Optional[MasterLogger] = None
+        self.total_channels = 0
+        self.total_tps = 0
+        self.running = True
+        self._setup_signal_handlers()
+
+    def _setup_signal_handlers(self) -> None:
+        signal.signal(signal.SIGINT, lambda s, f: self._handle_interrupt(s, f))
+        signal.signal(signal.SIGTERM, lambda s, f: self._handle_interrupt(s, f))
+
+    def _handle_interrupt(self, signum: int, frame) -> None:
+        self.running = False
+        print(f"\n\n{self.color.CRIMSON}{self.color.BOLD}⚠️  INTERRUPT RECEIVED{self.color.ENDC}")
+        print(f"{self.color.GOLD}🛑 Gracefully shutting down...{self.color.ENDC}")
+        self._cleanup(interrupted=True)
+        sys.exit(0)
+
+    def _cleanup(self, interrupted: bool = False) -> None:
+        if self.logger:
+            self.log_proc("Session " + ("interrupted." if interrupted else "finished."), self.color.CRIMSON if interrupted else self.color.LIME)
+            self.logger.close()
+
+    def print_banner(self) -> None:
+        self.ui.print_banner()
+
+    def print_instructions(self) -> None:
+        instructions = ["Select URL source from the main menu.", "Manual entry: Paste URLs line by line, ENTER to finish.", "Press Ctrl+C at any time to gracefully exit."]
+        notes = ["Processed URLs are auto-saved to url.txt.", "C-Band frequencies automatically apply +0.1 degree indexing.", "Two-Pass Engine: Extracts Frequencies first, then Service Tables."]
+        self.ui.print_instructions_box(instructions, notes)
+
+    def log_proc(self, msg: str, color: Optional[str] = None, debug_only: bool = False) -> None:
+        if color is None: color = self.color.BASE
+        ts = datetime.now().strftime("%H:%M:%S")
+        formatted_msg = f"{self.color.BASE}[{ts}]{self.color.ENDC} {color}{msg}{self.color.ENDC}"
+        if debug_only:
+            if self.logger: self.logger.log_debug(msg)
+        else:
+            print(formatted_msg)
+
+    def _print_summary(self, urls_count: int, duration: float) -> None:
+        stats = {"Total Satellites Processed": urls_count, "Total Unique Transponders": self.total_tps, "Total Channels Mapped": self.total_channels, "Operation Time": f"{duration:.2f}s"}
+        self.ui.print_summary_banner(stats)
+
+    # --------------------------------------------------------------------------
+    # [ URL HISTORY MANAGEMENT ]
+    # --------------------------------------------------------------------------
+
+    def _save_url_to_history(self, url: str, pos_label: str) -> None:
+        """Save processed URL to url.txt with pos_label if it doesn't already exist."""
+        # Format: url,pos_label
+        
+        # Check for duplicates
+        if os.path.exists(self.URL_HISTORY_FILE):
+            try:
+                with open(self.URL_HISTORY_FILE, 'r', encoding='utf-8') as f:
+                    if any(line.strip() == f"{url},{pos_label}" for line in f):
+                        return
+            except: pass
+        
+        try:
+            with open(self.URL_HISTORY_FILE, 'a', encoding='utf-8') as f: 
+                f.write(f"{url},{pos_label}\n")
+            self.log_proc(f"Saved to history: {url} [{pos_label}]", self.color.LIME)
+        except Exception as e: self.log_proc(f"Failed to save URL history: {e}", self.color.CRIMSON)
+
+    def _load_urls_from_file(self) -> List[Dict[str, Any]]:
+        if not os.path.exists(self.URL_HISTORY_FILE): return []
+        entries = []
+        try:
+            with open(self.URL_HISTORY_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    parts = line.strip().split(',', 1) # Split only on first comma
+                    if len(parts) == 2 and parts[0]:
+                        entries.append({'url': parts[0], 'pos_label': parts[1]})
+        except: return []
+        if not entries: return []
+        
+        print(f"\n{self.color.SKY}━━━━━━ URL HISTORY LOADER ━━━━━━{self.color.ENDC}")
+        for i, e in enumerate(entries): print(f"  {self.color.GOLD}{i+1}{self.color.ENDC}. {e['url']} [{self.color.LIME}{e['pos_label']}{self.color.ENDC}]")
+        print(f"  {self.color.GOLD}A{self.color.ENDC}. Process ALL\n  {self.color.GOLD}M{self.color.ENDC}. Manual Entry")
+        choice = input(f"{self.color.SKY}❓ Select option: {self.color.ENDC}").strip().lower()
+        if choice == 'a': return entries
+        if choice == 'm': return []
+        try:
+            idx = int(choice) - 1
+            return [entries[idx]] if 0 <= idx < len(entries) else []
+        except: return []
+
+    # --------------------------------------------------------------------------
+    # [ STORAGE & USER INPUT ]
+    # --------------------------------------------------------------------------
+
+    def setup_storage(self, sat_deg: float, sat_dir: str, is_cband: bool) -> Tuple[str, str, str]:
+        effective_pos = float(sat_deg) + 0.1 if is_cband else float(sat_deg)
+        pos_label = f"{effective_pos:.1f}{sat_dir}"
+        f_dir, c_dir = "frequencies", os.path.join("channellist", pos_label)
+        for d in [f_dir, c_dir]:
+            if not os.path.exists(d): os.makedirs(d)
+        return f_dir, c_dir, pos_label
+
+    def get_band_choice(self, sat_slug: str, sat_deg: float, sat_dir: str, auto_suggest_cband: bool) -> bool:
+        self.ui.print_band_config_box(sat_slug, sat_deg, sat_dir, auto_suggest_cband)
+        print(f"{self.color.SKY}❓ Treat this satellite as C-BAND? (y/n) [Auto-resolving in 10s]: {self.color.ENDC}", end='', flush=True)
+        start = time.time()
+        choice = None
+        while (time.time() - start) < 10:
+            if not self.running: return auto_suggest_cband
+            if sys.platform == 'win32':
+                if msvcrt.kbhit(): choice = sys.stdin.readline().strip().lower(); break
+            else:
+                if select.select([sys.stdin], [], [], 0.1)[0]: choice = sys.stdin.readline().strip().lower(); break
+        is_cband = (choice in ['y', 'yes']) if choice else auto_suggest_cband
+        print(f"\n  {self.color.GOLD}└─► Proceeding with: {self.color.BOLD}{'C-BAND' if is_cband else 'KU-BAND'}{self.color.ENDC}")
+        return is_cband
+
+    def collect_urls(self) -> List[str]:
+        urls = []
+        while self.running:
+            try:
+                u = input(f"{self.color.GOLD}🔗 SAT URL #{len(urls) + 1}:{self.color.ENDC} ").strip()
+                if not u: break
+                urls.append(u)
+            except: break
+        return urls
+
+    # --------------------------------------------------------------------------
+    # [ PARSING ]
+    # --------------------------------------------------------------------------
+
+    def parse_mux_channels(self, url: str, save_path: str, freq_label: str) -> int:
+        if not self.running: return 0
+        try:
+            from curl_cffi import requests
+            from bs4 import BeautifulSoup
+            res = requests.get(url, impersonate="chrome", timeout=15)
+            soup = BeautifulSoup(res.content, 'html.parser')
+            buckets = self._extract_channels_from_soup(soup)
+            if not buckets: return 0
+            total = 0
+            clean_prefix = re.match(r'(\d+[LRHV]\d+)', freq_label).group(1)
+            output_dir = os.path.dirname(save_path)
+            for bucket, channels in buckets.items():
+                plp = re.search(r'PLP(\d+)', bucket).group(1)
+                isi = re.search(r'ISI(-?\d+)', bucket).group(1)
+                pid = re.search(r'PID(\d+)', bucket).group(1)
+                fname = f"{clean_prefix}PLP{plp}PID{pid}{'_ISI'+isi if isi != '-1' else ''}.csv"
+                with open(os.path.join(output_dir, fname), 'w', newline='', encoding='utf-8') as f: csv.writer(f).writerows(channels)
+                self.ui.print_channel_table(channels, plp, isi)
+                self.log_proc(f"Saved: {fname} ({len(channels)} services)", self.color.LIME)
+                total += len(channels)
+            return total
+        except Exception as e: self.log_proc(f"Matrix Error: {e}", self.color.CRIMSON); return 0
+
+    def _extract_channels_from_soup(self, soup) -> Dict[str, List[List[str]]]:
+        buckets = {}
+        plp, isi, pid = "0", "-1", "4096"
+        for el in soup.find_all(['div', 'tr']):
+            txt = el.get_text(" ", strip=True).upper()
+            if el.name == 'div':
+                if m:=re.search(r'PLP\s*(\d+)', txt): plp = m.group(1)
+                if m:=re.search(r'PID\s*(\d+)', txt): pid = m.group(1)
+                if m:=re.search(r'STREAM\s*(\d+)', txt): isi = m.group(1)
+                continue
+            tds = el.find_all('td')
+            if len(tds) < 3: continue
+            name = tds[2].get_text(strip=True)
+            if not name or any(k in name.upper() for k in self.JUNK_KEYWORDS) or "," in name: continue
+            sid = tds[0].get_text(strip=True)
+            if not sid.isdigit(): continue
+            link = tds[2].find('a', href=True)
+            typ = "2" if link and "radiochannels" in link['href'] else "1"
+            bid = f"PLP{plp}PID{pid}_ISI{isi}"
+            if bid not in buckets: buckets[bid] = []
+            buckets[bid].append([sid, name, typ])
+        return buckets
+
+    # --------------------------------------------------------------------------
+    # [ SCANNING ]
+    # --------------------------------------------------------------------------
+
+    def deep_scan_satellite(self, url: str, pre_determined_pos: Optional[str] = None) -> str:
+        """Perform deep scan. Returns pos_label on success, empty string on failure."""
+        if not self.running: return ""
+        try:
+            from curl_cffi import requests
+            from bs4 import BeautifulSoup
+            
+            self.log_proc(f"Establishing Uplink: {url}", self.color.GOLD)
+            res = requests.get(url, impersonate="chrome", timeout=15)
+            soup = BeautifulSoup(res.text, 'html.parser')
+
+            # 1. Info
+            title = soup.title.string if soup.title else ""
+            sat_m = re.search(r'(\d+\.?\d*)\s?°?\s*([EW])', title)
+            if not sat_m: self.log_proc("Could not find sat info.", self.color.CRIMSON); return ""
+            sat_deg, sat_dir, sat_slug = float(sat_m.group(1)), sat_m.group(2), title.split('/')[-1].replace(".html", "")
+
+            # 2. Band/Pos Logic
+            is_cband = False
+            f_dir, c_dir, pos_label = "", "", ""
+
+            if pre_determined_pos:
+                # --- FIX: Use position exactly as provided in url.txt ---
+                self.log_proc(f"Override Active: Using exact position {pre_determined_pos} from history.", self.color.SKY)
+                
+                # Parse degree/dir for internal calculations
+                m = re.match(r'(\d+\.?\d*)([EW])', pre_determined_pos)
+                if m: 
+                    sat_deg = float(m.group(1))
+                    sat_dir = m.group(2)
+                
+                # Force the label to be exactly what was in the file
+                pos_label = pre_determined_pos
+                
+                # Setup directories manually to bypass setup_storage's +0.1 logic
+                f_dir = "frequencies"
+                c_dir = os.path.join("channellist", pos_label)
+                for d in [f_dir, c_dir]:
+                    if not os.path.exists(d): os.makedirs(d)
+                
+                # Force is_cband = False so internal HW_POS math doesn't add +0.1 again
+                is_cband = False 
+            else:
+                # --- Standard Logic for Manual Entry ---
+                rows = soup.find_all('tr')
+                c_w, k_w = 0, 0
+                for r in rows:
+                    td = r.find('td')
+                    if td:
+                        fm = re.search(r'^(\d{4,5})\s*([LRHV])', td.get_text(strip=True).upper())
+                        if fm:
+                            f = int(fm.group(1))
+                            if 3000<=f<=4999: c_w+=2
+                            elif f>=10000: k_w+=2
+                
+                # Ask user or auto-resolve
+                is_cband = self.get_band_choice(sat_slug, sat_deg, sat_dir, c_w >= k_w if (c_w+k_w)>0 else False)
+                
+                # Setup storage (applies +0.1 if is_cband is True)
+                f_dir, c_dir, pos_label = self.setup_storage(sat_deg, sat_dir, is_cband)
+                
+                # Save the calculated result to history
+                self._save_url_to_history(url, pos_label)
+
+            self.ui.print_satellite_header(sat_deg, sat_dir, sat_slug)
+
+            # 3. Discover
+            transponders = []
+            seen = set()
+            
+            # Pre-compile regex for speed
+            mux_re = re.compile(r'muxes/')
+            freq_pol_re = re.compile(r'[\-_]\d{4,5}[\-_][HVLR]\.html$', re.IGNORECASE)
+            
+            for row in soup.find_all('tr'):
+                tds = row.find_all('td')
+                if len(tds) < 1: continue
+                
+                row_text = row.get_text(" ", strip=True).upper()
+                fm = re.search(r'(\d{4,5})\s*([LRHV])', row_text)
+                if not fm: continue
+                
+                f_v, p_r = fm.group(1), fm.group(2)
+                
+                # --- ROBUST LINK FINDER ---
+                link = None
+                potential_links = row.find_all('a', href=True)
+                
+                for l in potential_links:
+                    h = l['href']
+                    
+                    # Check 1: Does it contain 'muxes/'?
+                    if mux_re.search(h):
+                        link = l
+                        break
+                    
+                    # Check 2: Does it look like a Mux file?
+                    if freq_pol_re.search(h):
+                        if 'footprints' not in h and 'maps' not in h:
+                            link = l
+                            break
+                # ----------------------------
+
+                if not link: continue
+                
+                href = link['href']
+                if href.startswith('http'): mux_url = href
+                elif href.startswith('/'): mux_url = f"https://www.lyngsat.com{href}"
+                else: mux_url = f"https://www.lyngsat.com/muxes/{href}"
+
+                if not self.running: break
+                self.log_proc(f"Queueing Mux: {f_v} {p_r} -> {mux_url.split('/')[-1]}", self.color.BASE, debug_only=True)
+                
+                try:
+                    mux_res = requests.get(mux_url, impersonate="chrome", timeout=12)
+                    mux_soup = BeautifulSoup(mux_res.text, 'html.parser')
+                    mux_text = mux_soup.get_text().upper()
+                    
+                    # Check for T2-MI markers
+                    if "PLP" not in mux_text: 
+                        self.log_proc(f"Rejected {f_v}: No PLP marker found (Standard DVB-S2?).", self.color.GOLD, debug_only=True)
+                        continue
+
+                    # Extract Data
+                    sr_m = re.search(r'SR-FEC:.*?(\d+)', mux_text)
+                    sr = sr_m.group(1) if sr_m else "0"
+                    if int(sr) < 1000: continue
+                    
+                    tp_id = f"{f_v}{p_r}{sr}"
+                    if tp_id in seen: continue
+                    seen.add(tp_id)
+
+                    # --- FIXED PROVIDER EXTRACTION LOGIC ---
+                    prov = "N/A"
+                    
+                    # Priority 1: Check 'mux-header' table
+                    mux_header_table = mux_soup.find('table', class_='mux-header')
+                    if mux_header_table:
+                        provider_a = mux_header_table.find('a', href=re.compile(r'/providers/'))
+                        if provider_a: 
+                            prov = provider_a.get_text(strip=True)
+                        
+                        if not provider_a:
+                            provider_a = mux_header_table.find('a', href=re.compile(r'/packages/'))
+                            if provider_a:
+                                prov = provider_a.get_text(strip=True)
+                    
+                    # Priority 2: Global search if header failed
+                    if prov == "N/A" or not prov:
+                        provider_a = mux_soup.find('a', href=re.compile(r'/providers/'))
+                        if provider_a: prov = provider_a.get_text(strip=True)
+                        
+                        if not provider_a:
+                             package_a = mux_soup.find('a', href=re.compile(r'/packages/'))
+                             if package_a: prov = package_a.get_text(strip=True)
+
+                    # Priority 3: Title Parsing
+                    if prov == "N/A" or not prov:
+                        t_tag = mux_soup.find('title')
+                        if t_tag:
+                            t_text = t_tag.get_text(strip=True).replace(" - LyngSat", "")
+                            parts = t_text.split(" - ")
+                            if len(parts) > 1:
+                                cand = parts[-1]
+                                if re.match(r'^\d{4,5}\s*[VHRL]', cand) and len(parts) > 2: cand = parts[-2]
+                                if not re.match(r'^\d{4,5}\s*[VHRL]', cand): prov = cand
+
+                    # Priority 4: Keyword "Provider:"
+                    if prov == "N/A" or not prov:
+                         prov_m = re.search(r'Provider:\s*([A-Za-z0-9\s\.\-]+)', mux_text, re.IGNORECASE)
+                         if prov_m:
+                             p_val = prov_m.group(1).strip()
+                             if not re.search(r'\d{4,5}\s*[VHRL]', p_val): prov = p_val
+                    # -----------------------------------------
+
+                    # --- RESTORED: PID/PLP Matrix & ISI Extraction Logic ---
+                    current_plp, current_isi, current_pid = "0", "-1", "4096"
+                    stream_map = {} 
+
+                    for el in mux_soup.find_all(['div', 'tr']):
+                        if el.name == 'div':
+                            el_text = el.get_text(" ", strip=True).upper()
+                            
+                            if m:=re.search(r'PLP\s*(\d+)', el_text): current_plp = m.group(1)
+                            if m:=re.search(r'PID\s*(\d+)', el_text): current_pid = m.group(1)
+                            if m:=re.search(r'STREAM\s*(\d+)', el_text):
+                                current_isi = m.group(1)
+                                stream_map[current_isi] = (current_pid, current_plp)
+
+                    matrix_str = "{}"
+                    isi_str = "-1"
+                    plp_id_str = "0"
+                    pid_id_str = "4096"
+
+                    if stream_map:
+                        sorted_isis = sorted(stream_map.keys(), key=int)
+                        matrix_parts = []
+                        isi_list = []
+                        all_pids = set()
+                        all_plps = set()
+                        
+                        for isi in sorted_isis:
+                            pid, plp = stream_map[isi]
+                            matrix_parts.append(f"{pid},{plp}")
+                            isi_list.append(isi)
+                            all_pids.add(pid)
+                            all_plps.add(plp)
+                        
+                        matrix_str = "{" + ";".join(matrix_parts) + "}"
+                        isi_str = ",".join(isi_list)
+                        
+                        plp_id_str = "-".join(sorted(list(all_plps), key=int))
+                        pid_id_str = "-".join(sorted(list(all_pids), key=int))
+                    else:
+                        # FIX: Correctly initialize sets for fallback logic
+                        plps = set(re.findall(r'PLP\s*(\d+)', mux_text))
+                        pids = set(re.findall(r'PID\s*(\d+)', mux_text))
+                        
+                        # Initialize all_plps properly
+                        if plps: 
+                            all_plps = plps
+                        else: 
+                            all_plps = {"0"}
+                        
+                        # Initialize all_pids properly
+                        if pids: 
+                            all_pids = pids
+                        else: 
+                            all_pids = {"4096"}
+                        
+                        sorted_pairs = sorted([(p, pl) for p in all_pids for pl in all_plps], key=lambda x: (int(x[0]), int(x[1])))
+                        matrix_str = "{" + ";".join([f"{pid},{plp}" for pid, plp in sorted_pairs]) + "}"
+                        isi_str = "-1"
+                        
+                        plp_id_str = "-".join(sorted(list(all_plps), key=int))
+                        pid_id_str = "-".join(sorted(list(all_pids), key=int))
+                    # -------------------------------------------------------
+
+                    mod = "8PSK" if "8PSK" in mux_text else "QPSK"
+                    hw = round(float(sat_deg) + 0.1, 1) if is_cband else float(sat_deg)
+                    
+                    transponders.append({
+                        "f_v": f_v, "p_r": p_r, "sr": sr, "mod": mod, "mux_url": mux_url,
+                        "file_label": f"{f_v}{p_r}{sr}PLP{plp_id_str}PID{pid_id_str}",
+                        "prov": prov,
+                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", "1", "1", "2" if mod=="8PSK" else "1", "0", matrix_str, isi_str, prov, mux_url]
+                    })
+                except Exception as e: 
+                    # FIX: Logging error to screen now
+                    self.log_proc(f"Mux Error ({f_v}): {e}", self.color.CRIMSON)
+
+            self.ui.print_transponder_table(transponders)
+            self.log_proc(f"Total Verified T2-MI Frequencies Discovered: {len(transponders)}", self.color.LIME)
+            
+            # --- FILTERING LOGIC: Only keep frequencies with >0 channels ---
+            valid_transponders = []
+            
+            for tp in transponders:
+                if not self.running: break
+                print(f"\n{self.color.TEAL}▶ {self.color.SKY}Drill-Down: {tp['f_v']} {tp['p_r']}{self.color.ENDC}")
+                
+                # Parse channels
+                count = self.parse_mux_channels(tp['mux_url'], os.path.join(c_dir, f"{tp['file_label']}.csv"), tp['file_label'])
+                
+                if count > 0:
+                    self.total_channels += count
+                    valid_transponders.append(tp) # Keep this frequency
+                else:
+                    self.log_proc(f"Dropped frequency {tp['f_v']} {tp['p_r']} (0 channels found).", self.color.GOLD)
+
+            self.total_tps += len(valid_transponders) # Update stats based on valid ones
+            # ---------------------------------------------------------------------
+
+            # Write CSV using only valid_transponders
+            csv_rows = [t['csv_row'] for t in valid_transponders]
+            with open(os.path.join(f_dir, f"f{pos_label}.csv"), 'w', newline='', encoding='utf-8') as f:
+                w = csv.writer(f)
+                w.writerow(["Freq","Pol","SR","Pos","Dir","Inv","FEC","Sys","Mod","RO","Pilot","pids-plps","isi","prov","MuxURL"])
+                w.writerows(csv_rows)
+                
+            return pos_label
+
+        except Exception as e:
+            self.log_proc(f"Error: {e}", self.color.CRIMSON)
+            return ""
+
+    # --------------------------------------------------------------------------
+    # [ MAIN ]
+    # --------------------------------------------------------------------------
+
+    def run(self) -> None:
+        os.system('clear' if os.name == 'posix' else 'cls')
+        if input(f"{self.color.GOLD}❓ Enable session logging? (y/n): {self.color.ENDC}").lower() == 'y':
+            self.logger = MasterLogger(f"DX_LOG_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+            sys.stdout = self.logger
+        
+        self.print_banner()
+        self.print_instructions()
+        
+        print(f"\n{self.color.SKY}━━━━━━ SOURCE SELECTION ━━━━━━{self.color.ENDC}")
+        print(f"  {self.color.GOLD}1{self.color.ENDC}. Load URLs from url.txt\n  {self.color.GOLD}2{self.color.ENDC}. Enter Manually")
+        mode = input(f"{self.color.SKY}❓ Mode: {self.color.ENDC}").strip()
+        
+        urls = []
+        if mode == '1':
+            urls = self._load_urls_from_file()
+            if not urls: self.log_proc("Falling back to manual entry.", self.color.GOLD); urls = [{'url': u, 'pos_label': None} for u in self.collect_urls()]
+        else:
+            urls = [{'url': u, 'pos_label': None} for u in self.collect_urls()]
+
+        if urls and self.running:
+            start = time.time()
+            for item in urls:
+                if not self.running: break
+                self.deep_scan_satellite(item['url'], pre_determined_pos=item.get('pos_label'))
+            
+            self._print_summary(len(urls), time.time() - start)
+        
+        self._cleanup()
+
+if __name__ == "__main__":
+    app = LyngSatDXMaster()
+    app.run()

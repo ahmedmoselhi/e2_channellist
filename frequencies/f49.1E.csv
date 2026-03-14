@@ -1,0 +1,21 @@
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
+3594,3,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Yamal,https://www.lyngsat.com/muxes/Yamal-601_C_3594-R.html
+3622,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Yugoria,https://www.lyngsat.com/muxes/Yamal-601_C_3622-R.html
+3627,2,20580,49.1,E,2,9,1,1,1,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3627-L.html
+3628,3,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Tyumen,https://www.lyngsat.com/muxes/Yamal-601_C_3628-R.html
+3643,3,15284,49.1,E,2,9,1,1,2,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3643-R.html
+3653,2,20580,49.1,E,2,9,1,1,1,0,"{4096,0}",-1,RTRS 2,https://www.lyngsat.com/muxes/Yamal-601_C_3653-L.html
+3662,3,15284,49.1,E,2,9,1,1,2,0,"{4096,0}",-1,RTRS 2,https://www.lyngsat.com/muxes/Yamal-601_C_3662-R.html
+3696,3,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Chelyabinsk,https://www.lyngsat.com/muxes/Yamal-601_C_3696-R.html
+3704,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Ufa,https://www.lyngsat.com/muxes/Yamal-601_C_3704-R.html
+3704,2,15284,49.1,E,2,9,1,1,2,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3704-L.html
+3709,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Ekaterinburg,https://www.lyngsat.com/muxes/Yamal-601_C_3709-R.html
+3803,2,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Samara,https://www.lyngsat.com/muxes/Yamal-601_C_3803-L.html
+3822,2,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Saratov,https://www.lyngsat.com/muxes/Yamal-601_C_3822-L.html
+3858,2,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Udmurtia,https://www.lyngsat.com/muxes/Yamal-601_C_3858-L.html
+3873,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Kurgan,https://www.lyngsat.com/muxes/Yamal-601_C_3873-R.html
+3882,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Perm,https://www.lyngsat.com/muxes/Yamal-601_C_3882-R.html
+3921,3,5130,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Orenburg,https://www.lyngsat.com/muxes/Yamal-601_C_3921-R.html
+3964,2,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Astrakhan,https://www.lyngsat.com/muxes/Yamal-601_C_3964-L.html
+3977,2,15284,49.1,E,2,9,1,1,2,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3977-L.html
+4018,2,5120,49.1,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Ulyanovsk,https://www.lyngsat.com/muxes/Yamal-601_C_4018-L.html
