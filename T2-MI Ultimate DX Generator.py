@@ -167,14 +167,14 @@ while True:
             sat_dir = ask("Direction (E/W)", "W", "Orbital direction:\nE = East | W = West.", "🧭").upper()
             
             # --- Original Calculation Logic ---
-            raw_sat = int(sat_pos * 10)
+            raw_sat, ns_sat = int(sat_pos * 10), 0
             ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
             disp_sat = -raw_sat if sat_dir == "W" else raw_sat
             ns_hex = format((ns_sat << 16) | freq, '08x').lower()
             step = 9
 
         elif step == 9:
-            inv = ask("Inversion", "2", "0 = Off | 1 = On | 2 = Auto.", "🛠️")
+            inv = ask("Inversion", "2", "Spectral Inversion settings:\n0 = Off | 1 = On | 2 = Auto.", "🛠️")
             step = 10
 
         elif step == 10:
@@ -184,19 +184,19 @@ while True:
             step = 11
 
         elif step == 11:
-            sys_type = ask("System", "1", "0 = DVB-S | 1 = DVB-S2 (required for T2-MI).", "🛠️")
+            sys_type = ask("System", "1", "DVB Delivery System:\n0 = DVB-S (Legacy) | 1 = DVB-S2 (Modern,required for T2-MI).", "🛠️")
             step = 12
 
         elif step == 12:
-            mod = ask("Modulation", "2", "1 = QPSK | 2 = 8PSK | 3 = 16APSK | 4 = 32APSK.", "🛠️")
+            mod = ask("Modulation", "2", "Constellation: 1=QPSK | 2=8PSK | 3=16APSK | 4=32APSK.", "🛠️")
             step = 13
 
         elif step == 13:
-            roll = ask("RollOff", "0", "0 = 0.35 | 1 = 0.25 | 2 = 0.20.", "🛠️")
+            roll = ask("RollOff", "0", "Pulse Shaping Factor: 0=0.35 | 1=0.25 | 2=0.20.", "🛠️")
             step = 14
 
         elif step == 14:
-            pilot = ask("Pilot", "2", "0 = Off | 1 = On | 2 = Auto.", "🛠️")
+            pilot = ask("Pilot", "2", "DVB-S2 Pilot Tones: 0=Off | 1=On | 2=Auto.", "🛠️")
             step = 15
 
         elif step == 15:
@@ -218,7 +218,7 @@ while True:
             step = 18
 
         elif step == 18:
-            path = ask("Astra path", "ortm", "URL segment for Astra-SM.", "🔗")
+            path = ask("Astra path", "ortm", "URL segment for Astra-SM (e.g., http://0.0.0.0:9999/path/...).", "🔗")
             
             # --- RESTORING FEED DESCRIPTION AND PLP LABELS ---
             for pid in [p.strip() for p in pid_input.split(",")]:
@@ -285,7 +285,7 @@ while True:
                     
                     marker_count += 1
             
-            if ask("Add another transponder?", "n", "y = Add | n = Finalize", "❓") == "y":
+            if ask("Add another transponder?", "n", "y = Add transponder | n = Finalize generation.", "❓") == "y":
                 step = 4
                 continue
             break
