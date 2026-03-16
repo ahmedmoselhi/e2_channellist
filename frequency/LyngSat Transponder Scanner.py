@@ -81,17 +81,18 @@ def scan_satellite_for_t2mi(url):
 
         for row in rows:
             tds = row.find_all('td')
-            # Stricter Check: T2-MI rows must have at least 5 columns
-            if len(tds) < 5: continue
+            # Double-Lock: Ensure the row contains the necessary technical cells
+            if len(tds) < 6: continue
             
-            # REFINEMENT: Search T2-MI specifically in the technical cells (System/Provider columns)
-            # This avoids picking it up from 'Last Updated' or unrelated side-text.
-            technical_cells = " ".join([td.get_text().upper() for td in tds[1:6]])
+            # Target technical columns (System/Mux info) to avoid false positives
+            sys_info = tds[1].get_text().upper() if len(tds) > 1 else ""
+            mux_info = tds[3].get_text().upper() if len(tds) > 3 else ""
             
-            if "T2-MI" in technical_cells:
+            # Check for T2-MI in the specific technical columns
+            if "T2-MI" in sys_info or "T2-MI" in mux_info:
                 row_content = " ".join([td.get_text(separator=" ", strip=True) for td in tds])
                 
-                # Logic: Freq & Pol
+                # Extract Frequency and Polarity
                 freq_m = re.search(r'(\d{4,5})\s*([LRHV])', row_content)
                 if not freq_m: continue
                 freq_val = int(freq_m.group(1))
@@ -99,7 +100,7 @@ def scan_satellite_for_t2mi(url):
                 pol_map = {"H": "0", "V": "1", "L": "2", "R": "3"}
                 polarization = pol_map.get(pol_raw, "0")
 
-                # Logic: SR Year-Filtered
+                # Symbol Rate Extraction
                 sr = "0"
                 sr_m = re.search(r'SR\s*(\d+)', row_content)
                 if sr_m:
@@ -112,6 +113,8 @@ def scan_satellite_for_t2mi(url):
                             break
 
                 current_pos = sat_base_deg + 0.1 if freq_val < 5000 else sat_base_deg
+                
+                # Modulation Logic (DVB-S2 specific)
                 modulation = "1"
                 if "8PSK" in row_content: modulation = "2"
                 elif "16APSK" in row_content: modulation = "3"
@@ -121,6 +124,7 @@ def scan_satellite_for_t2mi(url):
                 
                 if numeric_line not in transponders:
                     transponders.append(numeric_line)
+                    # Updated Dashboard Logging
                     idx = len(transponders)
                     p_name = pol_names.get(polarization, "N/A")
                     m_name = mod_names.get(modulation, "N/A")
