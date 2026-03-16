@@ -1,0 +1,10 @@
+# Specific database file
+lamedb
+
+# All files ending in .tv (wildcard)
+*.tv
+
+# Specific configuration file in a subdirectory
+astra/astra.conf
+
+.dx_history
