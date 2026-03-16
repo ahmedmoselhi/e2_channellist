@@ -708,7 +708,7 @@ try:
                             f"    name = \"{label}\",\n"
                             f"    input = {{ \"t2mi://{var_name}\" }},\n"
                             f"    output = {{ \"http://0.0.0.0:9999/"
-                            f"{path}/p{pid}_plp{plp}\" }},\n"
+                            f"{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\" }},\n"
                             f"}})\n"
                         )
                         astra_blocks.append(block)
@@ -781,7 +781,7 @@ try:
                         if ch_file and os.path.isfile(ch_file):
                             sub_url = (
                                 f"http://0.0.0.0:9999/{path}/"
-                                f"p{pid}_plp{plp}"
+                                f"{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}"
                             ).replace(":", "%3a")
                             print(
                                 f"  {Color.CYAN}⚙️  Parsing "

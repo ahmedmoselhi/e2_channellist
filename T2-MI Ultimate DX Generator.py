@@ -252,7 +252,7 @@ try:
                         block += f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                         block += f"make_channel({{\n    name = \"{label_full}\",\n"
                         block += f"    input = {{ \"t2mi://{var_name}\", }},\n"
-                        block += f"    output = {{ \"http://0.0.0.0:9999/{path}/p{pid}_plp{plp}\", }},\n}})\n"
+                        block += f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\", }},\n}})\n"
                         astra_blocks.append(block)
 
                         # --- RESTORED: DECORATED SUB-CHANNEL MAPPING ---
@@ -271,7 +271,7 @@ try:
 
                         if ch_file and os.path.exists(ch_file):
                             # URL encoding fix for Enigma2
-                            sub_url_raw = f"http://0.0.0.0:9999/{path}/p{pid}_plp{plp}"
+                            sub_url_raw = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}"
                             sub_url = sub_url_raw.replace(":", "%3a")
 
                             with open(ch_file, "r", encoding="utf8") as f:
