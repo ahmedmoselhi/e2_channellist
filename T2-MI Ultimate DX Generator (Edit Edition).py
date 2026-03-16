@@ -5,31 +5,6 @@ import shutil
 import time
 
 # ----------------------------------------------------------------------
-# Ensure prompt_toolkit is available
-# ----------------------------------------------------------------------
-try:
-    from prompt_toolkit import prompt as pt_prompt
-    from prompt_toolkit.history import FileHistory
-    from prompt_toolkit.shortcuts import radiolist_dialog
-    from prompt_toolkit.completion import PathCompleter
-except ImportError:
-    print("Installing required module: prompt_toolkit ...")
-    import subprocess
-    subprocess.check_call([
-        sys.executable,
-        "-m",
-        "pip",
-        "install",
-        "--break-system-packages",
-        "prompt_toolkit"
-    ])
-    from prompt_toolkit import prompt as pt_prompt
-    from prompt_toolkit.history import FileHistory
-    from prompt_toolkit.shortcuts import radiolist_dialog
-    from prompt_toolkit.completion import PathCompleter
-
-
-# ----------------------------------------------------------------------
 # Single GoBack exception definition (duplicate removed)
 # ----------------------------------------------------------------------
 class GoBack(Exception):
@@ -46,8 +21,58 @@ class Color:
     BOLD = '\033[1m'
     END = '\033[0m'
 
+# ----------------------------------------------------------------------
+# Ensure prompt_toolkit is available
+# ----------------------------------------------------------------------
+def ensure_dependencies():
+    try:
+        from prompt_toolkit import prompt as pt_prompt
+        from prompt_toolkit.history import FileHistory
+        from prompt_toolkit.shortcuts import radiolist_dialog
+        from prompt_toolkit.completion import PathCompleter
+        return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
+    except ImportError:
+        import subprocess
+        import sys
+        import os
 
-POL_MAP = {"H": 0, "V": 1, "L": 2, "R": 3}
+        # If we are in the wrong alias (like /usr/bin/py), try to find the pyenv/user python
+        # and re-run the script with it.
+        if "pyenv" not in sys.executable and os.path.exists(os.path.expanduser("~/.pyenv")):
+            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
+            os.execvp("python", ["python"] + sys.argv)
+
+        print(f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
+        print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
+        
+        # Try multiple common pip access methods
+        commands = [
+            [sys.executable, "-m", "pip", "install", "prompt_toolkit"],
+            ["python", "-m", "pip", "install", "prompt_toolkit"],
+            ["pip", "install", "prompt_toolkit"]
+        ]
+        
+        for cmd in commands:
+            try:
+                if "--break-system-packages" not in cmd and sys.version_info >= (3, 11):
+                    cmd.append("--break-system-packages")
+                subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                
+                from prompt_toolkit import prompt as pt_prompt
+                from prompt_toolkit.history import FileHistory
+                from prompt_toolkit.shortcuts import radiolist_dialog
+                from prompt_toolkit.completion import PathCompleter
+                print(f"{Color.GREEN}✅ Success!{Color.END}\n")
+                return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
+            except:
+                continue
+        
+        print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
+        print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
+        sys.exit(1)
+
+# Initialize the toolkit
+pt_prompt, FileHistory, radiolist_dialog, PathCompleter = ensure_dependencies()
 
 # ----------------------------------------------------------------------
 # History & path completer initialised BEFORE ask() so the global
@@ -167,6 +192,7 @@ def choose_option(title, text, options, default=None):
         default=default,
     ).run()
 
+POL_MAP = {"H": 0, "V": 1, "L": 2, "R": 3}
 
 # ======================================================================
 # Main program
@@ -714,7 +740,10 @@ try:
                         astra_blocks.append(block)
 
                         # ---- Sub‑channel CSV mapping ----
-                        csv_dir = "channeldata"
+                        # Search for files in sub folder in channellist folder corresponding to orbital position
+                        orbital_folder = f"{sat_pos}{sat_dir.upper()}"
+                        csv_dir = os.path.join("channellist", orbital_folder)
+                        
                         suggestions = []
                         if os.path.isdir(csv_dir):
                             suggestions = [
@@ -743,6 +772,7 @@ try:
                             + "┐"
                         )
                         for line in csv_help.split("\n"):
+                            # Helper texts preserved with exact ljust spacing from v5.0
                             print(
                                 f"│ {Color.BLUE}📂 {line.ljust(74)}"
                                 f"{Color.END}{Color.YELLOW} │"
@@ -758,7 +788,7 @@ try:
                         print(f"└" + "─" * 78 + "┘" + Color.END)
 
                         ch_choice = pt_prompt(
-                            f"  Select file [#] or path for PLP {plp}: ",
+                            f"  Select file [#] or path for {orbital_folder} PLP {plp}: ",
                             completer=path_completer,
                             history=history,
                         ).strip()
@@ -766,7 +796,7 @@ try:
                         if ch_choice.lower() == "back":
                             raise GoBack()
 
-                        # Resolve numeric shortcut or raw path
+                        # Resolve numeric shortcut within the orbital sub-folder
                         if (
                             ch_choice.isdigit()
                             and 1 <= int(ch_choice) <= len(suggestions)

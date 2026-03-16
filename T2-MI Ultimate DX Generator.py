@@ -2,27 +2,6 @@ import os
 import sys
 import shutil
 import time
-from prompt_toolkit.completion import PathCompleter
-# --- Ensure prompt_toolkit exists ---
-try:
-    from prompt_toolkit import prompt as pt_prompt
-    from prompt_toolkit.history import FileHistory
-    from prompt_toolkit.shortcuts import radiolist_dialog
-except ImportError:
-    print("Installing required module: prompt_toolkit ...")
-    import subprocess
-    import sys
-    subprocess.check_call([
-        sys.executable,
-        "-m",
-        "pip",
-        "install",
-        "--break-system-packages",
-        "prompt_toolkit"
-    ])
-    from prompt_toolkit import prompt as pt_prompt
-    from prompt_toolkit.history import FileHistory
-    from prompt_toolkit.shortcuts import radiolist_dialog
 
 class GoBack(Exception):
     """Custom exception to handle step reversion."""
@@ -36,6 +15,59 @@ class Color:
     RED = '\033[91m'
     BOLD = '\033[1m'
     END = '\033[0m'
+
+# ----------------------------------------------------------------------
+# Ensure prompt_toolkit is available
+# ----------------------------------------------------------------------
+def ensure_dependencies():
+    try:
+        from prompt_toolkit import prompt as pt_prompt
+        from prompt_toolkit.history import FileHistory
+        from prompt_toolkit.shortcuts import radiolist_dialog
+        from prompt_toolkit.completion import PathCompleter
+        return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
+    except ImportError:
+        import subprocess
+        import sys
+        import os
+
+        # If we are in the wrong alias (like /usr/bin/py), try to find the pyenv/user python
+        # and re-run the script with it.
+        if "pyenv" not in sys.executable and os.path.exists(os.path.expanduser("~/.pyenv")):
+            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
+            os.execvp("python", ["python"] + sys.argv)
+
+        print(f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
+        print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
+        
+        # Try multiple common pip access methods
+        commands = [
+            [sys.executable, "-m", "pip", "install", "prompt_toolkit"],
+            ["python", "-m", "pip", "install", "prompt_toolkit"],
+            ["pip", "install", "prompt_toolkit"]
+        ]
+        
+        for cmd in commands:
+            try:
+                if "--break-system-packages" not in cmd and sys.version_info >= (3, 11):
+                    cmd.append("--break-system-packages")
+                subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                
+                from prompt_toolkit import prompt as pt_prompt
+                from prompt_toolkit.history import FileHistory
+                from prompt_toolkit.shortcuts import radiolist_dialog
+                from prompt_toolkit.completion import PathCompleter
+                print(f"{Color.GREEN}✅ Success!{Color.END}\n")
+                return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
+            except:
+                continue
+        
+        print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
+        print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
+        sys.exit(1)
+
+# Initialize the toolkit
+pt_prompt, FileHistory, radiolist_dialog, PathCompleter = ensure_dependencies()
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -255,33 +287,56 @@ try:
                         block += f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\", }},\n}})\n"
                         astra_blocks.append(block)
 
-                        # --- RESTORED: DECORATED SUB-CHANNEL MAPPING ---
-                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING{Color.END}{Color.YELLOW} " + "─" * 57 + "┐")
-                        print(f"│ {Color.BLUE}📁 CSV File (SID,NAME,TYPE) for sub-channel mapping.                     {Color.END}{Color.YELLOW} │")
-                        print(f"│ {Color.BLUE}ℹ  Use TAB to browse files. Leave blank to skip mapping.                 {Color.END}{Color.YELLOW} │")
-                        print(f"│ {Color.BLUE}ℹ  Type 'back' to return to the previous configuration step.             {Color.END}{Color.YELLOW} │")
+                        # ---- Sub‑channel CSV mapping (Encyclopedia Architect v9.7 Style) ----
+                        orbital_folder = f"{sat_pos}{sat_dir.upper()}"
+                        csv_dir = os.path.join("channellist", orbital_folder)
+                        
+                        suggestions = []
+                        if os.path.isdir(csv_dir):
+                            suggestions = [f for f in os.listdir(csv_dir) if f.lower().endswith('.csv')]
+
+                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING: PID {pid} PLP {plp}{Color.END}{Color.YELLOW} " + "─" * (76 - 28 - len(str(pid)) - len(str(plp))) + "┐")
+                        csv_help = (
+                            f"{Color.BOLD}SUB‑CHANNEL MAPPING PROTOCOL{Color.END}\n"
+                            f"Import virtual services for PID {pid} / PLP {plp}\n"
+                            f"Auto‑scan found {len(suggestions)} CSV file(s) in ./{csv_dir}"
+                        )
+                        for line in csv_help.split("\n"):
+                            print(f"│ {Color.BLUE}📂 {line.ljust(74)}{Color.END}{Color.YELLOW} │")
+                        
+                        if suggestions:
+                            print(f"┠" + "─" * 78 + "┨")
+                            for idx, fname in enumerate(suggestions, 1):
+                                print(f"│ {Color.CYAN} [{idx}] {fname.ljust(72)}{Color.END}{Color.YELLOW} │")
                         print(f"└" + "─" * 78 + "┘" + Color.END)
 
-                        prompt_text = f"  Channel file for PLP {plp}: "
-                        ch_file = pt_prompt(prompt_text, completer=path_completer, history=history).strip()
+                        prompt_text = f"  Select file [#] or path for {orbital_folder} PLP {plp}: "
+                        ch_choice = pt_prompt(prompt_text, completer=path_completer, history=history).strip()
 
-                        # Handle GoBack logic for the prompt
-                        if ch_file.lower() == "back":
+                        if ch_choice.lower() == "back":
                             raise GoBack()
 
-                        if ch_file and os.path.exists(ch_file):
-                            # URL encoding fix for Enigma2
-                            sub_url_raw = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}"
-                            sub_url = sub_url_raw.replace(":", "%3a")
+                        # Resolve numeric shortcut or raw path
+                        if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions):
+                            ch_file = os.path.join(csv_dir, suggestions[int(ch_choice) - 1])
+                        else:
+                            ch_file = ch_choice
+
+                        if ch_file and os.path.isfile(ch_file):
+                            print(f"  {Color.CYAN}⚙️  Parsing {os.path.basename(ch_file)}...{Color.END}")
+                            sub_url = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}".replace(":", "%3a")
 
                             with open(ch_file, "r", encoding="utf8") as f:
                                 for line in f:
                                     if "," not in line: continue
-                                    csid, name, stype = line.strip().split(",")
-                                    # Construction with no leading zeros
-                                    csid_hex = format(int(csid), 'x').lower()
-                                    c_ref = f"1:0:{stype}:{csid_hex}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}:0:0:0:{sub_url}:{name}"
-                                    bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
+                                    try:
+                                        csid, name, stype = [x.strip() for x in line.strip().split(",")]
+                                        csid_hex = format(int(csid), 'x').lower()
+                                        c_ref = f"1:0:{stype}:{csid_hex}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                                        bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
+                                        print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
+                                    except Exception as exc:
+                                        print(f"    {Color.RED}✖ Error: {exc}{Color.END}")
 
                         marker_count += 1
 
