@@ -3,6 +3,7 @@ import os
 import sys
 import shutil
 import time
+import csv
 
 # ----------------------------------------------------------------------
 # Single GoBack exception definition (duplicate removed)
@@ -379,6 +380,56 @@ try:
                     " Standard (Ku‑Band)  │ 10700–12700 MHz\n"
                     "───────────────────────┴──────────────────────"
                 )
+                # --- v9.9 EDIT EDITION CSV IMPORT LOGIC ---
+                freq_dir = "frequency"
+                csv_files = [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
+
+                if csv_files:
+                    print(f"\n{Color.CYAN}📂 Frequency Database Browser{Color.END}")
+                    options = [("manual", "Manual Entry")] + [(f, f) for f in csv_files]
+                    choice = choose_option("Import Source", "Select a CSV file or proceed Manually:", options, "manual")
+                    
+                    if choice != "manual" and choice is not None:
+                        with open(os.path.join(freq_dir, choice), 'r', encoding='utf-8') as f:
+                            reader = list(csv.DictReader(f))
+                        
+                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SELECT TRANSPONDER FROM CSV{Color.END}{Color.YELLOW} " + "─"*45 + "┐")
+                        for idx, r in enumerate(reader):
+                            label = f"{r['Freq']} {r['Pol']} ({r['Pos']}{r['Dir']}) SR:{r['SR']}"
+                            print(f"│ {Color.CYAN} [{idx}] {label.ljust(72)}{Color.END}{Color.YELLOW} │")
+                        print(f"└" + "─" * 78 + "┘" + Color.END)
+                        
+                        tp_idx_str = ask("Select TP Index [#]", "0", "Choose a transponder to load parameters.", "📡")
+                        selected_row = reader[int(tp_idx_str)]
+                        
+                        # --- AUTO-FILL MAPPING ---
+                        freq     = int(selected_row['Freq'])
+                        # FIX: Map CSV numeric Pol to Character for POL_MAP compatibility
+                        raw_pol  = selected_row['Pol'].upper()
+                        pol      = {"2": "L", "3": "R", "0": "H", "1": "V"}.get(raw_pol, raw_pol)
+                        
+                        sr       = int(selected_row['SR'])
+                        sat_pos  = float(selected_row['Pos'])
+                        sat_dir  = selected_row['Dir'].upper()
+                        inv      = selected_row['Inv']
+                        fec      = selected_row['FEC']
+                        sys_type = selected_row['Sys']
+                        mod      = selected_row['Mod']
+                        roll     = selected_row['RO']
+                        pilot    = selected_row['Pilot']
+                        
+                        # --- CALCULATION FIX ---
+                        raw_sat = int(sat_pos * 10)
+                        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
+                        disp_sat = -raw_sat if sat_dir == "W" else raw_sat
+                        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+
+                        print(f"\n{Color.GREEN}✅ Loaded: {freq} {pol} {sat_pos}{sat_dir} (Hex Key: {ns_hex}){Color.END}")
+                        
+                        # In Edit Edition, jump to Step 9 (Metadata)
+                        step = 9
+                        continue
+
                 freq = int(ask("Target Frequency", "4014", freq_help, "📡"))
                 step = 5
 

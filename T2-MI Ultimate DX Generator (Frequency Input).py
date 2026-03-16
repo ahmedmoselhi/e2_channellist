@@ -178,27 +178,33 @@ try:
             elif step == 4:
                 # --- v9.9 FREQUENCY CSV IMPORT LOGIC ---
                 freq_dir = "frequency"
+                # Scans the /frequency/ folder for any CSV files
                 csv_files = [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
                 
                 if csv_files:
                     print(f"\n{Color.CYAN}📂 Frequency Database Browser{Color.END}")
+                    # Allow user to choose between a file or entering manually
                     options = [("manual", "Manual Entry")] + [(f, f) for f in csv_files]
                     choice = choose_option("Import Source", "Select a CSV file or proceed Manually:", options, "manual")
                     
                     if choice != "manual" and choice is not None:
                         with open(os.path.join(freq_dir, choice), 'r', encoding='utf-8') as f:
+                            # Reads the CSV and automatically handles the header line
                             reader = list(csv.DictReader(f))
                         
+                        # Print the list of transponders with index numbers
                         print(f"\n{Color.YELLOW}┌── {Color.BOLD}SELECT TRANSPONDER FROM CSV{Color.END}{Color.YELLOW} " + "─"*45 + "┐")
                         for idx, r in enumerate(reader):
                             label = f"{r['Freq']} {r['Pol']} ({r['Pos']}{r['Dir']}) SR:{r['SR']}"
                             print(f"│ {Color.CYAN} [{idx}] {label.ljust(72)}{Color.END}{Color.YELLOW} │")
                         print(f"└" + "─" * 78 + "┘" + Color.END)
                         
+                        # Get user selection
                         tp_idx_str = ask("Select TP Index [#]", "0", "Choose a transponder to load parameters.", "📡")
                         selected_row = reader[int(tp_idx_str)]
                         
-                        # --- AUTO-FILL MAPPING ---
+                        # --- THE AUTO-FILL MAPPING ---
+                        # Map CSV columns directly to script variables
                         freq     = int(selected_row['Freq'])
                         pol      = selected_row['Pol'].upper()
                         sr       = int(selected_row['SR'])
@@ -211,18 +217,20 @@ try:
                         roll     = selected_row['RO']
                         pilot    = selected_row['Pilot']
                         
-                        # --- CALCULATION FIX (Prevents NameError) ---
+                        # --- FIX: ADD MISSING CALCULATIONS ---
                         raw_sat = int(sat_pos * 10)
                         ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
                         disp_sat = -raw_sat if sat_dir == "W" else raw_sat
                         ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+                        # -------------------------------------
 
-                        print(f"\n{Color.GREEN}✅ Loaded: {freq} {pol} {sat_pos}{sat_dir} (Auto-calculated Hex: {ns_hex}){Color.END}")
+                        print(f"\n{Color.GREEN}✅ Loaded: {freq} {pol} {sat_pos}{sat_dir} (All parameters set automatically){Color.END}")
                         
-                        # In the Multistream version, jump to Step 15 (ISI Check)
+                        # Jump to Step 15 (Feed SID/PIDs)
                         step = 15
                         continue
 
+                # Fallback to manual entry if folder is empty or 'manual' selected
                 freq = int(ask("Frequency MHz", "4014", "Downlink Frequency.", "📡"))
                 step = 5
 
@@ -277,35 +285,24 @@ try:
                 step = 15
 
             elif step == 15:
-                # --- NEW: MULTISTREAM (ISI) HANDLING ---
-                is_mis = ask("Is this Multistream?", "n", "y = Yes (e.g. Stream 171) | n = No.", "🌊")
-                if is_mis.lower() == 'y':
-                    isi = ask("Stream ID (ISI)", "171", "The Input Stream Identifier (ISI).", "🆔")
-                else:
-                    isi = "-1" # Standard value for non-multistream
-                step = 16
-
-            elif step == 16:
                 # Map Polarization for lamedb
                 p_digit = {"H":"0","V":"1","L":"2","R":"3"}.get(pol, "0")
                 tp_key = f"{ns_hex}:{TSID}:{ONID}"
-                
-                # FIX: Added 'isi' at the end of the string
-                new_tps[tp_key] = f"{tp_key}\n\ts {freq*1000}:{sr*1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}:{isi}\n/\n"
+                new_tps[tp_key] = f"{tp_key}\n\ts {freq*1000}:{sr*1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}\n/\n"
 
                 sid = int(ask("Feed SID", "800", "Service ID (Decimal) for the raw T2-MI PID carrier.", "🆔"))
                 sid_hex = format(sid, '04x').lower()
+                step = 16
+
+            elif step == 16:
+                provider = ask("Provider name", "ORTM", "Provider label for service metadata.", "🏢")
                 step = 17
 
             elif step == 17:
-                provider = ask("Provider name", "ORTM", "Provider label for service metadata.", "🏢")
+                pid_input = ask("T2-MI PIDs", "4096", "PIDs carrying T2-MI data (e.g., 4096,4097).", "🔢")
                 step = 18
 
             elif step == 18:
-                pid_input = ask("T2-MI PIDs", "4096", "PIDs carrying T2-MI data (e.g., 4096,4097).", "🔢")
-                step = 19
-
-            elif step == 19:
                 path = ask("Astra path", "ortm", "URL segment for Astra-SM (e.g., http://0.0.0.0:9999/path/...).", "🔗")
 
                 # --- RESTORING FEED DESCRIPTION AND PLP LABELS ---
@@ -372,7 +369,7 @@ try:
                         if ch_choice.lower() == "back":
                             raise GoBack()
 
-                        # Resolve numeric shortcut or raw path within the orbital folder
+                        # Resolve numeric shortcut or raw path
                         if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions):
                             ch_file = os.path.join(csv_dir, suggestions[int(ch_choice) - 1])
                         else:
