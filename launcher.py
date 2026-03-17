@@ -2,6 +2,7 @@
 import os
 import sys
 import subprocess
+import time
 
 # [ 🎨 PRESERVED GRAPHICS ENGINE v5.0 ]
 class Color:
@@ -12,6 +13,18 @@ class Color:
     RED = '\033[91m'
     BOLD = '\033[1m'
     END = '\033[0m'
+
+def toggle_maximized():
+    """Attempts to maximize the terminal window on Linux/X11/Wayland."""
+    # Method 1: Using wmctrl to toggle the 'maximized_vert' and 'maximized_horz' states
+    try:
+        # We target the :ACTIVE: window (the current terminal)
+        subprocess.run(["wmctrl", "-r", ":ACTIVE:", "-b", "add,maximized_vert,maximized_horz"], capture_output=True)
+    except FileNotFoundError:
+        # If wmctrl is not installed, we fallback to a standard terminal resize sequence
+        # This attempts to resize the terminal to a very large row/column count
+        sys.stdout.write("\033[8;50;150t")
+        sys.stdout.flush()
 
 def print_header():
     os.system('clear')
@@ -28,7 +41,6 @@ def print_header():
     print("="*80 + f"{Color.END}")
 
 def get_choice():
-    # Human-readable illustrative text for each script
     options = [
         ("1", "LYNGSAT DX MASTER SUITE", "Full satellite web-scraping and frequency extraction."),
         ("2", "T2-MI DX GENERATOR (Standard)", "Standard decap engine for T2-MI stream generation."),
@@ -44,40 +56,61 @@ def get_choice():
     return input(f"\n{Color.YELLOW}Selection > {Color.END}").upper()
 
 def run_script(script_name):
-    # Change directory to script location to ensure relative paths work
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.exists(os.path.join(script_dir, script_name)):
+    full_path = os.path.join(script_dir, script_name)
+    
+    if os.path.exists(full_path):
         try:
-            # Re-uses the current Python environment (important for prompt_toolkit)
-            subprocess.run([sys.executable, os.path.join(script_dir, script_name)], cwd=script_dir)
+            subprocess.run([sys.executable, full_path], cwd=script_dir)
+            
+            # Post-execution Choice (Preserved Helper Text)
+            print(f"\n{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
+            print(f"│ {Color.BOLD}TASK COMPLETED.{Color.END} Would you like to return to the Main Menu?                │")
+            print(f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
+            
+            final_choice = input(f"{Color.YELLOW}Enter 'M' for Main Menu or 'Q' to Quit: {Color.END}").upper()
+            return final_choice 
+            
         except Exception as e:
             print(f"{Color.RED}Execution Error: {e}{Color.END}")
             input("Press Enter to continue...")
+            return 'M'
     else:
         print(f"{Color.RED}Error: {script_name} not found!{Color.END}")
         input("Press Enter to continue...")
+        return 'M'
 
 def main():
+    # Trigger maximized window state instead of fullscreen
+    toggle_maximized()
+    
     scripts = {
         "1": "LYNGSAT DX MASTER SUITE.py",
-        "2": "T2-MI Ultimate DX Generator (Standard Edition).py",
-        "3": "T2-MI Ultimate DX Generator (Multistream Edition).py",
+        "2": "T2-MI Ultimate DX Generator.py",
+        "3": "T2-MI Ultimate DX Generator (Multistream).py",
         "4": "T2-MI Ultimate DX Generator (Edit Edition).py"
     }
 
     while True:
         print_header()
-        # Restore helper text block
+        # Restore helper text block 
         print(f"{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
         print(f"│ {Color.BOLD}INSTRUCTIONS:{Color.END} Select a module to launch. Each module opens in this window. │")
         print(f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
         
         choice = get_choice()
-        if choice == 'Q': break
-        elif choice in scripts: run_script(scripts[choice])
+        
+        if choice == 'Q':
+            break
+        elif choice in scripts:
+            after_action = run_script(scripts[choice])
+            if after_action == 'Q':
+                break
         else:
             print(f"{Color.RED}Invalid Selection.{Color.END}")
             time.sleep(1)
+
+    print(f"\n{Color.GREEN}Exiting DX Master Suite. Goodbye!{Color.END}")
 
 if __name__ == "__main__":
     main()
