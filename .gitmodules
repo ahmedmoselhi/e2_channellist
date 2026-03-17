@@ -1,0 +1,8 @@
+[submodule "channels"]
+	path = channels
+	url = https://github.com/ahmedmoselhi/e2_channellist.git
+	branch = master
+[submodule "astra"]
+	path = astra
+	url = https://github.com/ahmedmoselhi/e2_channellist.git
+	branch = astra
