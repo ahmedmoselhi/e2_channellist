@@ -417,6 +417,11 @@ try:
                         mod      = selected_row['Mod']
                         roll     = selected_row['RO']
                         pilot    = selected_row['Pilot']
+
+                        # --- NEW: PID/PLP SYNC FIX ---
+                        # This ensures the script has the values needed for Step 10
+                        pid_input  = selected_row.get('PID', '4096')
+                        plps_input = selected_row.get('PLP', '0')
                         
                         # --- CALCULATION FIX ---
                         raw_sat = int(sat_pos * 10)
@@ -424,10 +429,14 @@ try:
                         disp_sat = -raw_sat if sat_dir == "W" else raw_sat
                         ns_hex = format((ns_sat << 16) | freq, '08x').lower()
 
-                        print(f"\n{Color.GREEN}✅ Loaded: {freq} {pol} {sat_pos}{sat_dir} (Hex Key: {ns_hex}){Color.END}")
+                        # NEW: Trigger Elite Edit detection for CSV imports
+                        current_cfg = get_current_params(freq, pol, existing_astra)
+
+                        print(f"\n{Color.GREEN}✅ Tuning Data Loaded: {freq} {pol} {sat_pos}{sat_dir}{Color.END}")
+                        print(f"{Color.YELLOW}🛰️ Jumping to T2-MI PID Configuration...{Color.END}")
                         
-                        # In Edit Edition, jump to Step 9 (Metadata)
-                        step = 9
+                        # CHANGE THIS: Jump to Step 7 (PID selection) instead of Step 9
+                        step = 7
                         continue
 
                 freq = int(ask("Target Frequency", "4014", freq_help, "📡"))
@@ -585,8 +594,9 @@ try:
             # STEP 7 – Transport layer (PID)
             # ==========================================================
             elif step == 7:
+                # Prioritize existing config, otherwise trust the variable in memory (CSV or default)
                 cur_pid = (
-                    current_cfg['pid'] if current_cfg else "4096"
+                    current_cfg['pid'] if current_cfg else pid_input
                 )
                 pid_gate_help = (
                     f"{Color.BOLD}TRANSPORT LAYER GATEWAY{Color.END}\n"
@@ -608,36 +618,36 @@ try:
                     if edit_pid.lower() == "y"
                     else cur_pid
                 )
-                step = 8
+                step = 9
 
             # ==========================================================
             # STEP 8 – Data layer (PLP)
             # ==========================================================
-            elif step == 8:
-                cur_plp = (
-                    current_cfg['plp'] if current_cfg else "0"
-                )
-                plp_gate_help = (
-                    f"{Color.BOLD}DATA PIPE GATEWAY{Color.END}\n"
-                    f"Current PLP: {Color.YELLOW}{cur_plp}{Color.END}\n"
-                    "y – edit PLP IDs\n"
-                    "n – keep the current mapping"
-                )
-                edit_plp = ask(
-                    "Modify PLP Pipe?", "n", plp_gate_help, "📺"
-                )
-                plps_input = (
-                    ask(
-                        "Enter PLP IDs",
-                        cur_plp,
-                        "Pipe IDs (0–255). Single (0) or comma‑separated "
-                        "list (0,1,2).",
-                        "📺",
-                    )
-                    if edit_plp.lower() == "y"
-                    else cur_plp
-                )
-                step = 9
+            #elif step == 8:
+                #cur_plp = (
+                    #current_cfg['plp'] if current_cfg else "0"
+                #)
+                #plp_gate_help = (
+                    #f"{Color.BOLD}DATA PIPE GATEWAY{Color.END}\n"
+                    #f"Current PLP: {Color.YELLOW}{cur_plp}{Color.END}\n"
+                    #"y – edit PLP IDs\n"
+                    #"n – keep the current mapping"
+                #)
+                #edit_plp = ask(
+                    #"Modify PLP Pipe?", "n", plp_gate_help, "📺"
+                #)
+                #plps_input = (
+                    #ask(
+                        #"Enter PLP IDs",
+                        #cur_plp,
+                        #"Pipe IDs (0–255). Single (0) or comma‑separated "
+                        #"list (0,1,2).",
+                        #"📺",
+                    #)
+                    #if edit_plp.lower() == "y"
+                    #else cur_plp
+                #)
+                #step = 9
 
             # ==========================================================
             # STEP 9 – Service metadata
@@ -797,11 +807,12 @@ try:
                         
                         suggestions = []
                         if os.path.isdir(csv_dir):
-                            suggestions = [
+                            # Added sorted() to ensure alphabetical order
+                            suggestions = sorted([
                                 fname
                                 for fname in os.listdir(csv_dir)
                                 if fname.lower().endswith('.csv')
-                            ]
+                            ], key=lambda x: x.lower())
 
                         csv_help = (
                             f"{Color.BOLD}SUB‑CHANNEL MAPPING PROTOCOL"
@@ -984,9 +995,11 @@ try:
                     lines.insert(srv_idx + 1, v)
         except Exception as exc:
             print(f"{Color.RED}Error during lamedb merge: {exc}{Color.END}")
-
-        with open("lamedb", "w", encoding="utf-8") as fh:
-            fh.writelines(lines)
+            print(f"{Color.YELLOW}⚠ Aborting lamedb save to prevent corruption.{Color.END}")
+        else:
+            # Only write if no exceptions occurred
+            with open("lamedb", "w", encoding="utf-8") as fh:
+                fh.writelines(lines)
     else:
         with open("lamedb", "w", encoding="utf-8") as fh:
             fh.write(

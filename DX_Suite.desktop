@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=DX Master Suite
+Comment=Launch T2-MI and LyngSat Tools
+Exec=python3 "/home/ahmedmoselhi/T2-MI Ultimate DX Generator/launcher.py"
+Icon=utilities-terminal
+Terminal=true
+Categories=Development;

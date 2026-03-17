@@ -2,8 +2,10 @@ import os
 import sys
 import shutil
 import time
-import csv
 
+# ----------------------------------------------------------------------
+# Core Exceptions & Styling
+# ----------------------------------------------------------------------
 class GoBack(Exception):
     """Custom exception to handle step reversion."""
     pass
@@ -18,7 +20,7 @@ class Color:
     END = '\033[0m'
 
 # ----------------------------------------------------------------------
-# Ensure prompt_toolkit is available
+# Environment Initialization
 # ----------------------------------------------------------------------
 def ensure_dependencies():
     try:
@@ -29,11 +31,7 @@ def ensure_dependencies():
         return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
     except ImportError:
         import subprocess
-        import sys
-        import os
-
-        # If we are in the wrong alias (like /usr/bin/py), try to find the pyenv/user python
-        # and re-run the script with it.
+        
         if "pyenv" not in sys.executable and os.path.exists(os.path.expanduser("~/.pyenv")):
             print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
             os.execvp("python", ["python"] + sys.argv)
@@ -41,35 +39,30 @@ def ensure_dependencies():
         print(f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
         print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
         
-        # Try multiple common pip access methods
-        commands = [
-            [sys.executable, "-m", "pip", "install", "prompt_toolkit"],
-            ["python", "-m", "pip", "install", "prompt_toolkit"],
-            ["pip", "install", "prompt_toolkit"]
-        ]
-        
-        for cmd in commands:
-            try:
-                if "--break-system-packages" not in cmd and sys.version_info >= (3, 11):
-                    cmd.append("--break-system-packages")
-                subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                
-                from prompt_toolkit import prompt as pt_prompt
-                from prompt_toolkit.history import FileHistory
-                from prompt_toolkit.shortcuts import radiolist_dialog
-                from prompt_toolkit.completion import PathCompleter
-                print(f"{Color.GREEN}✅ Success!{Color.END}\n")
-                return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
-            except:
-                continue
-        
-        print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
-        print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
-        sys.exit(1)
+        pip_cmd = [sys.executable, "-m", "pip", "install", "prompt_toolkit"]
+        if sys.version_info >= (3, 11):
+            pip_cmd.append("--break-system-packages")
+            
+        try:
+            subprocess.check_call(pip_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            from prompt_toolkit import prompt as pt_prompt
+            from prompt_toolkit.history import FileHistory
+            from prompt_toolkit.shortcuts import radiolist_dialog
+            from prompt_toolkit.completion import PathCompleter
+            print(f"{Color.GREEN}✅ Success!{Color.END}\n")
+            return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
+        except Exception:
+            print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
+            print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
+            sys.exit(1)
 
 # Initialize the toolkit
 pt_prompt, FileHistory, radiolist_dialog, PathCompleter = ensure_dependencies()
+history = FileHistory(".dx_history")
 
+# ----------------------------------------------------------------------
+# UI Helper Functions
+# ----------------------------------------------------------------------
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -101,19 +94,18 @@ def draw_progress(percent, width=40, task="Processing"):
 def ask(prompt, default=None, help_text="", icon="ℹ", allow_back=True):
     while True:
         print(f"\n{Color.YELLOW}┌── {Color.BOLD}INPUT FIELD{Color.END}{Color.YELLOW} " + "─"*65 + "┐")
-        full_help = f"{help_text}"
+        full_help = help_text
         if allow_back:
             full_help += "\n[ Type 'back' to return to the previous question ]"
-        if default is not None:
-            full_help += f"\n[ DEFAULT CHOICE: {default} ] (Press Enter to use default)"
-        else:
-            full_help += f"\n[ REQUIRED FIELD: Manual entry necessary ]"
+        
+        status_line = f"[ DEFAULT CHOICE: {default} ]" if default is not None else "[ REQUIRED FIELD: Manual entry necessary ]"
+        full_help += f"\n{status_line}"
 
         for line in full_help.strip().split('\n'):
             print(f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─"*78 + "┘" + Color.END)
-        prompt_text = f"  {prompt}: "
-        val = pt_prompt(prompt_text, history=history).strip()
+        
+        val = pt_prompt(f"  {prompt}: ", history=history).strip()
 
         if val.lower() == "back" and allow_back:
             raise GoBack()
@@ -122,31 +114,22 @@ def ask(prompt, default=None, help_text="", icon="ℹ", allow_back=True):
         print(f"  {Color.RED}⚠ ALERT: Value required for database integrity.{Color.END}")
 
 def choose_option(title, text, options, default=None):
-    result = radiolist_dialog(
-        title=title,
-        text=text,
-        values=options,
-        default=default
-    ).run()
+    result = radiolist_dialog(title=title, text=text, values=options, default=default).run()
+    if result is None: raise GoBack()
     return result
 
-# --- Initialize ---
-class GoBack(Exception):
-    pass
-
+# ----------------------------------------------------------------------
+# Main Logic
+# ----------------------------------------------------------------------
 try:
     clear_screen()
     print_header()
 
     path_completer = PathCompleter(expanduser=True)
-    history = FileHistory(".dx_history")
-
-    # Initialize storage for the generator
     new_tps, new_srvs, bouquet, astra_blocks = {}, {}, [], []
-    ONID, TSID, marker_count = "0001", "0001", 1
-
-    # --- State-Controlled Logic ---
+    ONID, TSID = "0001", "0001"
     step = 1
+
     while True:
         try:
             if step == 1:
@@ -164,7 +147,7 @@ try:
                 print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " + "─" * 61 + "┐")
                 print(f"│ {Color.BLUE}📂 Path to your existing lamedb for merging.                             {Color.END}{Color.YELLOW} │")
                 print(f"│ {Color.BLUE}Press enter to create new empty ./lamedb file.                           {Color.END}{Color.YELLOW} │")
-                print(f"│ {Color.BLUE}ℹ  Type 'back' to return to cleanup settings.                            {Color.END}{Color.YELLOW} │")
+                print(f"│ {Color.BLUE}ℹ  Type 'back' to return to cleanup settings.                             {Color.END}{Color.YELLOW} │")
                 print(f"└" + "─" * 78 + "┘" + Color.END)
                 merge_path = pt_prompt("  Source lamedb path: ", completer=path_completer, history=history).strip() or "./lamedb"
                 if merge_path.lower() == "back": step = 1; continue
@@ -176,62 +159,10 @@ try:
                 step = 4
 
             elif step == 4:
-                # --- v9.9 FREQUENCY CSV IMPORT LOGIC ---
-                freq_dir = "frequencies"
-                # Scans the /frequency/ folder for any CSV files
-                csv_files = [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
-                
-                if csv_files:
-                    print(f"\n{Color.CYAN}📂 Frequency Database Browser{Color.END}")
-                    # Allow user to choose between a file or entering manually
-                    options = [("manual", "Manual Entry")] + [(f, f) for f in csv_files]
-                    choice = choose_option("Import Source", "Select a CSV file or proceed Manually:", options, "manual")
-                    
-                    if choice != "manual" and choice is not None:
-                        with open(os.path.join(freq_dir, choice), 'r', encoding='utf-8') as f:
-                            # Reads the CSV and automatically handles the header line
-                            reader = list(csv.DictReader(f))
-                        
-                        # Print the list of transponders with index numbers
-                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SELECT TRANSPONDER FROM CSV{Color.END}{Color.YELLOW} " + "─"*45 + "┐")
-                        for idx, r in enumerate(reader):
-                            label = f"{r['Freq']} {r['Pol']} ({r['Pos']}{r['Dir']}) SR:{r['SR']}"
-                            print(f"│ {Color.CYAN} [{idx}] {label.ljust(72)}{Color.END}{Color.YELLOW} │")
-                        print(f"└" + "─" * 78 + "┘" + Color.END)
-                        
-                        # Get user selection
-                        tp_idx_str = ask("Select TP Index [#]", "0", "Choose a transponder to load parameters.", "📡")
-                        selected_row = reader[int(tp_idx_str)]
-                        
-                        # --- THE AUTO-FILL MAPPING ---
-                        # Map CSV columns directly to script variables
-                        freq     = int(selected_row['Freq'])
-                        pol      = selected_row['Pol'].upper()
-                        sr       = int(selected_row['SR'])
-                        sat_pos  = float(selected_row['Pos'])
-                        sat_dir  = selected_row['Dir'].upper()
-                        inv      = selected_row['Inv']
-                        fec      = selected_row['FEC']
-                        sys_type = selected_row['Sys']
-                        mod      = selected_row['Mod']
-                        roll     = selected_row['RO']
-                        pilot    = selected_row['Pilot']
-                        
-                        # --- FIX: ADD MISSING CALCULATIONS ---
-                        raw_sat = int(sat_pos * 10)
-                        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
-                        disp_sat = -raw_sat if sat_dir == "W" else raw_sat
-                        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
-                        # -------------------------------------
-
-                        print(f"\n{Color.GREEN}✅ Loaded: {freq} {pol} {sat_pos}{sat_dir} (All parameters set automatically){Color.END}")
-                        
-                        # Jump to Step 15 (Feed SID/PIDs)
-                        step = 15
-                        continue
-
-                # Fallback to manual entry if folder is empty or 'manual' selected
-                freq = int(ask("Frequency MHz", "4014", "Downlink Frequency.", "📡"))
+                print(f"\n{Color.CYAN}╔" + "═"*78 + "╗")
+                print(f"║ {Color.BOLD}DETAILED PARAMETER CONFIGURATION{Color.END}{Color.CYAN}".center(88) + "║")
+                print(f"╚" + "═"*78 + "╝" + Color.END)
+                freq = int(ask("Frequency MHz", "4014", "Downlink Frequency (e.g., 4014, 3665, 11495).", "📡"))
                 step = 5
 
             elif step == 5:
@@ -240,8 +171,7 @@ try:
 
             elif step == 6:
                 pol = choose_option("Polarization", "Select antenna polarization:", 
-                                    [("H", "Horizontal"), ("V", "Vertical"), ("L", "Left Circular"), ("R", "Right Circular")], "L")
-                if pol is None: step = 5; continue
+                                   [("H", "Horizontal"), ("V", "Vertical"), ("L", "Left Circular"), ("R", "Right Circular")], "L")
                 step = 7
 
             elif step == 7:
@@ -250,9 +180,7 @@ try:
 
             elif step == 8:
                 sat_dir = ask("Direction (E/W)", "W", "Orbital direction:\nE = East | W = West.", "🧭").upper()
-
-                # --- Original Calculation Logic ---
-                raw_sat, ns_sat = int(sat_pos * 10), 0
+                raw_sat = int(sat_pos * 10)
                 ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
                 disp_sat = -raw_sat if sat_dir == "W" else raw_sat
                 ns_hex = format((ns_sat << 16) | freq, '08x').lower()
@@ -264,8 +192,7 @@ try:
 
             elif step == 10:
                 fec = choose_option("FEC", "Forward Error Correction:", 
-                                    [("1","1/2"), ("2","2/3"), ("3","3/4"), ("4","5/6"), ("5","7/8"), ("6","8/9"), ("7","3/5"), ("8","4/5"), ("9","Auto")], "9")
-                if fec is None: step = 9; continue
+                                   [("1","1/2"), ("2","2/3"), ("3","3/4"), ("4","5/6"), ("5","7/8"), ("6","8/9"), ("7","3/5"), ("8","4/5"), ("9","Auto")], "9")
                 step = 11
 
             elif step == 11:
@@ -285,13 +212,14 @@ try:
                 step = 15
 
             elif step == 15:
-                # Map Polarization for lamedb
                 p_digit = {"H":"0","V":"1","L":"2","R":"3"}.get(pol, "0")
                 tp_key = f"{ns_hex}:{TSID}:{ONID}"
                 new_tps[tp_key] = f"{tp_key}\n\ts {freq*1000}:{sr*1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}\n/\n"
 
                 sid = int(ask("Feed SID", "800", "Service ID (Decimal) for the raw T2-MI PID carrier.", "🆔"))
-                sid_hex = format(sid, '04x').lower()
+                sid_hex, sid_no_lead = format(sid, '04x').lower(), format(sid, 'x').lower()
+                tsid_no_lead = format(int(TSID, 16), 'x').lower()
+                onid_no_lead = format(int(ONID, 16), 'x').lower()
                 step = 16
 
             elif step == 16:
@@ -303,95 +231,58 @@ try:
                 step = 18
 
             elif step == 18:
-                path = ask("Astra path", "ortm", "URL segment for Astra-SM (e.g., http://0.0.0.0:9999/path/...).", "🔗")
+                path = ask("Astra path", "ortm", "URL segment for Astra-SM.", "🔗")
 
-                # --- RESTORING FEED DESCRIPTION AND PLP LABELS ---
                 for pid in [p.strip() for p in pid_input.split(",")]:
-                # Service Ref: No leading zeros for SID/TSID/ONID
-                    sid_no_lead = format(sid, 'x').lower()
-                    tsid_no_lead = format(int(TSID, 16), 'x').lower()
-                    onid_no_lead = format(int(ONID, 16), 'x').lower()
-
                     s_ref_core = f"{sid_no_lead}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}"
                     srv_key = f"{sid_hex}:{ns_hex}:{TSID}:{ONID}"
 
-                    # Update lamedb storage
                     new_srvs[srv_key] = f"{srv_key}:1:0\n{provider} PID{pid} FEED\np:{provider},c:15{format(int(pid),'04x')},f:01\n"
-
-                    # 1. RESTORED: FEED SERVICE WITH DESCRIPTION
                     bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {provider} PID{pid} FEED")
 
                     plps_input = ask(f"PLPs for PID {pid}", "0", "Physical Layer Pipe IDs.", "📺")
                     for plp in [pl.strip() for pl in plps_input.split(",")]:
-                        # Variable names and labels
                         var_name = f"f{freq}{pol.lower()}{provider.lower()[:2]}p{pid}plp{plp}"
                         label_full = f"{provider} {freq}{pol} PID{pid} PLP{plp}"
-
-                        # 2. PLP LABEL CHANNEL IN BOUQUET
+                        
                         bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION --- {label_full} ---")
 
-                        # 3. ASTRA CONFIG BLOCK (Preserving pnr=0 and decap_ naming)
-                        block = f"-- {label_full}\n{var_name} = make_t2mi_decap({{\n"
-                        block += f"    name = \"decap_{var_name}\",\n"
-                        block += f"    input = \"http://127.0.0.1:8001/1:0:1:{sid_no_lead}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}:0:0:0:\",\n"
-                        block += f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
-                        block += f"make_channel({{\n    name = \"{label_full}\",\n"
-                        block += f"    input = {{ \"t2mi://{var_name}\", }},\n"
-                        block += f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\", }},\n}})\n"
+                        block = (f"-- {label_full}\n{var_name} = make_t2mi_decap({{\n"
+                                 f"    name = \"decap_{var_name}\",\n"
+                                 f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
+                                 f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
+                                 f"make_channel({{\n    name = \"{label_full}\",\n"
+                                 f"    input = {{ \"t2mi://{var_name}\", }},\n"
+                                 f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\", }},\n}})\n")
                         astra_blocks.append(block)
 
-                        # ---- Sub‑channel CSV mapping (Encyclopedia Architect v9.7 Style) ----
+                        # CSV Logic
                         orbital_folder = f"{sat_pos}{sat_dir.upper()}"
                         csv_dir = os.path.join("channellist", orbital_folder)
-                        
-                        suggestions = []
-                        if os.path.isdir(csv_dir):
-                            suggestions = [f for f in os.listdir(csv_dir) if f.lower().endswith('.csv')]
+                        suggestions = sorted([f for f in os.listdir(csv_dir) if f.lower().endswith('.csv')]) if os.path.isdir(csv_dir) else []
 
-                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING: PID {pid} PLP {plp}{Color.END}{Color.YELLOW} " + "─" * (76 - 28 - len(str(pid)) - len(str(plp))) + "┐")
-                        csv_help = (
-                            f"{Color.BOLD}SUB‑CHANNEL MAPPING PROTOCOL{Color.END}\n"
-                            f"Import virtual services for PID {pid} / PLP {plp}\n"
-                            f"Auto‑scan found {len(suggestions)} CSV file(s) in ./{csv_dir}"
-                        )
-                        for line in csv_help.split("\n"):
-                            print(f"│ {Color.BLUE}📂 {line.ljust(74)}{Color.END}{Color.YELLOW} │")
-                        
+                        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING: PID {pid} PLP {plp}{Color.END}{Color.YELLOW} " + "─" * 40 + "┐")
                         if suggestions:
-                            print(f"┠" + "─" * 78 + "┨")
                             for idx, fname in enumerate(suggestions, 1):
                                 print(f"│ {Color.CYAN} [{idx}] {fname.ljust(72)}{Color.END}{Color.YELLOW} │")
                         print(f"└" + "─" * 78 + "┘" + Color.END)
 
-                        prompt_text = f"  Select file [#] or path for {orbital_folder} PLP {plp}: "
-                        ch_choice = pt_prompt(prompt_text, completer=path_completer, history=history).strip()
+                        ch_choice = pt_prompt(f"  Select file [#] or path for {orbital_folder} PLP {plp}: ", completer=path_completer, history=history).strip()
+                        if ch_choice.lower() == "back": raise GoBack()
 
-                        if ch_choice.lower() == "back":
-                            raise GoBack()
-
-                        # Resolve numeric shortcut or raw path
-                        if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions):
-                            ch_file = os.path.join(csv_dir, suggestions[int(ch_choice) - 1])
-                        else:
-                            ch_file = ch_choice
+                        ch_file = os.path.join(csv_dir, suggestions[int(ch_choice) - 1]) if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions) else ch_choice
 
                         if ch_file and os.path.isfile(ch_file):
-                            print(f"  {Color.CYAN}⚙️  Parsing {os.path.basename(ch_file)}...{Color.END}")
                             sub_url = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}".replace(":", "%3a")
-
                             with open(ch_file, "r", encoding="utf8") as f:
                                 for line in f:
                                     if "," not in line: continue
                                     try:
-                                        csid, name, stype = [x.strip() for x in line.strip().split(",")]
-                                        csid_hex = format(int(csid), 'x').lower()
-                                        c_ref = f"1:0:{stype}:{csid_hex}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                                        csid, name, stype = [x.strip() for x in line.split(",")]
+                                        c_ref = f"1:0:{stype}:{format(int(csid), 'x').lower()}:{tsid_no_lead}:{onid_no_lead}:{ns_hex}:0:0:0:{sub_url}:{name}"
                                         bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
                                         print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
-                                    except Exception as exc:
-                                        print(f"    {Color.RED}✖ Error: {exc}{Color.END}")
-
-                        marker_count += 1
+                                    except: continue
 
                 if ask("Add another transponder?", "n", "y = Add transponder | n = Finalize generation.", "❓") == "y":
                     step = 4
@@ -404,28 +295,31 @@ try:
             print_header()
             print(f"\n{Color.RED}↩ REVERTING TO PREVIOUS STEP...{Color.END}")
 
-    # --- Header-Relative Merger ---
+    # --- Database Merger ---
     for i in range(0, 101, 20): draw_progress(i, task="Merging Database")
+    
     if os.path.exists(merge_path):
         with open(merge_path, 'r', encoding='utf-8', errors='ignore') as f:
             lines = f.readlines()
-        old_content = "".join(lines)
-        try:
-            tp_idx = [i for i, l in enumerate(lines) if l.strip() == "transponders"][0]
-            for k, v in new_tps.items():
-                if k not in old_content: lines.insert(tp_idx + 1, v)
-        except: pass
-        try:
-            srv_idx = [i for i, l in enumerate(lines) if l.strip() == "services"][0]
-            for k, v in new_srvs.items():
-                if k not in old_content: lines.insert(srv_idx + 1, v)
-        except: pass
+        
+        # Safe merge by finding section markers
+        content_str = "".join(lines)
+        def insert_data(marker, data_dict):
+            try:
+                idx = next(i for i, l in enumerate(lines) if l.strip() == marker)
+                for k, v in data_dict.items():
+                    if k not in content_str: lines.insert(idx + 1, v)
+            except StopIteration: pass
+
+        insert_data("transponders", new_tps)
+        insert_data("services", new_srvs)
+        
         with open("lamedb", "w", encoding='utf-8') as f: f.writelines(lines)
     else:
         with open("lamedb", "w", encoding='utf-8') as f:
             f.write("eDVB services /4/\ntransponders\n" + "".join(new_tps.values()) + "end\nservices\n" + "".join(new_srvs.values()) + "end\n")
 
-    # Bouquet and Astra
+    # Finalize files
     with open(bouquet_file, "w") as f: f.write(f"#NAME {bouquet_name}\n" + "\n".join(bouquet) + "\n")
     if not os.path.exists("astra"): os.makedirs("astra")
     with open("astra/astra.conf", "w") as f: f.write("\n".join(astra_blocks))
