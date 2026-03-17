@@ -7,4 +7,4 @@ lamedb
 # Specific configuration file in a subdirectory
 astra/astra.conf
 
-.dx_history
+.dx_history*

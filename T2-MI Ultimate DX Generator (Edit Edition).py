@@ -75,6 +75,17 @@ def ensure_dependencies():
 # Initialize the toolkit
 pt_prompt, FileHistory, radiolist_dialog, PathCompleter = ensure_dependencies()
 
+# --- CATEGORY-SPECIFIC HISTORY INITIALIZATION ---
+history_files = {
+    "default": FileHistory(".dx_history_default"),
+    "paths": FileHistory(".dx_history_paths"),
+    "bouquet": FileHistory(".dx_history_bouquet"),
+    "freq": FileHistory(".dx_history_freq"),
+    "pid": FileHistory(".dx_history_pid"),
+    "sid": FileHistory(".dx_history_sid"),
+    "provider": FileHistory(".dx_history_provider")
+}
+
 # ----------------------------------------------------------------------
 # History & path completer initialised BEFORE ask() so the global
 # reference is always available when the function is called.
@@ -144,14 +155,8 @@ def draw_progress(percent, width=40, task="Processing"):
     sys.stdout.flush()
     time.sleep(0.01)
 
-
-def ask(prompt_text, default=None, help_text="", icon="ℹ", allow_back=True):
-    """Prompt the user for input with styled help box and default handling.
-
-    * ``placeholder`` keyword removed – not supported by all prompt_toolkit
-      versions.
-    * Uses the module-level ``history`` object (initialised above).
-    """
+def ask(prompt_text, default=None, help_text="", icon="ℹ", allow_back=True, category="default"):
+    """Prompt the user with category-specific history from global dictionary."""
     while True:
         print(
             f"\n{Color.YELLOW}┌── {Color.BOLD}INPUT FIELD{Color.END}"
@@ -171,7 +176,9 @@ def ask(prompt_text, default=None, help_text="", icon="ℹ", allow_back=True):
             )
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
-        val = pt_prompt(f"  {prompt_text}: ", history=history).strip()
+        # Retrieve the pre-initialized history object for this category
+        cat_history = history_files.get(category, history_files["default"])
+        val = pt_prompt(f"  {prompt_text}: ", history=cat_history).strip()
 
         if val.lower() == "back" and allow_back:
             raise GoBack()
@@ -182,7 +189,6 @@ def ask(prompt_text, default=None, help_text="", icon="ℹ", allow_back=True):
         print(
             f"  {Color.RED}⚠ ALERT: Value required for database integrity.{Color.END}"
         )
-
 
 def choose_option(title, text, options, default=None):
     """Radiolist dialog shortcut."""
@@ -309,7 +315,7 @@ try:
                 step = 2
 
             # ==========================================================
-            # STEP 2 – Source lamedb path
+            # STEP 2 – Source lamedb path (LIVE EDIT ENABLED)
             # ==========================================================
             elif step == 2:
                 print(
@@ -317,12 +323,12 @@ try:
                     f"{Color.END}{Color.YELLOW} " + "─" * 61 + "┐"
                 )
                 print(
-                    f"│ {Color.BLUE}📂 Path to existing lamedb for merging."
+                    f"│ {Color.BLUE}📂 Path to existing lamedb for live editing."
                     f"{' ' * 31}{Color.END}{Color.YELLOW}│"
                 )
                 print(
-                    f"│ {Color.BLUE}Press Enter to create a new empty ./lamedb file."
-                    f"{' ' * 19}{Color.END}{Color.YELLOW}│"
+                    f"│ {Color.BLUE}Press Enter to use the local ./lamedb workspace."
+                    f"{' ' * 24}{Color.END}{Color.YELLOW}│"
                 )
                 print(
                     f"│ {Color.BLUE}ℹ Type 'back' to return to cleanup settings."
@@ -331,9 +337,9 @@ try:
                 print(f"└" + "─" * 78 + "┘" + Color.END)
 
                 merge_input = pt_prompt(
-                    "  Source lamedb path: ",
+                    "  Target lamedb path: ",
                     completer=path_completer,
-                    history=history,
+                    history=history_files["paths"],
                 ).strip()
                 if merge_input.lower() == "back":
                     step = 1
@@ -350,6 +356,7 @@ try:
                     "T2MI DX",
                     "Name of the favourites group in your channel list.",
                     "🏷️",
+                    category="bouquet",
                 )
                 bouquet_file = (
                     f"userbouquet.{bouquet_name.lower().replace(' ', '_')}.tv"
@@ -439,7 +446,7 @@ try:
                         step = 7
                         continue
 
-                freq = int(ask("Target Frequency", "4014", freq_help, "📡"))
+                freq = int(ask("Target Frequency", "4014", freq_help, "📡", category="freq"))
                 step = 5
 
             # ==========================================================
@@ -605,7 +612,7 @@ try:
                     "n – keep the current value"
                 )
                 edit_pid = ask(
-                    "Modify T2‑MI PID?", "n", pid_gate_help, "🔢"
+                    "Modify T2‑MI PID?", "n", pid_gate_help, "∆¶×"
                 )
                 pid_input = (
                     ask(
@@ -613,7 +620,8 @@ try:
                         cur_pid,
                         "Packet Identifier for the T2‑MI stream "
                         "(e.g. 4096, 500, 1000).",
-                        "🔢",
+                        "∆¶×",
+                        category="pid",
                     )
                     if edit_pid.lower() == "y"
                     else cur_pid
@@ -663,6 +671,7 @@ try:
                         "800",
                         "Service ID (decimal) used by Enigma2.",
                         "🆔",
+                        category="sid",
                     )
                 )
                 provider = ask(
@@ -670,6 +679,7 @@ try:
                     "ORTM",
                     "Broadcaster name (e.g. ORTM, TNT).",
                     "🏢",
+                    category="provider",
                 )
                 path = ask(
                     "Relay Path",
@@ -852,7 +862,7 @@ try:
                         ch_choice = pt_prompt(
                             f"  Select file [#] or path for {orbital_folder} PLP {plp}: ",
                             completer=path_completer,
-                            history=history,
+                            history=history_files["paths"],
                         ).strip()
 
                         if ch_choice.lower() == "back":
@@ -961,55 +971,50 @@ try:
     for i in range(0, 101, 20):
         draw_progress(i, task="Consolidating lamedb")
 
-    # ---- lamedb ----
+    # ---- lamedb SURGICAL LIVE MERGE ----
+    for i in range(0, 101, 25):
+        draw_progress(i, task="Consolidating lamedb")
+
+    # 1. Read the destination file into memory as a list of strings
     if os.path.isfile(merge_path):
         with open(merge_path, "r", encoding="utf-8", errors="ignore") as fh:
-            lines = fh.readlines()
-        old_content = "".join(lines)
-
-        try:
-            tp_idx = next(
-                i for i, l in enumerate(lines)
-                if l.strip() == "transponders"
-            )
-            for k, v in new_tps.items():
-                if k in old_content:
-                    for idx, line in enumerate(lines):
-                        if line.startswith(k):
-                            lines[idx:idx + 3] = [v]
-                            break
-                else:
-                    lines.insert(tp_idx + 1, v)
-
-            srv_idx = next(
-                i for i, l in enumerate(lines)
-                if l.strip() == "services"
-            )
-            for k, v in new_srvs.items():
-                if k in old_content:
-                    for idx, line in enumerate(lines):
-                        if line.startswith(k):
-                            lines[idx:idx + 3] = [v]
-                            break
-                else:
-                    lines.insert(srv_idx + 1, v)
-        except Exception as exc:
-            print(f"{Color.RED}Error during lamedb merge: {exc}{Color.END}")
-            print(f"{Color.YELLOW}⚠ Aborting lamedb save to prevent corruption.{Color.END}")
-        else:
-            # Only write if no exceptions occurred
-            with open("lamedb", "w", encoding="utf-8") as fh:
-                fh.writelines(lines)
+            db_lines = [line.rstrip() for line in fh.readlines()]
     else:
-        with open("lamedb", "w", encoding="utf-8") as fh:
-            fh.write(
-                "eDVB services /4/\n"
-                "transponders\n"
-                + "".join(new_tps.values())
-                + "end\nservices\n"
-                + "".join(new_srvs.values())
-                + "end\n"
-            )
+        # Standard Enigma2 lamedb template if file is missing
+        db_lines = ["eDVB services /4/", "transponders", "end", "services", "end"]
+
+    # 2. Inject Transponders under the 'transponders' line
+    try:
+        tp_header_idx = db_lines.index("transponders")
+        for tp_key, tp_block in new_tps.items():
+            # Deduplicate: Remove old matching transponder block (3 lines)
+            for idx, line in enumerate(db_lines):
+                if line.startswith(tp_key):
+                    del db_lines[idx : idx + 3]
+                    break
+            # Insert the new block immediately under the header
+            db_lines.insert(tp_header_idx + 1, tp_block.strip())
+    except ValueError:
+        print(f"{Color.RED}✖ Error: 'transponders' section not found!{Color.END}")
+
+    # 3. Inject Services under the 'services' line
+    try:
+        # Re-find index because the list size changed after TP insertion
+        srv_header_idx = db_lines.index("services")
+        for srv_key, srv_block in new_srvs.items():
+            # Deduplicate: Remove old matching service block (3 lines)
+            for idx, line in enumerate(db_lines):
+                if line.startswith(srv_key):
+                    del db_lines[idx : idx + 3]
+                    break
+            # Insert the new service entry immediately under the header
+            db_lines.insert(srv_header_idx + 1, srv_block.strip())
+    except ValueError:
+        print(f"{Color.RED}✖ Error: 'services' section not found!{Color.END}")
+
+    # 4. Save the result back to the workspace
+    with open("lamedb", "w", encoding="utf-8", newline='\n') as fh:
+        fh.write("\n".join(db_lines) + "\n")
 
     # ---- Bouquet ----
     for i in range(0, 101, 50):
