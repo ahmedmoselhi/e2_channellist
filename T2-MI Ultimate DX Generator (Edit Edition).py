@@ -381,7 +381,7 @@ try:
                     "───────────────────────┴──────────────────────"
                 )
                 # --- v9.9 EDIT EDITION CSV IMPORT LOGIC ---
-                freq_dir = "frequency"
+                freq_dir = "frequencies"
                 csv_files = [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
 
                 if csv_files:

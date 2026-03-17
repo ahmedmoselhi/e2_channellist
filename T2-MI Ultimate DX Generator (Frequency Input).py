@@ -177,7 +177,7 @@ try:
 
             elif step == 4:
                 # --- v9.9 FREQUENCY CSV IMPORT LOGIC ---
-                freq_dir = "frequency"
+                freq_dir = "frequencies"
                 # Scans the /frequency/ folder for any CSV files
                 csv_files = [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
                 
