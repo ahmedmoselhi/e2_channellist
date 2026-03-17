@@ -1,0 +1,3 @@
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,MuxURL
+4160,1,16325,46.1,E,2,9,1,1,2,0,2,https://www.lyngsat.com/muxes/Azerspace-1_Africa-and-Europe_4160-V.html
+4180,1,16325,46.1,E,2,9,1,1,2,0,2,https://www.lyngsat.com/muxes/Azerspace-1_Africa-and-Europe_4180-V.html

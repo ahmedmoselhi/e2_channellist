@@ -1,5 +1,4 @@
 Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,MuxURL
-3586,2,8000,49.1,E,2,9,1,1,2,0,2,https://www.lyngsat.com/muxes/Yamal-601_C_3586-L.html
 3594,3,5120,49.1,E,2,9,1,1,2,0,2,https://www.lyngsat.com/muxes/Yamal-601_C_3594-R.html
 3622,3,5130,49.1,E,2,9,1,1,2,0,2,https://www.lyngsat.com/muxes/Yamal-601_C_3622-R.html
 3627,2,20580,49.1,E,2,9,1,1,1,0,2,https://www.lyngsat.com/muxes/Yamal-601_C_3627-L.html

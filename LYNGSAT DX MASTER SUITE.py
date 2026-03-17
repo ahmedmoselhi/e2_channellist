@@ -43,7 +43,7 @@ def setup_storage(sat_deg, sat_dir, is_cband):
     return f_dir, c_dir, pos_label
 
 # ==============================================================================
-# [ 🛰️ ENGINE B: RECURSIVE MUX PARSER ]
+# [ 🛰️ ENGINE B: RECURSIVE MUX PARSER - VERSION 12.8 ]
 # ==============================================================================
 def parse_mux_channels(url, save_path, freq_label):
     try:
@@ -51,350 +51,243 @@ def parse_mux_channels(url, save_path, freq_label):
         from bs4 import BeautifulSoup
         
         res = requests.get(url, impersonate="chrome", timeout=15)
-        if res.status_code != 200:
-            log_proc(f"Failed to fetch {url} with status code {res.status_code}", C_CRIMSON)
-            return 0
         soup = BeautifulSoup(res.content, 'html.parser')
         
-        # Find the channel list table by class
-        mux_table = soup.find('table', class_='mux-table')
-        if not mux_table:
-            log_proc("No 'mux-table' found on page", C_CRIMSON)
-            return 0
-        
-        rows = mux_table.find_all('tr')
-        if len(rows) <= 1:
-            log_proc("No data rows found in 'mux-table'", C_CRIMSON)
-            return 0
-
+        rows = soup.find_all('tr')
         ch_list = []
-        for row in rows[1:]:  # Skip header
+        current_stream_id = "0"
+        is_validated_t2mi = False 
+        
+        # Metadata Keywords to ignore (The "Junk" Filter)
+        junk_keywords = [
+            "ROLL-OFF", "FOOTPRINT", "C BAND", "KU BAND", "DVB-S", 
+            "CLEAR", "MPEG", "HEVC", "SD", "HD", "UHD", "4K", "WITHIN", "DBW"
+        ]
+
+        for row in rows:
             tds = row.find_all('td')
-            if len(tds) < 12:
-                continue  # Skip malformed rows
+            if len(tds) < 3: continue
+
+            row_text = row.get_text(" ", strip=True).upper()
             
-            sid_text = tds[0].get_text(strip=True)
-            channel_name = tds[2].get_text(strip=True)
-            # ---------------------------------------------------------
-            # NEW FILTER: Skip the "Channel Name" header row
-            # ---------------------------------------------------------
-            if channel_name.lower() == "channel name":
+            # The Discriminator: Must see "PLP" to be T2-MI
+            if "PLP" in row_text:
+                is_validated_t2mi = True
+
+            # Extract PLP ID (Not Stream ID)
+            plp_m = re.search(r'PLP\s*(\d+)', row_text, re.I)
+            if plp_m:
+                current_stream_id = plp_m.group(1)
+                continue 
+
+            # 2. Extract Channel Name & Link
+            name_td = tds[2]
+            channel_name = name_td.get_text(strip=True)
+            
+            # --- THE JUNK FILTER ---
+            if not channel_name or any(jk in channel_name.upper() for jk in junk_keywords):
                 continue
-            video_info = tds[4].get_text(strip=True)
-            link = tds[2].find('a', href=True)
-            ch_type = "RADIO" if link and "radiochannels" in link['href'] else "TV"
-            
-            # Extract SID, ensure it's a number
+
+            # 3. Extract & Validate SID
+            sid_text = tds[0].get_text(strip=True)
             sid_match = re.search(r'\d+', sid_text)
             sid = sid_match.group() if sid_match else "0"
             
-            # Append data
-            ch_data = [sid, channel_name, "1" if ch_type=="TV" else "2"]
+            # Filter out technical rows that often have SID 0 or very low placeholder SIDs
+            if sid == "0" or len(channel_name) < 2:
+                continue
+
+            # 4. Determine Type
+            link = name_td.find('a', href=True)
+            is_radio = link and "radiochannels" in link['href']
+            
+            ch_data = [sid, f"{channel_name} (S{current_stream_id})", "1" if not is_radio else "2"]
+            
             if ch_data not in ch_list:
                 ch_list.append(ch_data)
 
-        # Print the table
-        print(f"\n      {C_VIOLET}┌{'─'*10}┬{'─'*45}┬{'─'*10}┐{ENDC}")
-        print(f"      {C_VIOLET}│ {C_SKY}{'SID':<8} {C_VIOLET}│ {C_SKY}{'CHANNEL NAME':<43} {C_VIOLET}│ {C_SKY}{'TYPE':<8} {C_VIOLET}│{ENDC}")
-        print(f"      {C_VIOLET}├{'─'*10}┼{'─'*45}┼{'─'*10}┤{ENDC}")
-        for ch in ch_list:
-            print(f"      {C_VIOLET}│{ENDC} {C_GOLD}{ch[0]:<8} {C_VIOLET}│{ENDC} {C_BASE}{ch[1][:43]:<43} {C_VIOLET}│{ENDC} {C_LIME}{'TV' if ch[2]=='1' else 'RADIO':<8} {C_VIOLET}│{ENDC}")
-        print(f"      {C_VIOLET}└{'─'*10}┴{'─'*45}┴{'─'*10}┘{ENDC}")
-        print(f"  {C_LIME}└─► Services extracted: {BOLD}{len(ch_list)}{ENDC}")
+        # --- v12.8 ABORT GATE (The 12537 V Fix) ---
+        # Only proceed if we found a PLP/Stream marker OR it's a known Bosnian T2-MI provider
+        if not is_validated_t2mi:
+            # Special check: If no Stream ID found, but it claims to be Vidi TV, 
+            # we check if 'PLP' appears anywhere else in the body
+            if "VIDI TV" in soup.get_text().upper() and "PLP" in soup.get_text().upper():
+                pass # Allow it
+            else:
+                return 0 # Kill standard transponders like 12537 V
 
-        # Save to CSV
-        fname = os.path.join(save_path, f"{freq_label}.csv")
-        with open(fname, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerows(ch_list)
-
-        return len(ch_list)
+        # --- UI LOGIC (Preserved v5.0 Graphics) ---
+        if ch_list:
+            os.makedirs(os.path.dirname(save_path), exist_ok=True)
+            with open(save_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerows(ch_list)
+            
+            print(f"      {C_VIOLET}┌──────────┬─────────────────────────────────────────────┬──────────┐{ENDC}")
+            print(f"      {C_VIOLET}│ SID      │ CHANNEL NAME                                │ TYPE     │{ENDC}")
+            print(f"      {C_VIOLET}├──────────┼─────────────────────────────────────────────┼──────────┤{ENDC}")
+            
+            for c in ch_list: 
+                c_type = "TV" if c[2]=="1" else "Radio"
+                print(f"      {C_VIOLET}│{ENDC} {c[0]:<8} {C_VIOLET}│{ENDC} {c[1][:43]:<43} {C_VIOLET}│{ENDC} {c_type:<8} {C_VIOLET}│{ENDC}")
+            
+            print(f"      {C_VIOLET}└──────────┴─────────────────────────────────────────────┴──────────┘{ENDC}")
+            print(f"  {C_LIME}└─► Services extracted: {len(ch_list)}{ENDC}\n")
+            return len(ch_list)
+            
+        return 0
 
     except Exception as e:
-        log_proc(f"Error in parse_mux_channels: {e}", C_CRIMSON)
         return 0
 
 # ==============================================================================
-# [ 🛰️ ENGINE A: DEEP SATELLITE SCANNER ]
+# [ 🛰️ ENGINE A: DEEP SATELLITE SCANNER - VERSION 12.5 ]
 # ==============================================================================
 def deep_scan_satellite(url):
     global global_total_channels, global_total_tps
     try:
         from curl_cffi import requests
         from bs4 import BeautifulSoup
-        import re
-        import os
-        import csv
+        import re, os, csv
 
         log_proc(f"Establishing Uplink: {url}", C_GOLD)
         res = requests.get(url, impersonate="chrome", timeout=15)
         html_source = res.text
-
-        # Parse HTML with BeautifulSoup
         soup = BeautifulSoup(html_source, 'html.parser')
 
-        # ---------------------------------------------------------
-        # FIX 1: Broaden the early-exit keyword detection.
-        # Removed "PID" to prevent false positives from VPID/APID headers.
-        # Added "Multistream" and "PLS" which LyngSat frequently uses.
-        # ---------------------------------------------------------
-        t2mi_keywords = ["T2-MI", "T2MI", "PLP", "Multistream", "PLS"]
-        
-        tds = soup.find_all('td')
-        t2mi_in_tds = any(kw in td.get_text() for td in tds for kw in t2mi_keywords)
-        t2mi_in_source = any(kw in html_source for kw in t2mi_keywords)
-
-        # Proceed only if multistream or T2-MI related keywords are detected
-        if not (t2mi_in_tds or t2mi_in_source):
-            # No relevant keywords found; skip processing EFFICIENTLY
-            return
-
-        # Extract satellite position from the <title> or other marker
+        # Extract satellite position
         title = soup.title.string if soup.title else ""
         sat_m = re.search(r'(\d+\.?\d*)\s?°?\s?([EW])', title)
-        if not sat_m:
-            return
+        if not sat_m: return
 
         sat_deg, sat_dir = float(sat_m.group(1)), sat_m.group(2)
         sat_slug = url.split('/')[-1].replace(".html", "")
-        sat_name_digits = re.findall(r'\d+', sat_slug)
-
         rows = soup.find_all('tr')
 
-        # --- ENHANCED INTERACTIVE BAND DETERMINATION ---
-        # 1. Advanced Automated Suggestion Logic (Spectrum & Hardware Weighting)
-        auto_suggest_cband = False
-        cband_weight = 0
-        kuband_weight = 0
-
+        # --- AUTO BAND DETECTION ---
+        c_w, k_w = 0, 0
         for r in rows:
-            first_td = r.find('td')
-            if first_td:
-                td_text = first_td.get_text(strip=True).upper()
-                
-                # Strict Regex: Matches EXACTLY 4-5 digits followed by L, R, H, or V
-                # Anchored to the start (^) to completely eliminate PID, SID, or Date false positives
-                freq_match = re.search(r'^(\d{4,5})\s*([LRHV])', td_text)
-                
-                if freq_match:
-                    freq_val = int(freq_match.group(1))
-                    pol_val = freq_match.group(2)
-                    
-                    # Factor A: C-Band Spectrum (typically 3000 MHz - 4999 MHz)
-                    if 3000 <= freq_val <= 4999:
-                        cband_weight += 2  # Strong C-Band frequency indicator
-                        if pol_val in ['L', 'R']:
-                            cband_weight += 1  # Hardware confirms Circular Pol (MFV pass)
-                            
-                    # Factor B: Ku-Band Spectrum (typically > 10000 MHz)
-                    elif freq_val >= 10000:
-                        kuband_weight += 2  # Strong Ku-Band frequency indicator
-                        if pol_val in ['H', 'V']:
-                            kuband_weight += 1  # Hardware confirms Linear Pol
+            td1 = r.find('td')
+            if td1:
+                fm = re.search(r'^(\d{4,5})\s*([LRHV])', td1.get_text(strip=True).upper())
+                if fm:
+                    f_val = int(fm.group(1))
+                    if 3000 <= f_val <= 4999: c_w += 2
+                    elif f_val >= 10000: k_w += 2
 
-        # Evaluate the weights to formulate the smartest suggestion
-        if cband_weight > 0 and cband_weight >= kuband_weight:
-            auto_suggest_cband = True
-        elif cband_weight > 0 and kuband_weight > cband_weight:
-            # Hybrid Payload (e.g., mostly Ku but has some C-Band)
-            # We suggest C-BAND defensively so you are prompted to acknowledge the +0.1 offset
-            auto_suggest_cband = True
+        auto_suggest_cband = c_w >= k_w if (c_w + k_w) > 0 else False
 
-        # 2. Enhanced UI Dialogue Box
+        # UI DIALOGUE (Preserved v5.0 Graphics)
         print(f"\n{C_VIOLET}┌──[ BAND CONFIGURATION ]────────────────────────────────────────────────┐{ENDC}")
         print(f"{C_VIOLET}│{ENDC}  Target: {C_GOLD}{sat_slug:<55}{ENDC}{C_VIOLET}│{ENDC}")
         print(f"{C_VIOLET}│{ENDC}  Sat Degree: {C_SKY}{sat_deg}° {sat_dir:<46}{ENDC}{C_VIOLET}│{ENDC}")
         print(f"{C_VIOLET}│{ENDC}  Auto-Detection Suggestion: {C_LIME if auto_suggest_cband else C_BASE}{'C-BAND' if auto_suggest_cband else 'KU-BAND':<35}{ENDC}{C_VIOLET}│{ENDC}")
         print(f"{C_VIOLET}└────────────────────────────────────────────────────────────────────────┘{ENDC}")
         
-        # 3. User Decision Input (Strict 10-Second Non-Blocking Auto-Continue)
         prompt_text = f"{C_SKY}❓ Treat this satellite as C-BAND? (y/n) [Auto-resolving in 10s]: {ENDC}"
         print(prompt_text, end='', flush=True)
 
         user_choice = None
-        start_time = time.time()
-        timeout = 10
-
-        # High-performance non-blocking input loop
-        while (time.time() - start_time) < timeout:
+        st_t = time.time()
+        while (time.time() - st_t) < 10:
             if sys.platform == 'win32':
-                if msvcrt.kbhit():
-                    user_choice = sys.stdin.readline().strip().lower()
-                    break
+                if msvcrt.kbhit(): user_choice = sys.stdin.readline().strip().lower(); break
             else:
-                # Linux/macOS non-blocking check
-                ready, _, _ = select.select([sys.stdin], [], [], 0.1)
-                if ready:
-                    user_choice = sys.stdin.readline().strip().lower()
-                    break
-            time.sleep(0.1) # Prevents CPU spiking
+                rdy, _, _ = select.select([sys.stdin], [], [], 0.1)
+                if rdy: user_choice = sys.stdin.readline().strip().lower(); break
+            time.sleep(0.1)
 
-        # 4. Final Determination Logic
-        if user_choice is None:
-            # TRUE AUTO-CONTINUE: This triggers without needing any key press
-            print(f"\n  {C_GOLD}└─► ⏳ Timeout reached. System Proceeding with: {BOLD}{'C-BAND' if auto_suggest_cband else 'KU-BAND'}{ENDC}")
-            is_cband_sat = auto_suggest_cband
-        else:
-            if user_choice in ['y', 'yes']:
-                is_cband_sat = True
-                print(f"  {C_LIME}└─► User Override: C-BAND Selected.{ENDC}")
-            elif user_choice in ['n', 'no']:
-                is_cband_sat = False
-                print(f"  {C_SKY}└─► User Override: KU-BAND Selected.{ENDC}")
-            else:
-                is_cband_sat = auto_suggest_cband
-                print(f"  {C_BASE}└─► Using Auto-Detection: {'C-BAND' if auto_suggest_cband else 'KU-BAND'}{ENDC}")
+        is_cband_sat = (user_choice in ['y', 'yes']) if user_choice else auto_suggest_cband
+        print(f"\n  {C_GOLD}└─► Proceeding with: {BOLD}{'C-BAND' if is_cband_sat else 'KU-BAND'}{ENDC}")
 
-        # Setup directories and labels
         f_dir, c_dir, pos_label = setup_storage(sat_deg, sat_dir, is_cband_sat)
-
-        # Preserved UI Graphics
-        print(f"\n{C_GOLD}╔═{ '═'*84 }═╗")
-        print(f"║ {BOLD}{C_SKY}SATELLITE POSITION:{ENDC} {sat_deg}°{sat_dir:<10} {BOLD}{C_SKY}TARGET:{ENDC} {sat_slug:<44} ║")
-        print(f"╚═{ '═'*84 }═╝{ENDC}")
+        print(f"\n{C_GOLD}╔═{ '═'*84 }═╗\n║ {BOLD}{C_SKY}SATELLITE POSITION:{ENDC} {sat_deg}°{sat_dir:<10} {BOLD}{C_SKY}TARGET:{ENDC} {sat_slug:<44} ║\n╚═{ '═'*84 }═╝{ENDC}")
 
         transponders_data = []
         seen_tps = set()
 
-        # Loop through each row for T2-MI / Multistream detection
+        # --- PRECISION DISCOVERY ENGINE ---
         for row in rows:
-            row_text = row.get_text(" ", strip=True)
+            tds = row.find_all('td')
+            if len(tds) < 5: continue
             
-            # ---------------------------------------------------------
-            # FIX 2: Check for any Multistream/T2-MI keyword in the row
-            # instead of strictly requiring "T2-MI".
-            # ---------------------------------------------------------
-            if any(kw in row_text for kw in t2mi_keywords):
+            row_text = row.get_text(" ", strip=True).upper()
+            fm = re.search(r'(\d{4,5})\s*([LRHV])', row_text)
+            if not fm: continue
+            
+            f_v, p_r = fm.group(1), fm.group(2)
+            beam_link = row.find('a', href=re.compile(r'muxes/|/muxes/'))
+            if not beam_link: continue
+            
+            mux_url = f"https://www.lyngsat.com/muxes/{beam_link['href'].split('/')[-1]}"
+
+            # STAGE 3: Recursive T2-MI Validation & Extraction (v13.0 Fixed)
+            try:
+                mux_res = requests.get(mux_url, impersonate="chrome", timeout=10)
+                mux_soup = BeautifulSoup(mux_res.text, 'html.parser')
+                mux_text = mux_soup.get_text().upper()
                 
-                # Extract frequency and polarization info
-                fm = re.search(r'(\d{4,5})\s*([LRHV])', row_text)
-                if not fm:
+                # STRICT T2-MI CHECK: Must contain "PLP"
+                is_t2mi = "PLP" in mux_text
+                # Bosnian Exception (Vidi TV 11402V)
+                is_vidi = "VIDI TV" in mux_text and "PLP" in mux_text
+
+                if not (is_t2mi or is_vidi):
                     continue
-                f_v, p_r = fm.group(1), fm.group(2)
 
-                # Fetch mux content
-                # ---------------------------------------------------------
-                # DYNAMIC MUX URL ENGINE (Fixed for Express-AM7 / 40.0E)
-                # ---------------------------------------------------------
-                if sat_deg == 16.0:
-                    mux_url = f"https://www.lyngsat.com/muxes/Eutelsat-16A_Europe-B_{f_v}-{p_r}.html"
-                else:
-                    # Look for the actual link in the row to find the Footprint name (e.g., C-Fixed)
-                    beam_link = row.find('a', href=re.compile(r'/muxes/'))
-                    if beam_link:
-                        # Extracts the full filename from LyngSat's own link
-                        mux_filename = beam_link['href'].split('/')[-1]
-                        mux_url = f"https://www.lyngsat.com/muxes/{mux_filename}"
-                    else:
-                        # Fallback for unexpected formats
-                        mux_url = f"https://www.lyngsat.com/muxes/{sat_slug}_beam_{f_v}-{p_r}.html"
+                # --- EXTRACT PLP, PID & SYMBOL RATE ---
+                plp_m = re.search(r'PLP\s*(\d+)', mux_text)
+                pid_m = re.search(r'PID\s*(\d+)', mux_text)
+                sr_m  = re.search(r'SR-FEC:.*?(\d+)', mux_text)
+                
+                plp_id = plp_m.group(1) if plp_m else "0"
+                pid_id = pid_m.group(1) if pid_m else "4096"
+                sr     = sr_m.group(1)  if sr_m  else "0"
 
-                mux_content = ""
-                try:
-                    mux_res = requests.get(mux_url, impersonate="chrome", timeout=10)
-                    mux_content = mux_res.text
-                except:
-                    mux_content = ""
+                if int(sr) < 1000: 
+                    continue
 
-                # RELAXED T2-MI VERIFICATION: Strict for 16.0E, Flexible for others
-                is_verified_t2mi = False
-                if sat_deg == 16.0:
-                    if "PLP" in mux_content and "PID" in mux_content:
-                        is_verified_t2mi = True
-                else:
-                    # For Express-AM7 and others, if we found it via the T2-MI keyword, it's valid
-                    if any(kw in mux_content for kw in ["PLP", "T2-MI", "T2MI", "Stream"]):
-                        is_verified_t2mi = True
-                    elif any(kw in row_text for kw in ["T2-MI", "T2MI", "Multistream"]):
-                        is_verified_t2mi = True
+                tp_id = f"{f_v}{p_r}{sr}"
+                if tp_id not in seen_tps:
+                    seen_tps.add(tp_id)
+                    mod = "8PSK" if "8PSK" in mux_text else "QPSK"
+                    hw_pos = round(float(sat_deg) + 0.1, 1) if is_cband_sat else float(sat_deg)
+                    p_map = {"H":"0","V":"1","L":"2","R":"3"}
 
-                if is_verified_t2mi:
-                    sr = "0"
-                    sr_m = re.search(r'SR\s*(\d+)', row_text)
-                    if sr_m:
-                        sr = sr_m.group(1)
-                    else:
-                        # Improved SR hunt: look for numbers between 1000 and 45000 
-                        # that aren't the frequency or the year.
-                        potential_srs = re.findall(r'\b(\d{4,5})\b', row_text)
-                        for s in potential_srs:
-                            if s == f_v or s in ["2024", "2025", "2026"]: continue
-                            if 1000 <= int(s) <= 45000:
-                                sr = s
-                                break
+                    transponders_data.append({
+                        "f_v": f_v, "p_r": p_r, "sr": sr, "mod": mod, "mux_url": mux_url,
+                        "file_label": f"{f_v}{p_r}{sr}PLP{plp_id}PID{pid_id}",
+                        "csv_row": [f_v, p_map.get(p_r,"0"), sr, f"{hw_pos:.1f}", sat_dir, "2", "9", "1", "1", "2" if mod=="8PSK" else "1", "0", "2", mux_url]
+                    })
+            except Exception:
+                continue
 
-                    # Filter out invalid SRs
-                    if sr == "0" or int(sr) < 1000:
-                        continue
-
-                    # Extract PLP and PID from the deep-scan mux content
-                    plp_id = "0"
-                    pid_id = "0"
-                    plp_m = re.search(r'PLP\s*(\d+)', mux_content)
-                    pid_m = re.search(r'PID\s*(\d+)', mux_content)
-                    if plp_m: plp_id = plp_m.group(1)
-                    if pid_m: pid_id = pid_m.group(1)
-                    
-                    # Construct the new naming convention
-                    file_label = f"{f_v}{p_r}{sr}PLP{plp_id}PID{pid_id}"
-
-                    tp_id = f"{f_v}{p_r}{sr}"
-                    if tp_id not in seen_tps:
-                        seen_tps.add(tp_id)
-                        mod = "8PSK" if "8PSK" in row_text else "QPSK"
-
-                        # Explicitly index C-Band satellites by +0.1 for tracking
-                        if is_cband_sat:
-                            hw_pos = round(float(sat_deg) + 0.1, 1)
-                        else:
-                            hw_pos = float(sat_deg)
-                        p_map = {"H":"0","V":"1","L":"2","R":"3"}
-
-                        transponders_data.append({
-                            "f_v": f_v,
-                            "p_r": p_r,
-                            "sr": sr,
-                            "mod": mod,
-                            "mux_url": mux_url,
-                            "file_label": file_label,  # <--- ENSURE THIS IS ADDED
-                            "csv_row": [f_v, p_map.get(p_r,"0"), sr, f"{hw_pos:.1f}", sat_dir, "2", "9", "1", "1", "2" if mod=="8PSK" else "1", "0", "2", mux_url]
-                        })
-
-        # Update total TPS
-        global_total_tps += len(transponders_data)
-
-        # Preserved UI Graphics - Frequency Table Summary
+        # --- SUMMARY & DRILL DOWN (Preserved Graphics) ---
         print(f"\n{C_TEAL}┌{'─'*10}┬{'─'*8}┬{'─'*10}┬{'─'*10}┬{'─'*42}┐{ENDC}")
         print(f"{C_TEAL}│ {C_SKY}{'FREQ':<8} │ {C_SKY}{'POL':<6} │ {C_SKY}{'SR':<8} │ {C_SKY}{'MOD':<8} │ {C_SKY}{'MUX URL / BEAM REFERENCE':<40} │{ENDC}")
         print(f"{C_TEAL}├{'─'*10}┼{'─'*8}┼{'─'*10}┼{'─'*10}┼{'─'*42}┤{ENDC}")
 
+        csv_rows = []
         for tp in transponders_data:
-            slug_disp = tp['mux_url'].split('/')[-1][:40]
-            print(f"{C_TEAL}│{ENDC} {C_LIME}{tp['f_v']:<8} {C_TEAL}│{ENDC} {C_BASE}{tp['p_r']:<6} {C_TEAL}│{ENDC} {C_GOLD}{tp['sr']:<8} {C_TEAL}│{ENDC} {C_VIOLET}{tp['mod']:<8} {C_TEAL}│{ENDC} {C_BASE}{slug_disp:<40} {C_TEAL}│{ENDC}")
+            print(f"{C_TEAL}│{ENDC} {C_LIME}{tp['f_v']:<8} {C_TEAL}│{ENDC} {C_BASE}{tp['p_r']:<6} {C_TEAL}│{ENDC} {C_GOLD}{tp['sr']:<8} {C_TEAL}│{ENDC} {C_VIOLET}{tp['mod']:<8} {C_TEAL}│{ENDC} {C_BASE}{tp['mux_url'].split('/')[-1][:40]:<40} {C_TEAL}│{ENDC}")
+            csv_rows.append(tp['csv_row'])
 
         print(f"{C_TEAL}└{'─'*10}┴{'─'*8}┴{'─'*10}┴{'─'*10}┴{'─'*42}┘{ENDC}")
         print(f"  {C_LIME}└─► Total Verified T2-MI Frequencies Discovered: {BOLD}{len(transponders_data)}{ENDC}")
 
-        # Loop through each transponder to fetch and parse services
-        sat_services_total = 0
-        csv_data = []
+        global_total_tps += len(transponders_data)
 
         for tp in transponders_data:
-            print(f"\n{C_TEAL}▶ {C_SKY}Drill-Down: Fetching services for {ENDC}{BOLD}{C_LIME}{tp['f_v']} {tp['p_r']}{ENDC} {C_SKY}(SR: {tp['sr']}){ENDC}")
-            tp_channels = parse_mux_channels(tp['mux_url'], c_dir, tp['file_label'])
-            sat_services_total += tp_channels
-            global_total_channels += tp_channels
-            csv_data.append(tp['csv_row'])
+            print(f"\n{C_TEAL}▶ {C_SKY}Drill-Down: Fetching services for {ENDC}{BOLD}{C_LIME}{tp['f_v']} {tp['p_r']}{ENDC}")
+            target_csv = os.path.join(c_dir, f"{tp['file_label']}.csv")
+            global_total_channels += parse_mux_channels(tp['mux_url'], target_csv, tp['file_label'])
 
-        # Save CSV
-        out_file = os.path.join(f_dir, f"f{pos_label}.csv")
-        with open(out_file, 'w', newline='', encoding='utf-8') as f:
+        with open(os.path.join(f_dir, f"f{pos_label}.csv"), 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(["Freq", "Pol", "SR", "Pos", "Dir", "Inv", "FEC", "Sys", "Mod", "RO", "Pilot", "MuxURL"])
-            writer.writerows(csv_data)
+            writer.writerows(csv_rows)
 
-    except Exception as e:
-        log_proc(f"Error: {e}", C_CRIMSON)
+    except Exception as e: log_proc(f"Error: {e}", C_CRIMSON)
 
 # ==============================================================================
 # [ 🚀 MAIN INTERFACE ]
