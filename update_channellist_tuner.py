@@ -10,15 +10,15 @@ SETTINGS_FILE = '/etc/enigma2/settings'
 BACKUP_FILE = '/etc/enigma2/settings.bak'
 ENIGMA2_PATH = '/etc/enigma2/'
 TUXBOX_PATH = '/etc/tuxbox/'
+ASTRA_CONF_PATH = '/etc/astra/'
 CHANNELS_URL = 'https://github.com/ahmedmoselhi/e2_channellist/archive/refs/heads/master.zip'
 TUNER_URL = 'https://github.com/ahmedmoselhi/e2_channellist/raw/refs/heads/tuner/tuner_backup.txt'
+ASTRA_URL = 'https://raw.githubusercontent.com/ahmedmoselhi/e2_channellist/refs/heads/astra/astra.conf'
 
 def stop_enigma2():
     """
     [HELPER] Stops the Enigma2 GUI process (init 4).
     This is critical because Enigma2 keeps settings in RAM. 
-    If you edit the file while it's running, Enigma2 will 
-    overwrite your changes with the old data from its memory.
     """
     print("\n[!] CRITICAL: Stopping Enigma2 (init 4)...")
     os.system('init 4')
@@ -27,19 +27,40 @@ def stop_enigma2():
 def start_enigma2():
     """
     [HELPER] Restarts the Enigma2 GUI (init 3).
-    Once the files are written and saved, this command 
-    tells the system to reload and apply the new settings.
     """
     print("\n[*] SUCCESS: Restarting Enigma2 (init 3)...")
     os.system('init 3')
 
+def download_astra_conf():
+    """
+    [TASK] Update Astra Configuration.
+    - Ensures /etc/astra/ exists.
+    - Downloads astra.conf from the dedicated GitHub branch.
+    - Places it directly in the system folder.
+    """
+    print("\n" + "╔" + "═"*48 + "╗")
+    print("║          ASTRA CONFIGURATION UPDATE            ║")
+    print("╚" + "═"*48 + "╝")
+    
+    try:
+        if not os.path.exists(ASTRA_CONF_PATH):
+            print("-> Creating directory {0}...".format(ASTRA_CONF_PATH))
+            os.makedirs(ASTRA_CONF_PATH)
+            
+        target_file = os.path.join(ASTRA_CONF_PATH, 'astra.conf')
+        print("-> Downloading astra.conf from GitHub...")
+        urllib.request.urlretrieve(ASTRA_URL, target_file)
+        
+        # Ensure correct permissions (644)
+        os.chmod(target_file, 0o644)
+        
+        print("\n[✔] ASTRA CONFIGURATION UPDATED SUCCESSFULLY")
+    except Exception as e:
+        print("\n[✘] ERROR: Astra update failed -> {0}".format(str(e)))
+
 def download_and_extract_channels():
     """
     [TASK] Update Channel List & Satellites.
-    - Downloads the latest master ZIP from GitHub.
-    - Merges new bouquets/lamedb into /etc/enigma2/.
-    - Syncs satellites.xml to /etc/tuxbox/ so the tuner 
-      recognizes the satellite frequencies automatically.
     """
     tmp_zip = '/tmp/channels.zip'
     extract_to = '/tmp/channels_extracted'
@@ -83,10 +104,6 @@ def download_and_extract_channels():
 def update_tuner_settings():
     """
     [TASK] Advanced Tuner Configuration.
-    - Purges all existing 'config.Nims' entries to avoid conflicts.
-    - Maps the backup data to your chosen Tuner (A or B).
-    - Adapts syntax for OpenATV (default) or OpenPLi (stripped).
-    - Ensures the inactive tuner is disabled via the 'nothing' flag.
     """
     if not os.path.exists(SETTINGS_FILE): return
 
@@ -113,7 +130,6 @@ def update_tuner_settings():
         with urllib.request.urlopen(req) as response:
             raw_content = response.read().decode('utf-8').splitlines()
 
-        # Build Sanitized Active Block
         active_block = [
             "config.Nims.{0}.configMode=advanced".format(choice),
             "config.Nims.{0}.dvbs.configMode=advanced".format(choice)
@@ -126,26 +142,20 @@ def update_tuner_settings():
                     parts = line.split('.')
                     parts[2] = choice 
                     entry = ".".join(parts)
-                    
-                    # Apply OpenPLi logic if selected 
                     if fmt_choice == '2':
                         entry = entry.replace('.dvbs.', '.').replace('.dvbs=', '=')
-                    
                     active_block.append(entry)
 
-        # Inactive flag MUST be at the end
         inactive_block = ["config.Nims.{0}.dvbs.configMode=nothing".format(other_tuner)]
 
-        # Read and Purge
         with open(SETTINGS_FILE, 'r') as f:
             all_lines = [l.strip() for l in f.readlines()]
         clean_base = [l for l in all_lines if not l.startswith('config.Nims.')]
 
-        # Final Sequential Write
         with open(SETTINGS_FILE, 'w') as f:
-            for line in clean_base: f.write(line + '\n')     # 1. System/Plugin settings
-            for line in active_block: f.write(line + '\n')    # 2. New Tuner mapping
-            for line in inactive_block: f.write(line + '\n')  # 3. Disable other tuner
+            for line in clean_base: f.write(line + '\n')
+            for line in active_block: f.write(line + '\n')
+            for line in inactive_block: f.write(line + '\n')
 
         print("\n[✔] TUNER {0} RECONFIGURED SUCCESSFULLY".format("A" if choice == "0" else "B"))
     except Exception as e:
@@ -159,29 +169,36 @@ def main():
     print("  |   __|___ _| |___ _ _ ___ ___ ___  |_  | ")
     print("  |   __|   | . | . | | |  _| .'|_ -|  _| |_")
     print("  |_____|_|_|___|_  |___|_| |__,|___| |_____|")
-    print("                |___|  ULTIMATE UTILITY v6.1 ")
+    print("                |___|  ULTIMATE UTILITY v6.2 ")
     print("★"*50)
     
     print("\n[1] FULL CHANNEL UPDATE")
     print("    • Description: Downloads latest satellite & bouquet ZIP.")
-    print("    • Best for: Fixing missing channels or outdated names.")
     
     print("\n[2] ADVANCED TUNER SETUP")
     print("    • Description: Injects LNB/Diseqc settings for your motor.")
-    print("    • Best for: Fixing 'Tuner Not Configured' or 'Nothing' errors.")
     
-    print("\n[3] TOTAL SYSTEM REFRESH")
-    print("    • Description: Performs Option 1 and then Option 2.")
+    print("\n[3] ASTRA CONFIGURATION")
+    print("    • Description: Downloads astra.conf to /etc/astra/.")
     
-    print("\n[4] EXIT")
+    print("\n[4] TOTAL SYSTEM REFRESH")
+    print("    • Description: Performs Option 1, 2, and 3.")
+    
+    print("\n[5] EXIT")
     print("═"*50)
     
     menu_choice = input("\n[?] Choose an action: ").strip()
-    if menu_choice == '1': download_and_extract_channels()
-    elif menu_choice == '2': update_tuner_settings()
+    if menu_choice == '1': 
+        download_and_extract_channels()
+    elif menu_choice == '2': 
+        update_tuner_settings()
     elif menu_choice == '3':
+        download_astra_conf()
+    elif menu_choice == '4':
         download_and_extract_channels()
         update_tuner_settings()
-    else: sys.exit()
+        download_astra_conf()
+    else: 
+        sys.exit()
 
 if __name__ == "__main__": main()
