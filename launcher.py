@@ -86,8 +86,8 @@ def main():
     
     scripts = {
         "1": "LYNGSAT DX MASTER SUITE.py",
-        "2": "T2-MI Ultimate DX Generator.py",
-        "3": "T2-MI Ultimate DX Generator (Multistream).py",
+        "2": "T2-MI Ultimate DX Generator (Standard Edition).py",
+        "3": "T2-MI Ultimate DX Generator (Multistream Edition).py",
         "4": "T2-MI Ultimate DX Generator (Edit Edition).py"
     }
 

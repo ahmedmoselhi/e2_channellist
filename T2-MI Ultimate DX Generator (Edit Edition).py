@@ -112,6 +112,41 @@ def parse_astra_configs():
                 configs[var_name] = {"plp": plp, "pid": pid}
     return configs
 
+def file_browser(start_path="."):
+    """A visual file manager that defaults to ./lamedb if cancelled."""
+    current_dir = os.path.abspath(start_path)
+    while True:
+        try:
+            items = sorted(os.listdir(current_dir))
+            # REMOVED Color codes from the labels below:
+            options = [("..", "[ .. Parent Directory ]")]
+            
+            for item in items:
+                path = os.path.join(current_dir, item)
+                if os.path.isdir(path):
+                    options.append((path, f"📁 {item}/"))
+                elif item == "lamedb" or item.endswith(".bak"):
+                    options.append((path, f"📄 {item}"))
+
+            selection = radiolist_dialog(
+                title="FILE MANAGER: SELECT LAMEDB",
+                text=f"Current Directory: {current_dir}\n\nSelect a 'lamedb' file. If you Cancel, './lamedb' will be used.",
+                values=options
+            ).run()
+
+            if selection is None: 
+                print(f"  {Color.YELLOW}ℹ Selection cancelled. Reverting to default: ./lamedb{Color.END}")
+                return "./lamedb" 
+            
+            if selection == "..":
+                current_dir = os.path.dirname(current_dir)
+            elif os.path.isdir(selection):
+                current_dir = selection
+            else:
+                return selection
+        except Exception as e:
+            print(f"  {Color.RED}⚠ Error accessing directory: {e}. Using default.{Color.END}")
+            return "./lamedb"
 
 def get_current_params(freq, pol, existing_astra):
     """Return stored PLP/PID for a given frequency+polarisation, or None."""
@@ -315,36 +350,18 @@ try:
                 step = 2
 
             # ==========================================================
-            # STEP 2 – Source lamedb path (LIVE EDIT ENABLED)
+            # STEP 2 – Source lamedb path (FILE MANAGER WITH FALLBACK)
             # ==========================================================
             elif step == 2:
-                print(
-                    f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE"
-                    f"{Color.END}{Color.YELLOW} " + "─" * 61 + "┐"
-                )
-                print(
-                    f"│ {Color.BLUE}📂 Path to existing lamedb for live editing."
-                    f"{' ' * 31}{Color.END}{Color.YELLOW}│"
-                )
-                print(
-                    f"│ {Color.BLUE}Press Enter to use the local ./lamedb workspace."
-                    f"{' ' * 24}{Color.END}{Color.YELLOW}│"
-                )
-                print(
-                    f"│ {Color.BLUE}ℹ Type 'back' to return to cleanup settings."
-                    f"{' ' * 24}{Color.END}{Color.YELLOW}│"
-                )
+                print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " + "─" * 61 + "┐")
+                print(f"│ {Color.BLUE}📂 Opening File Manager...{' ' * 47}{Color.END}{Color.YELLOW}│")
+                print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{' ' * 23}{Color.END}{Color.YELLOW}│")
                 print(f"└" + "─" * 78 + "┘" + Color.END)
-
-                merge_input = pt_prompt(
-                    "  Target lamedb path: ",
-                    completer=path_completer,
-                    history=history_files["paths"],
-                ).strip()
-                if merge_input.lower() == "back":
-                    step = 1
-                    continue
-                merge_path = merge_input or "./lamedb"
+                
+                # The function now handles the None/Cancel case internally
+                merge_path = file_browser(".")
+                
+                print(f"  {Color.GREEN}✅ Target Active: {Color.BOLD}{merge_path}{Color.END}")
                 step = 3
 
             # ==========================================================
@@ -968,6 +985,18 @@ try:
     )
     print(f"╚" + "═" * 78 + "╝" + Color.END)
 
+    # ---- DATABASE BACKUP PROTOCOL ----
+    if os.path.isfile(merge_path):
+        try:
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            backup_name = f"{merge_path}_{timestamp}.bak"
+            shutil.copy2(merge_path, backup_name)
+            print(f"\n  {Color.GREEN}💾 BACKUP CREATED: {backup_name}{Color.END}")
+        except Exception as e:
+            print(f"\n  {Color.RED}⚠ BACKUP FAILED: {str(e)}{Color.END}")
+    else:
+        print(f"\n  {Color.CYAN}ℹ INFO: No existing database found to backup.{Color.END}")
+
     for i in range(0, 101, 20):
         draw_progress(i, task="Consolidating lamedb")
 
@@ -1012,9 +1041,31 @@ try:
     except ValueError:
         print(f"{Color.RED}✖ Error: 'services' section not found!{Color.END}")
 
-    # 4. Save the result back to the workspace
+    # 4. Save the result to the local workspace first (Safety Copy)
     with open("lamedb", "w", encoding="utf-8", newline='\n') as fh:
         fh.write("\n".join(db_lines) + "\n")
+
+    # 5. LIVE SWAP PROTOCOL
+    # This logic only triggers if you selected an external lamedb in the File Manager
+    swap_applied = False
+    if os.path.abspath(merge_path) != os.path.abspath("./lamedb"):
+        print(f"\n{Color.YELLOW}┌── {Color.BOLD}LIVE DATABASE SWAP{Color.END}{Color.YELLOW} " + "─" * 57 + "┐")
+        print(f"│ {Color.CYAN}Apply these edits to the source file now?{' ' * 36}{Color.END}{Color.YELLOW}│")
+        
+        # Safely display the backup name if it exists
+        b_disp = os.path.basename(backup_name) if 'backup_name' in locals() else "N/A"
+        print(f"│ {Color.BLUE}ℹ Verified Backup: {b_disp.ljust(53)}{Color.END}{Color.YELLOW} │")
+        print(f"└" + "─" * 78 + "┘" + Color.END)
+        
+        swap_choice = ask("Update source lamedb?", "n", "y = Overwrite original file | n = Keep edits in ./lamedb only", "🔄")
+        
+        if swap_choice.lower() == "y":
+            try:
+                shutil.copy2("lamedb", merge_path)
+                swap_applied = True
+                print(f"  {Color.GREEN}✨ SUCCESS: {merge_path} updated.{Color.END}")
+            except Exception as e:
+                print(f"  {Color.RED}✖ SWAP FAILED: {str(e)}{Color.END}")
 
     # ---- Bouquet ----
     for i in range(0, 101, 50):
@@ -1091,12 +1142,22 @@ try:
     print(
         f"\n{Color.GREEN}✅ ALL FILES SYNCHRONIZED SUCCESSFULLY.{Color.END}"
     )
-    print(f"{Color.CYAN}📂 DATABASE: ./lamedb")
-    print(f"📂 BOUQUET : ./{bouquet_file}")
-    print(f"📂 ASTRA   : ./{astra_path}{Color.END}")
+    print(f"{Color.CYAN}📂 LOCAL WORKSPACE : ./lamedb")
+    
+    if 'backup_name' in locals():
+        print(f"📂 SOURCE BACKUP  : {backup_name}")
+    
+    if swap_applied:
+        print(f"📂 LIVE DATABASE  : {merge_path} {Color.BOLD}(UPDATED){Color.END}")
+    else:
+        print(f"📂 SOURCE TARGET  : {merge_path} {Color.BOLD}(UNTOUCHED){Color.END}")
+        
+    print(f"📂 BOUQUET        : ./{bouquet_file}")
+    print(f"📂 ASTRA          : ./{astra_path}{Color.END}")
+    
     print(
         f"\n{Color.GREEN}{Color.BOLD}"
-        f"✨ v9.7 ENCYCLOPEDIA ARCHITECT LOCKED!{Color.END}"
+        f"✨ v10.1 ENCYCLOPEDIA ARCHITECT LOCKED!{Color.END}"
     )
 
 except KeyboardInterrupt:

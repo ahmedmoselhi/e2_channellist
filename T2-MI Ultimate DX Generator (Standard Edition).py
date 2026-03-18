@@ -58,11 +58,53 @@ def ensure_dependencies():
 
 # Initialize the toolkit
 pt_prompt, FileHistory, radiolist_dialog, PathCompleter = ensure_dependencies()
-history = FileHistory(".dx_history")
+
+# --- CATEGORY-SPECIFIC HISTORY ---
+history_files = {
+    "default": FileHistory(".dx_history_default"),
+    "paths": FileHistory(".dx_history_paths"),
+    "bouquet": FileHistory(".dx_history_bouquet"),
+    "freq": FileHistory(".dx_history_freq"),
+    "pid": FileHistory(".dx_history_pid"),
+    "sid": FileHistory(".dx_history_sid"),
+    "provider": FileHistory(".dx_history_provider")
+}
 
 # ----------------------------------------------------------------------
 # UI Helper Functions
 # ----------------------------------------------------------------------
+def file_browser(start_path="."):
+    """Visual file manager for target selection."""
+    current_dir = os.path.abspath(start_path)
+    while True:
+        try:
+            items = sorted(os.listdir(current_dir))
+            options = [("..", "[ .. Parent Directory ]")]
+            for item in items:
+                path = os.path.join(current_dir, item)
+                if os.path.isdir(path):
+                    options.append((path, f"📁 {item}/"))
+                elif item == "lamedb" or item.endswith(".bak"):
+                    options.append((path, f"📄 {item}"))
+
+            selection = radiolist_dialog(
+                title="FILE MANAGER: SELECT TARGET",
+                text=f"Current Directory: {current_dir}\n\nSelect a file. Cancel to use './lamedb'.",
+                values=options
+            ).run()
+
+            if selection is None: 
+                print(f"  {Color.YELLOW}ℹ Cancelled. Using default: ./lamedb{Color.END}")
+                return "./lamedb" 
+            if selection == "..":
+                current_dir = os.path.dirname(current_dir)
+            elif os.path.isdir(selection):
+                current_dir = selection
+            else: return selection
+        except Exception as e:
+            print(f"  {Color.RED}⚠ Error: {e}. Using default.{Color.END}")
+            return "./lamedb"
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -91,27 +133,22 @@ def draw_progress(percent, width=40, task="Processing"):
     sys.stdout.flush()
     time.sleep(0.01)
 
-def ask(prompt, default=None, help_text="", icon="ℹ", allow_back=True):
+def ask(prompt, default=None, help_text="", icon="ℹ", allow_back=True, category="default"):
     while True:
         print(f"\n{Color.YELLOW}┌── {Color.BOLD}INPUT FIELD{Color.END}{Color.YELLOW} " + "─"*65 + "┐")
-        full_help = help_text
-        if allow_back:
-            full_help += "\n[ Type 'back' to return to the previous question ]"
-        
-        status_line = f"[ DEFAULT CHOICE: {default} ]" if default is not None else "[ REQUIRED FIELD: Manual entry necessary ]"
-        full_help += f"\n{status_line}"
-
+        full_help = help_text + ("\n[ Type 'back' to return to the previous question ]" if allow_back else "")
+        full_help += f"\n[ DEFAULT CHOICE: {default} ]" if default is not None else "\n[ REQUIRED FIELD ]"
         for line in full_help.strip().split('\n'):
             print(f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─"*78 + "┘" + Color.END)
         
-        val = pt_prompt(f"  {prompt}: ", history=history).strip()
+        cat_history = history_files.get(category, history_files["default"])
+        val = pt_prompt(f"  {prompt}: ", history=cat_history).strip()
 
-        if val.lower() == "back" and allow_back:
-            raise GoBack()
+        if val.lower() == "back" and allow_back: raise GoBack()
         if val == "" and default is not None: return default
         if val != "": return val
-        print(f"  {Color.RED}⚠ ALERT: Value required for database integrity.{Color.END}")
+        print(f"  {Color.RED}⚠ ALERT: Value required.{Color.END}")
 
 def choose_option(title, text, options, default=None):
     result = radiolist_dialog(title=title, text=text, values=options, default=default).run()
@@ -145,12 +182,11 @@ try:
 
             elif step == 2:
                 print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " + "─" * 61 + "┐")
-                print(f"│ {Color.BLUE}📂 Path to your existing lamedb for merging.                             {Color.END}{Color.YELLOW} │")
-                print(f"│ {Color.BLUE}Press enter to create new empty ./lamedb file.                           {Color.END}{Color.YELLOW} │")
-                print(f"│ {Color.BLUE}ℹ  Type 'back' to return to cleanup settings.                             {Color.END}{Color.YELLOW} │")
+                print(f"│ {Color.BLUE}📂 Opening File Manager...{' ' * 47}{Color.END}{Color.YELLOW}│")
+                print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{' ' * 23}{Color.END}{Color.YELLOW}│")
                 print(f"└" + "─" * 78 + "┘" + Color.END)
-                merge_path = pt_prompt("  Source lamedb path: ", completer=path_completer, history=history).strip() or "./lamedb"
-                if merge_path.lower() == "back": step = 1; continue
+                merge_path = file_browser(".")
+                print(f"  {Color.GREEN}✅ Target Active: {Color.BOLD}{merge_path}{Color.END}")
                 step = 3
 
             elif step == 3:
@@ -295,37 +331,86 @@ try:
             print_header()
             print(f"\n{Color.RED}↩ REVERTING TO PREVIOUS STEP...{Color.END}")
 
-    # --- Database Merger ---
-    for i in range(0, 101, 20): draw_progress(i, task="Merging Database")
-    
-    if os.path.exists(merge_path):
-        with open(merge_path, 'r', encoding='utf-8', errors='ignore') as f:
-            lines = f.readlines()
-        
-        # Safe merge by finding section markers
-        content_str = "".join(lines)
-        def insert_data(marker, data_dict):
-            try:
-                idx = next(i for i, l in enumerate(lines) if l.strip() == marker)
-                for k, v in data_dict.items():
-                    if k not in content_str: lines.insert(idx + 1, v)
-            except StopIteration: pass
+    # ==================================================================
+    # FINAL COMPILATION: SURGICAL MERGE & BACKUP
+    # ==================================================================
+    for i in range(0, 101, 20): draw_progress(i, task="Syncing Database")
 
-        insert_data("transponders", new_tps)
-        insert_data("services", new_srvs)
-        
-        with open("lamedb", "w", encoding='utf-8') as f: f.writelines(lines)
+    # 1. Backup Protocol
+    if os.path.isfile(merge_path):
+        try:
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            backup_name = f"{merge_path}_{timestamp}.bak"
+            shutil.copy2(merge_path, backup_name)
+            print(f"\n  {Color.GREEN}💾 BACKUP CREATED: {backup_name}{Color.END}")
+        except Exception as e:
+            print(f"\n  {Color.RED}⚠ BACKUP FAILED: {str(e)}{Color.END}")
+
+    # 2. Load DB Lines
+    if os.path.isfile(merge_path):
+        with open(merge_path, "r", encoding="utf-8", errors="ignore") as f:
+            db_lines = [line.rstrip() for line in f.readlines()]
     else:
-        with open("lamedb", "w", encoding='utf-8') as f:
-            f.write("eDVB services /4/\ntransponders\n" + "".join(new_tps.values()) + "end\nservices\n" + "".join(new_srvs.values()) + "end\n")
+        db_lines = ["eDVB services /4/", "transponders", "end", "services", "end"]
 
-    # Finalize files
+    # 3. Surgical Transponder Merge
+    try:
+        tp_idx = db_lines.index("transponders")
+        for key, block in new_tps.items():
+            for idx, line in enumerate(db_lines):
+                if line.startswith(key):
+                    del db_lines[idx:idx+3]
+                    break
+            db_lines.insert(tp_idx + 1, block.strip())
+    except ValueError: pass
+
+    # 4. Surgical Services Merge
+    try:
+        srv_idx = db_lines.index("services")
+        for key, block in new_srvs.items():
+            for idx, line in enumerate(db_lines):
+                if line.startswith(key):
+                    del db_lines[idx:idx+3]
+                    break
+            db_lines.insert(srv_idx + 1, block.strip())
+    except ValueError: pass
+
+    # 5. Local Save
+    with open("lamedb", "w", encoding="utf-8", newline='\n') as f:
+        f.write("\n".join(db_lines) + "\n")
+
+    # 6. Live Swap Protocol
+    swap_applied = False
+    if os.path.abspath(merge_path) != os.path.abspath("./lamedb"):
+        print(f"\n{Color.YELLOW}┌── {Color.BOLD}LIVE DATABASE SWAP{Color.END}{Color.YELLOW} " + "─" * 57 + "┐")
+        print(f"│ {Color.CYAN}Apply these edits to the source file now?{' ' * 36}{Color.END}{Color.YELLOW}│")
+        b_disp = os.path.basename(backup_name) if 'backup_name' in locals() else "N/A"
+        print(f"│ {Color.BLUE}ℹ Verified Backup: {b_disp.ljust(53)}{Color.END}{Color.YELLOW} │")
+        print(f"└" + "─" * 78 + "┘" + Color.END)
+        
+        swap_choice = ask("Update source lamedb?", "n", "y = Overwrite original file | n = Keep edits locally", "🔄")
+        if swap_choice.lower() == "y":
+            try:
+                shutil.copy2("lamedb", merge_path)
+                swap_applied = True
+                print(f"  {Color.GREEN}✨ SUCCESS: {merge_path} updated.{Color.END}")
+            except Exception as e:
+                print(f"  {Color.RED}✖ SWAP FAILED: {str(e)}{Color.END}")
+
+    # 7. Bouquet & Astra Save
     with open(bouquet_file, "w") as f: f.write(f"#NAME {bouquet_name}\n" + "\n".join(bouquet) + "\n")
     if not os.path.exists("astra"): os.makedirs("astra")
-    with open("astra/astra.conf", "w") as f: f.write("\n".join(astra_blocks))
+    with open("astra/astra.conf", "w") as f: f.write("-- [ ARCHITECT GENERATED CONFIG ] --\n" + "\n".join(astra_blocks))
 
-    draw_progress(100, task="Complete")
-    print(f"\n\n{Color.GREEN}{Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT LOCKED!{Color.END}")
+    # 8. Completion UI
+    draw_progress(100, task="Architecture Locked")
+    print(f"\n\n{Color.GREEN}{Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT SUCCESSFUL!{Color.END}")
+    print(f"{Color.CYAN}📂 LOCAL WORKSPACE : ./lamedb")
+    if 'backup_name' in locals(): print(f"📂 SOURCE BACKUP   : {backup_name}")
+    if swap_applied: print(f"📂 LIVE DATABASE   : {merge_path} {Color.BOLD}(UPDATED){Color.END}")
+    else: print(f"📂 SOURCE TARGET   : {merge_path} {Color.BOLD}(UNTOUCHED){Color.END}")
+    print(f"📂 BOUQUET         : ./{bouquet_file}")
+    print(f"📂 ASTRA           : ./astra/astra.conf{Color.END}\n")
 
 except KeyboardInterrupt:
     exit_gracefully()
