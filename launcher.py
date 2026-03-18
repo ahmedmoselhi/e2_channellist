@@ -5,6 +5,8 @@ import subprocess
 import time
 
 # [ 🎨 PRESERVED GRAPHICS ENGINE v5.0 ]
+
+
 class Color:
     BLUE = '\033[94m'
     CYAN = '\033[96m'
@@ -14,63 +16,91 @@ class Color:
     BOLD = '\033[1m'
     END = '\033[0m'
 
+
 def toggle_maximized():
     """Attempts to maximize the terminal window on Linux/X11/Wayland."""
-    # Method 1: Using wmctrl to toggle the 'maximized_vert' and 'maximized_horz' states
+    # Method 1: Using wmctrl to toggle the 'maximized_vert' and
+    # 'maximized_horz' states
     try:
         # We target the :ACTIVE: window (the current terminal)
-        subprocess.run(["wmctrl", "-r", ":ACTIVE:", "-b", "add,maximized_vert,maximized_horz"], capture_output=True)
+        subprocess.run(["wmctrl",
+                        "-r",
+                        ":ACTIVE:",
+                        "-b",
+                        "add,maximized_vert,maximized_horz"],
+                       capture_output=True)
     except FileNotFoundError:
         # If wmctrl is not installed, we fallback to a standard terminal resize sequence
         # This attempts to resize the terminal to a very large row/column count
         sys.stdout.write("\033[8;50;150t")
         sys.stdout.flush()
 
+
 def print_header():
     os.system('clear')
-    print(f"{Color.BLUE}{Color.BOLD}" + "="*80)
+    print(f"{Color.BLUE}{Color.BOLD}" + "=" * 80)
     print(r"""
-  _______ ___       __  __ ___   _   _ _   _ _   _ __  __  _   _____ _____ 
+  _______ ___       __  __ ___   _   _ _   _ _   _ __  __  _   _____ _____
  |__   __|__ \     |  \/  |_ _| | | | | | | | | | |  \/  |/ \ |_   _| ____|
-    | |     ) |____| |\/| || |  | | | | | | | | | | |\/| / _ \  | | |  _|  
-    | |    / /|____| |  | || |  | |_| | |_| | |_| | |  |/ ___ \ | | | |___ 
+    | |     ) |____| |\/| || |  | | | | | | | | | | |\/| / _ \  | | |  _|
+    | |    / /|____| |  | || |  | |_| | |_| | |_| | |  |/ ___ \ | | | |___
     |_|   |___|    |_|  |_|___|  \___/ \___/ \___/|_|  /_/   \_\|_| |_____|
-                                                                           
+
               [ MASTER COMMAND & CONTROL CENTER ]
     """)
-    print("="*80 + f"{Color.END}")
+    print("=" * 80 + f"{Color.END}")
+
 
 def get_choice():
     options = [
-        ("1", "LYNGSAT DX MASTER SUITE", "Full satellite web-scraping and frequency extraction."),
-        ("2", "T2-MI DX GENERATOR (Standard)", "Standard decap engine for T2-MI stream generation."),
-        ("3", "T2-MI DX GENERATOR (Multistream)", "Advanced mode for MIS/PLS multistream transponders."),
-        ("4", "T2-MI DX GENERATOR (Edit)", "Modify/Append existing Astra and LameDB entries."),
-        ("Q", "QUIT", "Exit the suite.")
-    ]
+        ("1",
+         "LYNGSAT DX MASTER SUITE",
+         "Full satellite web-scraping and frequency extraction."),
+        ("2",
+         "T2-MI DX GENERATOR (Standard)",
+         "Standard decap engine for T2-MI stream generation."),
+        ("3",
+         "T2-MI DX GENERATOR (Multistream)",
+         "Advanced mode for MIS/PLS multistream transponders."),
+        ("4",
+         "T2-MI DX GENERATOR (Edit)",
+         "Modify/Append existing Astra and LameDB entries."),
+        ("Q",
+         "QUIT",
+         "Exit the suite.")]
 
     print(f"\n{Color.YELLOW}AVAILABLE DX MODULES:{Color.END}")
     for key, title, desc in options:
-        print(f"  {Color.CYAN}[{key}]{Color.END} {Color.BOLD}{title.ljust(35)}{Color.END} - {desc}")
-    
+        print(f"  {Color.CYAN}[{key}]{Color.END} {Color.BOLD}{
+              title.ljust(35)}{Color.END} - {desc}")
+
     return input(f"\n{Color.YELLOW}Selection > {Color.END}").upper()
+
 
 def run_script(script_name):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     full_path = os.path.join(script_dir, script_name)
-    
+
     if os.path.exists(full_path):
         try:
             subprocess.run([sys.executable, full_path], cwd=script_dir)
-            
+
             # Post-execution Choice (Preserved Helper Text)
-            print(f"\n{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
-            print(f"│ {Color.BOLD}TASK COMPLETED.{Color.END} Would you like to return to the Main Menu?                │")
-            print(f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
-            
-            final_choice = input(f"{Color.YELLOW}Enter 'M' for Main Menu or 'Q' to Quit: {Color.END}").upper()
-            return final_choice 
-            
+            print(
+                f"\n{
+                    Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
+            print(
+                f"│ {
+                    Color.BOLD}TASK COMPLETED.{
+                    Color.END} Would you like to return to the Main Menu?                │")
+            print(
+                f"└──────────────────────────────────────────────────────────────────────────┘{
+                    Color.END}")
+
+            final_choice = input(f"{Color.YELLOW}Enter 'M' for Main Menu or 'Q' to Quit: {
+                                 Color.END}").upper()
+            return final_choice
+
         except Exception as e:
             print(f"{Color.RED}Execution Error: {e}{Color.END}")
             input("Press Enter to continue...")
@@ -80,10 +110,11 @@ def run_script(script_name):
         input("Press Enter to continue...")
         return 'M'
 
+
 def main():
     # Trigger maximized window state instead of fullscreen
     toggle_maximized()
-    
+
     scripts = {
         "1": "LYNGSAT DX MASTER SUITE.py",
         "2": "T2-MI Ultimate DX Generator (Standard Edition).py",
@@ -93,13 +124,19 @@ def main():
 
     while True:
         print_header()
-        # Restore helper text block 
-        print(f"{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
-        print(f"│ {Color.BOLD}INSTRUCTIONS:{Color.END} Select a module to launch. Each module opens in this window. │")
-        print(f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
-        
+        # Restore helper text block
+        print(
+            f"{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
+        print(
+            f"│ {
+                Color.BOLD}INSTRUCTIONS:{
+                Color.END} Select a module to launch. Each module opens in this window. │")
+        print(
+            f"└──────────────────────────────────────────────────────────────────────────┘{
+                Color.END}")
+
         choice = get_choice()
-        
+
         if choice == 'Q':
             break
         elif choice in scripts:
@@ -111,6 +148,7 @@ def main():
             time.sleep(1)
 
     print(f"\n{Color.GREEN}Exiting DX Master Suite. Goodbye!{Color.END}")
+
 
 if __name__ == "__main__":
     main()

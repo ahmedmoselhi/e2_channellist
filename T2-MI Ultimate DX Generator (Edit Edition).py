@@ -9,9 +9,12 @@ from typing import Dict, List, Optional, Tuple, Any
 # ----------------------------------------------------------------------
 # Exceptions & Constants
 # ----------------------------------------------------------------------
+
+
 class GoBack(Exception):
     """Raised when the user wants to return to the previous step."""
     pass
+
 
 class Color:
     BLUE = '\033[94m'
@@ -22,11 +25,14 @@ class Color:
     BOLD = '\033[1m'
     END = '\033[0m'
 
+
 POL_MAP = {"H": 0, "V": 1, "L": 2, "R": 3}
 
 # ----------------------------------------------------------------------
 # UI Manager: Handles all user interaction and display
 # ----------------------------------------------------------------------
+
+
 class UIManager:
     def __init__(self):
         self.pt_prompt = None
@@ -71,11 +77,16 @@ class UIManager:
         import subprocess
 
         # Check for pyenv shim
-        if "pyenv" not in sys.executable and os.path.exists(os.path.expanduser("~/.pyenv")):
-            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
+        if "pyenv" not in sys.executable and os.path.exists(
+                os.path.expanduser("~/.pyenv")):
+            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{
+                  Color.END}")
             os.execvp("python", ["python"] + sys.argv)
 
-        print(f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
+        print(
+            f"\n{
+                Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{
+                Color.END}")
         print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
 
         commands = [
@@ -86,12 +97,14 @@ class UIManager:
 
         for cmd in commands:
             try:
-                if "--break-system-packages" not in cmd and sys.version_info >= (3, 11):
+                if "--break-system-packages" not in cmd and sys.version_info >= (
+                        3, 11):
                     cmd.append("--break-system-packages")
-                subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                subprocess.check_call(
+                    cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 print(f"{Color.GREEN}✅ Success!{Color.END}\n")
                 return
-            except:
+            except BaseException:
                 continue
 
         print(f"{Color.RED}❌ Failed to install prompt_toolkit.{Color.END}")
@@ -126,36 +139,60 @@ class UIManager:
         print("=" * 80 + f"{Color.END}")
 
     def exit_gracefully(self):
-        print(f"\n\n{Color.RED}⚠ Process interrupted by user (Ctrl+C).{Color.END}")
+        print(
+            f"\n\n{Color.RED}⚠ Process interrupted by user (Ctrl+C).{Color.END}")
         print(f"{Color.YELLOW}Exiting The Encyclopedia Architect...{Color.END}")
         sys.exit(0)
 
     def draw_progress(self, percent, width=40, task="Processing"):
         filled = int(width * percent / 100)
         bar = "█" * filled + "░" * (width - filled)
-        sys.stdout.write(
-            f"\r  {Color.CYAN}{task.ljust(20)}: {Color.BOLD}[{bar}]{Color.END} {percent}%"
-        )
+        sys.stdout.write(f"\r  {Color.CYAN}{task.ljust(20)}: {
+            Color.BOLD}[{bar}]{Color.END} {percent}%")
         sys.stdout.flush()
         time.sleep(0.01)
 
-    def ask(self, prompt_text, default=None, help_text="", icon="ℹ", allow_back=True, category="default"):
+    def ask(
+            self,
+            prompt_text,
+            default=None,
+            help_text="",
+            icon="ℹ",
+            allow_back=True,
+            category="default"):
         while True:
-            print(f"\n{Color.YELLOW}┌── {Color.BOLD}INPUT FIELD{Color.END}{Color.YELLOW} " + "─" * 65 + "┐")
+            print(
+                f"\n{
+                    Color.YELLOW}┌── {
+                    Color.BOLD}INPUT FIELD{
+                    Color.END}{
+                    Color.YELLOW} " +
+                "─" *
+                65 +
+                "┐")
             full_help = help_text
             if allow_back:
                 full_help += "\n[ Type 'back' to return to the previous question ]"
             if default is not None:
-                full_help += f"\n[ DEFAULT CHOICE: {default} ] (Press Enter to use default)"
+                full_help += f"\n[ DEFAULT CHOICE: {
+                    default} ] (Press Enter to use default)"
             else:
                 full_help += "\n[ REQUIRED FIELD: Manual entry necessary ]"
 
             for line in full_help.strip().split("\n"):
-                print(f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
+                print(
+                    f"│ {
+                        Color.BLUE}{icon} {
+                        line.ljust(74)}{
+                        Color.END}{
+                        Color.YELLOW} │")
             print(f"└" + "─" * 78 + "┘" + Color.END)
 
-            cat_history = self.history_files.get(category, self.history_files["default"])
-            val = self.pt_prompt(f"  {prompt_text}: ", history=cat_history).strip()
+            cat_history = self.history_files.get(
+                category, self.history_files["default"])
+            val = self.pt_prompt(
+                f"  {prompt_text}: ",
+                history=cat_history).strip()
 
             if val.lower() == "back" and allow_back:
                 raise GoBack()
@@ -163,7 +200,10 @@ class UIManager:
                 return default
             if val != "":
                 return val
-            print(f"  {Color.RED}⚠ ALERT: Value required for database integrity.{Color.END}")
+            print(
+                f"  {
+                    Color.RED}⚠ ALERT: Value required for database integrity.{
+                    Color.END}")
 
     def choose_option(self, title, text, options, default=None):
         return self.radiolist_dialog(
@@ -194,7 +234,8 @@ class UIManager:
                 ).run()
 
                 if selection is None:
-                    print(f"  {Color.YELLOW}ℹ Selection cancelled. Reverting to default: ./lamedb{Color.END}")
+                    print(f"  {
+                          Color.YELLOW}ℹ Selection cancelled. Reverting to default: ./lamedb{Color.END}")
                     return "./lamedb"
 
                 if selection == "..":
@@ -204,15 +245,19 @@ class UIManager:
                 else:
                     return selection
             except Exception as e:
-                print(f"  {Color.RED}⚠ Error accessing directory: {e}. Using default.{Color.END}")
+                print(
+                    f"  {
+                        Color.RED}⚠ Error accessing directory: {e}. Using default.{
+                        Color.END}")
                 return "./lamedb"
 
     def path_prompt(self, text, history_key="paths"):
         return self.pt_prompt(
             text,
             completer=self.path_completer,
-            history=self.history_files.get(history_key, self.history_files["paths"])
-        ).strip()
+            history=self.history_files.get(
+                history_key,
+                self.history_files["paths"])).strip()
 
 
 # ----------------------------------------------------------------------
@@ -232,7 +277,8 @@ class ConfigManager:
                     r'(\w+)\s*=\s*make_t2mi_decap\({\s*.*?'
                     r'plp\s*=\s*(\d+),.*?pid\s*=\s*(\d+),'
                 )
-                for var_name, plp, pid in re.findall(pattern, content, re.DOTALL):
+                for var_name, plp, pid in re.findall(
+                        pattern, content, re.DOTALL):
                     configs[var_name] = {"plp": plp, "pid": pid}
         return configs
 
@@ -244,11 +290,15 @@ class ConfigManager:
         return None
 
     def wipe_workspace(self):
-        print(f"\n{Color.RED}⚠ WARNING: EXECUTING FULL WORKSPACE WIPE...{Color.END}")
+        print(
+            f"\n{
+                Color.RED}⚠ WARNING: EXECUTING FULL WORKSPACE WIPE...{
+                Color.END}")
         for i in range(0, 101, 10):
             self.ui.draw_progress(i, task="Purging Data")
         for filename in os.listdir('.'):
-            if (filename.startswith('userbouquet.') and filename.endswith('.tv')) or filename == 'lamedb':
+            if (filename.startswith('userbouquet.')
+                    and filename.endswith('.tv')) or filename == 'lamedb':
                 try:
                     os.remove(filename)
                 except OSError:
@@ -258,7 +308,8 @@ class ConfigManager:
         print(f"\n  {Color.GREEN}✨ Workspace cleaned successfully.{Color.END}")
 
     def load_frequency_csvs(self, freq_dir="frequencies"):
-        return [f for f in os.listdir(freq_dir) if f.endswith('.csv')] if os.path.exists(freq_dir) else []
+        return [f for f in os.listdir(freq_dir) if f.endswith(
+            '.csv')] if os.path.exists(freq_dir) else []
 
     def read_csv(self, filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -270,12 +321,18 @@ class ConfigManager:
                 timestamp = time.strftime("%Y%m%d_%H%M%S")
                 backup_name = f"{path}_{timestamp}.bak"
                 shutil.copy2(path, backup_name)
-                print(f"\n  {Color.GREEN}💾 BACKUP CREATED: {backup_name}{Color.END}")
+                print(
+                    f"\n  {
+                        Color.GREEN}💾 BACKUP CREATED: {backup_name}{
+                        Color.END}")
                 return backup_name
             except Exception as e:
                 print(f"\n  {Color.RED}⚠ BACKUP FAILED: {str(e)}{Color.END}")
         else:
-            print(f"\n  {Color.CYAN}ℹ INFO: No existing database found to backup.{Color.END}")
+            print(
+                f"\n  {
+                    Color.CYAN}ℹ INFO: No existing database found to backup.{
+                    Color.END}")
         return None
 
     def compile_lamedb(self, merge_path, new_tps, new_srvs):
@@ -286,7 +343,12 @@ class ConfigManager:
             with open(merge_path, "r", encoding="utf-8", errors="ignore") as fh:
                 db_lines = [line.rstrip() for line in fh.readlines()]
         else:
-            db_lines = ["eDVB services /4/", "transponders", "end", "services", "end"]
+            db_lines = [
+                "eDVB services /4/",
+                "transponders",
+                "end",
+                "services",
+                "end"]
 
         # Inject Transponders
         try:
@@ -294,7 +356,7 @@ class ConfigManager:
             for tp_key, tp_block in new_tps.items():
                 for idx, line in enumerate(db_lines):
                     if line.startswith(tp_key):
-                        del db_lines[idx : idx + 3]
+                        del db_lines[idx: idx + 3]
                         break
                 db_lines.insert(tp_header_idx + 1, tp_block.strip())
         except ValueError:
@@ -306,7 +368,7 @@ class ConfigManager:
             for srv_key, srv_block in new_srvs.items():
                 for idx, line in enumerate(db_lines):
                     if line.startswith(srv_key):
-                        del db_lines[idx : idx + 3]
+                        del db_lines[idx: idx + 3]
                         break
                 db_lines.insert(srv_header_idx + 1, srv_block.strip())
         except ValueError:
@@ -320,7 +382,10 @@ class ConfigManager:
         if os.path.abspath(merge_path) != os.path.abspath("./lamedb"):
             try:
                 shutil.copy2("lamedb", merge_path)
-                print(f"  {Color.GREEN}✨ SUCCESS: {merge_path} updated.{Color.END}")
+                print(
+                    f"  {
+                        Color.GREEN}✨ SUCCESS: {merge_path} updated.{
+                        Color.END}")
                 return True
             except Exception as e:
                 print(f"  {Color.RED}✖ SWAP FAILED: {str(e)}{Color.END}")
@@ -399,6 +464,8 @@ class ConfigManager:
 # ----------------------------------------------------------------------
 # Satellite Architect: Main Application Logic
 # ----------------------------------------------------------------------
+
+
 class SatelliteArchitect:
     def __init__(self):
         self.ui = UIManager()
@@ -450,15 +517,24 @@ class SatelliteArchitect:
 
             while True:
                 try:
-                    if self.step == 1: self.step_init()
-                    elif self.step == 2: self.step_source()
-                    elif self.step == 3: self.step_bouquet()
-                    elif self.step == 4: self.step_frequency()
-                    elif self.step == 5: self.step_polarization()
-                    elif self.step == 6: self.step_physical_layer()
-                    elif self.step == 7: self.step_transport_layer()
-                    elif self.step == 9: self.step_service_metadata()
-                    elif self.step == 10: self.step_build()
+                    if self.step == 1:
+                        self.step_init()
+                    elif self.step == 2:
+                        self.step_source()
+                    elif self.step == 3:
+                        self.step_bouquet()
+                    elif self.step == 4:
+                        self.step_frequency()
+                    elif self.step == 5:
+                        self.step_polarization()
+                    elif self.step == 6:
+                        self.step_physical_layer()
+                    elif self.step == 7:
+                        self.step_transport_layer()
+                    elif self.step == 9:
+                        self.step_service_metadata()
+                    elif self.step == 10:
+                        self.step_build()
                 except GoBack:
                     self.step = max(1, self.step - 1)
         except KeyboardInterrupt:
@@ -466,7 +542,12 @@ class SatelliteArchitect:
 
     def step_init(self):
         print(f"\n{Color.CYAN}╔" + "═" * 78 + "╗")
-        print(f"║ {Color.BOLD}ARCHITECT SESSION INITIALIZATION{Color.END}{Color.CYAN}".center(88) + "║")
+        print(
+            f"║ {
+                Color.BOLD}ARCHITECT SESSION INITIALIZATION{
+                Color.END}{
+                Color.CYAN}".center(88) +
+            "║")
         print(f"╚" + "═" * 78 + "╝" + Color.END)
 
         self.mode = self.ui.choose_option(
@@ -478,46 +559,80 @@ class SatelliteArchitect:
             ],
             default="modify"
         )
-        if self.mode is None: sys.exit(0)
+        if self.mode is None:
+            sys.exit(0)
 
         if self.mode == "fresh":
             self.config.wipe_workspace()
         else:
-            for i in range(0, 101, 20): self.ui.draw_progress(i, task="Parsing Files")
-            print(f"\n  {Color.GREEN}📂 Existing database loaded into memory.{Color.END}")
+            for i in range(0, 101, 20):
+                self.ui.draw_progress(i, task="Parsing Files")
+            print(
+                f"\n  {
+                    Color.GREEN}📂 Existing database loaded into memory.{
+                    Color.END}")
 
         self.existing_astra = self.config.parse_astra_configs() if self.mode == "modify" else {}
         self.step = 2
 
     def step_source(self):
-        print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " + "─" * 61 + "┐")
-        print(f"│ {Color.BLUE}📂 Opening File Manager...{' ' * 47}{Color.END}{Color.YELLOW}│")
-        print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{' ' * 23}{Color.END}{Color.YELLOW}│")
+        print(
+            f"\n{
+                Color.YELLOW}┌── {
+                Color.BOLD}DATABASE SOURCE{
+                Color.END}{
+                    Color.YELLOW} " +
+            "─" *
+            61 +
+            "┐")
+        print(f"│ {Color.BLUE}📂 Opening File Manager...{
+              ' ' * 47}{Color.END}{Color.YELLOW}│")
+        print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{
+              ' ' * 23}{Color.END}{Color.YELLOW}│")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
         self.merge_path = self.ui.file_browser(".")
-        print(f"  {Color.GREEN}✅ Target Active: {Color.BOLD}{self.merge_path}{Color.END}")
+        print(
+            f"  {
+                Color.GREEN}✅ Target Active: {
+                Color.BOLD}{
+                self.merge_path}{
+                    Color.END}")
         self.step = 3
 
     def step_bouquet(self):
         self.bouquet_name = self.ui.ask(
-            "Bouquet name", "T2MI DX",
-            "Name of the favourites group in your channel list.", "🏷️", category="bouquet"
-        )
-        self.bouquet_file = f"userbouquet.{self.bouquet_name.lower().replace(' ', '_')}.tv"
+            "Bouquet name",
+            "T2MI DX",
+            "Name of the favourites group in your channel list.",
+            "🏷️",
+            category="bouquet")
+        self.bouquet_file = f"userbouquet.{
+            self.bouquet_name.lower().replace(' ', '_')}.tv"
         self.step = 4
 
     def step_frequency(self):
         print(f"\n{Color.CYAN}╔" + "═" * 78 + "╗")
-        print(f"║ {Color.BOLD}THE ARCHITECT: SELECTIVE PARAMETER SYNCHRONIZATION{Color.END}{Color.CYAN}".center(88) + "║")
-        print(f"║ {Color.BLUE}v10.0 'Elite Edit' Protocol Active".center(86) + f"{Color.CYAN} ║")
+        print(
+            f"║ {
+                Color.BOLD}THE ARCHITECT: SELECTIVE PARAMETER SYNCHRONIZATION{
+                Color.END}{
+                Color.CYAN}".center(88) +
+            "║")
+        print(f"║ {Color.BLUE}v10.0 'Elite Edit' Protocol Active".center(
+            86) + f"{Color.CYAN} ║")
         print(f"╚" + "═" * 78 + "╝" + Color.END)
 
         csv_files = self.config.load_frequency_csvs()
         if csv_files:
             print(f"\n{Color.CYAN}📂 Frequency Database Browser{Color.END}")
-            options = [("manual", "Manual Entry")] + [(f, f) for f in csv_files]
-            choice = self.ui.choose_option("Import Source", "Select a CSV file or proceed Manually:", options, "manual")
+            options = [("manual", "Manual Entry")] + [(f, f)
+                                                      for f in csv_files]
+            choice = self.ui.choose_option(
+                "Import Source",
+                "Select a CSV file or proceed Manually:",
+                options,
+                "manual")
 
             if choice != "manual" and choice is not None:
                 self._load_from_csv(choice)
@@ -528,24 +643,58 @@ class SatelliteArchitect:
                      "───────────────────────┬──────────────────────\n Range                │ 2000–13000 MHz\n"
                      " Standard (C‑Band)   │ 3400–4200 MHz\n Standard (Ku‑Band)  │ 10700–12700 MHz\n"
                      "───────────────────────┴──────────────────────")
-        self.freq = int(self.ui.ask("Target Frequency", "4014", freq_help, "📡", category="freq"))
+        self.freq = int(
+            self.ui.ask(
+                "Target Frequency",
+                "4014",
+                freq_help,
+                "📡",
+                category="freq"))
         self.step = 5
 
     def _load_from_csv(self, filename):
         reader = self.config.read_csv(os.path.join("frequencies", filename))
 
-        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SELECT TRANSPONDER FROM CSV{Color.END}{Color.YELLOW} " + "─"*45 + "┐")
+        print(
+            f"\n{
+                Color.YELLOW}┌── {
+                Color.BOLD}SELECT TRANSPONDER FROM CSV{
+                Color.END}{
+                    Color.YELLOW} " +
+            "─" *
+            45 +
+            "┐")
         for idx, r in enumerate(reader):
-            label = f"{r['Freq']} {r['Pol']} ({r['Pos']}{r['Dir']}) SR:{r['SR']}"
-            print(f"│ {Color.CYAN} [{idx}] {label.ljust(72)}{Color.END}{Color.YELLOW} │")
+            label = f"{
+                r['Freq']} {
+                r['Pol']} ({
+                r['Pos']}{
+                r['Dir']}) SR:{
+                    r['SR']}"
+            print(
+                f"│ {
+                    Color.CYAN} [{idx}] {
+                    label.ljust(72)}{
+                    Color.END}{
+                    Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
-        tp_idx_str = self.ui.ask("Select TP Index [#]", "0", "Choose a transponder to load parameters.", "📡")
+        tp_idx_str = self.ui.ask(
+            "Select TP Index [#]",
+            "0",
+            "Choose a transponder to load parameters.",
+            "📡")
         selected_row = reader[int(tp_idx_str)]
 
         self.freq = int(selected_row['Freq'])
         raw_pol = selected_row['Pol'].upper()
-        self.pol = {"2": "L", "3": "R", "0": "H", "1": "V"}.get(raw_pol, raw_pol)
+        self.pol = {
+            "2": "L",
+            "3": "R",
+            "0": "H",
+            "1": "V"}.get(
+            raw_pol,
+            raw_pol)
         self.sr = int(selected_row['SR'])
         self.sat_pos = float(selected_row['Pos'])
         self.sat_dir = selected_row['Dir'].upper()
@@ -558,8 +707,16 @@ class SatelliteArchitect:
         self.pid_input = selected_row.get('PID', '4096')
         self.plps_input = selected_row.get('PLP', '0')
 
-        self.current_cfg = self.config.get_current_params(self.freq, self.pol, self.existing_astra)
-        print(f"\n{Color.GREEN}✅ Tuning Data Loaded: {self.freq} {self.pol} {self.sat_pos}{self.sat_dir}{Color.END}")
+        self.current_cfg = self.config.get_current_params(
+            self.freq, self.pol, self.existing_astra)
+        print(
+            f"\n{
+                Color.GREEN}✅ Tuning Data Loaded: {
+                self.freq} {
+                self.pol} {
+                    self.sat_pos}{
+                        self.sat_dir}{
+                            Color.END}")
         print(f"{Color.YELLOW}🛰️ Jumping to T2-MI PID Configuration...{Color.END}")
 
     def step_polarization(self):
@@ -567,22 +724,35 @@ class SatelliteArchitect:
                     "┌──────┬──────────────────────┬─────────┐\n│ CODE │ DESCRIPTION          │ VOLTAGE │\n"
                     "├──────┼──────────────────────┼─────────┤\n│ H/V  │ Linear (Standard)    │ 18V/13V │\n"
                     "│ L/R  │ Circular (Special)   │ LH/RH   │\n└──────┴──────────────────────┴─────────┘")
-        self.pol = self.ui.choose_option("Polarization", pol_text, [("H", "Horizontal (18V)"), ("V", "Vertical (13V)"), ("L", "Left Circular"), ("R", "Right Circular")], default="L")
+        self.pol = self.ui.choose_option("Polarization", pol_text, [("H", "Horizontal (18V)"), (
+            "V", "Vertical (13V)"), ("L", "Left Circular"), ("R", "Right Circular")], default="L")
         if self.pol is None:
             self.step = 4
             return
 
-        self.current_cfg = self.config.get_current_params(self.freq, self.pol, self.existing_astra)
+        self.current_cfg = self.config.get_current_params(
+            self.freq, self.pol, self.existing_astra)
         if self.current_cfg:
             print(f"\n{Color.GREEN}┏" + "━" * 76 + "┓")
-            print(f"┃ {Color.BOLD}RECOGNIZED SIGNATURE FOUND IN ASTRA.CONF{Color.END}{Color.GREEN} ".ljust(85) + "┃")
+            print(
+                f"┃ {
+                    Color.BOLD}RECOGNIZED SIGNATURE FOUND IN ASTRA.CONF{
+                    Color.END}{
+                    Color.GREEN} ".ljust(85) +
+                "┃")
             print(f"┠" + "─" * 76 + "┨")
-            print(f"┃ {Color.CYAN}💠 FREQUENCY : {self.freq} MHz".ljust(85) + f"{Color.GREEN}┃")
-            print(f"┃ {Color.CYAN}💠 T2‑MI PID : {self.current_cfg['pid']}".ljust(85) + f"{Color.GREEN}┃")
-            print(f"┃ {Color.CYAN}💠 PLP ID    : {self.current_cfg['plp']}".ljust(85) + f"{Color.GREEN}┃")
+            print(f"┃ {Color.CYAN}💠 FREQUENCY : {
+                  self.freq} MHz".ljust(85) + f"{Color.GREEN}┃")
+            print(f"┃ {Color.CYAN}💠 T2‑MI PID : {
+                  self.current_cfg['pid']}".ljust(85) + f"{Color.GREEN}┃")
+            print(f"┃ {Color.CYAN}💠 PLP ID    : {
+                  self.current_cfg['plp']}".ljust(85) + f"{Color.GREEN}┃")
             print(f"┗" + "━" * 76 + "┛" + Color.END)
         else:
-            print(f"\n{Color.YELLOW}⚡ [ NEW DISCOVERY ] No matching parameters found. Initialising…{Color.END}")
+            print(
+                f"\n{
+                    Color.YELLOW}⚡ [ NEW DISCOVERY ] No matching parameters found. Initialising…{
+                    Color.END}")
         self.step = 6
 
     def step_physical_layer(self):
@@ -591,37 +761,118 @@ class SatelliteArchitect:
         edit_tp = self.ui.ask("Modify Physical Layer?", "n", tp_help, "⚙️")
 
         if edit_tp.lower() == "y":
-            self.sr = int(self.ui.ask("Symbol Rate (kS/s)", "7325", "Typical values: 27500, 30000, 7325.", "📶"))
-            self.sat_pos = float(self.ui.ask("Orbital Position", "18.1", "Satellite longitude (e.g. 4.9, 18.1, 36.0).", "🌍"))
-            self.sat_dir = self.ui.ask("Direction (E/W)", "W", "E – East, W – West.", "🧭").upper()
-            self.inv = self.ui.ask("Inversion", "2", "0 = Off | 1 = On | 2 = Auto‑Detect.", "🛠️")
+            self.sr = int(
+                self.ui.ask(
+                    "Symbol Rate (kS/s)",
+                    "7325",
+                    "Typical values: 27500, 30000, 7325.",
+                    "📶"))
+            self.sat_pos = float(
+                self.ui.ask(
+                    "Orbital Position",
+                    "18.1",
+                    "Satellite longitude (e.g. 4.9, 18.1, 36.0).",
+                    "🌍"))
+            self.sat_dir = self.ui.ask(
+                "Direction (E/W)",
+                "W",
+                "E – East, W – West.",
+                "🧭").upper()
+            self.inv = self.ui.ask(
+                "Inversion",
+                "2",
+                "0 = Off | 1 = On | 2 = Auto‑Detect.",
+                "🛠️")
 
-            fec_help = f"{Color.BOLD}FEC (FORWARD ERROR CORRECTION){Color.END}\nChoose redundancy level.\n1/2  2/3  3/4  5/6  7/8  8/9  3/5  4/5  Auto"
-            self.fec = self.ui.choose_option("FEC Ratio", fec_help, [("1", "1/2"), ("2", "2/3"), ("3", "3/4"), ("4", "5/6"), ("5", "7/8"), ("6", "8/9"), ("7", "3/5"), ("8", "4/5"), ("9", "Auto")], default="9")
+            fec_help = f"{
+                Color.BOLD}FEC (FORWARD ERROR CORRECTION){
+                Color.END}\nChoose redundancy level.\n1/2  2/3  3/4  5/6  7/8  8/9  3/5  4/5  Auto"
+            self.fec = self.ui.choose_option("FEC Ratio",
+                                             fec_help,
+                                             [("1",
+                                               "1/2"),
+                                              ("2",
+                                               "2/3"),
+                                                 ("3",
+                                                  "3/4"),
+                                                 ("4",
+                                                  "5/6"),
+                                                 ("5",
+                                                  "7/8"),
+                                                 ("6",
+                                                  "8/9"),
+                                                 ("7",
+                                                  "3/5"),
+                                                 ("8",
+                                                  "4/5"),
+                                                 ("9",
+                                                  "Auto")],
+                                             default="9")
 
-            self.sys_type = self.ui.ask("Delivery System", "1", "0 = DVB‑S (Legacy) | 1 = DVB‑S2 (T2‑MI).", "🏗️")
-            self.mod = self.ui.ask("Modulation Type", "2", "1 = QPSK | 2 = 8PSK | 3 = 16APSK | 4 = 32APSK", "💠")
-            self.roll = self.ui.ask("Roll‑Off Factor", "0", "0 = 0.35 (DVB‑S) | 1 = 0.25 | 2 = 0.20 (DVB‑S2).", "🌊")
-            self.pilot = self.ui.ask("Pilot Tones", "2", "0 = Off | 1 = On | 2 = Auto.", "🔦")
+            self.sys_type = self.ui.ask(
+                "Delivery System",
+                "1",
+                "0 = DVB‑S (Legacy) | 1 = DVB‑S2 (T2‑MI).",
+                "🏗️")
+            self.mod = self.ui.ask(
+                "Modulation Type",
+                "2",
+                "1 = QPSK | 2 = 8PSK | 3 = 16APSK | 4 = 32APSK",
+                "💠")
+            self.roll = self.ui.ask(
+                "Roll‑Off Factor",
+                "0",
+                "0 = 0.35 (DVB‑S) | 1 = 0.25 | 2 = 0.20 (DVB‑S2).",
+                "🌊")
+            self.pilot = self.ui.ask(
+                "Pilot Tones", "2", "0 = Off | 1 = On | 2 = Auto.", "🔦")
         else:
             self.sr, self.sat_pos, self.sat_dir, self.inv, self.fec, self.sys_type, self.mod, self.roll, self.pilot = 7325, 18.1, "W", "2", "9", "1", "2", "0", "2"
         self.step = 7
 
     def step_transport_layer(self):
         cur_pid = self.current_cfg['pid'] if self.current_cfg else self.pid_input
-        pid_gate_help = (f"{Color.BOLD}TRANSPORT LAYER GATEWAY{Color.END}\nCurrent PID: {Color.YELLOW}{cur_pid}{Color.END}\n"
-                         "y – change the T2‑MI PID\nn – keep the current value")
+        pid_gate_help = (f"{Color.BOLD}TRANSPORT LAYER GATEWAY{Color.END}\nCurrent PID: {Color.YELLOW}{
+                         cur_pid}{Color.END}\n" "y – change the T2‑MI PID\nn – keep the current value")
         edit_pid = self.ui.ask("Modify T2‑MI PID?", "n", pid_gate_help, "∆¶×")
 
-        self.pid_input = (self.ui.ask("Enter T2‑MI PID(s)", cur_pid, "Packet Identifier for the T2‑MI stream (e.g. 4096, 500, 1000).\nMultiple PIDs allowed (Seperated by commas)", "∆¶×", category="pid")
-                         if edit_pid.lower() == "y" else cur_pid)
+        self.pid_input = (
+            self.ui.ask(
+                "Enter T2‑MI PID(s)",
+                cur_pid,
+                "Packet Identifier for the T2‑MI stream (e.g. 4096, 500, 1000).\nMultiple PIDs allowed (Seperated by commas)",
+                "∆¶×",
+                category="pid") if edit_pid.lower() == "y" else cur_pid)
         self.step = 9
 
     def step_service_metadata(self):
-        print(f"\n{Color.CYAN}┌── {Color.BOLD}FINALIZING IDENTITY ARCHITECTURE{Color.END}{Color.CYAN} " + "─" * 45 + "┐")
-        self.sid = int(self.ui.ask("Feed SID", "800", "Service ID (decimal) used by Enigma2.", "🆔", category="sid"))
-        self.provider = self.ui.ask("Provider Name", "ORTM", "Broadcaster name (e.g. ORTM, TNT).", "🏢", category="provider")
-        self.path = self.ui.ask("Relay Path", "ortm", "URL segment for streaming (affects m3u).", "🔗")
+        print(
+            f"\n{
+                Color.CYAN}┌── {
+                Color.BOLD}FINALIZING IDENTITY ARCHITECTURE{
+                Color.END}{
+                    Color.CYAN} " +
+            "─" *
+            45 +
+            "┐")
+        self.sid = int(
+            self.ui.ask(
+                "Feed SID",
+                "800",
+                "Service ID (decimal) used by Enigma2.",
+                "🆔",
+                category="sid"))
+        self.provider = self.ui.ask(
+            "Provider Name",
+            "ORTM",
+            "Broadcaster name (e.g. ORTM, TNT).",
+            "🏢",
+            category="provider")
+        self.path = self.ui.ask(
+            "Relay Path",
+            "ortm",
+            "URL segment for streaming (affects m3u).",
+            "🔗")
         print(f"└" + "─" * 78 + "┘" + Color.END)
         self.step = 10
 
@@ -637,21 +888,47 @@ class SatelliteArchitect:
 
         # Build Transponder Block
         tp_key = f"{ns_hex}:{self.TSID}:{self.ONID}"
-        self.new_tps[tp_key] = (f"{ns_hex}:{self.TSID}:{self.ONID}\n\ts {self.freq}000:{self.sr}000:{POL_MAP[self.pol]}:{self.fec}:"
-                                f"{disp_sat}:{self.inv}:{self.sys_type}:{self.mod}:{self.roll}:{self.pilot}:0\n/\n")
+        self.new_tps[tp_key] = (
+            f"{ns_hex}:{
+                self.TSID}:{
+                self.ONID}\n\ts {
+                self.freq}000:{
+                    self.sr}000:{
+                        POL_MAP[
+                            self.pol]}:{
+                                self.fec}:" f"{disp_sat}:{
+                                    self.inv}:{
+                                        self.sys_type}:{
+                                            self.mod}:{
+                                                self.roll}:{
+                                                    self.pilot}:0\n/\n")
 
         pids = [p.strip() for p in self.pid_input.split(",") if p.strip()]
 
         print(f"\n{Color.CYAN}╔" + "═" * 78 + "╗")
-        print(f"║ {Color.BOLD}TRANSPORT LAYER DE‑ENCAPSULATION: {len(pids)} PID(s) DETECTED{Color.END}{Color.CYAN}".center(88) + "║")
-        print(f"║ {Color.BLUE}Initializing routing protocols for T2‑MI streams…{Color.END}".center(86) + "║")
+        print(
+            f"║ {
+                Color.BOLD}TRANSPORT LAYER DE‑ENCAPSULATION: {
+                len(pids)} PID(s) DETECTED{
+                Color.END}{
+                    Color.CYAN}".center(88) +
+            "║")
+        print(
+            f"║ {
+                Color.BLUE}Initializing routing protocols for T2‑MI streams…{
+                Color.END}".center(86) +
+            "║")
         print(f"╚" + "═" * 78 + "╝" + Color.END)
 
         for pid in pids:
             self._process_single_pid(pid, ns_hex, sid_hex, tsid_hex, onid_hex)
 
         print(f"\n{Color.BLUE}└" + "─" * 78 + "┘" + Color.END)
-        if self.ui.ask("Add another transponder?", "n", "y = return to Step 4 | n = compile database.", "❓") == "y":
+        if self.ui.ask(
+            "Add another transponder?",
+            "n",
+            "y = return to Step 4 | n = compile database.",
+                "❓") == "y":
             self.step = 4
         else:
             self.finalize()
@@ -663,10 +940,15 @@ class SatelliteArchitect:
         s_ref_core = f"{sid_hex}:{tsid_hex}:{onid_hex}:{ns_hex}"
 
         # Service Entry
-        self.new_srvs[srv_key] = (f"{srv_key}:1:0\n{self.provider} PID{pid} FEED\np:{self.provider},c:15{pid_hex},f:01\n")
+        self.new_srvs[srv_key] = (
+            f"{srv_key}:1:0\n{
+                self.provider} PID{pid} FEED\np:{
+                self.provider},c:15{pid_hex},f:01\n")
 
         # Master Feed
-        self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {self.provider} PID{pid} FEED")
+        self.bouquet.append(
+            f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {
+                self.provider} PID{pid} FEED")
 
         # Find existing PLP
         found_plp = "0"
@@ -677,27 +959,44 @@ class SatelliteArchitect:
                 break
 
         # PLP UI
-        plp_help = (f"{Color.BOLD}PHYSICAL LAYER PIPE (PLP) ASSIGNMENT{Color.END}\nTargeting PID: {Color.GREEN}{pid}{Color.END}\n"
-                    "Enter PLP IDs (comma‑separated, 0–255).")
-        print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATA PIPE ARCHITECTURE: PID {pid}{Color.END}{Color.YELLOW} " + "─" * (76 - len(str(pid)) - 23) + "┐")
+        plp_help = (f"{Color.BOLD}PHYSICAL LAYER PIPE (PLP) ASSIGNMENT{Color.END}\nTargeting PID: {
+                    Color.GREEN}{pid}{Color.END}\n" "Enter PLP IDs (comma‑separated, 0–255).")
+        print(f"\n{Color.YELLOW}┌── {Color.BOLD}DATA PIPE ARCHITECTURE: PID {pid}{
+              Color.END}{Color.YELLOW} " + "─" * (76 - len(str(pid)) - 23) + "┐")
 
-        plps_input = self.ui.ask(f"PLPs for PID {pid}", found_plp, plp_help, "📺")
+        plps_input = self.ui.ask(
+            f"PLPs for PID {pid}", found_plp, plp_help, "📺")
 
         for plp in [p.strip() for p in plps_input.split(",") if p.strip()]:
-            self._process_single_plp(pid, plp, ns_hex, sid_hex, tsid_hex, onid_hex)
+            self._process_single_plp(
+                pid, plp, ns_hex, sid_hex, tsid_hex, onid_hex)
 
-    def _process_single_plp(self, pid, plp, ns_hex, sid_hex, tsid_hex, onid_hex):
-        var_name = f"f{self.freq}{self.pol.lower()}{self.provider.lower()[:2]}p{pid}plp{plp}"
+    def _process_single_plp(
+            self,
+            pid,
+            plp,
+            ns_hex,
+            sid_hex,
+            tsid_hex,
+            onid_hex):
+        var_name = f"f{
+            self.freq}{
+            self.pol.lower()}{
+            self.provider.lower()[
+                :2]}p{pid}plp{plp}"
         label = f"{self.provider} {self.freq}{self.pol} PID{pid} PLP{plp}"
 
-        self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION --- {label} ---")
+        self.bouquet.append(
+            f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION --- {label} ---")
 
         # Astra Config
         block = (f"-- {label}\n{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
-                 f"    input = \"http://127.0.0.1:8001/1:0:1:{sid_hex}:{tsid_hex}:{onid_hex}:{ns_hex}:0:0:0:\",\n"
+                 f"    input = \"http://127.0.0.1:8001/1:0:1:{sid_hex}:{
+                     tsid_hex}:{onid_hex}:{ns_hex}:0:0:0:\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
-                 f"make_channel({{\n    name = \"{label}\",\n    input = {{ \"t2mi://decap_{var_name}\" }},\n"
-                 f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}\" }},\n}})\n")
+                 f"make_channel({{\n    name = \"{
+            label}\",\n    input = {{ \"t2mi://decap_{var_name}\" }},\n"
+            f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
 
         # Sub-channel CSV mapping
@@ -709,23 +1008,37 @@ class SatelliteArchitect:
 
         suggestions = []
         if os.path.isdir(csv_dir):
-            suggestions = sorted([f for f in os.listdir(csv_dir) if f.lower().endswith('.csv')], key=lambda x: x.lower())
+            suggestions = sorted([f for f in os.listdir(
+                csv_dir) if f.lower().endswith('.csv')], key=lambda x: x.lower())
 
-        csv_help = (f"{Color.BOLD}SUB‑CHANNEL MAPPING PROTOCOL{Color.END}\nImport virtual services for PID {pid} / PLP {plp}\n"
-                    f"Auto‑scan found {len(suggestions)} CSV file(s) in ./{csv_dir}")
+        csv_help = (f"{Color.BOLD}SUB‑CHANNEL MAPPING PROTOCOL{Color.END}\nImport virtual services for PID {
+                    pid} / PLP {plp}\n" f"Auto‑scan found {len(suggestions)} CSV file(s) in ./{csv_dir}")
 
-        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB‑CHANNEL MAPPING: PID {pid} PLP {plp}{Color.END}{Color.YELLOW} " + "─" * (76 - 28 - len(str(pid)) - len(str(plp))) + "┐")
+        print(f"\n{Color.YELLOW}┌── {Color.BOLD}SUB‑CHANNEL MAPPING: PID {pid} PLP {plp}{
+              Color.END}{Color.YELLOW} " + "─" * (76 - 28 - len(str(pid)) - len(str(plp))) + "┐")
         for line in csv_help.split("\n"):
-            print(f"│ {Color.BLUE}📂 {line.ljust(74)}{Color.END}{Color.YELLOW} │")
+            print(
+                f"│ {
+                    Color.BLUE}📂 {
+                    line.ljust(74)}{
+                    Color.END}{
+                    Color.YELLOW} │")
         if suggestions:
             print(f"┠" + "─" * 78 + "┨")
             for idx, fname in enumerate(suggestions, 1):
-                print(f"│ {Color.CYAN} [{idx}] {fname.ljust(72)}{Color.END}{Color.YELLOW} │")
+                print(
+                    f"│ {
+                        Color.CYAN} [{idx}] {
+                        fname.ljust(72)}{
+                        Color.END}{
+                        Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
-        ch_choice = self.ui.path_prompt(f"  Select file [#] or path for {orbital_folder} PLP {plp}: ")
+        ch_choice = self.ui.path_prompt(f"  Select file [#] or path for {
+                                        orbital_folder} PLP {plp}: ")
 
-        if ch_choice.lower() == "back": raise GoBack()
+        if ch_choice.lower() == "back":
+            raise GoBack()
 
         if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions):
             ch_file = os.path.join(csv_dir, suggestions[int(ch_choice) - 1])
@@ -733,61 +1046,124 @@ class SatelliteArchitect:
             ch_file = ch_choice
 
         if ch_file and os.path.isfile(ch_file):
-            sub_url = f"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}".replace(":", "%3a")
-            print(f"  {Color.CYAN}⚙️  Parsing {os.path.basename(ch_file)}…{Color.END}")
+            sub_url = f"http://0.0.0.0:9999/{self.path}/{self.freq}_{
+                self.sat_pos}{self.sat_dir.lower()}_plp{plp}".replace(":", "%3a")
+            print(
+                f"  {
+                    Color.CYAN}⚙️  Parsing {
+                    os.path.basename(ch_file)}…{
+                    Color.END}")
             with open(ch_file, "r", encoding="utf8") as fh:
                 for csv_line in fh:
-                    if "," not in csv_line: continue
+                    if "," not in csv_line:
+                        continue
                     try:
-                        csid, name, stype = [x.strip() for x in csv_line.strip().split(",")]
+                        csid, name, stype = [
+                            x.strip() for x in csv_line.strip().split(",")]
                         csid_hex = format(int(csid), 'x').lower()
-                        c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
-                        self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
+                        c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex}:{
+                            onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                        self.bouquet.append(
+                            f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
                         print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
                     except Exception as exc:
-                        print(f"    {Color.RED}✖ Error parsing line: {csv_line.strip()} ({exc}){Color.END}")
+                        print(
+                            f"    {
+                                Color.RED}✖ Error parsing line: {
+                                csv_line.strip()} ({exc}){
+                                Color.END}")
         else:
-            if ch_file: print(f"  {Color.RED}⚠ File not found: {ch_file}{Color.END}")
-            else: print(f"  {Color.BLUE}ℹ No CSV import for this pipe.{Color.END}")
+            if ch_file:
+                print(f"  {Color.RED}⚠ File not found: {ch_file}{Color.END}")
+            else:
+                print(
+                    f"  {
+                        Color.BLUE}ℹ No CSV import for this pipe.{
+                        Color.END}")
 
     def finalize(self):
         print(f"\n{Color.CYAN}╔" + "═" * 78 + "╗")
-        print(f"║ {Color.BOLD}COMPILING ARCHITECTURAL BLUEPRINTS{Color.END}{Color.CYAN}".center(88) + "║")
+        print(
+            f"║ {
+                Color.BOLD}COMPILING ARCHITECTURAL BLUEPRINTS{
+                Color.END}{
+                Color.CYAN}".center(88) +
+            "║")
         print(f"╚" + "═" * 78 + "╝" + Color.END)
 
         backup_name = self.config.backup_file(self.merge_path)
-        self.config.compile_lamedb(self.merge_path, self.new_tps, self.new_srvs)
+        self.config.compile_lamedb(
+            self.merge_path, self.new_tps, self.new_srvs)
 
         # Live Swap
         swap_applied = False
         if os.path.abspath(self.merge_path) != os.path.abspath("./lamedb"):
-            print(f"\n{Color.YELLOW}┌── {Color.BOLD}LIVE DATABASE SWAP{Color.END}{Color.YELLOW} " + "─" * 57 + "┐")
-            print(f"│ {Color.CYAN}Apply these edits to the source file now?{' ' * 36}{Color.END}{Color.YELLOW}│")
+            print(
+                f"\n{
+                    Color.YELLOW}┌── {
+                    Color.BOLD}LIVE DATABASE SWAP{
+                    Color.END}{
+                    Color.YELLOW} " +
+                "─" *
+                57 +
+                "┐")
+            print(f"│ {Color.CYAN}Apply these edits to the source file now?{
+                  ' ' * 36}{Color.END}{Color.YELLOW}│")
             b_disp = os.path.basename(backup_name) if backup_name else "N/A"
-            print(f"│ {Color.BLUE}ℹ Verified Backup: {b_disp.ljust(53)}{Color.END}{Color.YELLOW} │")
+            print(
+                f"│ {
+                    Color.BLUE}ℹ Verified Backup: {
+                    b_disp.ljust(53)}{
+                    Color.END}{
+                    Color.YELLOW} │")
             print(f"└" + "─" * 78 + "┘" + Color.END)
 
-            if self.ui.ask("Update source lamedb?", "n", "y = Overwrite original file | n = Keep edits in ./lamedb only", "🔄").lower() == "y":
+            if self.ui.ask(
+                "Update source lamedb?",
+                "n",
+                "y = Overwrite original file | n = Keep edits in ./lamedb only",
+                    "🔄").lower() == "y":
                 swap_applied = self.config.perform_live_swap(self.merge_path)
 
         # Bouquet
-        self.config.sync_bouquet(self.mode, self.bouquet_file, self.bouquet, self.bouquet_name)
+        self.config.sync_bouquet(
+            self.mode,
+            self.bouquet_file,
+            self.bouquet,
+            self.bouquet_name)
 
         # Astra
         astra_path = self.config.write_astra_conf(self.mode, self.astra_blocks)
 
-        print(f"\n{Color.GREEN}✅ ALL FILES SYNCHRONIZED SUCCESSFULLY.{Color.END}")
+        print(
+            f"\n{
+                Color.GREEN}✅ ALL FILES SYNCHRONIZED SUCCESSFULLY.{
+                Color.END}")
         print(f"{Color.CYAN}📂 LOCAL WORKSPACE : ./lamedb")
-        if backup_name: print(f"📂 SOURCE BACKUP  : {backup_name}")
+        if backup_name:
+            print(f"📂 SOURCE BACKUP  : {backup_name}")
 
         if swap_applied:
-            print(f"📂 LIVE DATABASE  : {self.merge_path} {Color.BOLD}(UPDATED){Color.END}")
+            print(
+                f"📂 LIVE DATABASE  : {
+                    self.merge_path} {
+                    Color.BOLD}(UPDATED){
+                    Color.END}")
         else:
-            print(f"📂 SOURCE TARGET  : {self.merge_path} {Color.BOLD}(UNTOUCHED){Color.END}")
+            print(
+                f"📂 SOURCE TARGET  : {
+                    self.merge_path} {
+                    Color.BOLD}(UNTOUCHED){
+                    Color.END}")
 
         print(f"📂 BOUQUET        : ./{self.bouquet_file}")
         print(f"📂 ASTRA          : ./{astra_path}{Color.END}")
-        print(f"\n{Color.GREEN}{Color.BOLD}✨ v10.1 ENCYCLOPEDIA ARCHITECT LOCKED!{Color.END}")
+        print(
+            f"\n{
+                Color.GREEN}{
+                Color.BOLD}✨ v10.1 ENCYCLOPEDIA ARCHITECT LOCKED!{
+                Color.END}")
+
 
 if __name__ == "__main__":
     app = SatelliteArchitect()
