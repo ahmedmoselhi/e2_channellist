@@ -820,7 +820,7 @@ try:
                             f"}})\n"
                             f"make_channel({{\n"
                             f"    name = \"{label}\",\n"
-                            f"    input = {{ \"t2mi://{var_name}\" }},\n"
+                            f"    input = {{ \"t2mi://decap_{var_name}\" }},\n"
                             f"    output = {{ \"http://0.0.0.0:9999/"
                             f"{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\" }},\n"
                             f"}})\n"

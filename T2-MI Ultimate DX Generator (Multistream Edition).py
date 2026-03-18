@@ -460,7 +460,7 @@ try:
                                          f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
                                          f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                                          f"make_channel({{\n    name = \"{label_full}\",\n"
-                                         f"    input = {{ \"t2mi://{var_name}\", }},\n"
+                                         f"    input = {{ \"t2mi://decap_{var_name}\", }},\n"
                                          f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\", }},\n}})\n")
                                 astra_blocks.append(block)
 
