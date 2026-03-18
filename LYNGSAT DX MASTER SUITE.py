@@ -178,9 +178,7 @@ class UIRenderer:
         for line in lines:
             padded = self._pad_to_width(f"  {line}", inner_width)
             result.append(
-                f"{border_color}│{
-                    self.color.ENDC}{padded}{border_color}│{
-                    self.color.ENDC}")
+                f"{border_color}│{self.color.ENDC}{padded}{border_color}│{self.color.ENDC}")
 
         # Empty line for spacing if needed
         result.append(f"{border_color}│{' ' * inner_width}│{self.color.ENDC}")
@@ -203,33 +201,28 @@ class UIRenderer:
 
         # Title
         title = f"  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.0{c.ENDC}"
-        print(f"{c.BASE}│{self._pad_to_width(
-            title, inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width( title, inner_width)}{c.BASE}│{c.ENDC}")
         print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
 
         # Instructions header
         instr_header = f"  {c.LIME}Instructions:{c.ENDC}"
-        print(f"{c.BASE}│{self._pad_to_width(
-            instr_header, inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width( instr_header, inner_width)}{c.BASE}│{c.ENDC}")
 
         # Instructions
         for instr in instructions:
             line = f"  • {instr}"
-            print(f"{c.BASE}│{self._pad_to_width(
-                line, inner_width)}{c.BASE}│{c.ENDC}")
+            print(f"{c.BASE}│{self._pad_to_width( line, inner_width)}{c.BASE}│{c.ENDC}")
 
         print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
 
         # Notes header
         notes_header = f"  {c.GOLD}System Notes:{c.ENDC}"
-        print(f"{c.BASE}│{self._pad_to_width(
-            notes_header, inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width( notes_header, inner_width)}{c.BASE}│{c.ENDC}")
 
         # Notes
         for note in notes:
             line = f"  • {note}"
-            print(f"{c.BASE}│{self._pad_to_width(
-                line, inner_width)}{c.BASE}│{c.ENDC}")
+            print(f"{c.BASE}│{self._pad_to_width( line, inner_width)}{c.BASE}│{c.ENDC}")
 
         print(f"{c.BASE}└{'─' * inner_width}┘{c.ENDC}")
 
@@ -279,21 +272,17 @@ class UIRenderer:
             header_cells.append(
                 f" {header_color}{header:<{w - 1}}{self.color.ENDC}")
         result.append(
-            f"{border_color}│{
-                self.color.ENDC}{border_color}│{
-                self.color.ENDC}".join(header_cells).replace(
-                f"{
-                    self.color.ENDC}{border_color}│{
-                        self.color.ENDC}", f"{
-                            self.color.ENDC} {border_color}│{
-                                self.color.ENDC} "))
+            f"{border_color}│{self.color.ENDC}{border_color}│{self.color.ENDC}".join(header_cells).replace(
+                f"{self.color.ENDC}{border_color}│{self.color.ENDC}", f"{self.color.ENDC} {border_color}│{self.color.ENDC} "))
 
         # Actually let's build it properly
         header_line = border_color + "│" + self.color.ENDC
         for i, header in enumerate(headers):
             w = column_widths[i] if i < len(column_widths) else 10
-            header_line += f" {header_color}{header:<{w - 2}
-                                             }{self.color.ENDC} {border_color}│{self.color.ENDC}"
+            header_line += (
+                f" {header_color}{header:<{w - 2}}"
+                f"{self.color.ENDC} {border_color}│{self.color.ENDC}"
+            )
         result.append(header_line)
 
         result.append(mid_border)
@@ -305,8 +294,10 @@ class UIRenderer:
                 w = column_widths[i] if i < len(column_widths) else 10
                 cell_text = str(
                     cell)[:w - 2] if len(str(cell)) > w - 2 else str(cell)
-                row_line += f" {cell_text:<{w - 2}
-                                } {border_color}│{self.color.ENDC}"
+                row_line += (
+                    f" {cell_text:<{w - 2}}"
+                    f" {border_color}│{self.color.ENDC}"
+                )
             result.append(row_line)
 
         result.append(bot_border)
@@ -335,73 +326,34 @@ class UIRenderer:
 
         # Top border
         print(
-            f"\n{indent}{border}┌{
-                '─' *
-                sid_width}┬{
-                '─' *
-                name_width}┬{
-                '─' *
-                type_width}┐{
-                    c.ENDC}")
+            f"\n{indent}{border}┌{ '─' * sid_width}┬{ '─' * name_width}┬{ '─' * type_width}┐{c.ENDC}")
 
         # Header
         print(
-            f"{indent}{border}│{
-                c.ENDC} {
-                'SID':<{
-                    sid_width -
-                    2}} {border}│{
-                    c.ENDC} {
-                        header_text:<{
-                            name_width -
-                            2}} {border}│{
-                                c.ENDC} {
-                                    'TYPE':<{
-                                        type_width -
-                                        2}} {border}│{
-                                            c.ENDC}")
+            f"{indent}{border}│{c.ENDC} "
+            f"{'SID':<{sid_width - 2}} {border}│{c.ENDC} "
+            f"{header_text:<{name_width - 2}} {border}│{c.ENDC} "
+            f"{'TYPE':<{type_width - 2}} {border}│{c.ENDC}"
+        )
 
         # Separator
         print(
-            f"{indent}{border}├{
-                '─' *
-                sid_width}┼{
-                '─' *
-                name_width}┼{
-                '─' *
-                type_width}┤{
-                    c.ENDC}")
+            f"{indent}{border}├{ '─' * sid_width}┼{ '─' * name_width}┼{ '─' * type_width}┤{c.ENDC}")
 
         # Data rows
         for ch in channels:
             ch_type = "TV" if ch[2] == "1" else "Radio"
             clean_n = ch[1][:name_width - 2]
             print(
-                f"{indent}{border}│{
-                    c.ENDC} {
-                    ch[0]:<{
-                        sid_width -
-                        2}} {border}│{
-                    c.ENDC} {
-                        clean_n:<{
-                            name_width -
-                            2}} {border}│{
-                                c.ENDC} {
-                                    ch_type:<{
-                                        type_width -
-                                        2}} {border}│{
-                                            c.ENDC}")
+                f"{indent}{border}│{c.ENDC} "
+                f"{ch[0]:<{sid_width - 2}} {border}│{c.ENDC} "
+                f"{clean_n:<{name_width - 2}} {border}│{c.ENDC} "
+                f"{ch_type:<{type_width - 2}} {border}│{c.ENDC}"
+            )
 
         # Bottom border
         print(
-            f"{indent}{border}└{
-                '─' *
-                sid_width}┴{
-                '─' *
-                name_width}┴{
-                '─' *
-                type_width}┘{
-                    c.ENDC}")
+            f"{indent}{border}└{ '─' * sid_width}┴{ '─' * name_width}┴{ '─' * type_width}┘{c.ENDC}")
 
     def print_transponder_table(
             self,
@@ -422,88 +374,30 @@ class UIRenderer:
 
         # Top border
         print(
-            f"\n{indent}{border}┌{
-                '─' *
-                freq_w}┬{
-                '─' *
-                pol_w}┬{
-                '─' *
-                sr_w}┬{
-                    '─' *
-                    mod_w}┬{
-                        '─' *
-                        url_w}┐{
-                            c.ENDC}")
+            f"\n{indent}{border}┌{ '─' * freq_w}┬{ '─' * pol_w}┬{ '─' * sr_w}┬{ '─' * mod_w}┬{ '─' * url_w}┐{c.ENDC}")
 
         # Header
-        print(f"{indent}{border}│{c.ENDC} {c.SKY}{'FREQ':<{freq_w -
-                                                           2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'POL':<{pol_w -
-                                                                                                         2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'SR':<{sr_w -
-                                                                                                                                                      2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MOD':<{mod_w -
-                                                                                                                                                                                                    2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MUX URL / BEAM REFERENCE':<{url_w -
-                                                                                                                                                                                                                                                                       2}}{c.ENDC} {border}│{c.ENDC}")
+        print(f"{indent}{border}│{c.ENDC} {c.SKY}{'FREQ':<{freq_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'POL':<{pol_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'SR':<{sr_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MOD':<{mod_w - 2}}{c.ENDC} {border}│{c.ENDC} {c.SKY}{'MUX URL / BEAM REFERENCE':<{url_w - 2}}{c.ENDC} {border}│{c.ENDC}")
 
         # Separator
         print(
-            f"{indent}{border}├{
-                '─' *
-                freq_w}┼{
-                '─' *
-                pol_w}┼{
-                '─' *
-                sr_w}┼{
-                    '─' *
-                    mod_w}┼{
-                        '─' *
-                        url_w}┤{
-                            c.ENDC}")
+            f"{indent}{border}├{ '─' * freq_w}┼{ '─' * pol_w}┼{ '─' * sr_w}┼{ '─' * mod_w}┼{ '─' * url_w}┤{c.ENDC}")
 
         # Data rows
         for tp in transponders:
             url_name = tp['mux_url'].split('/')[-1][:url_w - 2]
             print(
-                f"{indent}{border}│{
-                    c.ENDC} {
-                    c.LIME}{
-                    tp['f_v']:<{
-                        freq_w - 2}}{
-                        c.ENDC} {border}│{
-                            c.ENDC} {
-                                c.BASE}{
-                                    tp['p_r']:<{
-                                        pol_w - 2}}{
-                                            c.ENDC} {border}│{
-                                                c.ENDC} {
-                                                    c.GOLD}{
-                                                        tp['sr']:<{
-                                                            sr_w - 2}}{
-                                                                c.ENDC} {border}│{
-                                                                    c.ENDC} {
-                                                                        c.VIOLET}{
-                                                                            tp['mod']:<{
-                                                                                mod_w - 2}}{
-                                                                                    c.ENDC} {border}│{
-                                                                                        c.ENDC} {
-                                                                                            c.BASE}{
-                                                                                                url_name:<{
-                                                                                                    url_w - 2}}{
-                                                                                                        c.ENDC} {border}│{
-                                                                                                            c.ENDC}")
+                f"{indent}{border}│{c.ENDC} {c.LIME}{tp['f_v']:<{freq_w - 2}}"
+                f"{c.ENDC} {border}│{c.ENDC} {c.BASE}{tp['p_r']:<{pol_w - 2}}"
+                f"{c.ENDC} {border}│{c.ENDC} {c.GOLD}{tp['sr']:<{sr_w - 2}}"
+                f"{c.ENDC} {border}│{c.ENDC} {c.VIOLET}{tp['mod']:<{mod_w - 2}}"
+                f"{c.ENDC} {border}│{c.ENDC} {c.BASE}{url_name:<{url_w - 2}}"
+                f"{c.ENDC} {border}│{c.ENDC}"
+            )
 
         # Bottom border
         print(
-            f"{indent}{border}└{
-                '─' *
-                freq_w}┴{
-                '─' *
-                pol_w}┴{
-                '─' *
-                sr_w}┴{
-                    '─' *
-                    mod_w}┴{
-                        '─' *
-                        url_w}┘{
-                            c.ENDC}")
+            f"{indent}{border}└{ '─' * freq_w}┴{ '─' * pol_w}┴{ '─' * sr_w}┴{ '─' * mod_w}┴{ '─' * url_w}┘{c.ENDC}")
 
     # --------------------------------------------------------------------------
     # [ SPECIALIZED BOXES ]
@@ -528,27 +422,23 @@ class UIRenderer:
         suggest_col = c.LIME if auto_suggest_cband else c.BASE
         suggest_text = f"  Auto-Detection Suggestion: {suggest_val}"
 
-        print(f"\n{border}┌──[ BAND CONFIGURATION ]{
-              '─' * (inner - 25)}┐{c.ENDC}")
+        print(f"\n{border}┌──[ BAND CONFIGURATION ]{'─' * (inner - 25)}┐{c.ENDC}")
 
         # Target line with proper padding
         visible_content = f"  Target: {sat_slug}"
         padding = inner - self.visible_width(f"{c.GOLD}{sat_slug}{c.ENDC}") - 2
-        print(f"{border}│{c.ENDC}{c.GOLD}{visible_content}{
-              ' ' * max(0, padding - len('  Target: '))}{c.ENDC}{border}│{c.ENDC}")
+        print(f"{border}│{c.ENDC}{c.GOLD}{visible_content}{' ' * max(0, padding - len('  Target: '))}{c.ENDC}{border}│{c.ENDC}")
 
         # Degree line
         deg_content = f"  Sat Degree: {sat_deg}° {sat_dir}"
         deg_padding = inner - len(deg_content) - 2
-        print(f"{border}│{c.ENDC}{c.SKY}{deg_content}{
-              ' ' * max(0, deg_padding)}{c.ENDC}{border}│{c.ENDC}")
+        print(f"{border}│{c.ENDC}{c.SKY}{deg_content}{' ' * max(0, deg_padding)}{c.ENDC}{border}│{c.ENDC}")
 
         # Suggestion line with colored value
         sug_prefix = "  Auto-Detection Suggestion: "
         sug_visible_len = len(sug_prefix) + len(suggest_val)
         sug_padding = inner - sug_visible_len - 2
-        print(f"{border}│{c.ENDC}{sug_prefix}{suggest_col}{suggest_val}{
-              c.ENDC}{' ' * max(0, sug_padding)}{border}│{c.ENDC}")
+        print(f"{border}│{c.ENDC}{sug_prefix}{suggest_col}{suggest_val}{c.ENDC}{' ' * max(0, sug_padding)}{border}│{c.ENDC}")
 
         print(f"{border}└{'─' * inner}┘{c.ENDC}")
 
@@ -573,19 +463,7 @@ class UIRenderer:
 
         print(f"\n{c.GOLD}╔{'═' * inner}╗{c.ENDC}")
         print(
-            f"{
-                c.GOLD}║{
-                c.ENDC} {
-                c.BOLD}{
-                    c.SKY}{pos_text}{
-                        c.ENDC}{
-                            ' ' *
-                            gap}{
-                                c.BOLD}{
-                                    c.SKY}{target_text}{
-                                        c.ENDC} {
-                                            c.GOLD}║{
-                                                c.ENDC}")
+            f"{c.GOLD}║{c.ENDC} {c.BOLD}{c.SKY}{pos_text}{c.ENDC}{ ' ' * gap}{c.BOLD}{c.SKY}{target_text}{c.ENDC} {c.GOLD}║{c.ENDC}")
         print(f"{c.GOLD}╚{'═' * inner}╝{c.ENDC}")
 
     def print_summary_banner(
@@ -603,23 +481,14 @@ class UIRenderer:
         title = "GLOBAL DX EXECUTION SUMMARY"
         title_padding = inner - len(title) - 2
         print(
-            f"{
-                c.GOLD}█{
-                c.ENDC} {
-                c.SKY}{title}{
-                    c.ENDC}{
-                        ' ' *
-                        title_padding}{
-                            c.GOLD}█{
-                                c.ENDC}")
+            f"{c.GOLD}█{c.ENDC} {c.SKY}{title}{c.ENDC}{ ' ' * title_padding}{c.GOLD}█{c.ENDC}")
 
         # Stats
         for label, value in stats.items():
             stat_text = f"├─ {label}: {c.BOLD}{value}{c.ENDC}"
             visible_len = len(f"├─ {label}: {value}")
             padding = inner - visible_len - 2
-            print(f"{c.GOLD}█{c.ENDC} {c.BASE}{stat_text}{
-                  ' ' * max(0, padding)}{c.GOLD}█{c.ENDC}")
+            print(f"{c.GOLD}█{c.ENDC} {c.BASE}{stat_text}{' ' * max(0, padding)}{c.GOLD}█{c.ENDC}")
 
         # Bottom border
         print(f"{c.GOLD}█{'▄' * inner}█{c.ENDC}\n")
@@ -734,8 +603,7 @@ class LyngSatDXMaster:
             color = self.color.BASE
 
         ts = datetime.now().strftime("%H:%M:%S")
-        formatted_msg = f"{self.color.BASE}[{ts}]{
-            self.color.ENDC} {color}{msg}{self.color.ENDC}"
+        formatted_msg = f"{self.color.BASE}[{ts}]{self.color.ENDC} {color}{msg}{self.color.ENDC}"
 
         if debug_only:
             if self.logger:
@@ -802,8 +670,7 @@ class LyngSatDXMaster:
         self.ui.print_band_config_box(
             sat_slug, sat_deg, sat_dir, auto_suggest_cband)
 
-        prompt_text = f"{
-            c.SKY}❓ Treat this satellite as C-BAND? (y/n) [Auto-resolving in 10s]: {c.ENDC}"
+        prompt_text = f"{c.SKY}❓ Treat this satellite as C-BAND? (y/n) [Auto-resolving in 10s]: {c.ENDC}"
         print(prompt_text, end='', flush=True)
 
         user_choice = self._timed_input(10)
@@ -812,8 +679,7 @@ class LyngSatDXMaster:
             user_choice in [
                 'y',
                 'yes']) if user_choice else auto_suggest_cband
-        print(f"\n  {c.GOLD}└─► Proceeding with: {c.BOLD}{
-              'C-BAND' if is_cband_sat else 'KU-BAND'}{c.ENDC}")
+        print(f"\n  {c.GOLD}└─► Proceeding with: {c.BOLD}{'C-BAND' if is_cband_sat else 'KU-BAND'}{c.ENDC}")
 
         return is_cband_sat
 
@@ -844,8 +710,7 @@ class LyngSatDXMaster:
 
         while self.running:
             try:
-                u = input(f"{c.GOLD}🔗 SAT URL #{
-                          len(urls) + 1}:{c.ENDC} ").strip()
+                u = input(f"{c.GOLD}🔗 SAT URL #{len(urls) + 1}:{c.ENDC} ").strip()
                 if not u:
                     break
                 urls.append(u)
@@ -901,8 +766,7 @@ class LyngSatDXMaster:
 
             channel_data = self._extract_channel_from_row(el)
             if channel_data:
-                bucket_id = f"PLP{current_plp}PID{
-                    current_pid}_ISI{current_isi}"
+                bucket_id = f"PLP{current_plp}PID{current_pid}_ISI{current_isi}"
                 if bucket_id not in matrix_buckets:
                     matrix_buckets[bucket_id] = []
                 matrix_buckets[bucket_id].append(channel_data)
@@ -970,10 +834,7 @@ class LyngSatDXMaster:
 
             self.ui.print_channel_table(channels, h_plp, h_isi)
             print(
-                f"      {
-                    c.LIME}└─► Saved: {filename} | Total: {
-                    len(channels)} services{
-                    c.ENDC}")
+                f"      {c.LIME}└─► Saved: {filename} | Total: {len(channels)} services{c.ENDC}")
 
             total_services += len(channels)
 
@@ -1030,11 +891,7 @@ class LyngSatDXMaster:
 
             c = self.color
             print(
-                f"  {
-                    c.LIME}└─► Total Verified T2-MI Frequencies Discovered: {
-                    c.BOLD}{
-                    len(transponders)}{
-                    c.ENDC}")
+                f"  {c.LIME}└─► Total Verified T2-MI Frequencies Discovered: {c.BOLD}{len(transponders)}{c.ENDC}")
 
             self.total_tps += len(transponders)
 
@@ -1135,8 +992,7 @@ class LyngSatDXMaster:
         if not beam_link:
             return None
 
-        mux_url = f"https://www.lyngsat.com/muxes/{
-            beam_link['href'].split('/')[-1]}"
+        mux_url = f"https://www.lyngsat.com/muxes/{beam_link['href'].split('/')[-1]}"
 
         self.log_proc(
             f"Evaluating potential T2-MI candidate: {f_v} {p_r}",
@@ -1169,15 +1025,12 @@ class LyngSatDXMaster:
             latency = (time.time() - req_start) * 1000
 
             self.log_proc(
-                f"[RES] HTTP {
-                    mux_res.status_code} | Latency: {
-                    latency:.2f}ms",
+                f"[RES] HTTP {mux_res.status_code} | Latency: {latency:.2f}ms",
                 debug_only=True)
 
             if mux_res.status_code != 200:
                 self.log_proc(
-                    f"[FAIL] Skipping due to HTTP Error {
-                        mux_res.status_code}",
+                    f"[FAIL] Skipping due to HTTP Error {mux_res.status_code}",
                     debug_only=True)
                 return None
 
@@ -1202,8 +1055,7 @@ class LyngSatDXMaster:
 
         except Exception as e:
             self.log_proc(
-                f"[CRITICAL ERROR] Exception: {
-                    str(e)}", debug_only=True)
+                f"[CRITICAL ERROR] Exception: {str(e)}", debug_only=True)
             return None
 
     def _extract_transponder_data(
@@ -1231,8 +1083,7 @@ class LyngSatDXMaster:
         nid = nid_m.group(1) if nid_m else "N/A"
         tid = tid_m.group(1) if tid_m else "N/A"
 
-        self.log_proc(f"[EXTRACT] PLP:{plp_id} | PID:{pid_id} | SR:{
-                      sr} | NID:{nid} | TID:{tid}", debug_only=True)
+        self.log_proc(f"[EXTRACT] PLP:{plp_id} | PID:{pid_id} | SR:{sr} | NID:{nid} | TID:{tid}", debug_only=True)
 
         if int(sr) < 1000:
             self.log_proc(
@@ -1281,15 +1132,7 @@ class LyngSatDXMaster:
                 break
 
             print(
-                f"\n{
-                    c.TEAL}▶ {
-                    c.SKY}Drill-Down: Fetching services for {
-                    c.ENDC}{
-                    c.BOLD}{
-                        c.LIME}{
-                            tp['f_v']} {
-                                tp['p_r']}{
-                                    c.ENDC}")
+                f"\n{c.TEAL}▶ {c.SKY}Drill-Down: Fetching services for {c.ENDC}{c.BOLD}{c.LIME}{tp['f_v']} {tp['p_r']}{c.ENDC}")
             target_csv = os.path.join(c_dir, f"{tp['file_label']}.csv")
             self.total_channels += self.parse_mux_channels(
                 tp['mux_url'], target_csv, tp['file_label'])
@@ -1358,9 +1201,7 @@ def main():
         app.run()
     except KeyboardInterrupt:
         print(
-            f"\n{
-                ColorTheme.CRIMSON}⚠️  Operation cancelled by user.{
-                ColorTheme.ENDC}")
+            f"\n{ColorTheme.CRIMSON}⚠️  Operation cancelled by user.{ColorTheme.ENDC}")
         sys.exit(0)
     except Exception as e:
         print(f"{ColorTheme.CRIMSON}Fatal error: {e}{ColorTheme.ENDC}")

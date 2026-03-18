@@ -62,14 +62,7 @@ class DependencyManager:
     """Handles module dependencies and environment setup."""
 
     REQUIRED_MODULES = {
-        'prompt_toolkit': {
-            'imports': [
-                ('prompt_toolkit', 'prompt', 'pt_prompt'),
-                ('prompt_toolkit.history', 'FileHistory', 'FileHistory'),
-                ('prompt_toolkit.shortcuts', 'radiolist_dialog', 'radiolist_dialog'),
-                ('prompt_toolkit.completion', 'PathCompleter', 'PathCompleter'),
-            ]
-        }
+        'prompt_toolkit': { 'imports': [ ('prompt_toolkit', 'prompt', 'pt_prompt'), ('prompt_toolkit.history', 'FileHistory', 'FileHistory'), ('prompt_toolkit.shortcuts', 'radiolist_dialog', 'radiolist_dialog'), ('prompt_toolkit.completion', 'PathCompleter', 'PathCompleter'), ] }
     }
 
     def __init__(self):
@@ -95,14 +88,11 @@ class DependencyManager:
         """Install missing dependencies."""
         if "pyenv" not in sys.executable and os.path.exists(
                 os.path.expanduser("~/.pyenv")):
-            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{
-                  Color.END}")
+            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
             os.execvp("python", ["python"] + sys.argv)
 
         print(
-            f"\n{
-                Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{
-                Color.END}")
+            f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
         print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
 
         pip_cmd = [sys.executable, "-m", "pip", "install", "prompt_toolkit"]
@@ -118,8 +108,7 @@ class DependencyManager:
             print(f"{Color.GREEN}✅ Success!{Color.END}\n")
         except Exception:
             print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
-            print(f"Please run: {
-                  Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
+            print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit{Color.END}")
             sys.exit(1)
 
 
@@ -129,15 +118,7 @@ class DependencyManager:
 class HistoryManager:
     """Manages command history for different input categories."""
 
-    HISTORY_CATEGORIES = {
-        "default": ".dx_history_default",
-        "paths": ".dx_history_paths",
-        "bouquet": ".dx_history_bouquet",
-        "freq": ".dx_history_freq",
-        "pid": ".dx_history_pid",
-        "sid": ".dx_history_sid",
-        "provider": ".dx_history_provider"
-    }
+    HISTORY_CATEGORIES = { "default": ".dx_history_default", "paths": ".dx_history_paths", "bouquet": ".dx_history_bouquet", "freq": ".dx_history_freq", "pid": ".dx_history_pid", "sid": ".dx_history_sid", "provider": ".dx_history_provider" }
 
     def __init__(self, file_history_class):
         self._file_history_class = file_history_class
@@ -198,8 +179,7 @@ class UIComponents:
         """Display a progress bar."""
         filled = int(width * percent / 100)
         bar = "█" * filled + "░" * (width - filled)
-        sys.stdout.write(f"\r  {Color.CYAN}{task.ljust(20)}: {
-                         Color.BOLD}[{bar}]{Color.END} {percent}%")
+        sys.stdout.write(f"\r  {Color.CYAN}{task.ljust(20)}: {Color.BOLD}[{bar}]{Color.END} {percent}%")
         sys.stdout.flush()
         time.sleep(0.01)
 
@@ -234,11 +214,7 @@ class UIComponents:
             allow_back: bool) -> None:
         """Print the styled input prompt box."""
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}INPUT FIELD{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}INPUT FIELD{Color.END}{Color.YELLOW} " +
             "─" *
             65 +
             "┐")
@@ -246,16 +222,11 @@ class UIComponents:
         full_help = help_text
         if allow_back:
             full_help += "\n[ Type 'back' to return to the previous question ]"
-        full_help += f"\n[ DEFAULT CHOICE: {
-            default} ]" if default is not None else "\n[ REQUIRED FIELD ]"
+        full_help += f"\n[ DEFAULT CHOICE: {default} ]" if default is not None else "\n[ REQUIRED FIELD ]"
 
         for line in full_help.strip().split('\n'):
             print(
-                f"│ {
-                    Color.BLUE}{icon} {
-                    line.ljust(74)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
     def choose_option(self,
@@ -391,11 +362,7 @@ class TransponderConfig:
     @property
     def pol_digit(self) -> str:
         """Get polarization digit code."""
-        return {
-            "H": "0",
-            "V": "1",
-            "L": "2",
-            "R": "3"}.get(
+        return { "H": "0", "V": "1", "L": "2", "R": "3"}.get(
             self.polarization,
             "0")
 
@@ -472,28 +439,11 @@ class ConfigGenerator:
     def generate_transponder_entry(self) -> str:
         """Generate transponder database entry."""
         return (
-            f"{
-                self.tp_key}\n" f"\ts {
-                self._config.frequency *
-                1000}:{
-                self._config.symbol_rate *
-                1000}:" f"{
-                    self._config.pol_digit}:{
-                        self._config.fec}:{
-                            self._config.disp_sat}:" f"{
-                                self._config.inversion}:0:{
-                                    self._config.system}:" f"{
-                                        self._config.modulation}:{
-                                            self._config.rolloff}:{
-                                                self._config.pilot}\n/\n")
+            f"{self.tp_key}\n" f"\ts { self._config.frequency * 1000}:{ self._config.symbol_rate * 1000}:" f"{self._config.pol_digit}:{self._config.fec}:{self._config.disp_sat}:" f"{self._config.inversion}:0:{self._config.system}:" f"{self._config.modulation}:{self._config.rolloff}:{self._config.pilot}\n/\n")
 
     def generate_service_entry(self, pid: str) -> str:
         """Generate service database entry."""
-        srv_key = f"{
-            self.sid_hex}:{
-            self._config.ns_hex}:{
-            self.TSID}:{
-                self.ONID}"
+        srv_key = f"{self.sid_hex}:{self._config.ns_hex}:{self.TSID}:{self.ONID}"
         return (
             f"{srv_key}:1:0\n"
             f"{self._config.provider} PID{pid} FEED\n"
@@ -502,24 +452,13 @@ class ConfigGenerator:
 
     def generate_service_ref(self, pid: str) -> str:
         """Generate service reference string."""
-        return f"{
-            self.sid_no_lead}:{
-            self.tsid_no_lead}:{
-            self.onid_no_lead}:{
-                self._config.ns_hex}"
+        return f"{self.sid_no_lead}:{self.tsid_no_lead}:{self.onid_no_lead}:{self._config.ns_hex}"
 
     def generate_astra_block(self, pid: str, plp: str) -> str:
         """Generate Astra configuration block."""
         s_ref = self.generate_service_ref(pid)
-        var_name = f"f{
-            self._config.frequency}{
-            self._config.polarization.lower()}" f"{
-            self._config.provider.lower()[
-                :2]}p{pid}plp{plp}"
-        label = f"{
-            self._config.provider} {
-            self._config.frequency}{
-            self._config.polarization} PID{pid} PLP{plp}"
+        var_name = f"f{self._config.frequency}{self._config.polarization.lower()}" f"{ self._config.provider.lower()[ :2]}p{pid}plp{plp}"
+        label = f"{self._config.provider} {self._config.frequency}{self._config.polarization} PID{pid} PLP{plp}"
         stream_url = f"http://0.0.0.0:9999/{self._config.astra_path}/" \
             f"{self._config.frequency}_{self._config.sat_position}" \
             f"{self._config.sat_direction.lower()}_plp{plp}"
@@ -544,11 +483,7 @@ class ConfigGenerator:
         # Service and bouquet entries for each PID
         for pid in self._config.pids:
             s_ref = self.generate_service_ref(pid)
-            srv_key = f"{
-                self.sid_hex}:{
-                self._config.ns_hex}:{
-                self.TSID}:{
-                self.ONID}"
+            srv_key = f"{self.sid_hex}:{self._config.ns_hex}:{self.TSID}:{self.ONID}"
 
             self.services[srv_key] = self.generate_service_entry(pid)
             self.bouquet_entries.append(
@@ -627,10 +562,7 @@ class ChannelListProcessor:
         s_ref = self._generator.generate_service_ref(pid)
         var_name = (f"f{self._config.frequency}{self._config.polarization.lower()}"
                     f"{self._config.provider.lower()[:2]}p{pid}plp{plp}")
-        label = f"{
-            self._config.provider} {
-            self._config.frequency}{
-            self._config.polarization} PID{pid} PLP{plp}"
+        label = f"{self._config.provider} {self._config.frequency}{self._config.polarization} PID{pid} PLP{plp}"
 
         # Add separator
         bouquet_entries.append(
@@ -645,9 +577,7 @@ class ChannelListProcessor:
     def _process_csv_channels(self, pid: str, plp: str, s_ref: str,
                               bouquet_entries: List[str]) -> None:
         """Process CSV file for channel mappings."""
-        orbital_folder = f"{
-            self._config.sat_position}{
-            self._config.sat_direction.upper()}"
+        orbital_folder = f"{self._config.sat_position}{self._config.sat_direction.upper()}"
         csv_dir = os.path.join("channellist", orbital_folder)
 
         suggestions = sorted(
@@ -673,21 +603,13 @@ class ChannelListProcessor:
             suggestions: List[str]) -> None:
         """Print CSV file selection options."""
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}SUB-CHANNEL MAPPING: PID {pid} PLP {plp}{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}SUB-CHANNEL MAPPING: PID {pid} PLP {plp}{Color.END}{Color.YELLOW} " +
             "─" *
             40 +
             "┐")
         for idx, fname in enumerate(suggestions, 1):
             print(
-                f"│ {
-                    Color.CYAN} [{idx}] {
-                    fname.ljust(72)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.CYAN} [{idx}] {fname.ljust(72)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
     def _resolve_csv_path(
@@ -716,13 +638,7 @@ class ChannelListProcessor:
                 try:
                     csid, name, stype = [x.strip() for x in line.split(",")]
                     c_ref = (
-                        f"1:0:{stype}:{
-                            format(
-                                int(csid),
-                                'x').lower()}:" f"{
-                            self._generator.tsid_no_lead}:{
-                            self._generator.onid_no_lead}:" f"{
-                            self._config.ns_hex}:0:0:0:{sub_url}:{name}")
+                        f"1:0:{stype}:{ format( int(csid), 'x').lower()}:" f"{self._generator.tsid_no_lead}:{self._generator.onid_no_lead}:" f"{self._config.ns_hex}:0:0:0:{sub_url}:{name}")
                     bouquet_entries.append(
                         f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
                     print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
@@ -783,26 +699,7 @@ class EncyclopediaArchitect:
         """Run the configuration wizard."""
         while True:
             try:
-                step_handlers = {
-                    1: self._step_cleanup,
-                    2: self._step_source_selection,
-                    3: self._step_bouquet_name,
-                    4: self._step_frequency,
-                    5: self._step_symbol_rate,
-                    6: self._step_polarization,
-                    7: self._step_satellite_position,
-                    8: self._step_satellite_direction,
-                    9: self._step_inversion,
-                    10: self._step_fec,
-                    11: self._step_system,
-                    12: self._step_modulation,
-                    13: self._step_rolloff,
-                    14: self._step_pilot,
-                    15: self._step_service_id,
-                    16: self._step_provider,
-                    17: self._step_pids,
-                    18: self._step_astra_path_and_finalize,
-                }
+                step_handlers = { 1: self._step_cleanup, 2: self._step_source_selection, 3: self._step_bouquet_name, 4: self._step_frequency, 5: self._step_symbol_rate, 6: self._step_polarization, 7: self._step_satellite_position, 8: self._step_satellite_direction, 9: self._step_inversion, 10: self._step_fec, 11: self._step_system, 12: self._step_modulation, 13: self._step_rolloff, 14: self._step_pilot, 15: self._step_service_id, 16: self._step_provider, 17: self._step_pids, 18: self._step_astra_path_and_finalize, }
 
                 handler = step_handlers.get(self._step)
                 if handler:
@@ -815,9 +712,7 @@ class EncyclopediaArchitect:
                 self._ui.clear_screen()
                 self._ui.print_header()
                 print(
-                    f"\n{
-                        Color.RED}↩ REVERTING TO PREVIOUS STEP...{
-                        Color.END}")
+                    f"\n{Color.RED}↩ REVERTING TO PREVIOUS STEP...{Color.END}")
 
     # --- Step Handlers ---
 
@@ -846,27 +741,17 @@ class EncyclopediaArchitect:
     def _step_source_selection(self) -> None:
         """Handle database source selection."""
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}DATABASE SOURCE{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE{Color.END}{Color.YELLOW} " +
             "─" *
             61 +
             "┐")
-        print(f"│ {Color.BLUE}📂 Opening File Manager...{
-              ' ' * 47}{Color.END}{Color.YELLOW}│")
-        print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{
-              ' ' * 23}{Color.END}{Color.YELLOW}│")
+        print(f"│ {Color.BLUE}📂 Opening File Manager...{' ' * 47}{Color.END}{Color.YELLOW}│")
+        print(f"│ {Color.BLUE}ℹ Cancelling will automatically select local ./lamedb.{' ' * 23}{Color.END}{Color.YELLOW}│")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
         self._merge_path = self._file_manager.browse(".")
         print(
-            f"  {
-                Color.GREEN}✅ Target Active: {
-                Color.BOLD}{
-                self._merge_path}{
-                    Color.END}")
+            f"  {Color.GREEN}✅ Target Active: {Color.BOLD}{self._merge_path}{Color.END}")
         self._step = 3
 
     def _step_bouquet_name(self) -> None:
@@ -875,8 +760,7 @@ class EncyclopediaArchitect:
             "Bouquet name", "T2MI DX",
             "The name of the favorites group in your channel list.", "🏷️"
         )
-        self._bouquet_file = f"userbouquet.{
-            self._bouquet_name.lower().replace(' ', '_')}.tv"
+        self._bouquet_file = f"userbouquet.{self._bouquet_name.lower().replace(' ', '_')}.tv"
         self._step = 4
 
     def _step_frequency(self) -> None:
@@ -1055,10 +939,7 @@ class EncyclopediaArchitect:
         self._backup_name = self._file_manager.backup_file(self._merge_path)
         if self._backup_name:
             print(
-                f"\n  {
-                    Color.GREEN}💾 BACKUP CREATED: {
-                    self._backup_name}{
-                    Color.END}")
+                f"\n  {Color.GREEN}💾 BACKUP CREATED: {self._backup_name}{Color.END}")
 
         # Load and merge database
         self._db_manager.load(self._merge_path)
@@ -1081,25 +962,16 @@ class EncyclopediaArchitect:
             return False
 
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}LIVE DATABASE SWAP{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}LIVE DATABASE SWAP{Color.END}{Color.YELLOW} " +
             "─" *
             57 +
             "┐")
-        print(f"│ {Color.CYAN}Apply these edits to the source file now?{
-              ' ' * 36}{Color.END}{Color.YELLOW}│")
+        print(f"│ {Color.CYAN}Apply these edits to the source file now?{' ' * 36}{Color.END}{Color.YELLOW}│")
 
         b_disp = os.path.basename(
             self._backup_name) if self._backup_name else "N/A"
         print(
-            f"│ {
-                Color.BLUE}ℹ Verified Backup: {
-                b_disp.ljust(53)}{
-                Color.END}{
-                    Color.YELLOW} │")
+            f"│ {Color.BLUE}ℹ Verified Backup: {b_disp.ljust(53)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
         swap_choice = self._ui.ask(
@@ -1111,10 +983,7 @@ class EncyclopediaArchitect:
             try:
                 shutil.copy2("lamedb", self._merge_path)
                 print(
-                    f"  {
-                        Color.GREEN}✨ SUCCESS: {
-                        self._merge_path} updated.{
-                        Color.END}")
+                    f"  {Color.GREEN}✨ SUCCESS: {self._merge_path} updated.{Color.END}")
                 return True
             except Exception as e:
                 print(f"  {Color.RED}✖ SWAP FAILED: {str(e)}{Color.END}")
@@ -1125,8 +994,7 @@ class EncyclopediaArchitect:
         # Save bouquet
         with open(self._bouquet_file, "w") as f:
             f.write(
-                f"#NAME {
-                    self._bouquet_name}\n" +
+                f"#NAME {self._bouquet_name}\n" +
                 "\n".join(
                     self._bouquet_entries) +
                 "\n")
@@ -1144,10 +1012,7 @@ class EncyclopediaArchitect:
         """Display completion summary."""
         self._ui.draw_progress(100, task="Architecture Locked")
         print(
-            f"\n\n{
-                Color.GREEN}{
-                Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT SUCCESSFUL!{
-                Color.END}")
+            f"\n\n{Color.GREEN}{Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT SUCCESSFUL!{Color.END}")
         print(f"{Color.CYAN}📂 LOCAL WORKSPACE : ./lamedb")
 
         if self._backup_name:
@@ -1155,16 +1020,10 @@ class EncyclopediaArchitect:
 
         if swap_applied:
             print(
-                f"📂 LIVE DATABASE   : {
-                    self._merge_path} {
-                    Color.BOLD}(UPDATED){
-                    Color.END}")
+                f"📂 LIVE DATABASE   : {self._merge_path} {Color.BOLD}(UPDATED){Color.END}")
         else:
             print(
-                f"📂 SOURCE TARGET   : {
-                    self._merge_path} {
-                    Color.BOLD}(UNTOUCHED){
-                    Color.END}")
+                f"📂 SOURCE TARGET   : {self._merge_path} {Color.BOLD}(UNTOUCHED){Color.END}")
 
         print(f"📂 BOUQUET         : ./{self._bouquet_file}")
         print(f"📂 ASTRA           : ./astra/astra.conf{Color.END}\n")

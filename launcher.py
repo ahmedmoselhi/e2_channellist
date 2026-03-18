@@ -71,8 +71,7 @@ def get_choice():
 
     print(f"\n{Color.YELLOW}AVAILABLE DX MODULES:{Color.END}")
     for key, title, desc in options:
-        print(f"  {Color.CYAN}[{key}]{Color.END} {Color.BOLD}{
-              title.ljust(35)}{Color.END} - {desc}")
+        print(f"  {Color.CYAN}[{key}]{Color.END} {Color.BOLD}{title.ljust(35)}{Color.END} - {desc}")
 
     return input(f"\n{Color.YELLOW}Selection > {Color.END}").upper()
 
@@ -87,18 +86,13 @@ def run_script(script_name):
 
             # Post-execution Choice (Preserved Helper Text)
             print(
-                f"\n{
-                    Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
+                f"\n{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
             print(
-                f"│ {
-                    Color.BOLD}TASK COMPLETED.{
-                    Color.END} Would you like to return to the Main Menu?                │")
+                f"│ {Color.BOLD}TASK COMPLETED.{Color.END} Would you like to return to the Main Menu?                │")
             print(
-                f"└──────────────────────────────────────────────────────────────────────────┘{
-                    Color.END}")
+                f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
 
-            final_choice = input(f"{Color.YELLOW}Enter 'M' for Main Menu or 'Q' to Quit: {
-                                 Color.END}").upper()
+            final_choice = input(f"{Color.YELLOW}Enter 'M' for Main Menu or 'Q' to Quit: {Color.END}").upper()
             return final_choice
 
         except Exception as e:
@@ -128,12 +122,9 @@ def main():
         print(
             f"{Color.BLUE}┌──────────────────────────────────────────────────────────────────────────┐")
         print(
-            f"│ {
-                Color.BOLD}INSTRUCTIONS:{
-                Color.END} Select a module to launch. Each module opens in this window. │")
+            f"│ {Color.BOLD}INSTRUCTIONS:{Color.END} Select a module to launch. Each module opens in this window. │")
         print(
-            f"└──────────────────────────────────────────────────────────────────────────┘{
-                Color.END}")
+            f"└──────────────────────────────────────────────────────────────────────────┘{Color.END}")
 
         choice = get_choice()
 

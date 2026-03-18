@@ -60,14 +60,11 @@ def ensure_dependencies():
     except ImportError:
         if "pyenv" not in sys.executable and os.path.exists(
                 os.path.expanduser("~/.pyenv")):
-            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{
-                  Color.END}")
+            print(f"{Color.YELLOW}⚠ System Python detected. Switching to environment shim...{Color.END}")
             os.execvp("python", ["python"] + sys.argv)
 
         print(
-            f"\n{
-                Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{
-                Color.END}")
+            f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
         print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
 
         pip_cmd = [sys.executable, "-m", "pip", "install", "prompt_toolkit"]
@@ -88,8 +85,7 @@ def ensure_dependencies():
             return pt_prompt, FileHistory, radiolist_dialog, PathCompleter, ANSI
         except Exception:
             print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
-            print(f"Please run: {
-                  Color.BOLD}python -m pip install prompt_toolkit colorama{Color.END}")
+            print(f"Please run: {Color.BOLD}python -m pip install prompt_toolkit colorama{Color.END}")
             sys.exit(1)
 
 
@@ -105,15 +101,7 @@ class UIController:
     """Handles all user interaction, display, and input."""
 
     def __init__(self):
-        self.history = {
-            "default": FileHistory(".dx_history_default"),
-            "paths": FileHistory(".dx_history_paths"),
-            "bouquet": FileHistory(".dx_history_bouquet"),
-            "freq": FileHistory(".dx_history_freq"),
-            "pid": FileHistory(".dx_history_pid"),
-            "sid": FileHistory(".dx_history_sid"),
-            "provider": FileHistory(".dx_history_provider")
-        }
+        self.history = { "default": FileHistory(".dx_history_default"), "paths": FileHistory(".dx_history_paths"), "bouquet": FileHistory(".dx_history_bouquet"), "freq": FileHistory(".dx_history_freq"), "pid": FileHistory(".dx_history_pid"), "sid": FileHistory(".dx_history_sid"), "provider": FileHistory(".dx_history_provider") }
         self.path_completer = PathCompleter(expanduser=True)
 
     @staticmethod
@@ -139,8 +127,7 @@ class UIController:
     def draw_progress(percent, width=40, task="Processing"):
         filled = int(width * percent / 100)
         bar = "█" * filled + "▒" * (width - filled)
-        sys.stdout.write(f"\r  {Color.CYAN}{task.ljust(22)}: {
-                         Color.BOLD}[{bar}]{Color.END} {percent}%")
+        sys.stdout.write(f"\r  {Color.CYAN}{task.ljust(22)}: {Color.BOLD}[{bar}]{Color.END} {percent}%")
         sys.stdout.flush()
         time.sleep(0.01)
 
@@ -148,8 +135,7 @@ class UIController:
     def exit_gracefully():
         print(
             f"\n\n{Color.RED}⚠ PROCESS ABORTED BY OPERATOR (Ctrl+C).{Color.END}")
-        print(f"{Color.YELLOW}System state preserved. Exiting The Encyclopedia Architect...{
-              Color.END}")
+        print(f"{Color.YELLOW}System state preserved. Exiting The Encyclopedia Architect...{Color.END}")
         sys.exit(0)
 
     def ask(
@@ -162,43 +148,27 @@ class UIController:
             category="default"):
         while True:
             print(
-                f"\n{
-                    Color.YELLOW}╭──────────────────────────────────────────────────────────────────────────────╮")
+                f"\n{Color.YELLOW}╭──────────────────────────────────────────────────────────────────────────────╮")
             for line in help_text.strip().split('\n'):
                 print(
-                    f"│ {
-                        Color.BLUE}{icon} {
-                        line.ljust(74)}{
-                        Color.END}{
-                        Color.YELLOW} │")
+                    f"│ {Color.BLUE}{icon} {line.ljust(74)}{Color.END}{Color.YELLOW} │")
             if allow_back:
+                back_hint = "↩  Type 'back' to return to the previous configuration step."
                 print(
-                    f"│ {
-                        Color.CYAN}{
-                        '↩  Type \'back\' to return to the previous configuration step.'.ljust(76)}{
-                        Color.END}{
-                        Color.YELLOW} │")
+                    f"│ {Color.CYAN}{back_hint.ljust(76)}{Color.END}{Color.YELLOW} │")
 
-            status = f"[ DEFAULT: {
-                default} ]" if default is not None else "[ ACTION REQUIRED ]"
+            status = f"[ DEFAULT: {default} ]" if default is not None else "[ ACTION REQUIRED ]"
             print(
                 f"├──────────────────────────────────────────────────────────────────────────────┤")
             print(
-                f"│ {
-                    Color.GREEN}STATUS: {
-                    status.ljust(68)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.GREEN}STATUS: {status.ljust(68)}{Color.END}{Color.YELLOW} │")
             print(
-                f"╰──────────────────────────────────────────────────────────────────────────────╯{
-                    Color.END}")
+                f"╰──────────────────────────────────────────────────────────────────────────────╯{Color.END}")
 
             cat_history = self.history.get(category, self.history["default"])
             val = pt_prompt(
                 ANSI(
-                    f"  {
-                        Color.BOLD}{prompt_text}{
-                        Color.END}: "),
+                    f"  {Color.BOLD}{prompt_text}{Color.END}: "),
                 history=cat_history).strip()
 
             if val.lower() == "back" and allow_back:
@@ -208,9 +178,7 @@ class UIController:
             if val != "":
                 return val
             print(
-                f"  {
-                    Color.RED}❌ ERROR: This field cannot be empty.{
-                    Color.END}")
+                f"  {Color.RED}❌ ERROR: This field cannot be empty.{Color.END}")
 
     def choose_option(self, title, text, options, default=None):
         result = radiolist_dialog(
@@ -281,17 +249,12 @@ class ConfigBuilder:
             isi):
         p_digit = {"H": "0", "V": "1", "L": "2", "R": "3"}.get(pol, "0")
         tp_key = f"{ns_hex}:{tsid_hex}:{onid}"
-        content = f"{tp_key}\n\ts {
-            freq *
-            1000}:{
-            sr *
-            1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}:{isi}\n/\n"
+        content = f"{tp_key}\n\ts { freq * 1000}:{ sr * 1000}:{p_digit}:{fec}:{disp_sat}:{inv}:0:{sys_type}:{mod}:{roll}:{pilot}:{isi}\n/\n"
         return tp_key, content
 
     @staticmethod
     def generate_srv_entry(srv_key, provider, pid):
-        return f"{srv_key}:1:0\n{provider} PID{pid} FEED\np:{
-            provider},c:15{format(int(pid), '04x')},f:01\n"
+        return f"{srv_key}:1:0\n{provider} PID{pid} FEED\np:{provider},c:15{format(int(pid), '04x')},f:01\n"
 
     @staticmethod
     def generate_astra_block(
@@ -306,8 +269,7 @@ class ConfigBuilder:
             pid):
         block = (f"-- {label}\n{var_name} = make_t2mi_decap({{\n"
                  f"    name = \"decap_{var_name}\",\n"
-                 f"    input = \"http://127.0.0.1:8001/1:0:1:{
-                     s_ref_core}:0:0:0:\",\n"
+                 f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label}\",\n"
                  f"    input = {{ \"t2mi://decap_{var_name}\", }},\n"
@@ -333,9 +295,7 @@ class DatabaseManager:
                 shutil.copy2(path, backup_name)
                 self.ui.draw_progress(20, task="Creating Backup")
                 print(
-                    f"\n  {
-                        Color.GREEN}💾 BACKUP CREATED: {backup_name}{
-                        Color.END}")
+                    f"\n  {Color.GREEN}💾 BACKUP CREATED: {backup_name}{Color.END}")
                 return backup_name
             except Exception as e:
                 print(f"\n  {Color.RED}⚠ BACKUP FAILED: {str(e)}{Color.END}")
@@ -461,9 +421,7 @@ class ArchitectApp:
         self.ui.clear_screen()
         self.ui.print_header()
         print(
-            f"\n{
-                Color.RED}↩ REVERTING TO PREVIOUS CONFIGURATION STEP...{
-                Color.END}")
+            f"\n{Color.RED}↩ REVERTING TO PREVIOUS CONFIGURATION STEP...{Color.END}")
 
     # --- Step Implementations ---
 
@@ -492,32 +450,18 @@ class ArchitectApp:
 
     def step_select_source(self):
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}DATABASE SOURCE SELECTION{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}DATABASE SOURCE SELECTION{Color.END}{Color.YELLOW} " +
             "─" *
             47 +
             "┐")
         print(
-            f"│ {
-                Color.BLUE}📂 Opening File Manager for target selection...                           {
-                Color.END}{
-                Color.YELLOW} │")
+            f"│ {Color.BLUE}📂 Opening File Manager for target selection...                           {Color.END}{Color.YELLOW} │")
         print(
-            f"│ {
-                Color.BLUE}💡 Cancelling will automatically select local ./lamedb.                   {
-                Color.END}{
-                Color.YELLOW} │")
+            f"│ {Color.BLUE}💡 Cancelling will automatically select local ./lamedb.                   {Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
         self.config['merge_path'] = self.ui.file_browser(".")
         print(
-            f"  {
-                Color.GREEN}✅ Target Active: {
-                Color.BOLD}{
-                self.config['merge_path']}{
-                    Color.END}")
+            f"  {Color.GREEN}✅ Target Active: {Color.BOLD}{self.config['merge_path']}{Color.END}")
         self.step = 3
 
     def step_bouquet_name(self):
@@ -528,8 +472,7 @@ class ArchitectApp:
             "🏷️"
         )
         self.config['bouquet_name'] = bouquet_name
-        self.config['bouquet_file'] = f"userbouquet.{
-            bouquet_name.lower().replace(' ', '_')}.tv"
+        self.config['bouquet_file'] = f"userbouquet.{bouquet_name.lower().replace(' ', '_')}.tv"
         self.step = 4
 
     def step_frequency_source(self):
@@ -564,27 +507,14 @@ class ArchitectApp:
             reader = list(csv.DictReader(f))
 
         print(
-            f"\n{
-                Color.YELLOW}┌── {
-                Color.BOLD}SELECT TRANSPONDER FROM DATABASE{
-                Color.END}{
-                    Color.YELLOW} " +
+            f"\n{Color.YELLOW}┌── {Color.BOLD}SELECT TRANSPONDER FROM DATABASE{Color.END}{Color.YELLOW} " +
             "─" *
             40 +
             "┐")
         for idx, r in enumerate(reader):
-            label = f"{
-                r['Freq']} {
-                r['Pol']} ({
-                r['Pos']}{
-                r['Dir']}) SR:{
-                    r['SR']}"
+            label = f"{r['Freq']} {r['Pol']} ({r['Pos']}{r['Dir']}) SR:{r['SR']}"
             print(
-                f"│ {
-                    Color.CYAN} [{idx}] {
-                    label.ljust(72)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.CYAN} [{idx}] {label.ljust(72)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
         tp_idx_str = self.ui.ask(
@@ -596,11 +526,7 @@ class ArchitectApp:
 
         self.config['freq'] = int(row['Freq'])
         raw_pol = row['Pol'].upper()
-        self.config['pol'] = {
-            "2": "L",
-            "3": "R",
-            "0": "H",
-            "1": "V"}.get(
+        self.config['pol'] = { "2": "L", "3": "R", "0": "H", "1": "V"}.get(
             raw_pol,
             raw_pol)
         self.config['sr'] = int(row['SR'])
@@ -613,12 +539,7 @@ class ArchitectApp:
 
         self.calculate_sat_data(sat_pos, sat_dir)
         print(
-            f"\n{
-                Color.GREEN}✅ LOADED: {
-                self.config['freq']} {
-                self.config['pol']} {sat_pos}{sat_dir} (Hex: {
-                    self.config['ns_hex']}){
-                        Color.END}")
+            f"\n{Color.GREEN}✅ LOADED: {self.config['freq']} {self.config['pol']} {sat_pos}{sat_dir} (Hex: {self.config['ns_hex']}){Color.END}")
         self.used_csv = True
         self.step = 15
 
@@ -778,22 +699,17 @@ class ArchitectApp:
                     sid_no_lead = format(current_sid, 'x').lower()
                     tsid_no_lead = format(int(dyn_tsid, 16), 'x').lower()
                     onid_no_lead = format(int(self.ONID, 16), 'x').lower()
-                    s_ref_core = f"{sid_no_lead}:{tsid_no_lead}:{
-                        onid_no_lead}:{self.config['ns_hex']}"
-                    srv_key = f"{sid_hex}:{
-                        self.config['ns_hex']}:{dyn_tsid}:{
-                        self.ONID}"
+                    s_ref_core = f"{sid_no_lead}:{tsid_no_lead}:{onid_no_lead}:{self.config['ns_hex']}"
+                    srv_key = f"{sid_hex}:{self.config['ns_hex']}:{dyn_tsid}:{self.ONID}"
 
                     # Generate Service Entry
                     self.new_srvs[srv_key] = self.builder.generate_srv_entry(
                         srv_key, self.config['provider'], pid)
                     self.bouquet.append(
-                        f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {
-                            self.config['provider']} PID{pid} FEED")
+                        f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {self.config['provider']} PID{pid} FEED")
 
                     # Ask for PLPs
-                    plp_target = f"ISI {isi} PID {
-                        pid}" if isi != "-1" else f"PID {pid}"
+                    plp_target = f"ISI {isi} PID {pid}" if isi != "-1" else f"PID {pid}"
                     plps_input = self.ui.ask(
                         f"PLPs for {plp_target}",
                         "0",
@@ -802,15 +718,10 @@ class ArchitectApp:
 
                     for plp in [pl.strip() for pl in plps_input.split(",")]:
                         # Generate Astra Block
-                        var_name = f"f{
-                            self.config['freq']}{
-                            self.config['pol'].lower()}{
-                            self.config['provider'].lower()[
-                                :2]}p{pid}plp{plp}"
+                        var_name = f"f{self.config['freq']}{self.config['pol'].lower()}{ self.config['provider'].lower()[ :2]}p{pid}plp{plp}"
                         if isi != "-1":
                             var_name += f"isi{isi}"
-                        label_full = f"{self.config['provider']} {self.config['freq']}{
-                            self.config['pol']} " + (f"ISI{isi} " if isi != "-1" else "") + f"PID{pid} PLP{plp}"
+                        label_full = f"{self.config['provider']} {self.config['freq']}{self.config['pol']} " + (f"ISI{isi} " if isi != "-1" else "") + f"PID{pid} PLP{plp}"
 
                         self.bouquet.append(
                             f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION --- {label_full} ---")
@@ -862,31 +773,20 @@ class ArchitectApp:
             onid_no_lead,
             s_ref_core,
             label_full):
-        orbital_folder = f"{
-            self.config['sat_pos']}{
-            self.config['sat_dir'].upper()}"
+        orbital_folder = f"{self.config['sat_pos']}{self.config['sat_dir'].upper()}"
         csv_dir = os.path.join("channellist", orbital_folder)
         suggestions = sorted([f for f in os.listdir(csv_dir) if f.lower().endswith(
             '.csv')]) if os.path.isdir(csv_dir) else []
 
         title_text = f" SUB-CHANNEL MAPPING: PLP {plp} "
-        print(f"\n{Color.YELLOW}┌── {Color.BOLD}{title_text}{Color.END}{
-              Color.YELLOW} " + "─" * (76 - len(title_text)) + "┐")
+        print(f"\n{Color.YELLOW}┌── {Color.BOLD}{title_text}{Color.END}{Color.YELLOW} " + "─" * (76 - len(title_text)) + "┐")
         if suggestions:
             for idx, fname in enumerate(suggestions, 1):
                 print(
-                    f"│ {
-                        Color.CYAN} [{idx}] {
-                        fname.ljust(72)}{
-                        Color.END}{
-                        Color.YELLOW} │")
+                    f"│ {Color.CYAN} [{idx}] {fname.ljust(72)}{Color.END}{Color.YELLOW} │")
         else:
             print(
-                f"│ {
-                    Color.RED} ❌ No channel mapping CSVs found in {
-                    csv_dir.ljust(50)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.RED} ❌ No channel mapping CSVs found in {csv_dir.ljust(50)}{Color.END}{Color.YELLOW} │")
         print(f"└" + "─" * 78 + "┘" + Color.END)
 
         ch_choice = pt_prompt(
@@ -901,8 +801,7 @@ class ArchitectApp:
             ch_choice) - 1]) if ch_choice.isdigit() and 1 <= int(ch_choice) <= len(suggestions) else ch_choice
 
         if ch_file and os.path.isfile(ch_file):
-            sub_url = f"http://0.0.0.0:9999/{self.config['path']}/{self.config['freq']}_{
-                self.config['sat_pos']}{self.config['sat_dir'].lower()}_plp{plp}".replace(":", "%3a")
+            sub_url = f"http://0.0.0.0:9999/{self.config['path']}/{self.config['freq']}_{self.config['sat_pos']}{self.config['sat_dir'].lower()}_plp{plp}".replace(":", "%3a")
             with open(ch_file, "r", encoding="utf8") as f:
                 for line in f:
                     if "," not in line:
@@ -910,8 +809,7 @@ class ArchitectApp:
                     try:
                         csid, name, stype = [x.strip()
                                              for x in line.split(",")]
-                        c_ref = f"1:0:{stype}:{format(int(csid), 'x').lower()}:{tsid_no_lead}:{
-                            onid_no_lead}:{self.config['ns_hex']}:0:0:0:{sub_url}:{name}"
+                        c_ref = f"1:0:{stype}:{format(int(csid), 'x').lower()}:{tsid_no_lead}:{onid_no_lead}:{self.config['ns_hex']}:0:0:0:{sub_url}:{name}"
                         self.bouquet.append(
                             f"#SERVICE {c_ref}\n#DESCRIPTION {name}")
                         print(
@@ -938,23 +836,14 @@ class ArchitectApp:
         if os.path.abspath(
                 self.config['merge_path']) != os.path.abspath("./lamedb"):
             print(
-                f"\n{
-                    Color.YELLOW}┌── {
-                    Color.BOLD}LIVE DATABASE SWAP{
-                    Color.END}{
-                    Color.YELLOW} " +
+                f"\n{Color.YELLOW}┌── {Color.BOLD}LIVE DATABASE SWAP{Color.END}{Color.YELLOW} " +
                 "─" *
                 57 +
                 "┐")
-            print(f"│ {Color.CYAN}Apply these edits to the source file now?{
-                  ' ' * 36}{Color.END}{Color.YELLOW}│")
+            print(f"│ {Color.CYAN}Apply these edits to the source file now?{' ' * 36}{Color.END}{Color.YELLOW}│")
             b_disp = os.path.basename(backup_name) if backup_name else "N/A"
             print(
-                f"│ {
-                    Color.BLUE}ℹ Verified Backup: {
-                    b_disp.ljust(53)}{
-                    Color.END}{
-                    Color.YELLOW} │")
+                f"│ {Color.BLUE}ℹ Verified Backup: {b_disp.ljust(53)}{Color.END}{Color.YELLOW} │")
             print(f"└" + "─" * 78 + "┘" + Color.END)
 
             swap_choice = self.ui.ask(
@@ -967,10 +856,7 @@ class ArchitectApp:
                     shutil.copy2("lamedb", self.config['merge_path'])
                     swap_applied = True
                     print(
-                        f"  {
-                            Color.GREEN}✨ SUCCESS: {
-                            self.config['merge_path']} updated.{
-                            Color.END}")
+                        f"  {Color.GREEN}✨ SUCCESS: {self.config['merge_path']} updated.{Color.END}")
                 except Exception as e:
                     print(f"  {Color.RED}✖ SWAP FAILED: {str(e)}{Color.END}")
 
@@ -984,25 +870,16 @@ class ArchitectApp:
         # 5. Final Report
         self.ui.draw_progress(100, task="Architecture Locked")
         print(
-            f"\n\n{
-                Color.GREEN}{
-                Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT SUCCESSFUL!{
-                Color.END}")
+            f"\n\n{Color.GREEN}{Color.BOLD}✅ v9.7 ENCYCLOPEDIA ARCHITECT SUCCESSFUL!{Color.END}")
         print(f"{Color.CYAN}📂 LOCAL WORKSPACE : ./lamedb")
         if backup_name:
             print(f"📂 SOURCE BACKUP   : {backup_name}")
         if swap_applied:
             print(
-                f"📂 LIVE DATABASE   : {
-                    self.config['merge_path']} {
-                    Color.BOLD}(UPDATED){
-                    Color.END}")
+                f"📂 LIVE DATABASE   : {self.config['merge_path']} {Color.BOLD}(UPDATED){Color.END}")
         else:
             print(
-                f"📂 SOURCE TARGET   : {
-                    self.config['merge_path']} {
-                    Color.BOLD}(UNTOUCHED){
-                    Color.END}")
+                f"📂 SOURCE TARGET   : {self.config['merge_path']} {Color.BOLD}(UNTOUCHED){Color.END}")
         print(f"📂 BOUQUET         : ./{self.config['bouquet_file']}")
         print(f"📂 ASTRA           : ./astra/astra.conf{Color.END}\n")
         sys.exit(0)
