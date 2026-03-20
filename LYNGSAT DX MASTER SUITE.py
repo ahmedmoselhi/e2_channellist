@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
-LyngSat DX Master Suite - Version 17.16
-FIX: "Fake" PID/PLP elimination.
-     The pids-plps matrix in the frequency CSV is now strictly calculated
-     from verified services found during drill-down, removing theoretical
-     combinations that have no channels.
+LyngSat DX Master Suite - Version 17.17
+FIX: Restored Multistream ISI detection logic.
+     - Extracts ISI values from verified buckets to populate the 'isi' CSV column.
+     - Preserves the HTML order for pids-plps matrix (matching ISI sort order).
 """
 
 import os
@@ -89,7 +88,7 @@ class UIRenderer:
         lines.append(self.color.GOLD + "█" + "▄" * inner_width + "█" + self.color.ENDC)
         return lines
 
-    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.16 | ROBUST") -> None:
+    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.17 | ROBUST") -> None:
         for line in self.render_banner(title, version): print(line)
 
     def print_instructions_box(self, instructions: List[str], notes: List[str]) -> None:
@@ -97,7 +96,7 @@ class UIRenderer:
         width = self.terminal_width
         inner_width = width - 2
         print(f"{c.BASE}┌{'─' * inner_width}┐{c.ENDC}")
-        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.16{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.17{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
         print(f"{c.BASE}│{self._pad_to_width(f'  {c.LIME}Instructions:{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         for instr in instructions: print(f"{c.BASE}│{self._pad_to_width(f'  • {instr}', inner_width)}{c.BASE}│{c.ENDC}")
@@ -551,7 +550,6 @@ class LyngSatDXMaster:
                              p_val = prov_m.group(1).strip()
                              if not re.search(r'\d{4,5}\s*[VHRL]', p_val): prov = p_val
 
-                    # Initial theoretical calculation (will be overwritten if channels found)
                     mod = "8PSK" if "8PSK" in mux_text else "QPSK"
                     hw = round(float(sat_deg) + 0.1, 1) if is_cband else float(sat_deg)
                     
@@ -580,21 +578,36 @@ class LyngSatDXMaster:
                 if count > 0:
                     self.total_channels += count
                     
-                    # --- FIX: Re-calculate Matrix based on Verified Buckets ONLY ---
-                    verified_pairs = []
+                    # --- FIX: Re-calculate Matrix & ISI based on Verified Buckets ---
+                    verified_parts = []
+                    found_isis = set()
+                    
+                    # Iterate buckets in the order they were found (preserves HTML/ISI order)
                     for b_key in found_buckets:
                         m_plp = re.search(r'PLP(\d+)', b_key)
                         m_pid = re.search(r'PID(\d+)', b_key)
+                        m_isi = re.search(r'ISI(-?\d+)', b_key)
+                        
                         if m_plp and m_pid:
-                            verified_pairs.append((m_pid.group(1), m_plp.group(1)))
+                            pid_val = m_pid.group(1)
+                            plp_val = m_plp.group(1)
+                            verified_parts.append(f"{pid_val},{plp_val}")
+                        
+                        if m_isi:
+                            isi_val = m_isi.group(1)
+                            if isi_val != '-1':
+                                found_isis.add(isi_val)
                     
-                    if verified_pairs:
-                        # Sort by PID, then PLP
-                        verified_pairs.sort(key=lambda x: (int(x[0]), int(x[1])))
-                        matrix_str = "{" + ";".join([f"{pid},{plp}" for pid, plp in verified_pairs]) + "}"
-                        # Update CSV row at index 11 (pids-plps)
+                    # Update Matrix (pids-plps)
+                    if verified_parts:
+                        matrix_str = "{" + ";".join(verified_parts) + "}"
                         tp['csv_row'][11] = matrix_str
-                        self.log_proc(f"Verified Matrix: {matrix_str}", self.color.SKY, debug_only=True)
+                    
+                    # Update ISI List
+                    if found_isis:
+                        # Sort ISIs numerically for consistent output
+                        isi_str = ",".join(sorted(list(found_isis), key=int))
+                        tp['csv_row'][12] = isi_str
                     # ------------------------------------------------------------------
                     
                     valid_transponders.append(tp)
