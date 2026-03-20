@@ -2,7 +2,7 @@ Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
 10713,1,14180,53.0,E,2,9,1,1,2,0,"{4096,0}",-1,RSCC,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10713-V.html
 10730,1,14180,53.0,E,2,9,1,1,2,0,"{4096,0}",-1,RSCC,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10730-V.html
 10749,1,16410,53.0,E,2,9,1,1,2,0,"{4096,0}",-1,RSCC,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10749-V.html
-10840,1,15284,53.0,E,2,9,1,1,2,0,"{4096,0;4096,1;4105,0;4105,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10840-V.html
+10840,1,15284,53.0,E,2,9,1,1,2,0,"{4096,0;4105,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10840-V.html
 10853,1,5130,53.0,E,2,9,1,1,2,0,"{4096,1}",-1,RTRS Smolensk,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10853-V.html
 10875,1,15284,53.0,E,2,9,1,1,2,0,"{4096,0}",-1,RTRS 2,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10875-V.html
-10909,1,28724,53.0,E,2,9,1,1,2,0,"{4096,1;4096,2;4097,1;4097,2;4100,1;4100,2;4102,1;4102,2;4105,1;4105,2}",-1,RTRS Bryansk,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10909-V.html
+10909,1,28724,53.0,E,2,9,1,1,2,0,"{4096,1;4097,1;4100,1;4102,1;4105,1;4105,2}",-1,RTRS Bryansk,https://www.lyngsat.com/muxes/Express-AM6_Ku-Fixed-1_10909-V.html
