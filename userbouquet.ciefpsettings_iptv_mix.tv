@@ -1,15 +1,1215 @@
 #NAME :: ciefpsettings • IPTV MIX 1 ::
-#SERVICE 1:64:4B7:0:0:0:0:0:0:0:
+#SERVICE 1:64:56D:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ MIX1 ★★ ==
-#SERVICE 1:64:4B8:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Grand Cinema
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION 24.7 Box TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION FX TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Toonix TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION WOW TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Trailersᴴᴰ
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Wild Earth
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Smithsonian Channelᴴᴰ 🇵🇹🇧🇷
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Smithsonian Channel Selectᴴᴰ 🇺🇸
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Popstar! TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION 4U TV (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOW 70s
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOW 80s
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOW Rock
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Brasa Music
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION MA Live
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION SALTO 1
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION SALTO 2
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Carac 1
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Carac 2
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Carac 3
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Carac 4
+#SERVICE 1:0:1:15a:3428:3428:1444b:0:0:0:
+#DESCRIPTION ========== Filmes 24/7 ==========
+#SERVICE 1:0:1:15a:3429:3429:15e9a:0:0:0:
+#DESCRIPTION NETFLIX Ação 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342a:342a:15e9b:0:0:0:
+#DESCRIPTION NETFLIX Terror 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342b:342b:15e9c:0:0:0:
+#DESCRIPTION NETFLIX Drama 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342c:342c:15e9d:0:0:0:
+#DESCRIPTION NETFLIX Drama 2 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342d:342d:15e9e:0:0:0:
+#DESCRIPTION NETFLIX Comédia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342e:342e:141e7:0:0:0:
+#DESCRIPTION Netflix Animacao 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:342f:342f:142cf:0:0:0:
+#DESCRIPTION Netflix Animacao 2 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3430:3430:14455:0:0:0:
+#DESCRIPTION Netflix Animacao 3 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3431:3431:1784a:0:0:0:
+#DESCRIPTION Netflix Animacao 4 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3432:3432:193cb:0:0:0:
+#DESCRIPTION Netflix Animacao 5 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3433:3433:193ca:0:0:0:
+#DESCRIPTION Netflix Animacao 6 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3434:3434:199f6:0:0:0:
+#DESCRIPTION Netflix Filmes 2022 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3435:3435:1784c:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 canal 1 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3436:3436:17c72:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 2 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3437:3437:17c71:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 3 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3438:3438:17c70:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 4 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3439:3439:193cc:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 5 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343a:343a:199f8:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 6 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343b:343b:199f9:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 7 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343c:343c:199fa:0:0:0:
+#DESCRIPTION Netflix Filmes 2021 Canal 8 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343d:343d:1784b:0:0:0:
+#DESCRIPTION Netflix Documentarios 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343e:343e:17849:0:0:0:
+#DESCRIPTION Netflix Filmes em Portugues 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:343f:343f:19411:0:0:0:
+#DESCRIPTION Netflix Filmes em Portugues Canal 2 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3440:3440:17848:0:0:0:
+#DESCRIPTION Combates UFC 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3441:3441:14b1c:0:0:0:
+#DESCRIPTION NetFlix Stand-up Comedy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3442:3442:17874:0:0:0:
+#DESCRIPTION Filmes Portugueses 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3443:3443:17873:0:0:0:
+#DESCRIPTION Filmes Balas e Bolinhos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3444:3444:17871:0:0:0:
+#DESCRIPTION Filmes Revista A Portuguesa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3445:3445:17870:0:0:0:
+#DESCRIPTION Filmes Teatro Portugues 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3446:3446:1439d:0:0:0:
+#DESCRIPTION Filmes 007 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3447:3447:1439e:0:0:0:
+#DESCRIPTION Filmes Velocidade Furiosa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3448:3448:1439f:0:0:0:
+#DESCRIPTION Filmes Harry Potter 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3449:3449:14679:0:0:0:
+#DESCRIPTION Filmes Edie Murphy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344a:344a:1467a:0:0:0:
+#DESCRIPTION Filmes Indiana Jones 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344b:344b:1467b:0:0:0:
+#DESCRIPTION Filmes Men in Black 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344c:344c:1467c:0:0:0:
+#DESCRIPTION Filmes Piratas das Caraibas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344d:344d:1467d:0:0:0:
+#DESCRIPTION Filmes Robocop 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344e:344e:1467e:0:0:0:
+#DESCRIPTION Filmes Star Wars 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:344f:344f:1467f:0:0:0:
+#DESCRIPTION Filmes Steven Seagal 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3450:3450:14680:0:0:0:
+#DESCRIPTION Filmes Transformer 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3451:3451:142d0:0:0:0:
+#DESCRIPTION Dragon Ball Filmes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3452:3452:1488e:0:0:0:
+#DESCRIPTION Filmes A Mumia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3453:3453:1488f:0:0:0:
+#DESCRIPTION Filmes A Ressaca 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3454:3454:14890:0:0:0:
+#DESCRIPTION Filmes A Saga Twilight 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3455:3455:14891:0:0:0:
+#DESCRIPTION Filmes Academia de Policia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3456:3456:14892:0:0:0:
+#DESCRIPTION Filmes American Pie 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3457:3457:14893:0:0:0:
+#DESCRIPTION Filmes Arma Mortifera 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3458:3458:14894:0:0:0:
+#DESCRIPTION Filmes Beverly Hills Cop 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3459:3459:17c57:0:0:0:
+#DESCRIPTION Filmes Blade 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345a:345a:17c56:0:0:0:
+#DESCRIPTION Filmes Bourne 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345b:345b:14895:0:0:0:
+#DESCRIPTION Filmes Capitao America 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345c:345c:17c51:0:0:0:
+#DESCRIPTION Filmes Da Vinci Code 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345d:345d:14896:0:0:0:
+#DESCRIPTION Filmes Hellraiser 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345e:345e:17c5a:0:0:0:
+#DESCRIPTION Filmes Hannibal 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:345f:345f:17c59:0:0:0:
+#DESCRIPTION Filmes Hercules 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3460:3460:14897:0:0:0:
+#DESCRIPTION Filmes Homem de Ferro 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3461:3461:14898:0:0:0:
+#DESCRIPTION Filmes Matrix 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3462:3462:14899:0:0:0:
+#DESCRIPTION FIlmes O Hobbit 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3463:3463:1489a:0:0:0:
+#DESCRIPTION Filmes O Padrinho 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3464:3464:1489b:0:0:0:
+#DESCRIPTION Filmes O Predador 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3465:3465:1489c:0:0:0:
+#DESCRIPTION Filmes O Senhor Dos Aneis 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3466:3466:1489d:0:0:0:
+#DESCRIPTION Filmes Parque Jurassico 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3467:3467:1489e:0:0:0:
+#DESCRIPTION Filmes Star Trek 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3468:3468:1489f:0:0:0:
+#DESCRIPTION Filmes Super-Homem 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3469:3469:148a0:0:0:0:
+#DESCRIPTION Filmes Thor 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346a:346a:148a1:0:0:0:
+#DESCRIPTION Filmes Vingadores 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346b:346b:14b24:0:0:0:
+#DESCRIPTION Filmes Rambo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346c:346c:16003:0:0:0:
+#DESCRIPTION Filmes Die Hard 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346d:346d:16002:0:0:0:
+#DESCRIPTION Filmes Batman 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346e:346e:17c53:0:0:0:
+#DESCRIPTION Filmes King Kong 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:346f:346f:17c55:0:0:0:
+#DESCRIPTION Filmes Karate Kid 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3470:3470:16001:0:0:0:
+#DESCRIPTION Filmes Exterminador Implacavel 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3471:3471:16000:0:0:0:
+#DESCRIPTION Filmes Missao Impossivel 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3472:3472:15ff6:0:0:0:
+#DESCRIPTION Filmes Highlander 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3473:3473:17c6f:0:0:0:
+#DESCRIPTION Filmes Ip Man 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3474:3474:17c52:0:0:0:
+#DESCRIPTION Filmes Oceans 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3475:3475:17c58:0:0:0:
+#DESCRIPTION Filmes Scary.Movie 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3476:3476:17c6e:0:0:0:
+#DESCRIPTION Filmes Resident Evil 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3477:3477:17c54:0:0:0:
+#DESCRIPTION Filmes Triple X 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3478:3478:17c5b:0:0:0:
+#DESCRIPTION Filmes The Mighty Ducks 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3479:3479:177fb:0:0:0:
+#DESCRIPTION Filmes Adam Sandler 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347a:347a:177fa:0:0:0:
+#DESCRIPTION Filmes Angelina Jolie 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347b:347b:177f9:0:0:0:
+#DESCRIPTION Filmes Anne Hathaway 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347c:347c:177f8:0:0:0:
+#DESCRIPTION Filmes Brad Pitt 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347d:347d:17872:0:0:0:
+#DESCRIPTION Filmes Bruce Willis 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347e:347e:177f7:0:0:0:
+#DESCRIPTION Filmes Jennifer Aniston 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:347f:347f:177f6:0:0:0:
+#DESCRIPTION Filmes Jim Carrey 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3480:3480:177f5:0:0:0:
+#DESCRIPTION Filmes Johnny Deep 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3481:3481:177f4:0:0:0:
+#DESCRIPTION Filmes Leonardo DiCaprio 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3482:3482:177f3:0:0:0:
+#DESCRIPTION Filmes Morgan Freeman 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3483:3483:177f2:0:0:0:
+#DESCRIPTION Filmes Robert Downey Jr. 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3484:3484:177f1:0:0:0:
+#DESCRIPTION Filmes Sandra Bullock 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3485:3485:177f0:0:0:0:
+#DESCRIPTION Filmes Tom Cruise 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3486:3486:177ef:0:0:0:
+#DESCRIPTION Filmes Tom Hanks 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3487:3487:177ee:0:0:0:
+#DESCRIPTION Filmes Will Smith 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3488:3488:17a3f:0:0:0:
+#DESCRIPTION Filmes Nicolas Cage 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3489:3489:1446e:0:0:0:
+#DESCRIPTION ========== Séries 24/7 ==========
+#SERVICE 1:0:1:15a:348a:348a:193ba:0:0:0:
+#DESCRIPTION Squid Game (Ingles) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:348b:348b:193b9:0:0:0:
+#DESCRIPTION Squid Game (Original) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:348c:348c:141e8:0:0:0:
+#DESCRIPTION A Casa de Papel S01 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:348d:348d:141e9:0:0:0:
+#DESCRIPTION A Casa de Papel S02 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:348e:348e:141ea:0:0:0:
+#DESCRIPTION A Casa de Papel S03 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:348f:348f:141eb:0:0:0:
+#DESCRIPTION A Casa de Papel S04 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3490:3490:193b1:0:0:0:
+#DESCRIPTION A Casa de Papel S05 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3491:3491:141ec:0:0:0:
+#DESCRIPTION Game of Thrones S01 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3492:3492:141ed:0:0:0:
+#DESCRIPTION Game of Thrones S02 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3493:3493:141ee:0:0:0:
+#DESCRIPTION Game of Thrones S03 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3494:3494:141ef:0:0:0:
+#DESCRIPTION Game of Thrones S04 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3495:3495:141f0:0:0:0:
+#DESCRIPTION Game of Thrones S05 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3496:3496:141f1:0:0:0:
+#DESCRIPTION Game of Thrones S06 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3497:3497:141f2:0:0:0:
+#DESCRIPTION Game of Thrones S07 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3498:3498:141f3:0:0:0:
+#DESCRIPTION Game of Thrones S08 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3499:3499:143aa:0:0:0:
+#DESCRIPTION HBO Chernobyl 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349a:349a:143a4:0:0:0:
+#DESCRIPTION The Outsider S01 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349b:349b:143a5:0:0:0:
+#DESCRIPTION Narcos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349c:349c:177e3:0:0:0:
+#DESCRIPTION Prison Break 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349d:349d:17a3d:0:0:0:
+#DESCRIPTION Heroes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349e:349e:17a3c:0:0:0:
+#DESCRIPTION Lost 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:349f:349f:143a8:0:0:0:
+#DESCRIPTION Westworld S01-S03 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a0:34a0:14681:0:0:0:
+#DESCRIPTION The Good Doctor S01 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a1:34a1:14682:0:0:0:
+#DESCRIPTION The Good Doctor S02 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a2:34a2:14683:0:0:0:
+#DESCRIPTION The Good Doctor S03 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a3:34a3:14684:0:0:0:
+#DESCRIPTION Vikings S01 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a4:34a4:14685:0:0:0:
+#DESCRIPTION Vikings S02 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a5:34a5:14686:0:0:0:
+#DESCRIPTION Vikings S03 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a6:34a6:14687:0:0:0:
+#DESCRIPTION Vikings S04 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a7:34a7:14688:0:0:0:
+#DESCRIPTION Vikings S05 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a8:34a8:14689:0:0:0:
+#DESCRIPTION Vikings S06 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34a9:34a9:14b1d:0:0:0:
+#DESCRIPTION 13 Reasons Why 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34aa:34aa:14b1e:0:0:0:
+#DESCRIPTION Space Force 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ab:34ab:14b1f:0:0:0:
+#DESCRIPTION Never Have I Ever 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ac:34ac:14b20:0:0:0:
+#DESCRIPTION Trying 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ad:34ad:14b21:0:0:0:
+#DESCRIPTION The Witcher 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ae:34ae:14b22:0:0:0:
+#DESCRIPTION White Lines 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34af:34af:14b23:0:0:0:
+#DESCRIPTION Tiger King Murder Mayhem and Madness 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b0:34b0:15f4b:0:0:0:
+#DESCRIPTION Warrior Nun 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b1:34b1:15f4c:0:0:0:
+#DESCRIPTION The Umbrella Academy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b2:34b2:15f4d:0:0:0:
+#DESCRIPTION The Business of Drugs 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b3:34b3:15f4e:0:0:0:
+#DESCRIPTION Street Food Latin America 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b4:34b4:15f4f:0:0:0:
+#DESCRIPTION How to Sell Drugs Online 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b5:34b5:15f50:0:0:0:
+#DESCRIPTION Fear City New York vs. The Mafia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b6:34b6:15f51:0:0:0:
+#DESCRIPTION Cursed (2020) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b7:34b7:15fff:0:0:0:
+#DESCRIPTION The Last Narc 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b8:34b8:15ffe:0:0:0:
+#DESCRIPTION Get Even 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34b9:34b9:15ffd:0:0:0:
+#DESCRIPTION Immigration Nation 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ba:34ba:15ffc:0:0:0:
+#DESCRIPTION Connected: The Hidden Science of Everything 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34bb:34bb:15ff9:0:0:0:
+#DESCRIPTION Mr. Bean 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34bc:34bc:15ff8:0:0:0:
+#DESCRIPTION Evil 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34bd:34bd:15ff7:0:0:0:
+#DESCRIPTION The Borgias 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34be:34be:15ffb:0:0:0:
+#DESCRIPTION The Mandalorian 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34bf:34bf:15ffa:0:0:0:
+#DESCRIPTION Survive 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c0:34c0:16a5b:0:0:0:
+#DESCRIPTION Ted Lasso 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c1:34c1:17c67:0:0:0:
+#DESCRIPTION Shadow and Bone 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c2:34c2:17c62:0:0:0:
+#DESCRIPTION Marvel- Luke Cage 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c3:34c3:17c61:0:0:0:
+#DESCRIPTION Jupiters Legacy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c4:34c4:17c69:0:0:0:
+#DESCRIPTION O Falcao e o Soldado do Inverno 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c5:34c5:17c5e:0:0:0:
+#DESCRIPTION For All Mankind 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c6:34c6:16a5a:0:0:0:
+#DESCRIPTION Good Morning Veronica 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c7:34c7:16a59:0:0:0:
+#DESCRIPTION You Cannot Hide 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c8:34c8:1734b:0:0:0:
+#DESCRIPTION On Pointe 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34c9:34c9:1734a:0:0:0:
+#DESCRIPTION Ashley Garcia - A Equacao do Amor 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ca:34ca:17349:0:0:0:
+#DESCRIPTION Ratched 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34cb:34cb:17348:0:0:0:
+#DESCRIPTION The Queens Gambit 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34cc:34cc:17347:0:0:0:
+#DESCRIPTION Spyders 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34cd:34cd:17346:0:0:0:
+#DESCRIPTION Earth to Ned 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ce:34ce:17345:0:0:0:
+#DESCRIPTION Virgin River 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34cf:34cf:17344:0:0:0:
+#DESCRIPTION Bridgerton 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d0:34d0:17343:0:0:0:
+#DESCRIPTION 3 Mulheres 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d1:34d1:17342:0:0:0:
+#DESCRIPTION Long Way Up 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d2:34d2:17341:0:0:0:
+#DESCRIPTION Little Voice 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d3:34d3:17340:0:0:0:
+#DESCRIPTION Home Before Dark 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d4:34d4:1733f:0:0:0:
+#DESCRIPTION Defending Jacob 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d5:34d5:1733e:0:0:0:
+#DESCRIPTION O Bando dos Quatro 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d6:34d6:1733d:0:0:0:
+#DESCRIPTION Amazing Stories 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d7:34d7:1733c:0:0:0:
+#DESCRIPTION The Gift (2019)  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d8:34d8:1733b:0:0:0:
+#DESCRIPTION As Arrepiantes Aventuras de Sabrina  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34d9:34d9:1733a:0:0:0:
+#DESCRIPTION Cobra Kai  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34da:34da:199f7:0:0:0:
+#DESCRIPTION Paulo Futre O Primeiro Portugues 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34db:34db:17338:0:0:0:
+#DESCRIPTION A Generala  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34dc:34dc:17855:0:0:0:
+#DESCRIPTION O Atentado 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34dd:34dd:17856:0:0:0:
+#DESCRIPTION Malucos do Riso 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34de:34de:17854:0:0:0:
+#DESCRIPTION Invisible City 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34df:34df:17853:0:0:0:
+#DESCRIPTION O Clube 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e0:34e0:193c9:0:0:0:
+#DESCRIPTION A Lista 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e1:34e1:193c8:0:0:0:
+#DESCRIPTION All Together Now (PT) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e2:34e2:193c7:0:0:0:
+#DESCRIPTION Auga Seca 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e3:34e3:193c3:0:0:0:
+#DESCRIPTION Doce (Serie) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e4:34e4:193c2:0:0:0:
+#DESCRIPTION Gloria (Serie PT) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e5:34e5:19408:0:0:0:
+#DESCRIPTION A Espia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e6:34e6:19407:0:0:0:
+#DESCRIPTION Pecado 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e7:34e7:19406:0:0:0:
+#DESCRIPTION Chegar a Casa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e8:34e8:19405:0:0:0:
+#DESCRIPTION Tele Rural 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34e9:34e9:19404:0:0:0:
+#DESCRIPTION Terra Nossa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ea:34ea:193c1:0:0:0:
+#DESCRIPTION Prisao Domiciliaria 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34eb:34eb:193be:0:0:0:
+#DESCRIPTION Terra Nova 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ec:34ec:193bd:0:0:0:
+#DESCRIPTION The Mighty Ducks- Game Changers 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ed:34ed:193bc:0:0:0:
+#DESCRIPTION Team Kaylie 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ee:34ee:193bb:0:0:0:
+#DESCRIPTION Reuniao De Familia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ef:34ef:17336:0:0:0:
+#DESCRIPTION Os Amigos do Gaspar  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f0:34f0:177ed:0:0:0:
+#DESCRIPTION As Aventuras do Camilo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f1:34f1:177ec:0:0:0:
+#DESCRIPTION Camilo o Pendura 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f2:34f2:193c6:0:0:0:
+#DESCRIPTION Camilo e Filhos LDA 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f3:34f3:193c5:0:0:0:
+#DESCRIPTION Camilo Em Sarailhos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f4:34f4:193c4:0:0:0:
+#DESCRIPTION Camilo O Presidente 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f5:34f5:193c0:0:0:0:
+#DESCRIPTION O Fura Vidas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f6:34f6:193bf:0:0:0:
+#DESCRIPTION Os Andrades 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f7:34f7:17880:0:0:0:
+#DESCRIPTION A Mascara (PT) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f8:34f8:1787f:0:0:0:
+#DESCRIPTION Medico De Familia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34f9:34f9:1787e:0:0:0:
+#DESCRIPTION A Minha Familia e Uma Animacao 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34fa:34fa:1787d:0:0:0:
+#DESCRIPTION Uma Aventura 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34fb:34fb:17875:0:0:0:
+#DESCRIPTION O Negocio 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34fc:34fc:17852:0:0:0:
+#DESCRIPTION Esperanca 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34fd:34fd:177e5:0:0:0:
+#DESCRIPTION Pesadelo na Cozinha 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34fe:34fe:17c60:0:0:0:
+#DESCRIPTION Hells Kitchen- Portugal 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:34ff:34ff:177e2:0:0:0:
+#DESCRIPTION Sara 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3500:3500:17a3e:0:0:0:
+#DESCRIPTION Me Chama De Bruna 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3501:3501:17851:0:0:0:
+#DESCRIPTION WandaVision 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3502:3502:17850:0:0:0:
+#DESCRIPTION Firefly Lane 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3503:3503:1784f:0:0:0:
+#DESCRIPTION The Boarding School: Las Cumbres 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3504:3504:1784e:0:0:0:
+#DESCRIPTION Tribes Of Europe 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3505:3505:1784d:0:0:0:
+#DESCRIPTION Behing Her Eyes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3506:3506:17337:0:0:0:
+#DESCRIPTION Ghostwriter  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3507:3507:177eb:0:0:0:
+#DESCRIPTION Daughter From Another Mother 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3508:3508:177ea:0:0:0:
+#DESCRIPTION Fate The Winx Saga 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3509:3509:177e9:0:0:0:
+#DESCRIPTION Headspace Guide To Meditation 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350a:350a:177e8:0:0:0:
+#DESCRIPTION History of Swear Words 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350b:350b:177e7:0:0:0:
+#DESCRIPTION Lupin 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350c:350c:177e6:0:0:0:
+#DESCRIPTION Night Stalker The Hunt For A Serial Killer 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350d:350d:177e4:0:0:0:
+#DESCRIPTION Pretend Its a City 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350e:350e:177e1:0:0:0:
+#DESCRIPTION Spycraft 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:350f:350f:177e0:0:0:0:
+#DESCRIPTION Sweet Home (2020) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3510:3510:177df:0:0:0:
+#DESCRIPTION Tiny Pretty Things 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3511:3511:1787c:0:0:0:
+#DESCRIPTION Os Marretas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3512:3512:1787b:0:0:0:
+#DESCRIPTION The Tudors 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3513:3513:1787a:0:0:0:
+#DESCRIPTION Family Guy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3514:3514:17879:0:0:0:
+#DESCRIPTION The Crew 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3515:3515:17878:0:0:0:
+#DESCRIPTION Ginny & Georgia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3516:3516:17877:0:0:0:
+#DESCRIPTION Amend: The Fight For America 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3517:3517:17876:0:0:0:
+#DESCRIPTION Your Honor 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3518:3518:17a95:0:0:0:
+#DESCRIPTION Making Their Mark 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3519:3519:17a94:0:0:0:
+#DESCRIPTION The Serpent 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351a:351a:17a93:0:0:0:
+#DESCRIPTION Last Chance U: Basketball 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351b:351b:17a92:0:0:0:
+#DESCRIPTION The Irregulars 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351c:351c:17a91:0:0:0:
+#DESCRIPTION The One 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351d:351d:17a90:0:0:0:
+#DESCRIPTION Them 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351e:351e:17a8f:0:0:0:
+#DESCRIPTION Marriage Or Mortgage 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:351f:351f:17a8e:0:0:0:
+#DESCRIPTION The Lost Pirate Kingdom 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3520:3520:17a8d:0:0:0:
+#DESCRIPTION Who Killed Sara 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3521:3521:17a8c:0:0:0:
+#DESCRIPTION Zero Chill 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3522:3522:17a8b:0:0:0:
+#DESCRIPTION Sky Rojo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3523:3523:17a8a:0:0:0:
+#DESCRIPTION Waffles + Mochi 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3524:3524:17a89:0:0:0:
+#DESCRIPTION Worn Stories 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3525:3525:17a88:0:0:0:
+#DESCRIPTION Country Comfort 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3526:3526:17a87:0:0:0:
+#DESCRIPTION Prank Encounters 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3527:3527:17a86:0:0:0:
+#DESCRIPTION Calls 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3528:3528:17c6d:0:0:0:
+#DESCRIPTION Zero (2021) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3529:3529:17c6c:0:0:0:
+#DESCRIPTION The Underground Railroad 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352a:352a:17c6b:0:0:0:
+#DESCRIPTION The Sons of Sam- A Descent Into Darkness 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352b:352b:17c6a:0:0:0:
+#DESCRIPTION The Me You Cant See 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352c:352c:17c68:0:0:0:
+#DESCRIPTION Sisyphus- The Myth 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352d:352d:17c66:0:0:0:
+#DESCRIPTION Sexify 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352e:352e:17c65:0:0:0:
+#DESCRIPTION Os Segredos das Baleias 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:352f:352f:17c64:0:0:0:
+#DESCRIPTION Panic (2021) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3530:3530:17c63:0:0:0:
+#DESCRIPTION Move To Heaven 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3531:3531:17c5f:0:0:0:
+#DESCRIPTION Halston (2021) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3532:3532:17c5d:0:0:0:
+#DESCRIPTION Fatma (2021) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3533:3533:17c5c:0:0:0:
+#DESCRIPTION Dad Stop Embarrassing Me 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3534:3534:17a85:0:0:0:
+#DESCRIPTION Haunted: Latin America 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3535:3535:19403:0:0:0:
+#DESCRIPTION Seinfeld 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3536:3536:19402:0:0:0:
+#DESCRIPTION The Beatles: Get Back 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3537:3537:19401:0:0:0:
+#DESCRIPTION Narcos Mexico 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3538:3538:19400:0:0:0:
+#DESCRIPTION Turner & Hooch 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3539:3539:193ff:0:0:0:
+#DESCRIPTION A Costa do Mosquito 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353a:353a:193fe:0:0:0:
+#DESCRIPTION Sex Life 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353b:353b:193fd:0:0:0:
+#DESCRIPTION Ragnarok 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353c:353c:193fc:0:0:0:
+#DESCRIPTION Physical 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353d:353d:193fb:0:0:0:
+#DESCRIPTION Outer Banks 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353e:353e:193fa:0:0:0:
+#DESCRIPTION Loki 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:353f:353f:193f9:0:0:0:
+#DESCRIPTION Lisey's Story 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3540:3540:193f8:0:0:0:
+#DESCRIPTION Katla 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3541:3541:193f7:0:0:0:
+#DESCRIPTION Hit & Run 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3542:3542:193f6:0:0:0:
+#DESCRIPTION Feel Good 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3543:3543:193f5:0:0:0:
+#DESCRIPTION Cruel Summer 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3544:3544:193f4:0:0:0:
+#DESCRIPTION Cocaine Cowboys: The Kings of Miami 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3545:3545:193f3:0:0:0:
+#DESCRIPTION Clarkson's Farm 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3546:3546:193f2:0:0:0:
+#DESCRIPTION Black Summer 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3547:3547:193f1:0:0:0:
+#DESCRIPTION Big Shot 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3548:3548:193f0:0:0:0:
+#DESCRIPTION Sweet Tooth 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3549:3549:193ef:0:0:0:
+#DESCRIPTION Tu (You) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354a:354a:193ee:0:0:0:
+#DESCRIPTION A Escola do Além 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354b:354b:193ed:0:0:0:
+#DESCRIPTION A Mais Pura Verdade 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354c:354c:193ec:0:0:0:
+#DESCRIPTION The Morning Show 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354d:354d:193eb:0:0:0:
+#DESCRIPTION Swagger 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354e:354e:193ea:0:0:0:
+#DESCRIPTION Midnight Mass 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:354f:354f:193e9:0:0:0:
+#DESCRIPTION Maid 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3550:3550:193e8:0:0:0:
+#DESCRIPTION Hellbound 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3551:3551:193e7:0:0:0:
+#DESCRIPTION Hawkeye - Gaviao Arqueiro 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3552:3552:193e6:0:0:0:
+#DESCRIPTION Dr. Brain 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3553:3553:193e5:0:0:0:
+#DESCRIPTION Brand New Cherry Flavor 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3554:3554:19af3:0:0:0:
+#DESCRIPTION The X-Files 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3555:3555:19af2:0:0:0:
+#DESCRIPTION Worst Roommate Ever 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3556:3556:19af1:0:0:0:
+#DESCRIPTION Vikings Valhalla 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3557:3557:19af0:0:0:0:
+#DESCRIPTION Stay Close 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3558:3558:19aef:0:0:0:
+#DESCRIPTION Temporada de Verao 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3559:3559:19aee:0:0:0:
+#DESCRIPTION The Woman in the House Across the Street from the Girl in the Window 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355a:355a:19aed:0:0:0:
+#DESCRIPTION Reacher 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355b:355b:19aec:0:0:0:
+#DESCRIPTION Inventing Anna 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355c:355c:19aeb:0:0:0:
+#DESCRIPTION Maradona Blessed Dream 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355d:355d:19aea:0:0:0:
+#DESCRIPTION Archive 81 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355e:355e:19ae9:0:0:0:
+#DESCRIPTION I Am Georgina 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:355f:355f:19ae8:0:0:0:
+#DESCRIPTION All of Us Are Dead 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3560:3560:1444c:0:0:0:
+#DESCRIPTION ========== Novelas 24/7 ==========
+#SERVICE 1:0:1:15a:3561:3561:1444d:0:0:0:
+#DESCRIPTION O Clone 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3562:3562:1444e:0:0:0:
+#DESCRIPTION A Casa das Sete Mulheres  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3563:3563:1444f:0:0:0:
+#DESCRIPTION A Indomada 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3564:3564:14450:0:0:0:
+#DESCRIPTION Agora É que São Elas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3565:3565:14451:0:0:0:
+#DESCRIPTION Araguaia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3566:3566:14452:0:0:0:
+#DESCRIPTION O Rei Do Gado 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3567:3567:14453:0:0:0:
+#DESCRIPTION Tieta do Agreste 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3568:3568:14454:0:0:0:
+#DESCRIPTION O Cravo e a Rosa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3569:3569:1444a:0:0:0:
+#DESCRIPTION ========== Animação Séries ==========
+#SERVICE 1:0:1:15a:356a:356a:141e2:0:0:0:
+#DESCRIPTION Dragon Ball 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:356b:356b:141e3:0:0:0:
+#DESCRIPTION Dragon Ball Z 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:356c:356c:141e4:0:0:0:
+#DESCRIPTION Dragon Ball GT 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:356d:356d:141e5:0:0:0:
+#DESCRIPTION Dragon Ball Super 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:356e:356e:17857:0:0:0:
+#DESCRIPTION Os Teus Contos Classicos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:356f:356f:14b25:0:0:0:
+#DESCRIPTION Filmes Barbie 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3570:3570:14456:0:0:0:
+#DESCRIPTION Abelha Maia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3571:3571:15f52:0:0:0:
+#DESCRIPTION Os Simpsons S01-S06 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3572:3572:15f53:0:0:0:
+#DESCRIPTION Transformers: War For Cybertron Trilogy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3573:3573:14457:0:0:0:
+#DESCRIPTION As Aventuras de Tom Sawyer 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3574:3574:14458:0:0:0:
+#DESCRIPTION Captain Tsubasa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3575:3575:14459:0:0:0:
+#DESCRIPTION Captain Tsubasa Road To 2002 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3576:3576:1445a:0:0:0:
+#DESCRIPTION Dartacão e os Três Moscãoteiros 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3577:3577:1445b:0:0:0:
+#DESCRIPTION Sonic X 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3578:3578:1445c:0:0:0:
+#DESCRIPTION Tom & Jerry (2014) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3579:3579:1445d:0:0:0:
+#DESCRIPTION Velocidade Furiosa Espioes ao Volante 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357a:357a:1445e:0:0:0:
+#DESCRIPTION Aladdin 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357b:357b:1445f:0:0:0:
+#DESCRIPTION Pica-Pau 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357c:357c:14460:0:0:0:
+#DESCRIPTION Noddy-O Detetive Do Pais Dos Brinquedo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357d:357d:14461:0:0:0:
+#DESCRIPTION As Aventuras Do Gato Das Botas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357e:357e:14462:0:0:0:
+#DESCRIPTION As Tres Irmas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:357f:357f:14463:0:0:0:
+#DESCRIPTION Ben 10 (2016) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3580:3580:17a96:0:0:0:
+#DESCRIPTION Festa Das Palavras 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3581:3581:14464:0:0:0:
+#DESCRIPTION Caçadores de Dragões 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3582:3582:14465:0:0:0:
+#DESCRIPTION Clube Winx 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3583:3583:14466:0:0:0:
+#DESCRIPTION Conan o Rapaz do Futuro 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3584:3584:14467:0:0:0:
+#DESCRIPTION Cyberchase 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3585:3585:14468:0:0:0:
+#DESCRIPTION Homem-Aranha ( Animação) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3586:3586:14469:0:0:0:
+#DESCRIPTION Homens de Negro 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3587:3587:1446a:0:0:0:
+#DESCRIPTION O Laboratório do Dexter 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3588:3588:1446b:0:0:0:
+#DESCRIPTION Scooby Doo - Mystery Incorporated 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3589:3589:1446c:0:0:0:
+#DESCRIPTION Spongebob Squarepants 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358a:358a:1446d:0:0:0:
+#DESCRIPTION Tartarugas Ninja 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358b:358b:1468b:0:0:0:
+#DESCRIPTION Calimero (2014) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358c:358c:1468c:0:0:0:
+#DESCRIPTION Caça Gosmas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358d:358d:1468d:0:0:0:
+#DESCRIPTION Bugs 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358e:358e:1468e:0:0:0:
+#DESCRIPTION Brinken 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:358f:358f:1468f:0:0:0:
+#DESCRIPTION Brandy & Mr. Whiskers 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3590:3590:14690:0:0:0:
+#DESCRIPTION Boo Boom 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3591:3591:14691:0:0:0:
+#DESCRIPTION Blue Dragon 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3592:3592:14692:0:0:0:
+#DESCRIPTION Beywheelz 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3593:3593:14693:0:0:0:
+#DESCRIPTION BeyBlade Shogun Steel 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3594:3594:14694:0:0:0:
+#DESCRIPTION Beyblade Metal Master 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3595:3595:14695:0:0:0:
+#DESCRIPTION BeyBlade Metal Fusion 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3596:3596:14696:0:0:0:
+#DESCRIPTION BeyBlade Metal Fury 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3597:3597:14697:0:0:0:
+#DESCRIPTION BEYBLADE 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3598:3598:14698:0:0:0:
+#DESCRIPTION Batman: Os Valentes e Audazes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:3599:3599:14699:0:0:0:
+#DESCRIPTION As Meninas SuperPoderosas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359a:359a:1469a:0:0:0:
+#DESCRIPTION BeyRaiderz Shogun 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359b:359b:1469b:0:0:0:
+#DESCRIPTION As Aventuras Do Max 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359c:359c:1469c:0:0:0:
+#DESCRIPTION As Aventuras de Super Mario Bros 3 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359d:359d:1469e:0:0:0:
+#DESCRIPTION As Aventuras de Jackie Chan 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359e:359e:1469f:0:0:0:
+#DESCRIPTION As Aventuras de Felix 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:359f:359f:146a0:0:0:0:
+#DESCRIPTION American Dragon 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a0:35a0:146a1:0:0:0:
+#DESCRIPTION Alergia Monstra 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a1:35a1:146a2:0:0:0:
+#DESCRIPTION As Regras do Angelo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a2:35a2:146a3:0:0:0:
+#DESCRIPTION Air Gear 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a3:35a3:146a4:0:0:0:
+#DESCRIPTION Aeroporto da Barafunda 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a4:35a4:146a5:0:0:0:
+#DESCRIPTION Adivinha o Quanto Eu Gosto de Ti 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a5:35a5:146a6:0:0:0:
+#DESCRIPTION A Pequena Sereia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a6:35a6:146a8:0:0:0:
+#DESCRIPTION A Mumia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a7:35a7:146a9:0:0:0:
+#DESCRIPTION 1001 Noites 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a8:35a8:146aa:0:0:0:
+#DESCRIPTION Bakugan 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35a9:35a9:146ab:0:0:0:
+#DESCRIPTION Avatar A Lenda de Korra 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35aa:35aa:146ad:0:0:0:
+#DESCRIPTION Avatar 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ab:35ab:146af:0:0:0:
+#DESCRIPTION B-Daman Fireblast 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ac:35ac:146b0:0:0:0:
+#DESCRIPTION Beyblade Burst 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ad:35ad:14b26:0:0:0:
+#DESCRIPTION Carmen Sandiego 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ae:35ae:14b27:0:0:0:
+#DESCRIPTION Tarzan and Jane 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35af:35af:14b28:0:0:0:
+#DESCRIPTION Cao no Espaco 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b0:35b0:14b29:0:0:0:
+#DESCRIPTION The Busy World of Richard Scarry 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b1:35b1:14b2a:0:0:0:
+#DESCRIPTION Popples 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b2:35b2:14b2b:0:0:0:
+#DESCRIPTION Marco Antonio 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b3:35b3:14b2c:0:0:0:
+#DESCRIPTION Max Steel 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b4:35b4:14b2d:0:0:0:
+#DESCRIPTION Oban Star Racers 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b5:35b5:14b2e:0:0:0:
+#DESCRIPTION Heidi 3D 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b6:35b6:193b6:0:0:0:
+#DESCRIPTION Heidi Serie Original 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b7:35b7:14b2f:0:0:0:
+#DESCRIPTION Gormiti (2018) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b8:35b8:14b30:0:0:0:
+#DESCRIPTION OK K.O Lets Be Heroes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35b9:35b9:14b31:0:0:0:
+#DESCRIPTION Thundercats Roar 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ba:35ba:14b32:0:0:0:
+#DESCRIPTION Timon e Pumba 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35bb:35bb:14b33:0:0:0:
+#DESCRIPTION A Porquinha Peppa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35bc:35bc:15ff5:0:0:0:
+#DESCRIPTION Chico Caramelo e as Suas Ferramentas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35bd:35bd:146ae:0:0:0:
+#DESCRIPTION A Abadia de Redwall 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35be:35be:146ac:0:0:0:
+#DESCRIPTION Astro Boy 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35bf:35bf:146a7:0:0:0:
+#DESCRIPTION A Nova Escola do Imperador 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c0:35c0:1469d:0:0:0:
+#DESCRIPTION As Aventuras de Marco e Gina 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c1:35c1:16a6d:0:0:0:
+#DESCRIPTION Bunnicula - O Vampiro Coelho 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c2:35c2:16a6c:0:0:0:
+#DESCRIPTION Star Contra as Forcas do Mal 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c3:35c3:16a6b:0:0:0:
+#DESCRIPTION Wow! Wow! Wubbzy! 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c4:35c4:16a6a:0:0:0:
+#DESCRIPTION Mundo Jurassico- Acampamento Cretaceo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c5:35c5:16a69:0:0:0:
+#DESCRIPTION Inazuma Eleven Ares 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c6:35c6:16a68:0:0:0:
+#DESCRIPTION Capitao Cuecas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c7:35c7:16a67:0:0:0:
+#DESCRIPTION As Historias Epicas do Capitao Cuecas no Espaco 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c8:35c8:16a66:0:0:0:
+#DESCRIPTION Mr. Magoo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35c9:35c9:16a65:0:0:0:
+#DESCRIPTION Acampamento Magico 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ca:35ca:16a64:0:0:0:
+#DESCRIPTION Yabba-Dabba Dino 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35cb:35cb:16a63:0:0:0:
+#DESCRIPTION Hubert and Takako 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35cc:35cc:16a62:0:0:0:
+#DESCRIPTION Mao Mao 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35cd:35cd:16a61:0:0:0:
+#DESCRIPTION Agente Binky 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ce:35ce:16a60:0:0:0:
+#DESCRIPTION E o Ponei 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35cf:35cf:16a5f:0:0:0:
+#DESCRIPTION Cacadores de Bugs 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d0:35d0:16a5e:0:0:0:
+#DESCRIPTION Alien TV 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d1:35d1:16a5d:0:0:0:
+#DESCRIPTION StarBeam 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d2:35d2:16a5c:0:0:0:
+#DESCRIPTION Jovens Justiceiros 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d3:35d3:17335:0:0:0:
+#DESCRIPTION As Novas Aventuras de Peter Pan 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d4:35d4:17334:0:0:0:
+#DESCRIPTION Seguranca Rodoviaria com o Poli 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d5:35d5:17333:0:0:0:
+#DESCRIPTION Basquete com Tony Parker 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d6:35d6:17332:0:0:0:
+#DESCRIPTION Rubbadubbers 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d7:35d7:17331:0:0:0:
+#DESCRIPTION Hank e o Camiao do Lixo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d8:35d8:17330:0:0:0:
+#DESCRIPTION Cidade do Tra-La-La 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35d9:35d9:1732f:0:0:0:
+#DESCRIPTION Dino Girl Gauko 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35da:35da:1732e:0:0:0:
+#DESCRIPTION Amphibia  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35db:35db:17800:0:0:0:
+#DESCRIPTION Henry Hugglemonster 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35dc:35dc:177ff:0:0:0:
+#DESCRIPTION O Bocas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35dd:35dd:177fe:0:0:0:
+#DESCRIPTION Vamos Caes Vamos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35de:35de:177fd:0:0:0:
+#DESCRIPTION Bombeiro Sam 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35df:35df:1732d:0:0:0:
+#DESCRIPTION Starla e as Joias Encantadas  24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e0:35e0:17886:0:0:0:
+#DESCRIPTION Chovem Almondegas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e1:35e1:17885:0:0:0:
+#DESCRIPTION Marvel's Spider-Man 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e2:35e2:17884:0:0:0:
+#DESCRIPTION O Carrinho Poli 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e3:35e3:193b8:0:0:0:
+#DESCRIPTION Os Marretas Bebes 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e4:35e4:193b7:0:0:0:
+#DESCRIPTION Centaurworld 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e5:35e5:193b5:0:0:0:
+#DESCRIPTION Mighty Express 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e6:35e6:193b4:0:0:0:
+#DESCRIPTION Mr. Bean A Serie Animada 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e7:35e7:193b3:0:0:0:
+#DESCRIPTION Star Wars O Lote Estragado 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e8:35e8:193b2:0:0:0:
+#DESCRIPTION Tom Sawyer (2020) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35e9:35e9:17883:0:0:0:
+#DESCRIPTION Monstrolandia 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ea:35ea:17882:0:0:0:
+#DESCRIPTION Alvinnn e os Esquilos 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35eb:35eb:17881:0:0:0:
+#DESCRIPTION Bluey 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ec:35ec:19410:0:0:0:
+#DESCRIPTION What If 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ed:35ed:1940f:0:0:0:
+#DESCRIPTION PatoAventuras (1987) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ee:35ee:1940e:0:0:0:
+#DESCRIPTION PatoAventuras (2017) 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35ef:35ef:1940d:0:0:0:
+#DESCRIPTION Turma Do Pateta 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35f0:35f0:1940c:0:0:0:
+#DESCRIPTION A Pantera Cor-de-Rosa 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35f1:35f1:1940b:0:0:0:
+#DESCRIPTION Titio Avo 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35f2:35f2:1940a:0:0:0:
+#DESCRIPTION Moto Ratos de Marte 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35f3:35f3:19409:0:0:0:
+#DESCRIPTION Gargulas 24/7 ( Exclusivo ) PT
+#SERVICE 1:0:1:15a:35f4:35f4:177fc:0:0:0:
+#DESCRIPTION Ella, Oscar e Hoo 24/7 ( Exclusivo ) PT
+#SERVICE 1:64:56E:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ IPTV SK/CZ ★★ ==
-#SERVICE 1:64:4B9:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Praha TV HD
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Natura TV (CZ)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Ruzinov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Nove Zamky
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Turzovská Televízia (TVT)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Televízia Reduta (TVR)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Televízia Nové Zámky (NZTV)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Elektrika
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Doktor
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Bardejov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TV Brno
+#SERVICE 1:0:1:14d:3:3:1bc:0:0:0:
+#DESCRIPTION TV Lux
+#SERVICE 1:0:1:14d:2:2:1bc:0:0:0:
+#DESCRIPTION Senzi
+#SERVICE 1:0:1:14d:6:6:1bc:0:0:0:
+#DESCRIPTION TV Dolny Kubin
+#SERVICE 1:0:1:14d:1:1:1bc:0:0:0:
+#DESCRIPTION TV Poprad
+#SERVICE 1:0:1:14d:1:1:1bc:0:0:0:
+#DESCRIPTION TV Raj
+#SERVICE 1:0:1:14d:2:2:1bc:0:0:0:
+#DESCRIPTION TV Reduta
+#SERVICE 1:0:1:14d:1:1:1bc:0:0:0:
+#DESCRIPTION TV Ružinov
+#SERVICE 1:0:1:14d:1:1:1bc:0:0:0:
+#DESCRIPTION Polar TV
+#SERVICE 1:0:1:491:f4d:4d90:1010101:0:0:0:
+#DESCRIPTION Polar2 TV
+#SERVICE 1:0:1:1466:1e49:4960:1010101:0:0:0:
+#DESCRIPTION Televízia Močenok
+#SERVICE 1:0:1:46ef:4c61:61e9:1010101:0:0:0:
+#DESCRIPTION TV Brezová
+#SERVICE 1:0:1:fc13:f8cd:cd13:1010101:0:0:0:
+#DESCRIPTION TV Hronka (1080p) [Not 24/7]
+#SERVICE 1:0:1:5b5b:5ebf:bf5e:1010101:0:0:0:
+#DESCRIPTION TV Liptov
+#SERVICE 1:0:1:1ce9:12cc:cce9:1010101:0:0:0:
+#DESCRIPTION TV Myjava
+#SERVICE 1:0:1:ea1e:ecaa:aa1a:1010101:0:0:0:
+#DESCRIPTION TV NOE+
+#SERVICE 1:0:1:9428:9c4b:4b2e:1010101:0:0:0:
+#DESCRIPTION TV NOE
+#SERVICE 1:0:1:9408:994f:4f0e:1010101:0:0:0:
+#DESCRIPTION TV Sen
+#SERVICE 1:0:1:e38:2e4:e435:1010101:0:0:0:
+#DESCRIPTION TV Stará Turá
+#SERVICE 1:0:1:4733:4975:7535:1010101:0:0:0:
+#DESCRIPTION TV Turzovka
+#SERVICE 1:0:1:6861:6d81:8166:1010101:0:0:0:
+#DESCRIPTION Východočeská TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Západoslovenská TV (Twich)
+#SERVICE 1:64:56F:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ GERMANY 2 ★★ ==
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION a.tv (1080p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Anixe HD (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION München TV (1080p)
 #SERVICE 1:0:1:3f4:2:aa:5a0000:0:0:0:
 #DESCRIPTION Noa 4 Norderstedt
-#SERVICE 1:64:4BA:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:4a80:1001:2114:eeee0000:0:0:0:
+#DESCRIPTION Noa 4 Hamburg
+#SERVICE 1:0:1:3f66:ff54:ec:0:0:0:0:
+#DESCRIPTION tagesschau24
+#SERVICE 1:0:1:7556:d60c:ec:0:0:0:0:
+#DESCRIPTION NDR Fernsehen
+#SERVICE 1:0:1:e20b:906e:ec:0:0:0:0:
+#DESCRIPTION Bayerisches Fernsehen
+#SERVICE 1:0:1:73:14a:3:ffff0000:0:0:0:
+#DESCRIPTION oe24 TV
+#SERVICE 1:0:1:3ef:1:601:ffff0000:0:0:0:
+#DESCRIPTION Austria24 TV
+#SERVICE 1:0:1:1fc:5:1:ffff0000:0:0:0:
+#DESCRIPTION Baden TV
+#SERVICE 1:0:1:3:1:48:0:0:0:0:
+#DESCRIPTION Burgenlandkreis Regional TV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION DorfTV
+#SERVICE 1:0:1:36b2:e:601:ffff0000:0:0:0:
+#DESCRIPTION FS1
+#SERVICE 1:0:1:1:4:e:5a0000:0:0:0:
+#DESCRIPTION Zell am See
+#SERVICE 1:64:570:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ USA ★★ ==
-#SERVICE 1:64:4BB:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Bay Area (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Bay Area (Pluto TV) (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Boston (Pluto TV) (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Chicago (Pluto TV) (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Dallas (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Denver (Pluto TV) (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Los Angeles (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN Minnesota (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CBSN New York (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KRIV Fox 26 Houston (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KTBC Fox 7 Austin (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KTVU Fox 2 San Francisco (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KTLA 5 (Los Angeles) (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KTTV Fox 11 Los Angeles (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KCPQ Fox Q13 Seattle (720p)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KDFW Fox 4 Dallas-FT-Worth (720p)
+#SERVICE 1:0:1:30:1:1:0:0:0:0:
+#DESCRIPTION NBC 4 News (New York)
+#SERVICE 1:0:1:c517:813:2:11a0000:0:0:0:
+#DESCRIPTION NBC 10 News (Philadelphia)
+#SERVICE 1:0:1:c517:813:2:11a0000:0:0:0:
+#DESCRIPTION NBC 11 News (Bay Area)
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION WBRZ 2+
+#SERVICE 1:0:1:17d7:262:3:ffff0000:0:0:0:
+#DESCRIPTION Weather Channel (eng)
+#SERVICE 1:0:1:db6:c:1:e082e7c:0:0:0:
+#DESCRIPTION Weather Nation (eng)
+#SERVICE 1:0:1:8e8:41a:fe00:ffff0000:0:0:0:
+#DESCRIPTION District Knowledge Network (eng)
+#SERVICE 1:0:1:c517:813:2:11a0000:0:0:0:
+#DESCRIPTION WVIT 30 News (Hartford)
+#SERVICE 1:0:1:3e8:a:22c1:eeee0000:0:0:0:
+#DESCRIPTION Beach TV - 30A (eng)
+#SERVICE 1:0:1:1fc:5:1:ffff0000:0:0:0:
+#DESCRIPTION Key TV (eng)
+#SERVICE 1:0:1:279d:65:f020:ffff0000:0:0:0:
+#DESCRIPTION TSTV
+#SERVICE 1:0:1:8ff:17:601:ffff0000:0:0:0:
+#DESCRIPTION Orange TV (Orlando)
+#SERVICE 1:64:571:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ ADULT ★★ ==
-#SERVICE 1:64:4BC:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Anal
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Asian
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Big Ass
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Big Dick
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Big Tits
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Blonde
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Blowjob
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Brunette
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Compilation
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Cuckold
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Fetish
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Gangbang
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Gay
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Hardcore
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Interracial
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Latina
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Lesbian
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Live Cams
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net MILF
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Pornstar
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net POV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Rough
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Russian
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Teen
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION AdultIPTV.net Threesome
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Big Ass
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Big Dick
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Big Tits
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Blowjob
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Cuckold
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Fetish
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Gangbang
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Hardcore
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Interracial
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Latina
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Lesbian
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Milf
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Pornstars
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic POV
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Russian
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Teen
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Threesome
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION RedTraffic Woman
+#SERVICE 1:64:572:0:0:0:0:0:0:0:
 #DESCRIPTION *** ciefpsettings ***

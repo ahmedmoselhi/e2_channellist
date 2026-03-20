@@ -1,13 +1,133 @@
 #NAME :: ciefpsettings Slovakia WEB-RADIO ::
-#SERVICE 1:64:51D:0:0:0:0:0:0:0:
+#SERVICE 1:64:58C:0:0:0:0:0:0:0:
 #DESCRIPTION ===== RTVS Radio =====
-#SERVICE 1:64:51E:0:0:0:0:0:0:0:
+#SERVICE 1:0:2:39:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Slovensko
+#SERVICE 1:0:2:41:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Devin
+#SERVICE 1:0:2:43:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio FM
+#SERVICE 1:0:2:45:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Regina Bratislava
+#SERVICE 1:0:2:47:0:0:0:0:0:0:
+#DESCRIPTION RTVS Slovakia International
+#SERVICE 1:0:2:83:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Patria
+#SERVICE 1:0:2:91:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Pyranida
+#SERVICE 1:0:2:49:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Klasika
+#SERVICE 1:0:2:51:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Litera
+#SERVICE 1:0:2:53:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Junior
+#SERVICE 1:0:2:93:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Regina Bratislava
+#SERVICE 1:0:2:95:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Regina Bánská Bystrica
+#SERVICE 1:0:2:97:0:0:0:0:0:0:
+#DESCRIPTION RTVS Radio Regina Košice
+#SERVICE 1:64:58D:0:0:0:0:0:0:0:
 #DESCRIPTION ===== Funradio =====
-#SERVICE 1:64:51F:0:0:0:0:0:0:0:
+#SERVICE 1:0:2:153:0:0:0:0:0:0:
+#DESCRIPTION Fun
+#SERVICE 1:0:2:155:0:0:0:0:0:0:
+#DESCRIPTION Fun Radio - Cz-Sk
+#SERVICE 1:0:2:157:0:0:0:0:0:0:
+#DESCRIPTION Fun Rádio - 80’s - 90’s
+#SERVICE 1:0:2:159:0:0:0:0:0:0:
+#DESCRIPTION Fun Radio - Dance
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Fun Radio - Roky
+#SERVICE 1:64:58E:0:0:0:0:0:0:0:
 #DESCRIPTION ===== Rádio X =====
-#SERVICE 1:64:520:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Alternative
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Chillout
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Dance X
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - DNB
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Folklore
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Metal
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio X - Oldies
+#SERVICE 1:64:58F:0:0:0:0:0:0:0:
 #DESCRIPTION ===== Bratislava =====
-#SERVICE 1:64:521:0:0:0:0:0:0:0:
+#SERVICE 1:0:2:15:0:0:0:0:0:0:
+#DESCRIPTION BestFM
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Viva Bratislava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Europa 2 Bratislava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Jemné Bratislava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Jemné - Chillout Bratislava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION BratislavskR Radio Bratislava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Radio Maria Slovensko  Bratislava
+#SERVICE 1:64:590:0:0:0:0:0:0:0:
 #DESCRIPTION ===== Banska Bystrica =====
-#SERVICE 1:64:522:0:0:0:0:0:0:0:
+#SERVICE 1:0:2:56:0:0:0:0:0:0:
+#DESCRIPTION Radio Lumen
+#SERVICE 1:0:2:58:0:0:0:0:0:0:
+#DESCRIPTION Regina Banska Bystrica live stream
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION BB FM rádio Banska Bystrica
+#SERVICE 1:64:591:0:0:0:0:0:0:0:
 #DESCRIPTION ===== Ostatne rozhlasove stanice =====
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio WOW Bánovce nad Bebravou
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Rebeca Žilina
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Trnavské Rádio Trnava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Aetter Trnava
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Yes Topoľčany
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Muzika Trenčín
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beta Rádio - CS Pop
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beta Rádio - Hity 80s 90s
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beta Rádio - Jubilanti
+#SERVICE 1:0:2:61:0:0:0:0:0:0:
+#DESCRIPTION Radio JankoHrasko.sk
+#SERVICE 1:0:2:75:0:0:0:0:0:0:
+#DESCRIPTION Záhorácke Rádio Trnava
+#SERVICE 1:0:2:115:0:0:0:0:0:0:
+#DESCRIPTION Sky Rádio Prešov
+#SERVICE 1:0:2:135:0:0:0:0:0:0:
+#DESCRIPTION Rádio Piešťany
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Fit Radio Halič
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION FRESH rádio - freshradio.sk
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Hitradio Slovakia
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Média Modra
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio FestDobráMuzika
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Paráda - Vyšný Hrušov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Rádio Pohoda
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Radio Tatras International
+#SERVICE 1:0:2:109:0:0:0:0:0:0:
+#DESCRIPTION Best FM
+#SERVICE 1:0:2:117:0:0:0:0:0:0:
+#DESCRIPTION Vlna
+#SERVICE 1:0:2:133:0:0:0:0:0:0:
+#DESCRIPTION Košice

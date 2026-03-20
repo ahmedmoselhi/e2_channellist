@@ -1,9 +1,169 @@
 #NAME :: ciefpsettings • WebCam ::
-#SERVICE 1:64:49F:0:0:0:0:0:0:0:
+#SERVICE 1:64:552:0:0:0:0:0:0:0:
 #DESCRIPTION ★★★ Slovensko webcam kukaj ★★★
-#SERVICE 1:64:4A0:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Kysak — pohľad na železničnú stanicu
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Železničná stanica, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Kruhový objazd - smer Solivarská, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Križovatka pri Hoteli Šariš, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Sabinovská ulica, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Výhľad z kopca na mesto, Giraltovce
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Panoramatický pohľad, Proč
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Križovatka smer Rusínska, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Kúpalisko - Sídlisko III, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Križovatka Levočská - Obrancov mieru, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Hlavná ulica, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Pohľad do hniezdnej búdky sokola myšiara v Kendiciach
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Výhľad na Tri Koruny, Červený Kláštor
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Lyžiarske stredisko SKI Buče, Búče - Renčišov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Bardejovská ulica, Prešov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Bardejovské Kúpele - kolonáda, Bardejov
+#SERVICE 1:64:553:0:0:0:0:0:0:0:
 #DESCRIPTION ★★★ Slovensko ★★★
-#SERVICE 1:64:4A1:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION BIELA PÚŤ Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CHOPOK FREERIDE ZONE
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION CHOPOK VÝCHOD Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION DONOVALY ARÉNA Donovaly
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION FUNPARK Donovaly
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION HREBIENOK
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION HREBIENOK PANORÁMA
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KOSODREVINA PANORÁMA
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KRIVÁŇ POHĽAD Z HOTELA PERMON
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION KÚPALISKO PAŽIŤ
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION LOMNICKÝ ŠTÍT PANORÁMA II Vysoké Tatry
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION LUKOVÁ PANORÁMA Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION MALINO BRDO HRABOVO DOJAZD
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOVÁ HOĽA DOJAZD 2 Donovaly
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOVÁ HOĽA PANORÁMA Donovaly
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION NOVÁ HOĽA TELEMIX Donovaly
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION OBEC ŠTRBA
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION PANORÁMA VYSOKÝCH TATIER Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION PODBANSKÉ VLEK
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION POVAŽSKÝ INOVEC
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION POHĽAD NA MÓRYHO VYHLIADKU Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION PRIEHYBA PANORÁMA Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION SOLISKO Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION SRDIEČKO PANORÁMA Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TATRANSKÁ LOMNICA ŠTART Tatranská Lomnica
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION TATRANSKÁ LOMNICA PANORÁMA Tatranská Lomnica
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION VÝHĽAD NA JAZERO ZO SKOK. MOSTÍKA Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION VÝHĽAD NA JAZERO S PANORÁMOU Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION VÝHĽAD NA NÁMESTIE MAJSTROVSTIEV SVETA Štrbské Pleso
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION VÝHĽAD NA NOVÉ ŠTRBSKÉ PLESO Štrbské Pleso
+#SERVICE 1:64:554:0:0:0:0:0:0:0:
 #DESCRIPTION ★★★ Česko ★★★
-#SERVICE 1:64:4A2:0:0:0:0:0:0:0:
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION ZÁHRADKY Jasná
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Ratibor
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Planespotting Letiště Václava Havla
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Nádraží Praha Smíchov
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Nádraží Praha Vršovice
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Nádraží Jaroměř
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Hroši v unikátní expozici v ZOO
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Výběh ledních medvědů v ZOO Brno
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Království železnic
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Krmítko v americkém Ohiu
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Česko - Praha na dlani
+#SERVICE 1:64:555:0:0:0:0:0:0:0:
 #DESCRIPTION == ★★ Srbija ★★ ==
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Batrovci E70 ulaz u Srbiju iz Hrvatske
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Autokomanda
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Autoput Novi Beograd ~ Genex
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Bogoslovija
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Brankov most ~ Terazijski tunel
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Bulevar Despota Stefana
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Bulevar Mihajla Pupina
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Bulevar Milutina Milankovica ~ Most na Adi
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Jurija Gagarina
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Kružni tok Novi Beograd ~ Opština NBG
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Most Gazela
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Pancevacki most
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Slavija
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Stara železnicka stanica
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Takovska
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Trg Nikole Pašica
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Trg Republike
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Beograd Vukov spomenik
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Gradina GP E80 izlaz iz Srbije ka Bugarskoj
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Gradina GP E80 ulaz u Srbiju iz Bugarske
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Horgoš GP E75 Ulaz u Srbiju iz Mađarske
+#SERVICE 1:0:1:0:0:0:0:0:0:0:
+#DESCRIPTION Preševo GP E75 izlaz iz Srbije ka Makedoniji

@@ -1,0 +1,4 @@
+settings
+*.log
+*.bak
+backups/*

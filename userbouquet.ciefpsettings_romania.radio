@@ -1,1 +1,125 @@
 #NAME :: ciefpsettings Romania WEB-RADIO ::
+#SERVICE 1:0:2:2:0:0:0:0:0:0:
+#DESCRIPTION ProFM Live
+#SERVICE 1:0:2:4:0:0:0:0:0:0:
+#DESCRIPTION Radio ZU Live
+#SERVICE 1:0:2:6:0:0:0:0:0:0:
+#DESCRIPTION Romantic FM
+#SERVICE 1:0:2:8:0:0:0:0:0:0:
+#DESCRIPTION All The Hits... One Station!
+#SERVICE 1:0:2:10:0:0:0:0:0:0:
+#DESCRIPTION Radio Sun Romania www.radiosun.ro
+#SERVICE 1:0:2:12:0:0:0:0:0:0:
+#DESCRIPTION Radio Liberty Dance Romania - wWw.RadioLiberty.Ro
+#SERVICE 1:0:2:14:0:0:0:0:0:0:
+#DESCRIPTION Radio Noise Romania - Dance Station: www.RadioNoise.ro
+#SERVICE 1:0:2:16:0:0:0:0:0:0:
+#DESCRIPTION Tex FM - TexFM - Slagar
+#SERVICE 1:0:2:18:0:0:0:0:0:0:
+#DESCRIPTION Tex FM - TexFM - Romanian Hits
+#SERVICE 1:0:2:20:0:0:0:0:0:0:
+#DESCRIPTION Radio Hit - Radio HiT Romania www.radio-hit.ro
+#SERVICE 1:0:2:22:0:0:0:0:0:0:
+#DESCRIPTION RPh - Petrecere
+#SERVICE 1:0:2:24:0:0:0:0:0:0:
+#DESCRIPTION Radio Deea - www.radiodeea.ro - Radio DEEA
+#SERVICE 1:0:2:26:0:0:0:0:0:0:
+#DESCRIPTION Gold FM - Radio Gold FM - Greatest Hits 99
+#SERVICE 1:0:2:28:0:0:0:0:0:0:
+#DESCRIPTION Radio Popular - ...:::Radio Popular Romania:::... | populara | sarbe | hore |
+#SERVICE 1:0:2:30:0:0:0:0:0:0:
+#DESCRIPTION Radio Traditional - Radio Traditional Popular
+#SERVICE 1:0:2:32:0:0:0:0:0:0:
+#DESCRIPTION Radio Lipova - ...:::Radio Lipova Romania:::....
+#SERVICE 1:0:2:34:0:0:0:0:0:0:
+#DESCRIPTION Radio Tequilla - Radio Tequila Manele
+#SERVICE 1:0:2:36:0:0:0:0:0:0:
+#DESCRIPTION Radio Taraf - Radio Taraf Manele - www.RadioTaraf.com
+#SERVICE 1:0:2:38:0:0:0:0:0:0:
+#DESCRIPTION Super FM - RADIO SUPER FM 93.8 FM BRASOV
+#SERVICE 1:0:2:40:0:0:0:0:0:0:
+#DESCRIPTION Radio Inferno - RADIO INFERNO MANELE wWw.RadioInferno.Org | Radio manele Romania
+#SERVICE 1:0:2:42:0:0:0:0:0:0:
+#DESCRIPTION Radio Gangsta - Radio GANGSTA Manele Romania - www.RadioGangsta.ro
+#SERVICE 1:0:2:44:0:0:0:0:0:0:
+#DESCRIPTION Radio Traditional - Radio Traditional Manele
+#SERVICE 1:0:2:46:0:0:0:0:0:0:
+#DESCRIPTION Radio Mynele - Radio MYNELE - www.RadioMynele.ro
+#SERVICE 1:0:2:48:0:0:0:0:0:0:
+#DESCRIPTION RPh - Petrecere
+#SERVICE 1:0:2:50:0:0:0:0:0:0:
+#DESCRIPTION Radio Lautaru - Radio Lautaru Popular - www.radiolautaru.ro
+#SERVICE 1:0:2:52:0:0:0:0:0:0:
+#DESCRIPTION Bucuresti FM - Bucuresti FM
+#SERVICE 1:0:2:54:0:0:0:0:0:0:
+#DESCRIPTION Music FM - Bucuresti
+#SERVICE 1:0:2:56:0:0:0:0:0:0:
+#DESCRIPTION Radio Prahova - Radio Prahova - Hai Hituri!
+#SERVICE 1:0:2:58:0:0:0:0:0:0:
+#DESCRIPTION Wyl FM - **Wyl Fm**
+#SERVICE 1:0:2:60:0:0:0:0:0:0:
+#DESCRIPTION Radio Iasi - Radio Iasi - FM
+#SERVICE 1:0:2:62:0:0:0:0:0:0:
+#DESCRIPTION Focus FM - Radio Focus FM Stream
+#SERVICE 1:0:2:64:0:0:0:0:0:0:
+#DESCRIPTION Radio Minisat - Radio Minisat
+#SERVICE 1:0:2:66:0:0:0:0:0:0:
+#DESCRIPTION Radio Horion - Radio Horion Craiova
+#SERVICE 1:0:2:68:0:0:0:0:0:0:
+#DESCRIPTION Radio Mix - Radio Mix Romania Dance House Club Mix
+#SERVICE 1:0:2:70:0:0:0:0:0:0:
+#DESCRIPTION Radio Impuls - Radio-Impuls
+#SERVICE 1:0:2:72:0:0:0:0:0:0:
+#DESCRIPTION Radio Top - Radio TOP Suceava 104FM
+#SERVICE 1:0:2:74:0:0:0:0:0:0:
+#DESCRIPTION Radio As - RadioAS
+#SERVICE 1:0:2:76:0:0:0:0:0:0:
+#DESCRIPTION Radio Brasov - RADIO BRASOV 87.8 FM www.radiobrasov.ro
+#SERVICE 1:0:2:78:0:0:0:0:0:0:
+#DESCRIPTION Radio Constanta - Radio Constanta AM
+#SERVICE 1:0:2:80:0:0:0:0:0:0:
+#DESCRIPTION Radio Resita - RadioRomania Resita
+#SERVICE 1:0:2:82:0:0:0:0:0:0:
+#DESCRIPTION Banat FM - BANAT FM 102 MHz
+#SERVICE 1:0:2:84:0:0:0:0:0:0:
+#DESCRIPTION Atlas FM - AtlasFM
+#SERVICE 1:0:2:86:0:0:0:0:0:0:
+#DESCRIPTION Radio FIR - Radio FIR Dej 92 FM
+#SERVICE 1:0:2:88:0:0:0:0:0:0:
+#DESCRIPTION Radio Tecuci - Radio Tecuci
+#SERVICE 1:0:2:90:0:0:0:0:0:0:
+#DESCRIPTION Radio Arad - Radio Arad Live
+#SERVICE 1:0:2:92:0:0:0:0:0:0:
+#DESCRIPTION Giurgiu FM - Air Music Selected
+#SERVICE 1:0:2:94:0:0:0:0:0:0:
+#DESCRIPTION Radio Transilvania - Radio Transilvania Satu Mare - Live 99 FM
+#SERVICE 1:0:2:96:0:0:0:0:0:0:
+#DESCRIPTION Radio Transilvania - (((T))) Oradea
+#SERVICE 1:0:2:98:0:0:0:0:0:0:
+#DESCRIPTION Radio Transilvania - Radio Transilvania Cluj
+#SERVICE 1:0:2:100:0:0:0:0:0:0:
+#DESCRIPTION Radio Transilvania - Radio Transilvania Baia Mare
+#SERVICE 1:0:2:102:0:0:0:0:0:0:
+#DESCRIPTION Radio Transilvania - Radio (((  T  )))  Bistrita 94.1 + 91.5 (Beclean) - Live - 0263.214.996 + bistr
+#SERVICE 1:0:2:104:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania Actualitati
+#SERVICE 1:0:2:106:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania Cultural
+#SERVICE 1:0:2:108:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania Muzical
+#SERVICE 1:0:2:110:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania International 1
+#SERVICE 1:0:2:112:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania International 2
+#SERVICE 1:0:2:114:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Radio Romania International 3
+#SERVICE 1:0:2:116:0:0:0:0:0:0:
+#DESCRIPTION Radio Romania - Antena Satelor
+#SERVICE 1:0:2:118:0:0:0:0:0:0:
+#DESCRIPTION Radio Moldova - Radio Moldova National
+#SERVICE 1:0:2:120:0:0:0:0:0:0:
+#DESCRIPTION Radio Moldova - Radio Moldova Tineret
+#SERVICE 1:0:2:122:0:0:0:0:0:0:
+#DESCRIPTION Radio Moldova - Radio Moldova Muzical
+#SERVICE 1:0:2:124:0:0:0:0:0:0:
+#DESCRIPTION Radio Itsy Bitsy - Radio ItsyBitsy
