@@ -50,32 +50,30 @@ class UIManager:
         self._init_history()
 
     def _initialize_dependencies(self):
-        try:
+        def _import_modules():
             from prompt_toolkit import prompt as pt_prompt
             from prompt_toolkit.history import FileHistory
             from prompt_toolkit.shortcuts import radiolist_dialog
             from prompt_toolkit.completion import PathCompleter
+            return pt_prompt, FileHistory, radiolist_dialog, PathCompleter
 
-            self.pt_prompt = pt_prompt
-            self.FileHistory = FileHistory
-            self.radiolist_dialog = radiolist_dialog
-            self.PathCompleter = PathCompleter
-
+        try:
+            # Attempt initial import
+            pt_prompt, FileHistory, radiolist_dialog, PathCompleter = _import_modules()
         except ImportError:
+            # If missing, install and retry
             self._install_dependencies()
             try:
-                from prompt_toolkit import prompt as pt_prompt
-                from prompt_toolkit.history import FileHistory
-                from prompt_toolkit.shortcuts import radiolist_dialog
-                from prompt_toolkit.completion import PathCompleter
-
-                self.pt_prompt = pt_prompt
-                self.FileHistory = FileHistory
-                self.radiolist_dialog = radiolist_dialog
-                self.PathCompleter = PathCompleter
+                pt_prompt, FileHistory, radiolist_dialog, PathCompleter = _import_modules()
             except ImportError:
                 print(f"{Color.RED}❌ Failed to initialize environment.{Color.END}")
                 sys.exit(1)
+
+        # Assign to instance variables once
+        self.pt_prompt = pt_prompt
+        self.FileHistory = FileHistory
+        self.radiolist_dialog = radiolist_dialog
+        self.PathCompleter = PathCompleter
 
     def _install_dependencies(self):
         import subprocess
@@ -134,7 +132,7 @@ class UIManager:
   ╚╩╝└─┘└─┘ ╩ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘┘┤
                               ──┘   
         """.center(width))
-        print("  [ UNIVERSAL ARCHITECT v15.5 - Verbose Edition ]".center(width))
+        print("  [ UNIVERSAL ARCHITECT v15.6 - Verbose Edition ]".center(width))
         print("═" * width + f"{Color.END}")
 
     def exit_gracefully(self):
@@ -248,6 +246,7 @@ class UIManager:
 # Config Manager: Handles file I/O and parsing
 # ----------------------------------------------------------------------
 class ConfigManager:
+    timestamp = time.strftime("%Y-%m-%d_%H-%M-%S")
     def __init__(self, ui: UIManager):
         self.ui = ui
 
@@ -279,15 +278,19 @@ class ConfigManager:
         if not os.path.exists(ws_path):
             os.makedirs(ws_path)
 
-        preserved_prefixes = ['.dx_history_']
-        preserved_names = ['architect.log']
+        preserved_prefixes = ['.dx_history_', 'architect'] # Changed to prefix match
+        preserved_names = [] # Removed specific name 'architect.log' as prefix covers it
 
         for item in os.listdir(ws_path):
             full_path = os.path.join(ws_path, item)
             should_preserve = False
+            
+            # Check specific names (if any remain in preserved_names)
             if item in preserved_names:
                 should_preserve = True
-            else:
+            
+            # Check prefixes
+            if not should_preserve:
                 for prefix in preserved_prefixes:
                     if item.startswith(prefix):
                         should_preserve = True
@@ -339,8 +342,7 @@ class ConfigManager:
     def backup_file(self, path):
         if os.path.isfile(path):
             try:
-                timestamp = time.strftime("%Y%m%d_%H%M%S")
-                backup_name = f"{path}_{timestamp}.bak"
+                backup_name = f"{path}_{self.timestamp}.bak"
                 shutil.copy2(path, backup_name)
                 print(f"\n  {Color.GREEN}💾 BACKUP CREATED: {backup_name}{Color.END}")
                 return backup_name
@@ -461,6 +463,8 @@ class ConfigManager:
 
 
 class SatelliteArchitect:
+    POL_CSV_MAP = {"2": "L", "3": "R", "0": "H", "1": "V"}
+    timestamp = time.strftime("%Y-%m-%d_%H-%M-%S")
     def __init__(self):
         self.ui = UIManager()
         self.config = ConfigManager(self.ui)
@@ -510,17 +514,48 @@ class SatelliteArchitect:
 
     def setup_logger(self):
         self.logger.setLevel(logging.DEBUG)
-        if not os.path.exists("workspace"):
-            os.makedirs("workspace")
+        
+        # Ensure workspace exists
+        os.makedirs("workspace", exist_ok=True)
+        
         if not self.logger.handlers:
-            log_file = 'workspace/architect.log'
-            file_handler = logging.FileHandler(log_file, mode='a', encoding='utf-8')
-            formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-            file_handler.setFormatter(formatter)
-            self.logger.addHandler(file_handler)
-            self.logger.info("="*60)
-            self.logger.info("LOGGER INITIALIZED [VERBOSE DEBUG MODE]")
-            self.logger.info("="*60)
+            # Append execution date AND time to filename (Hour-Minute-Second)
+            log_file = f'workspace/architect_{self.timestamp}.log'
+            
+            try:
+                file_handler = logging.FileHandler(log_file, mode='a', encoding='utf-8')
+                formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+                file_handler.setFormatter(formatter)
+                self.logger.addHandler(file_handler)
+                self.logger.info("="*60)
+                self.logger.info("LOGGER INITIALIZED [VERBOSE DEBUG MODE]")
+                self.logger.info("="*60)
+            except Exception as e:
+                print(f"{Color.RED}⚠ Failed to initialize logger: {e}{Color.END}")
+
+    def _calculate_namespace(self, freq, sat_pos, sat_dir):
+        """Calculates Enigma2 namespace hex and display position."""
+        raw_sat = int(sat_pos * 10)
+        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
+        disp_sat = -raw_sat if sat_dir == "W" else raw_sat
+        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+        return ns_hex, disp_sat
+
+    def _parse_pid_plps(self, raw_str):
+        """Parses the 'pids-plps' string format into a list of (pid, plp) tuples."""
+        pairs = []
+        if not raw_str:
+            return pairs
+        
+        clean_str = raw_str.strip('{}')
+        if not clean_str:
+            return pairs
+            
+        for item in clean_str.split(';'):
+            if ',' in item:
+                p, l = item.split(',', 1)
+                pairs.append((p.strip(), l.strip()))
+        return pairs
 
     def run(self):
         try:
@@ -747,7 +782,7 @@ class SatelliteArchitect:
 
         self.freq = int(selected_row['Freq'])
         raw_pol = selected_row['Pol'].upper()
-        self.pol = {"2": "L", "3": "R", "0": "H", "1": "V"}.get(raw_pol, raw_pol)
+        self.pol = self.POL_CSV_MAP.get(raw_pol, raw_pol)
         self.sr = int(selected_row['SR'])
         self.sat_pos = float(selected_row['Pos'])
         self.sat_dir = selected_row['Dir'].upper()
@@ -766,17 +801,8 @@ class SatelliteArchitect:
             self.is_multistream = False
             self.isi_input = "-1"
 
-        raw_pairs = selected_row.get('pids-plps', '').strip()
-        self.auto_pairs = []
-        
-        if raw_pairs:
-            clean_pairs = raw_pairs.strip('{}')
-            if clean_pairs:
-                pairs_list = clean_pairs.split(';')
-                for pair in pairs_list:
-                    if ',' in pair:
-                        p, l = pair.split(',', 1)
-                        self.auto_pairs.append((p.strip(), l.strip()))
+        raw_pairs = selected_row.get('pids-plps', '')
+        self.auto_pairs = self._parse_pid_plps(raw_pairs)
         
         if not self.auto_pairs:
             self.pid_input = selected_row.get('PID', '4096')
@@ -849,10 +875,7 @@ class SatelliteArchitect:
         self.path = self.ui.ask("Relay Path", self.path, help_path, "🔗", category="paths")
 
     def step_build(self):
-        raw_sat = int(self.sat_pos * 10)
-        ns_sat = (3600 - raw_sat) if self.sat_dir == "W" else raw_sat
-        disp_sat = -raw_sat if self.sat_dir == "W" else raw_sat
-        ns_hex = format((ns_sat << 16) | self.freq, '08x').lower()
+        ns_hex, disp_sat = self._calculate_namespace(self.freq, self.sat_pos, self.sat_dir)
         
         current_sid = self.sid
 
@@ -1075,7 +1098,7 @@ class SatelliteArchitect:
         for idx, row in enumerate(reader):
             freq = int(row['Freq'])
             raw_pol = row['Pol'].upper()
-            pol = {"2": "L", "3": "R", "0": "H", "1": "V"}.get(raw_pol, raw_pol)
+            pol = self.POL_CSV_MAP.get(raw_pol, raw_pol)
             sr = int(row['SR'])
             sat_pos = float(row['Pos'])
             sat_dir = row['Dir'].upper()
@@ -1099,7 +1122,7 @@ class SatelliteArchitect:
     def process_transponder_batch(self, row, provider, path, start_sid):
         freq = int(row['Freq'])
         raw_pol = row['Pol'].upper()
-        pol = {"2": "L", "3": "R", "0": "H", "1": "V"}.get(raw_pol, raw_pol)
+        pol = self.POL_CSV_MAP.get(raw_pol, raw_pol)
         sr = int(row['SR'])
         sat_pos = float(row['Pos'])
         sat_dir = row['Dir'].upper()
@@ -1110,52 +1133,69 @@ class SatelliteArchitect:
         roll = row['RO']
         pilot = row['Pilot']
 
-        raw_sat = int(sat_pos * 10)
-        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
-        disp_sat = -raw_sat if sat_dir == "W" else raw_sat
-        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+        ns_hex, disp_sat = self._calculate_namespace(freq, sat_pos, sat_dir)
 
         raw_isi = str(row.get('isi', '-1')).strip()
         is_multistream = raw_isi != '-1' and raw_isi != ''
         isi_list = [i.strip() for i in raw_isi.split(',')] if is_multistream else ['-1']
 
-        raw_pairs = row.get('pids-plps', '').strip()
-        pair_list = []
+        raw_pairs = row.get('pids-plps', '')
+        flat_pair_list = self._parse_pid_plps(raw_pairs)
         
-        if raw_pairs:
-            clean_pairs = raw_pairs.strip('{}')
-            if clean_pairs:
-                items = clean_pairs.split(';')
-                for item in items:
-                    if ',' in item:
-                        p, l = item.split(',', 1)
-                        pair_list.append((p.strip(), l.strip()))
-        
-        if not pair_list:
+        if not flat_pair_list:
             pid = row.get('PID', '4096')
             plp = row.get('PLP', '0')
-            pair_list.append((pid, plp))
+            flat_pair_list.append((pid, plp))
 
         current_sid = start_sid
 
+        # 2. Logic: Group consecutive pairs with the SAME PID
+        # This ensures PID 4097 appearing later in the list gets a new ISI (Case 8.1W)
+        # But PID 4098 appearing consecutively shares the ISI (Case 3.1E)
+        
         if is_multistream:
-            for idx, (pid, plp) in enumerate(pair_list):
+            grouped_pairs = []
+            
+            if flat_pair_list:
+                # Initialize first group
+                current_pid, current_plp = flat_pair_list[0]
+                current_group = [(current_pid, current_plp)]
+                
+                # Iterate through the rest
+                for pid, plp in flat_pair_list[1:]:
+                    if pid == current_pid:
+                        # Same PID as previous? Add to current group (Shared ISI)
+                        current_group.append((pid, plp))
+                    else:
+                        # Different PID? Save previous group and start new one (New ISI)
+                        grouped_pairs.append(current_group)
+                        current_pid = pid
+                        current_group = [(pid, plp)]
+                
+                # Append the last group
+                grouped_pairs.append(current_group)
+
+            # 3. Map Groups to ISIs
+            for idx, group in enumerate(grouped_pairs):
                 if idx < len(isi_list):
                     isi = isi_list[idx]
                 else:
                     isi = "-1"
-                    print(f"    {Color.YELLOW}⚠ Warning: Pair index {idx} has no corresponding ISI.{Color.END}")
-
-                self._generate_batch_entry(
-                    freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, 
-                    provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot
-                )
-                current_sid += 1
+                    print(f"    {Color.YELLOW}⚠ Warning: Group index {idx} has no corresponding ISI.{Color.END}")
+                
+                # Generate entries for all PLPs in this group using the same ISI
+                for (pid, plp) in group:
+                    self._generate_batch_entry(
+                        freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, 
+                        provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot
+                    )
+                    current_sid += 1
         
         else:
+            # Non-multistream: Standard grouping by PID
             isi = "-1"
             pid_map = {}
-            for p, l in pair_list:
+            for p, l in flat_pair_list:
                 if p not in pid_map: pid_map[p] = []
                 pid_map[p].append(l)
             
@@ -1339,8 +1379,8 @@ class SatelliteArchitect:
 
         print(f"📂 BOUQUET        : ./{self.bouquet_file}")
         print(f"📂 ASTRA          : ./{astra_path}{Color.END}")
-        print(f"📂 LOG FILE       : ./workspace/architect.log{Color.END}")
-        print(f"\n{Color.GREEN}{Color.BOLD}✨ v15.5 UNIVERSAL ARCHITECT LOCKED!{Color.END}")
+        print(f"📂 LOG FILE       : ./workspace/architect_{self.timestamp}.log{Color.END}")
+        print(f"\n{Color.GREEN}{Color.BOLD}✨ v15.6 UNIVERSAL ARCHITECT LOCKED!{Color.END}")
         self.logger.info("Session finished successfully.")
 
 
