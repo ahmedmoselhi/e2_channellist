@@ -54,9 +54,10 @@ def get_choice():
         ("2",
          "T2-MI DX GENERATOR (Automated)",
          "Automated decap engine for T2-MI stream generation."),
+        # UPDATED OPTION 3
         ("3",
-         "T2-MI DX GENERATOR (Edit)",
-         "Modify/Append existing Astra and LameDB entries."),
+         "URL.TXT ORBITAL SORTER",
+         "Sort url.txt entries by satellite position (West -> East)."),
         ("Q",
          "QUIT",
          "Exit the suite.")]
@@ -98,6 +99,18 @@ def run_script(script_name):
                 else:
                     return 'M' # Default to Main Menu
 
+            except KeyboardInterrupt:
+                # HANDLE CTRL + C HERE
+                print(f"\n\n{Color.RED}[!] PROCESS INTERRUPTED BY USER (Ctrl+C){Color.END}")
+                while True:
+                    interrupt_choice = input(f"{Color.YELLOW}Enter 'M' to go back to Main Menu or 'Q' to Quit: {Color.END}").upper()
+                    if interrupt_choice == 'M':
+                        return 'M'
+                    elif interrupt_choice == 'Q':
+                        return 'Q'
+                    else:
+                        print(f"{Color.RED}Invalid selection. Please enter 'M' or 'Q'.{Color.END}")
+
             except Exception as e:
                 print(f"{Color.RED}Execution Error: {e}{Color.END}")
                 input("Press Enter to continue...")
@@ -114,7 +127,8 @@ def main():
     scripts = {
         "1": "LYNGSAT DX MASTER SUITE.py",
         "2": "T2-MI Ultimate DX Generator (Automated Edition).py",
-        "3": "T2-MI Ultimate DX Generator (Edit Edition).py"
+        # UPDATED SCRIPT REFERENCE
+        "3": "Url.txt Order.py"
     }
 
     while True:
@@ -126,17 +140,27 @@ def main():
         print(
             f"└─────────────────────────────────────────────────────────────────────────────┘{Color.END}")
 
-        choice = get_choice()
+        try:
+            choice = get_choice()
 
-        if choice == 'Q':
-            break
-        elif choice in scripts:
-            after_action = run_script(scripts[choice])
-            if after_action == 'Q':
+            if choice == 'Q':
                 break
-        else:
-            print(f"{Color.RED}Invalid Selection.{Color.END}")
-            time.sleep(1)
+            elif choice in scripts:
+                after_action = run_script(scripts[choice])
+                if after_action == 'Q':
+                    break
+            else:
+                print(f"{Color.RED}Invalid Selection.{Color.END}")
+                time.sleep(1)
+        
+        except KeyboardInterrupt:
+            # HANDLE CTRL + C AT MAIN MENU
+            print(f"\n\n{Color.RED}[!] Keyboard Interrupt detected.{Color.END}")
+            confirm = input(f"{Color.YELLOW}Return to Menu (M) or Quit (Q)? [M]: {Color.END}").upper()
+            if confirm == 'Q':
+                break
+            else:
+                continue
 
     print(f"\n{Color.GREEN}Exiting DX Master Suite. Goodbye!{Color.END}")
 
