@@ -57,10 +57,10 @@ def get_choice():
         ("3",
          "URL.TXT ORBITAL SORTER",
          "Sort url.txt entries by satellite position (West -> East)."),
-        # NEW OPTION 4
+        # UPDATED OPTION 4
         ("4",
-         "LAMEDB MERGER SUITE",
-         "Merge Enigma2 lamedb files with GUI interface."),
+         "ENIGMA2 SUITE",
+         "Lamedb merger and Satellites.xml processor with GUI."),
         ("Q",
          "QUIT",
          "Exit the suite.")]
@@ -131,8 +131,8 @@ def main():
         "1": "LYNGSAT DX MASTER SUITE.py",
         "2": "T2-MI Ultimate DX Generator (Automated Edition).py",
         "3": "Url.txt Order.py",
-        # NEW SCRIPT REFERENCE
-        "4": "Lamedb Merger.py"
+        # UPDATED SCRIPT REFERENCE
+        "4": "Enigma2 Suite.py"
     }
 
     while True:
