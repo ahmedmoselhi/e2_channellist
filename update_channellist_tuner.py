@@ -1,10 +1,25 @@
-import urllib.request
+# -*- coding: utf-8 -*-
 import os
 import sys
 import zipfile
 import time
 import shutil
 from datetime import datetime
+
+# --- PYTHON 2/3 COMPATIBILITY ---
+try:
+    # Python 3
+    import urllib.request
+    urlretrieve = urllib.request.urlretrieve
+    urlopen = urllib.request.urlopen
+    Request = urllib.request.Request
+except ImportError:
+    # Python 2
+    import urllib2
+    import urllib
+    urlretrieve = urllib.urlretrieve
+    urlopen = urllib2.urlopen
+    Request = urllib2.Request
 
 # --- CONFIGURATION ---
 SETTINGS_FILE = '/etc/enigma2/settings'
@@ -46,7 +61,6 @@ def backup_file(filepath):
         return
 
     try:
-        # Create backup directory if it doesn't exist
         if not os.path.exists(BACKUP_DIR):
             os.makedirs(BACKUP_DIR)
             print("-> Created backup directory: {0}".format(BACKUP_DIR))
@@ -63,31 +77,92 @@ def backup_file(filepath):
         print("-> [WARNING] Backup failed for {0}: {1}".format(filename, str(e)))
 
 def stop_enigma2():
-    """
-    [HELPER] Stops the Enigma2 GUI process (init 4).
-    """
     print("\n[!] CRITICAL: Stopping Enigma2 (init 4)...")
     os.system('init 4')
     time.sleep(5)
 
 def start_enigma2():
-    """
-    [HELPER] Restarts the Enigma2 GUI (init 3).
-    """
     print("\n[*] SUCCESS: Restarting Enigma2 (init 3)...")
     os.system('init 3')
 
+def verify_file_integrity(filepath, is_zip=False):
+    """
+    [HELPER] Verifies a file exists and is not empty.
+    If is_zip=True, also validates ZIP header.
+    """
+    if not os.path.exists(filepath):
+        raise IOError("File not created: {0}".format(filepath))
+    
+    if os.path.getsize(filepath) == 0:
+        os.remove(filepath) 
+        raise IOError("Downloaded file is empty (possible network error): {0}".format(filepath))
+    
+    if is_zip:
+        if not zipfile.is_zipfile(filepath):
+            os.remove(filepath)
+            raise IOError("Downloaded file is not a valid ZIP archive.")
+    
+    print("-> [VERIFY] File integrity check passed.")
+    return True
+
 # --- TASK FUNCTIONS ---
+
+def export_tuner_config():
+    """
+    [TASK] Backup current tuner configuration to tuner_backup.txt.
+    Extracts lines starting with 'config.Nims.' from settings.
+    """
+    print_banner("TUNER CONFIGURATION BACKUP")
+
+    if not os.path.exists(SETTINGS_FILE):
+        print("-> [ERROR] Settings file not found at {0}".format(SETTINGS_FILE))
+        return
+
+    # Ensure backup directory exists
+    if not os.path.exists(BACKUP_DIR):
+        os.makedirs(BACKUP_DIR)
+
+    target_file = os.path.join(BACKUP_DIR, 'tuner_backup.txt')
+    tmp_file = target_file + ".tmp"
+    
+    try:
+        tuner_lines = []
+        with open(SETTINGS_FILE, 'r') as f:
+            for line in f:
+                # Capture only tuner configuration lines
+                if line.strip().startswith('config.Nims.'):
+                    tuner_lines.append(line.strip())
+        
+        if not tuner_lines:
+            print("-> [INFO] No tuner configuration data found in settings file.")
+            return
+
+        # Atomic Write
+        with open(tmp_file, 'w') as f:
+            for line in tuner_lines:
+                f.write(line + '\n')
+        
+        # Verify write before moving
+        if os.path.exists(target_file):
+            os.remove(target_file)
+        shutil.move(tmp_file, target_file)
+
+        print("-> [SUCCESS] Exported {0} tuner lines to:".format(len(tuner_lines)))
+        print("   {0}".format(target_file))
+
+    except Exception as e:
+        print("-> [ERROR] Backup failed: {0}".format(str(e)))
+        if os.path.exists(tmp_file): os.remove(tmp_file)
 
 def download_astra_conf():
     """
     [TASK] Update Astra Configuration.
-    Automatically backs up existing config before replacement.
     """
     print_banner("ASTRA CONFIGURATION UPDATE")
 
+    tmp_file = ASTRA_FILE_PATH + ".tmp"
+
     try:
-        # Auto-Backup existing file
         backup_file(ASTRA_FILE_PATH)
 
         if not os.path.exists(ASTRA_CONF_PATH):
@@ -95,18 +170,21 @@ def download_astra_conf():
             os.makedirs(ASTRA_CONF_PATH)
 
         print("-> Downloading astra.conf from GitHub...")
-        urllib.request.urlretrieve(ASTRA_URL, ASTRA_FILE_PATH)
+        urlretrieve(ASTRA_URL, tmp_file)
 
+        verify_file_integrity(tmp_file)
+        shutil.move(tmp_file, ASTRA_FILE_PATH)
+        
         os.chmod(ASTRA_FILE_PATH, 0o644)
 
         print("\n[✔] ASTRA CONFIGURATION UPDATED SUCCESSFULLY")
     except Exception as e:
         print("\n[✘] ERROR: Astra update failed -> {0}".format(str(e)))
+        if os.path.exists(tmp_file): os.remove(tmp_file)
 
 def download_and_extract_channels():
     """
     [TASK] Update Channel List & Satellites.
-    Automatically backs up lamedb before replacement.
     """
     tmp_zip = '/tmp/channels.zip'
     extract_to = '/tmp/channels_extracted'
@@ -118,11 +196,12 @@ def download_and_extract_channels():
     stop_enigma2()
     
     try:
-        # Auto-Backup lamedb
         backup_file(LAMEDB_PATH)
 
         print("-> Downloading latest channel database...")
-        urllib.request.urlretrieve(CHANNELS_URL, tmp_zip)
+        urlretrieve(CHANNELS_URL, tmp_zip)
+
+        verify_file_integrity(tmp_zip, is_zip=True)
 
         if os.path.exists(extract_to):
             shutil.rmtree(extract_to)
@@ -158,15 +237,17 @@ def download_and_extract_channels():
 
 def update_tuner_settings():
     """
-    [TASK] Advanced Tuner Configuration.
-    Automatically backs up settings file before modification.
+    [TASK] Advanced Tuner Configuration (Restore/Inject).
     """
     if not os.path.exists(SETTINGS_FILE):
         return
 
     print_banner("TUNER HARDWARE CONFIGURATION")
 
-    choice = input("\n[?] Select Target Tuner [0: Tuner A | 1: Tuner B]: ").strip()
+    get_input = raw_input if sys.version_info[0] == 2 else input
+
+    choice = get_input("\n[?] Select Target Tuner [0: Tuner A | 1: Tuner B]: ").strip()
+    
     if choice not in ['0', '1']:
         return
 
@@ -175,18 +256,23 @@ def update_tuner_settings():
     print("\n[?] Select Firmware Logic:")
     print(" (1) OpenATV - Uses full '.dvbs.' tagging.")
     print(" (2) OpenPLi - Uses stripped path syntax.")
-    fmt_choice = input("Choice [1/2]: ").strip()
+    
+    fmt_choice = get_input("Choice [1/2]: ").strip()
 
     stop_enigma2()
     
-    # UPDATED: Use the centralized backup function with timestamp
     backup_file(SETTINGS_FILE)
+
+    tmp_settings = SETTINGS_FILE + ".tmp"
 
     try:
         print("-> Pulling source data from GitHub...")
-        req = urllib.request.Request(TUNER_URL)
-        with urllib.request.urlopen(req) as response:
+        req = Request(TUNER_URL)
+        with urlopen(req) as response:
             raw_content = response.read().decode('utf-8').splitlines()
+
+        if not raw_content:
+            raise ValueError("Tuner configuration source is empty.")
 
         active_block = [
             "config.Nims.{0}.configMode=advanced".format(choice),
@@ -211,13 +297,19 @@ def update_tuner_settings():
             all_lines = [l.strip() for l in f.readlines()]
         clean_base = [l for l in all_lines if not l.startswith('config.Nims.')]
 
-        with open(SETTINGS_FILE, 'w') as f:
+        print("-> Writing configuration atomically...")
+        with open(tmp_settings, 'w') as f:
             for line in clean_base:
                 f.write(line + '\n')
             for line in active_block:
                 f.write(line + '\n')
             for line in inactive_block:
                 f.write(line + '\n')
+        
+        if os.path.getsize(tmp_settings) == 0:
+            raise IOError("Generated settings file is empty. Aborting to prevent data loss.")
+
+        shutil.move(tmp_settings, SETTINGS_FILE)
 
         print(
             "\n[✔] TUNER {0} RECONFIGURED SUCCESSFULLY".format(
@@ -225,6 +317,8 @@ def update_tuner_settings():
     
     except Exception as e:
         print("\n[✘] ERROR: Tuner setup failed -> {0}".format(str(e)))
+        if os.path.exists(tmp_settings):
+            os.remove(tmp_settings)
 
     finally:
         start_enigma2()
@@ -235,35 +329,43 @@ def main():
     print("  |   __|___ _| |___ _ _ ___ ___ ___  |_  | ")
     print("  |   __|   | . | . | | |  _| .'|_ -|  _| |_")
     print("  |_____|_|_|___|_  |___|_| |__,|___| |_____|")
-    print("                |___|  ULTIMATE UTILITY v6.4 ")
+    print("                |___|  ULTIMATE UTILITY v6.6 ")
     print("★" * 50)
 
     print("\n[1] FULL CHANNEL UPDATE")
     print("    • Description: Downloads latest satellite & bouquet ZIP.")
     print("    • Auto-Backup: lamedb")
 
-    print("\n[2] ADVANCED TUNER SETUP")
+    print("\n[2] BACKUP TUNER CONFIGURATION")
+    print("    • Description: Saves current tuner settings to tuner_backup.txt.")
+    print("    • Target: /etc/enigma2/backups/")
+
+    print("\n[3] ADVANCED TUNER SETUP")
     print("    • Description: Injects LNB/Diseqc settings for your motor.")
     print("    • Auto-Backup: settings")
 
-    print("\n[3] ASTRA CONFIGURATION")
+    print("\n[4] ASTRA CONFIGURATION")
     print("    • Description: Downloads astra.conf to /etc/astra/.") 
     print("    • Auto-Backup: astra.conf")
 
-    print("\n[4] TOTAL SYSTEM REFRESH")
-    print("    • Description: Performs Option 1, 2, and 3.")
+    print("\n[5] TOTAL SYSTEM REFRESH")
+    print("    • Description: Performs Option 1, 3, and 4.")
 
-    print("\n[5] EXIT")
+    print("\n[6] EXIT")
     print("═" * 50)
 
-    menu_choice = input("\n[?] Choose an action: ").strip()
+    get_input = raw_input if sys.version_info[0] == 2 else input
+    
+    menu_choice = get_input("\n[?] Choose an action: ").strip()
     if menu_choice == '1':
         download_and_extract_channels()
     elif menu_choice == '2':
-        update_tuner_settings()
+        export_tuner_config()
     elif menu_choice == '3':
-        download_astra_conf()
+        update_tuner_settings()
     elif menu_choice == '4':
+        download_astra_conf()
+    elif menu_choice == '5':
         download_and_extract_channels()
         update_tuner_settings()
         download_astra_conf()
