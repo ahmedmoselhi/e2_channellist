@@ -550,14 +550,37 @@ class LyngSatDXMaster:
                              p_val = prov_m.group(1).strip()
                              if not re.search(r'\d{4,5}\s*[VHRL]', p_val): prov = p_val
 
-                    mod = "8PSK" if "8PSK" in mux_text else "QPSK"
+                    # --- DYNAMIC PARAMETER DETECTION ---
+                    # 1. Detect Modulation (Mod - Index 8)
+                    if "32APSK" in mux_text:
+                        mod_val = "4"
+                        mod_label = "32APSK"
+                    elif "16APSK" in mux_text:
+                        mod_val = "3"
+                        mod_label = "16APSK"
+                    elif "8PSK" in mux_text:
+                        mod_val = "2"
+                        mod_label = "8PSK"
+                    elif "QPSK" in mux_text:
+                        mod_val = "1"
+                        mod_label = "QPSK"
+                    else:
+                        mod_val = "0"  # 0 = Auto/Unknown in most receiver databases
+                        mod_label = "AUTO"
+
+                    # 2. Detect System Standard (Sys - Index 7)
+                    # Multistream often utilizes DVB-S2X, which requires Sys=2
+                    sys_val = "2" if "DVB-S2X" in mux_text else "1"
+
                     hw = round(float(sat_deg) + 0.1, 1) if is_cband else float(sat_deg)
                     
                     transponders.append({
-                        "f_v": f_v, "p_r": p_r, "sr": sr, "mod": mod, "mux_url": mux_url,
+                        "f_v": f_v, "p_r": p_r, "sr": sr, "mod": mod_label, "mux_url": mux_url,
                         "file_label": f"{f_v}{p_r}{sr}",
                         "prov": prov,
-                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", "1", "1", "2" if mod=="8PSK" else "1", "0", "{}", "-1", prov, mux_url]
+                        # CSV Index Mapping: ... Sys(7), Mod(8), RO(9) ...
+                        # Note: RO (Roll-Off) is set to "3" (Auto) to prevent tuning lock failures
+                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", sys_val, mod_val, "3", "0", "{}", "-1", prov, mux_url]
                     })
                 except Exception as e: 
                     self.log_proc(f"Mux Error ({f_v}): {e}", self.color.CRIMSON)

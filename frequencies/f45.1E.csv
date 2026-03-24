@@ -1,3 +1,3 @@
 Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
-3720,2,26380,45.1,E,2,9,1,1,1,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Cosmos-2520_beam_3720-L.html
-3760,2,26380,45.1,E,2,9,1,1,1,0,"{4096,0}",-1,RTRS 2,https://www.lyngsat.com/muxes/Cosmos-2520_beam_3760-L.html
+3720,2,26380,45.1,E,2,9,1,1,3,0,"{4096,0;4096,1}",-1,RTRS 1,https://www.lyngsat.com/muxes/Cosmos-2520_beam_3720-L.html
+3760,2,26380,45.1,E,2,9,1,1,3,0,"{4096,0}",-1,RTRS 2,https://www.lyngsat.com/muxes/Cosmos-2520_beam_3760-L.html
