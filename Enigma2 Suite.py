@@ -128,7 +128,7 @@ class LamedbMergerWidget(QWidget):
     def __init__(self, log_filename, parent=None):
         super().__init__(parent)
         self.log_filename = log_filename
-        # FIX 1: Use absolute path for config file to ensure it is found reliably
+        # Use absolute path for config file to ensure it is found reliably
         self.config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "enigma2_suite_config.json")
         self.log_buffer = [] 
         self.init_ui()
@@ -164,7 +164,7 @@ class LamedbMergerWidget(QWidget):
         main_layout.addLayout(group2)
         main_layout.addLayout(row2)
 
-        # Output Input - FIX 2: Explicit creation to capture button reference
+        # Output Input - Explicit creation to capture button reference for disabling
         group3 = QVBoxLayout()
         group3.addWidget(QLabel("<b>Output File:</b>"))
         row3 = QHBoxLayout()
@@ -216,8 +216,12 @@ class LamedbMergerWidget(QWidget):
         if is_checked:
             self.l_out_edit.setText("Will be replaced by Destination File path.")
         else:
-            # Clear the placeholder text so user can browse or see auto-generated path
-            self.l_out_edit.clear()
+            # Restore logic: if dest path exists, put the auto-generated name back
+            dest = self.l_dest_edit.text()
+            if dest:
+                self.update_output_path(dest)
+            else:
+                self.l_out_edit.clear()
 
     def log_msg(self, message):
         timestamp = datetime.now().strftime("%H:%M:%S")
@@ -504,6 +508,7 @@ class SatellitesProcessorWidget(QWidget):
         
         self.log_msg("Processing satellites.xml...")
         
+        # --- Full Conversion List ---
         conversions = [
             {"pos": "-345", "new_name": "(55) 34.5W Intelsat 35e"},
             {"pos": "-300", "new_name": "(54) 30.0W Hispasat 30W-5/30W-6"},
@@ -576,13 +581,14 @@ class SatellitesProcessorWidget(QWidget):
             skip_block = False
             rename_count = 0
             
+            # --- Trimming Logic Restored ---
             trim1_start_marker = 'position="-1771"'
             trim1_end_keep_marker = 'position="-451"'
             trim2_start_delete_marker = 'position="1082"'
             trim2_end_keep_marker = '</satellites>'
 
             for line in lines:
-                # 1. Renaming
+                # 1. Renaming Logic
                 if '<sat' in line:
                     for item in conversions:
                         if f'position="{item["pos"]}"' in line:
@@ -592,7 +598,8 @@ class SatellitesProcessorWidget(QWidget):
                                 line = new_line
                             break
 
-                # 2. Trimming
+                # 2. Trimming Logic
+                # This logic removes satellites outside the desired range
                 if trim1_start_marker in line and '<sat' in line:
                     skip_block = True
                 if trim1_end_keep_marker in line and '<sat' in line:
@@ -632,7 +639,7 @@ class SatellitesProcessorWidget(QWidget):
 class Enigma2Suite(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Enigma2 Suite v20.0 - Fixed UI & Config")
+        self.setWindowTitle("Enigma2 Suite v21.0 - Logic Restored")
         self.setMinimumSize(QSize(850, 600))
         self.setWindowState(Qt.WindowMaximized)
         
