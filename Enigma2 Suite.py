@@ -499,6 +499,21 @@ class SatellitesProcessorWidget(QWidget):
         except Exception as e:
             self.log_msg(f"Warning: Backup failed - {e}")
 
+    def verify_xml_integrity(self, filepath):
+        """Parses the XML file to ensure it is well-formed."""
+        import xml.etree.ElementTree as ET
+        self.log_msg(f"Running integrity check on {os.path.basename(filepath)}...")
+        try:
+            ET.parse(filepath)
+            self.log_msg("✅ Integrity Check Passed: XML is well-formed.")
+            return True
+        except ET.ParseError as e:
+            self.log_msg(f"❌ Integrity Check Failed: Malformed XML - {e}")
+            return False
+        except Exception as e:
+            self.log_msg(f"❌ Integrity Check Failed: System Error - {e}")
+            return False
+
     def run_process(self):
         file_path = self.s_input_edit.text()
         if not file_path:
@@ -580,16 +595,16 @@ class SatellitesProcessorWidget(QWidget):
             new_lines = []
             skip_block = False
             rename_count = 0
+            header_updated = False
             
-            # --- Trimming Logic Restored ---
+            # --- Trimming Markers ---
             trim1_start_marker = 'position="-1771"'
             trim1_end_keep_marker = 'position="-451"'
             trim2_start_delete_marker = 'position="1082"'
             trim2_end_keep_marker = '</satellites>'
 
             for line in lines:
-                # 1. XML HEADER TRANSFORMATION
-                # Replaces UTF-8 with iso-8859-1 to match our file encoding
+                # 1. XML Header Transformation
                 if '<?xml' in line and 'encoding="UTF-8"' in line:
                     line = line.replace('encoding="UTF-8"', 'encoding="iso-8859-1"')
                     header_updated = True
@@ -604,8 +619,7 @@ class SatellitesProcessorWidget(QWidget):
                                 line = new_line
                             break
 
-                # 2. Trimming Logic
-                # This logic removes satellites outside the desired range
+                # 3. Trimming Logic
                 if trim1_start_marker in line and '<sat' in line:
                     skip_block = True
                 if trim1_end_keep_marker in line and '<sat' in line:
@@ -624,14 +638,27 @@ class SatellitesProcessorWidget(QWidget):
             else:
                 output_path = os.path.splitext(file_path)[0] + "_processed.xml"
 
+            # Save file
             with open(output_path, 'w', encoding='iso-8859-1') as f:
                 f.writelines(new_lines)
 
+            # Integrity Check
+            is_valid = self.verify_xml_integrity(output_path)
+            
+            # Final Logging
+            if header_updated:
+                self.log_msg("Updated XML header encoding declaration.")
+            
+            if not is_valid:
+                self.log_msg("⚠️ WARNING: The output file contains syntax errors.")
+            
             self.log_msg(f"✅ Process Complete. Renamed {rename_count} satellites.")
+            
             if self.s_replace.isChecked():
                 self.log_msg(f"Original file replaced: {file_path}")
             else:
                 self.log_msg(f"Saved to: {output_path}")
+                
             self.show_log_popup()
 
         except Exception as e:
