@@ -588,7 +588,13 @@ class SatellitesProcessorWidget(QWidget):
             trim2_end_keep_marker = '</satellites>'
 
             for line in lines:
-                # 1. Renaming Logic
+                # 1. XML HEADER TRANSFORMATION
+                # Replaces UTF-8 with iso-8859-1 to match our file encoding
+                if '<?xml' in line and 'encoding="UTF-8"' in line:
+                    line = line.replace('encoding="UTF-8"', 'encoding="iso-8859-1"')
+                    header_updated = True
+
+                # 2. Renaming Logic
                 if '<sat' in line:
                     for item in conversions:
                         if f'position="{item["pos"]}"' in line:
