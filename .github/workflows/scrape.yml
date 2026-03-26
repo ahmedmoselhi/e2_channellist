@@ -1,0 +1,59 @@
+name: Orion Scraper Daily Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Everyday at 6:00 AM UTC
+  workflow_dispatch: # Allows manual trigger
+    inputs:
+      start_pos:
+        description: 'Start Position (e.g. 45.0W)'
+        required: true
+        default: '45.0W'
+      end_pos:
+        description: 'End Position (e.g. 108.2E)'
+        required: true
+        default: '108.2E'
+      separate_bands:
+        description: 'Separate C/KU bands? (true/false)'
+        required: true
+        default: 'true'
+      add_advanced:
+        description: 'Add MIS/PLS/T2-MI? (true/false)'
+        required: true
+        default: 'true'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests beautifulsoup4 cloudscraper
+
+      - name: Run Orion Scraper CI
+        run: |
+          # Determine parameters based on trigger type
+          START="${{ github.event.inputs.start_pos || '45.0W' }}"
+          END="${{ github.event.inputs.end_pos || '108.2E' }}"
+          SEP_FLAG=""
+          if [[ "${{ github.event.inputs.separate_bands || 'true' }}" == "true" ]]; then SEP_FLAG="--separate"; fi
+          ADV_FLAG=""
+          if [[ "${{ github.event.inputs.add_advanced || 'true' }}" == "true" ]]; then ADV_FLAG="--advanced"; fi
+          
+          python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG
+
+      - name: Commit and Push satellites.xml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add satellites.xml
+          git commit -m "Update satellites.xml - $(date -u)" || echo "No changes to commit"
+          git push
