@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-LyngSat DX Master Suite - Version 17.17
-FIX: Restored Multistream ISI detection logic.
-     - Extracts ISI values from verified buckets to populate the 'isi' CSV column.
-     - Preserves the HTML order for pids-plps matrix (matching ISI sort order).
+LyngSat DX Master Suite - Version 17.18
+FIX: PLS Extraction Logic Corrected.
+     - Properly extracts PLS Mode/Code from mux page text.
+     - Maps the extracted PLS value (e.g., 1,242133) 1:1 with the pids-plps matrix.
+     - Defaults to 0,0 only if no PLS string is found.
 """
 
 import os
@@ -88,7 +89,7 @@ class UIRenderer:
         lines.append(self.color.GOLD + "█" + "▄" * inner_width + "█" + self.color.ENDC)
         return lines
 
-    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.17 | ROBUST") -> None:
+    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.18 | PLS-FIX") -> None:
         for line in self.render_banner(title, version): print(line)
 
     def print_instructions_box(self, instructions: List[str], notes: List[str]) -> None:
@@ -96,7 +97,7 @@ class UIRenderer:
         width = self.terminal_width
         inner_width = width - 2
         print(f"{c.BASE}┌{'─' * inner_width}┐{c.ENDC}")
-        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.17{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.18{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
         print(f"{c.BASE}│{self._pad_to_width(f'  {c.LIME}Instructions:{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         for instr in instructions: print(f"{c.BASE}│{self._pad_to_width(f'  • {instr}', inner_width)}{c.BASE}│{c.ENDC}")
@@ -250,8 +251,6 @@ class LyngSatDXMaster:
 
     def _save_url_to_history(self, url: str, pos_label: str) -> None:
         """Save processed URL to url.txt with pos_label if it doesn't already exist."""
-        # Format: url,pos_label
-        
         # Check for duplicates
         if os.path.exists(self.URL_HISTORY_FILE):
             try:
@@ -295,10 +294,15 @@ class LyngSatDXMaster:
 
     def setup_storage(self, sat_deg: float, sat_dir: str, is_cband: bool) -> Tuple[str, str, str]:
         effective_pos = float(sat_deg) + 0.1 if is_cband else float(sat_deg)
-        pos_label = f"{effective_pos:.1f}{sat_dir}"
-        f_dir, c_dir = "frequencies", os.path.join("channellist", pos_label)
+        # Ensure exact formatting: e.g., 39.0E (forced uppercase direction)
+        pos_label = f"{effective_pos:.1f}{sat_dir.upper()}"
+        
+        f_dir = "frequencies"
+        c_dir = os.path.join("channellist", pos_label)
+        
         for d in [f_dir, c_dir]:
             if not os.path.exists(d): os.makedirs(d)
+            
         return f_dir, c_dir, pos_label
 
     def get_band_choice(self, sat_slug: str, sat_deg: float, sat_dir: str, auto_suggest_cband: bool) -> bool:
@@ -330,12 +334,7 @@ class LyngSatDXMaster:
     # [ PARSING ]
     # --------------------------------------------------------------------------
 
-    def parse_mux_channels(self, url: str, save_path: str, freq_label: str) -> Tuple[int, List[str]]:
-        """
-        Returns: 
-            (total_channel_count, list_of_found_bucket_keys)
-            Bucket keys format: "PLP{plp}PID{pid}_ISI{isi}"
-        """
+    def parse_mux_channels(self, url: str, save_path: str, freq_label: str, pls_val: str = "0,0") -> Tuple[int, List[str]]:
         if not self.running: return 0, []
         try:
             from curl_cffi import requests
@@ -349,16 +348,31 @@ class LyngSatDXMaster:
             clean_prefix = re.match(r'(\d+[LRHV]\d+)', freq_label).group(1)
             output_dir = os.path.dirname(save_path)
             
+            # --- PLS FILENAME LOGIC ---
+            # Extract the code from "mode,code" (e.g., "1,242133" -> "242133")
+            pls_suffix = ""
+            if pls_val and "," in pls_val:
+                try:
+                    p_code = pls_val.split(",")[1]
+                    if p_code != "0":
+                        pls_suffix = f"_PLS{p_code}"
+                except IndexError:
+                    pass
+            
             found_keys = []
 
             for bucket, channels in buckets.items():
                 plp = re.search(r'PLP(\d+)', bucket).group(1)
                 isi = re.search(r'ISI(-?\d+)', bucket).group(1)
                 pid = re.search(r'PID(\d+)', bucket).group(1)
-                fname = f"{clean_prefix}PLP{plp}PID{pid}{'_ISI'+isi if isi != '-1' else ''}.csv"
+                
+                # Updated filename construction to include PLS suffix
+                fname = f"{clean_prefix}PLP{plp}PID{pid}{'_ISI'+isi if isi != '-1' else ''}{pls_suffix}.csv"
                 
                 # Save Services
-                with open(os.path.join(output_dir, fname), 'w', newline='', encoding='utf-8') as f: csv.writer(f).writerows(channels)
+                with open(os.path.join(output_dir, fname), 'w', newline='', encoding='utf-8') as f: 
+                    csv.writer(f).writerows(channels)
+                
                 self.ui.print_channel_table(channels, plp, isi)
                 self.log_proc(f"Saved: {fname} ({len(channels)} services)", self.color.LIME)
                 
@@ -366,52 +380,55 @@ class LyngSatDXMaster:
                 found_keys.append(bucket)
             
             return total, found_keys
-        except Exception as e: self.log_proc(f"Matrix Error: {e}", self.color.CRIMSON); return 0, []
+        except Exception as e: 
+            self.log_proc(f"Matrix Error: {e}", self.color.CRIMSON)
+            return 0, []
 
     def _extract_channels_from_soup(self, soup) -> Dict[str, List[List[str]]]:
         buckets = {}
-        plp, isi, pid = "0", "-1", "4096"
-        for el in soup.find_all(['div', 'tr']):
-            txt = el.get_text(" ", strip=True).upper()
-            
-            # Robust Header Detection
-            is_header = False
-            if el.name == 'div':
-                is_header = True
-            elif el.name == 'tr':
-                tds = el.find_all('td')
-                has_keyword = ("PLP" in txt or "PID" in txt or "STREAM" in txt)
-                sid_text = tds[0].get_text(strip=True) if tds else ""
-                looks_like_service = sid_text.isdigit()
-                if has_keyword and not looks_like_service:
-                    is_header = True
-            
-            if is_header:
-                if m:=re.search(r'PLP\s*(\d+)', txt): plp = m.group(1)
-                if m:=re.search(r'PID\s*(\d+)', txt): pid = m.group(1)
-                if m:=re.search(r'STREAM\s*(\d+)', txt): isi = m.group(1)
+        # Changed: Start with None to ensure we don't collect "Table 1" (Standard DVB-S)
+        plp, isi, pid = None, None, None 
+        
+        # We iterate through all elements in order
+        for el in soup.find_all(['div', 'tr', 'table']):
+            # 1. Look for the T2-MI / Multistream Header Div
+            if el.name == 'div' and 'mux-header' in el.get('class', []):
+                txt = el.get_text(" ", strip=True).upper()
+                # If we find a header, update our active bucket pointers
+                m_plp = re.search(r'PLP\s*(\d+)', txt)
+                m_pid = re.search(r'PID\s*(\d+)', txt)
+                m_isi = re.search(r'STREAM\s*(\d+)', txt)
+                
+                plp = m_plp.group(1) if m_plp else "0"
+                pid = m_pid.group(1) if m_pid else "4096"
+                isi = m_isi.group(1) if m_isi else "-1"
                 continue
 
-            # Process Service Rows
-            tds = el.find_all('td')
-            if len(tds) < 2: continue
-            
-            name = ""
-            name_idx = 2
-            if len(tds) > 2: name = tds[2].get_text(strip=True)
-            elif len(tds) == 2:
-                name = tds[1].get_text(strip=True)
-                name_idx = 1
-            
-            if not name or any(k in name.upper() for k in self.JUNK_KEYWORDS) or "," in name: continue
-            sid = tds[0].get_text(strip=True)
-            if not sid.isdigit(): continue
-            
-            link = tds[name_idx].find('a', href=True) if len(tds) > name_idx else None
-            typ = "2" if link and "radiochannels" in link['href'] else "1"
-            bid = f"PLP{plp}PID{pid}_ISI{isi}"
-            if bid not in buckets: buckets[bid] = []
-            buckets[bid].append([sid, name, typ])
+            # 2. Process Table Rows only if we are currently "inside" a detected T2-MI bucket
+            if el.name == 'tr' and plp is not None:
+                tds = el.find_all('td')
+                if len(tds) < 3: continue # Skip headers/short rows
+                
+                # Validation: First column must be a numeric SID
+                sid = tds[0].get_text(strip=True)
+                if not sid.isdigit(): continue
+                
+                # Extraction
+                name_td = tds[2]
+                name = name_td.get_text(strip=True)
+                
+                # Filter junk
+                if not name or any(k in name.upper() for k in self.JUNK_KEYWORDS) or "," in name:
+                    continue
+                
+                # Determine TV vs Radio
+                link = name_td.find('a', href=True)
+                typ = "2" if link and "radiochannels" in link['href'] else "1"
+                
+                bid = f"PLP{plp}PID{pid}_ISI{isi}"
+                if bid not in buckets: buckets[bid] = []
+                buckets[bid].append([sid, name, typ])
+                
         return buckets
 
     # --------------------------------------------------------------------------
@@ -441,11 +458,23 @@ class LyngSatDXMaster:
 
             if pre_determined_pos:
                 self.log_proc(f"Override Active: Using exact position {pre_determined_pos} from history.", self.color.SKY)
-                m = re.match(r'(\d+\.?\d*)([EW])', pre_determined_pos)
+                
+                # Extract degree and direction from the history string
+                m = re.match(r'(\d+\.?\d*)\s*([EWew])?', pre_determined_pos)
                 if m: 
-                    sat_deg = float(m.group(1))
-                    sat_dir = m.group(2)
-                pos_label = pre_determined_pos
+                    hist_deg = float(m.group(1))
+                    # If history is missing E/W, fallback to the page title's direction
+                    hist_dir = m.group(2).upper() if m.group(2) else sat_dir
+                    
+                    # Reconstruct to guarantee formatting consistency
+                    pos_label = f"{hist_deg:.1f}{hist_dir}"
+                    
+                    # Update main variables for UI consistency
+                    sat_deg = hist_deg
+                    sat_dir = hist_dir
+                else:
+                    pos_label = pre_determined_pos
+
                 f_dir = "frequencies"
                 c_dir = os.path.join("channellist", pos_label)
                 for d in [f_dir, c_dir]:
@@ -506,13 +535,29 @@ class LyngSatDXMaster:
                 try:
                     mux_res = requests.get(mux_url, impersonate="chrome", timeout=12)
                     mux_soup = BeautifulSoup(mux_res.text, 'html.parser')
-                    mux_text = mux_soup.get_text().upper()
                     
-                    if "PLP" not in mux_text: 
+                    # [FIXED] PLS EXTRACTION LOGIC
+                    # We extract text from the entire soup safely to catch 'PLS Gold 242133' anywhere
+                    mux_text_raw = mux_soup.get_text(separator=" ", strip=True)
+                    mux_text_upper = mux_text_raw.upper()
+                    
+                    # Target format: "PLS Gold 242133" or "PLS Root 123"
+                    pls_match = re.search(r'PLS\s+(Root|Gold|Combo)\s+(\d+)', mux_text_raw, re.IGNORECASE)
+                    
+                    if pls_match:
+                        mode_str = pls_match.group(1).upper()
+                        # Map strings to standard indices
+                        found_mode = {"ROOT": "0", "GOLD": "1", "COMBO": "2"}.get(mode_str, "0")
+                        found_code = pls_match.group(2)
+                        current_pls = f"{found_mode},{found_code}"
+                    else:
+                        current_pls = "0,0" # Default if nothing found
+
+                    if "PLP" not in mux_text_upper: 
                         self.log_proc(f"Rejected {f_v}: No PLP marker found (Standard DVB-S2?).", self.color.GOLD, debug_only=True)
                         continue
 
-                    sr_m = re.search(r'SR-FEC:.*?(\d+)', mux_text)
+                    sr_m = re.search(r'SR-FEC:.*?(\d+)', mux_text_upper)
                     sr = sr_m.group(1) if sr_m else "0"
                     if int(sr) < 1000: continue
                     
@@ -522,19 +567,34 @@ class LyngSatDXMaster:
 
                     # Provider Logic
                     prov = "N/A"
-                    mux_header_table = mux_soup.find('table', class_='mux-header')
-                    if mux_header_table:
-                        provider_a = mux_header_table.find('a', href=re.compile(r'/providers/'))
-                        if provider_a: prov = provider_a.get_text(strip=True)
-                        if not provider_a:
-                            provider_a = mux_header_table.find('a', href=re.compile(r'/packages/'))
+                    # 1. Primary Check: Multistream/T2-MI Header (e.g., "Cypriotic mux")
+                    # These often use <b><i> inside <div class="mux-header"> instead of <a> links
+                    mux_header_div = mux_soup.find("div", class_="mux-header")
+                    if mux_header_div:
+                        b_tag = mux_header_div.find('b')
+                        if b_tag:
+                            cand_prov = b_tag.get_text(strip=True)
+                            if cand_prov: prov = cand_prov
+
+                    # 2. Standard Logic: Table-based Provider/Package links
+                    if prov == "N/A" or not prov:
+                        mux_header_table = mux_soup.find('table', class_='mux-header')
+                        if mux_header_table:
+                            provider_a = mux_header_table.find('a', href=re.compile(r'/providers/'))
                             if provider_a: prov = provider_a.get_text(strip=True)
+                            if not provider_a:
+                                provider_a = mux_header_table.find('a', href=re.compile(r'/packages/'))
+                                if provider_a: prov = provider_a.get_text(strip=True)
+
+                    # 3. Fallback: Global page links
                     if prov == "N/A" or not prov:
                         provider_a = mux_soup.find('a', href=re.compile(r'/providers/'))
                         if provider_a: prov = provider_a.get_text(strip=True)
                         if not provider_a:
                              package_a = mux_soup.find('a', href=re.compile(r'/packages/'))
                              if package_a: prov = package_a.get_text(strip=True)
+
+                    # 4. Fallback: Title Tag Parsing
                     if prov == "N/A" or not prov:
                         t_tag = mux_soup.find('title')
                         if t_tag:
@@ -544,43 +604,34 @@ class LyngSatDXMaster:
                                 cand = parts[-1]
                                 if re.match(r'^\d{4,5}\s*[VHRL]', cand) and len(parts) > 2: cand = parts[-2]
                                 if not re.match(r'^\d{4,5}\s*[VHRL]', cand): prov = cand
+
+                    # 5. Final Fallback: Regex Search in Raw Text
                     if prov == "N/A" or not prov:
-                         prov_m = re.search(r'Provider:\s*([A-Za-z0-9\s\.\-]+)', mux_text, re.IGNORECASE)
+                         prov_m = re.search(r'Provider:\s*([A-Za-z0-9\s\.\-]+)', mux_text_raw, re.IGNORECASE)
                          if prov_m:
                              p_val = prov_m.group(1).strip()
                              if not re.search(r'\d{4,5}\s*[VHRL]', p_val): prov = p_val
 
-                    # --- DYNAMIC PARAMETER DETECTION ---
-                    # 1. Detect Modulation (Mod - Index 8)
-                    if "32APSK" in mux_text:
-                        mod_val = "4"
-                        mod_label = "32APSK"
-                    elif "16APSK" in mux_text:
-                        mod_val = "3"
-                        mod_label = "16APSK"
-                    elif "8PSK" in mux_text:
-                        mod_val = "2"
-                        mod_label = "8PSK"
-                    elif "QPSK" in mux_text:
-                        mod_val = "1"
-                        mod_label = "QPSK"
-                    else:
-                        mod_val = "0"  # 0 = Auto/Unknown in most receiver databases
-                        mod_label = "AUTO"
+                    # Detect Modulation
+                    if "32APSK" in mux_text_upper: mod_val, mod_label = "4", "32APSK"
+                    elif "16APSK" in mux_text_upper: mod_val, mod_label = "3", "16APSK"
+                    elif "8PSK" in mux_text_upper: mod_val, mod_label = "2", "8PSK"
+                    elif "QPSK" in mux_text_upper: mod_val, mod_label = "1", "QPSK"
+                    else: mod_val, mod_label = "0", "AUTO"
 
-                    # 2. Detect System Standard (Sys - Index 7)
-                    # Multistream often utilizes DVB-S2X, which requires Sys=2
-                    sys_val = "2" if "DVB-S2X" in mux_text else "1"
-
+                    sys_val = "2" if "DVB-S2X" in mux_text_upper else "1"
                     hw = round(float(sat_deg) + 0.1, 1) if is_cband else float(sat_deg)
                     
                     transponders.append({
                         "f_v": f_v, "p_r": p_r, "sr": sr, "mod": mod_label, "mux_url": mux_url,
                         "file_label": f"{f_v}{p_r}{sr}",
                         "prov": prov,
-                        # CSV Index Mapping: ... Sys(7), Mod(8), RO(9) ...
-                        # Note: RO (Roll-Off) is set to "3" (Auto) to prevent tuning lock failures
-                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", sys_val, mod_val, "3", "0", "{}", "-1", prov, mux_url]
+                        "pls_val": current_pls, # <--- FIX: STORE THE EXTRACTED VALUE HERE
+                        
+                        # Indices mapping:
+                        # 0:Freq, 1:Pol, 2:SR, 3:Pos, 4:Dir, 5:Inv, 6:FEC, 7:Sys, 8:Mod, 9:RO, 10:Pilot
+                        # 11:pids-plps, 12:isi, 13:plsmode-plsvalue, 14:prov, 15:MuxURL
+                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", sys_val, mod_val, "3", "0", "{}", "-1", "{}", prov, mux_url]
                     })
                 except Exception as e: 
                     self.log_proc(f"Mux Error ({f_v}): {e}", self.color.CRIMSON)
@@ -595,17 +646,25 @@ class LyngSatDXMaster:
                 if not self.running: break
                 print(f"\n{self.color.TEAL}▶ {self.color.SKY}Drill-Down: {tp['f_v']} {tp['p_r']}{self.color.ENDC}")
                 
-                # Parse channels
-                count, found_buckets = self.parse_mux_channels(tp['mux_url'], os.path.join(c_dir, f"{tp['file_label']}.csv"), tp['file_label'])
+                # Parse channels (Passing PLS value for filename generation)
+                count, found_buckets = self.parse_mux_channels(
+                    tp['mux_url'], 
+                    os.path.join(c_dir, f"{tp['file_label']}.csv"), 
+                    tp['file_label'],
+                    tp.get('pls_val', '0,0')
+                )
                 
                 if count > 0:
                     self.total_channels += count
                     
-                    # --- FIX: Re-calculate Matrix & ISI based on Verified Buckets ---
                     verified_parts = []
+                    pls_parts = []  # To store the {mode,value} pairs
                     found_isis = set()
                     
-                    # Iterate buckets in the order they were found (preserves HTML/ISI order)
+                    # Fetch the PLS value we extracted for this specific transponder
+                    pls_val_to_use = tp.get("pls_val", "0,0")
+                    
+                    # Iterate buckets in the order they were found
                     for b_key in found_buckets:
                         m_plp = re.search(r'PLP(\d+)', b_key)
                         m_pid = re.search(r'PID(\d+)', b_key)
@@ -614,24 +673,29 @@ class LyngSatDXMaster:
                         if m_plp and m_pid:
                             pid_val = m_pid.group(1)
                             plp_val = m_plp.group(1)
+                            
                             verified_parts.append(f"{pid_val},{plp_val}")
+                            
+                            # <--- FIX: INJECT THE EXTRACTED PLS INSTEAD OF "0,0"
+                            pls_parts.append(pls_val_to_use)
                         
                         if m_isi:
                             isi_val = m_isi.group(1)
                             if isi_val != '-1':
                                 found_isis.add(isi_val)
                     
-                    # Update Matrix (pids-plps)
+                    # Update Matrix
                     if verified_parts:
                         matrix_str = "{" + ";".join(verified_parts) + "}"
                         tp['csv_row'][11] = matrix_str
+
+                        # Index 13: plsmode-plsvalue {1,242133;1,242133}
+                        tp['csv_row'][13] = "{" + ";".join(pls_parts) + "}"
                     
                     # Update ISI List
                     if found_isis:
-                        # Sort ISIs numerically for consistent output
                         isi_str = ",".join(sorted(list(found_isis), key=int))
                         tp['csv_row'][12] = isi_str
-                    # ------------------------------------------------------------------
                     
                     valid_transponders.append(tp)
                 else:
@@ -639,11 +703,11 @@ class LyngSatDXMaster:
 
             self.total_tps += len(valid_transponders)
 
-            # Write CSV
+            # Write CSV with correct 16 columns
             csv_rows = [t['csv_row'] for t in valid_transponders]
             with open(os.path.join(f_dir, f"f{pos_label}.csv"), 'w', newline='', encoding='utf-8') as f:
                 w = csv.writer(f)
-                w.writerow(["Freq","Pol","SR","Pos","Dir","Inv","FEC","Sys","Mod","RO","Pilot","pids-plps","isi","prov","MuxURL"])
+                w.writerow(["Freq","Pol","SR","Pos","Dir","Inv","FEC","Sys","Mod","RO","Pilot","pids-plps","isi","plsmode-plsvalue","prov","MuxURL"])
                 w.writerows(csv_rows)
                 
             return pos_label

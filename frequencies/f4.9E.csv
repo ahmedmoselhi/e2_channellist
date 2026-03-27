@@ -1,0 +1,2 @@
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+12380,0,27500,4.9,E,2,9,1,0,3,0,"{4096,0;4097,0}",-1,"{0,0;0,0}",RRT,https://www.lyngsat.com/muxes/Astra-4A_Europe_12380-H.html

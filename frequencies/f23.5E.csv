@@ -1,2 +1,2 @@
-Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
-12285,1,30000,23.5,E,2,9,1,2,3,0,"{4096,0;4097,0}",-1,SES Ukraine,https://www.lyngsat.com/muxes/Astra-3C_East_12285-V.html
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+12285,1,30000,23.5,E,2,9,1,2,3,0,"{4096,0;4097,0}",-1,"{0,0;0,0}",RRT,https://www.lyngsat.com/muxes/Astra-3C_East_12285-V.html

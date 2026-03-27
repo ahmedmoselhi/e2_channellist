@@ -1,2 +1,2 @@
-Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
-11402,1,17500,16.0,E,2,9,1,2,3,0,"{4095,0}",-1,Vidi TV,https://www.lyngsat.com/muxes/Eutelsat-16A_Europe-B_11402-V.html
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+11402,1,17500,16.0,E,2,9,1,2,3,0,"{4095,0}",-1,"{0,0}",Vidi TV,https://www.lyngsat.com/muxes/Eutelsat-16A_Europe-B_11402-V.html

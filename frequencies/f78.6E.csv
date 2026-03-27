@@ -1,2 +1,2 @@
-Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,prov,MuxURL
-3970,0,11664,78.6,E,2,9,1,2,3,0,"{4096,0}",-1,MCOT,https://www.lyngsat.com/muxes/Thaicom-6_SE-Asia-C_3970-H.html
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+3970,0,11664,78.6,E,2,9,1,2,3,0,"{4096,0}",-1,"{0,0}",MCOT,https://www.lyngsat.com/muxes/Thaicom-6_SE-Asia-C_3970-H.html
