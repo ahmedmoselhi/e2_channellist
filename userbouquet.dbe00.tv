@@ -1,7 +1,7 @@
 #NAME ##( T2-MI Services )##
-#SERVICE 1:64:100:0:0:0:0:0:0:0::━━━ ORTM 18.1°W ━━━ Freq: 4014 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:FE:0:0:0:0:0:0:0::━━━ ORTM 18.1°W ━━━ Freq: 4014 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ ORTM 18.1°W ━━━ Freq: 4014 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:101:0:0:0:0:0:0:0::━━━ ORTM 18.1°W ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:FF:0:0:0:0:0:0:0::━━━ ORTM 18.1°W ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ ORTM 18.1°W ━━━ FEED SOURCE ━━━
 #SERVICE 1:0:1:320:1:1:D5B0FAE:0:0:0::⚙ 18.1W-ORTM@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 18.1W-ORTM@PID4096PLP0 [T2-MI FEED]
@@ -15,12 +15,12 @@
 #DESCRIPTION ▶ Advance TV
 #SERVICE 1:0:1:5:1:1:D5B0FAE:0:0:0:http%3a//0.0.0.0%3a9999/ortm/4014_18.1w_plp0:▶ Cherifla TV
 #DESCRIPTION ▶ Cherifla TV
-#SERVICE 1:64:102:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 0 | ISI: 171 ━
-#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 0 | ISI: 171 ━
-#SERVICE 1:64:103:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:100:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 0 | ISI171 ━�
+#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 0 | ISI171 ━�
+#SERVICE 1:64:101:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:321:AB:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP0 [ISI 171 FEED]
-#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP0 [ISI 171 FEED]
+#SERVICE 1:0:1:321:AB:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP0 [ISI171 FEED]
+#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP0 [ISI171 FEED]
 #SERVICE 1:0:1:65:AB:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp0:▶ RTI 1
 #DESCRIPTION ▶ RTI 1
 #SERVICE 1:0:1:66:AB:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp0:▶ RTI 2
@@ -35,12 +35,12 @@
 #DESCRIPTION ▶ Life TV(Ivory Coast)
 #SERVICE 1:0:1:6B:AB:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp0:▶ 7 Info
 #DESCRIPTION ▶ 7 Info
-#SERVICE 1:64:104:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4099 | PLP: 2 | ISI: 173 ━
-#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4099 | PLP: 2 | ISI: 173 ━
-#SERVICE 1:64:105:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:102:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4099 | PLP: 2 | ISI173 ━�
+#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4099 | PLP: 2 | ISI173 ━�
+#SERVICE 1:64:103:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:322:AD:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4099PLP2 [ISI 173 FEED]
-#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4099PLP2 [ISI 173 FEED]
+#SERVICE 1:0:1:322:AD:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4099PLP2 [ISI173 FEED]
+#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4099PLP2 [ISI173 FEED]
 #SERVICE 1:0:1:1FA5:AD:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp2:▶ Novelas TV
 #DESCRIPTION ▶ Novelas TV
 #SERVICE 1:0:1:1FA6:AD:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp2:▶ TV5Monde Afrique
@@ -81,20 +81,20 @@
 #DESCRIPTION ▶ TéléToon +
 #SERVICE 1:0:1:1FBA:AD:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp2:▶ Nollywood TV
 #DESCRIPTION ▶ Nollywood TV
-#SERVICE 1:64:106:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 5 | ISI: 174 ━
-#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 5 | ISI: 174 ━
-#SERVICE 1:64:107:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:104:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 5 | ISI174 ━�
+#DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ Freq: 3732 MHz | PID: 4097 | PLP: 5 | ISI174 ━�
+#SERVICE 1:64:105:0:0:0:0:0:0:0::━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Easy TV Côte d'Ivoire 8.1°W ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:323:AE:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP5 [ISI 174 FEED]
-#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP5 [ISI 174 FEED]
+#SERVICE 1:0:1:323:AE:1:DBF0E94:0:0:0::⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP5 [ISI174 FEED]
+#DESCRIPTION ⚙ 8.1W-Easy TV Côte d'Ivoire@PID4097PLP5 [ISI174 FEED]
 #SERVICE 1:0:2:C8:AE:1:DBF0E94:0:0:0:http%3a//0.0.0.0%3a9999/easytv/3732_8.1w_plp5:▶ Radio Côte d'Ivoire
 #DESCRIPTION ▶ Radio Côte d'Ivoire
-#SERVICE 1:64:108:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4096 | PLP: 1 | ISI: 1 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4096 | PLP: 1 | ISI: 1 ━━━
-#SERVICE 1:64:109:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:106:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4096 | PLP: 1 | ISI1 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4096 | PLP: 1 | ISI1 ━━━
+#SERVICE 1:64:107:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:324:1:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4096PLP1 [ISI 1 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4096PLP1 [ISI 1 FEED]
+#SERVICE 1:0:1:324:1:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4096PLP1 [ISI1 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4096PLP1 [ISI1 FEED]
 #SERVICE 1:0:1:1:1:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp1:▶ TMT promo
 #DESCRIPTION ▶ TMT promo
 #SERVICE 1:0:1:2:1:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp1:▶ TVM
@@ -169,44 +169,44 @@
 #DESCRIPTION ▶ EP Maputo
 #SERVICE 1:0:2:39C:1:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp1:▶ RM Desporto
 #DESCRIPTION ▶ RM Desporto
-#SERVICE 1:64:10A:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 0 | ISI: 4 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 0 | ISI: 4 ━━━
-#SERVICE 1:64:10B:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:108:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 0 | ISI4 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 0 | ISI4 ━━━
+#SERVICE 1:64:109:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:325:4:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4098PLP0 [ISI 4 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4098PLP0 [ISI 4 FEED]
+#SERVICE 1:0:1:325:4:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4098PLP0 [ISI4 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4098PLP0 [ISI4 FEED]
 #SERVICE 1:0:1:25F:4:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp0:▶ (TVM feeds)
 #DESCRIPTION ▶ (TVM feeds)
-#SERVICE 1:64:10C:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 1 | ISI: 4 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 1 | ISI: 4 ━━━
-#SERVICE 1:64:10D:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:10A:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 1 | ISI4 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4098 | PLP: 1 | ISI4 ━━━
+#SERVICE 1:64:10B:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:326:4:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4098PLP1 [ISI 4 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4098PLP1 [ISI 4 FEED]
+#SERVICE 1:0:1:326:4:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4098PLP1 [ISI4 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4098PLP1 [ISI4 FEED]
 #SERVICE 1:0:1:260:4:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp1:▶ (TVM feeds)
 #DESCRIPTION ▶ (TVM feeds)
-#SERVICE 1:64:10E:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 0 | ISI: 5 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 0 | ISI: 5 ━━━
-#SERVICE 1:64:10F:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:10C:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 0 | ISI5 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 0 | ISI5 ━━━
+#SERVICE 1:64:10D:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:327:5:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4100PLP0 [ISI 5 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4100PLP0 [ISI 5 FEED]
+#SERVICE 1:0:1:327:5:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4100PLP0 [ISI5 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4100PLP0 [ISI5 FEED]
 #SERVICE 1:0:1:261:5:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp0:▶ (TVM feeds)
 #DESCRIPTION ▶ (TVM feeds)
-#SERVICE 1:64:110:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 1 | ISI: 5 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 1 | ISI: 5 ━━━
-#SERVICE 1:64:111:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:10E:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 1 | ISI5 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4063 MHz | PID: 4100 | PLP: 1 | ISI5 ━━━
+#SERVICE 1:64:10F:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:328:5:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4100PLP1 [ISI 5 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4100PLP1 [ISI 5 FEED]
+#SERVICE 1:0:1:328:5:1:1F0FDF:0:0:0::⚙ 3.1E-TMT@PID4100PLP1 [ISI5 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4100PLP1 [ISI5 FEED]
 #SERVICE 1:0:1:25A:5:1:1F0FDF:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4063_3.1e_plp1:▶ (TVM feeds)
 #DESCRIPTION ▶ (TVM feeds)
-#SERVICE 1:64:112:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 0 | ISI: 2 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 0 | ISI: 2 ━━━
-#SERVICE 1:64:113:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:110:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 0 | ISI2 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 0 | ISI2 ━━━
+#SERVICE 1:64:111:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:329:2:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4097PLP0 [ISI 2 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4097PLP0 [ISI 2 FEED]
+#SERVICE 1:0:1:329:2:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4097PLP0 [ISI2 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4097PLP0 [ISI2 FEED]
 #SERVICE 1:0:1:28:2:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp0:▶ AMC Portugal
 #DESCRIPTION ▶ AMC Portugal
 #SERVICE 1:0:1:29:2:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp0:▶ AMC Movies
@@ -283,99 +283,95 @@
 #DESCRIPTION ▶ EP Inhambane
 #SERVICE 1:0:2:396:2:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp0:▶ EP Nampula
 #DESCRIPTION ▶ EP Nampula
-#SERVICE 1:64:114:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 1 | ISI: 2 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 1 | ISI: 2 ━━━
-#SERVICE 1:64:115:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:112:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 1 | ISI2 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4097 | PLP: 1 | ISI2 ━━━
+#SERVICE 1:64:113:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32A:2:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4097PLP1 [ISI 2 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4097PLP1 [ISI 2 FEED]
+#SERVICE 1:0:1:32A:2:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4097PLP1 [ISI2 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4097PLP1 [ISI2 FEED]
 #SERVICE 1:0:1:25D:2:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp1:▶ TVM Zambezia
 #DESCRIPTION ▶ TVM Zambezia
-#SERVICE 1:64:116:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 0 | ISI: 3 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 0 | ISI: 3 ━━━
-#SERVICE 1:64:117:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:114:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 0 | ISI3 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 0 | ISI3 ━━━
+#SERVICE 1:64:115:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32B:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP0 [ISI 3 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP0 [ISI 3 FEED]
+#SERVICE 1:0:1:32B:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP0 [ISI3 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP0 [ISI3 FEED]
 #SERVICE 1:0:1:258:3:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp0:▶ TVM Maputo
 #DESCRIPTION ▶ TVM Maputo
-#SERVICE 1:64:118:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 1 | ISI: 3 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 1 | ISI: 3 ━━━
-#SERVICE 1:64:119:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:116:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 1 | ISI3 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 1 | ISI3 ━━━
+#SERVICE 1:64:117:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32C:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP1 [ISI 3 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP1 [ISI 3 FEED]
+#SERVICE 1:0:1:32C:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP1 [ISI3 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP1 [ISI3 FEED]
 #SERVICE 1:0:1:259:3:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp1:▶ TVM Sofala
 #DESCRIPTION ▶ TVM Sofala
-#SERVICE 1:64:11A:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 2 | ISI: 3 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 2 | ISI: 3 ━━━
-#SERVICE 1:64:11B:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:118:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 2 | ISI3 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 2 | ISI3 ━━━
+#SERVICE 1:64:119:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32D:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP2 [ISI 3 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP2 [ISI 3 FEED]
+#SERVICE 1:0:1:32D:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP2 [ISI3 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP2 [ISI3 FEED]
 #SERVICE 1:0:1:25B:3:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp2:▶ TVM Cabo Delgado
 #DESCRIPTION ▶ TVM Cabo Delgado
-#SERVICE 1:64:11C:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 3 | ISI: 3 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 3 | ISI: 3 ━━━
-#SERVICE 1:64:11D:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:11A:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 3 | ISI3 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 3 | ISI3 ━━━
+#SERVICE 1:64:11B:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32E:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP3 [ISI 3 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP3 [ISI 3 FEED]
+#SERVICE 1:0:1:32E:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP3 [ISI3 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP3 [ISI3 FEED]
 #SERVICE 1:0:1:25C:3:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp3:▶ TVM Gaza
 #DESCRIPTION ▶ TVM Gaza
-#SERVICE 1:64:11E:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 4 | ISI: 3 ━━━
-#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 4 | ISI: 3 ━━━
-#SERVICE 1:64:11F:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:11C:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 4 | ISI3 ━━━
+#DESCRIPTION ━━━ TMT 3.1°E ━━━ Freq: 4099 MHz | PID: 4099 | PLP: 4 | ISI3 ━━━
+#SERVICE 1:64:11D:0:0:0:0:0:0:0::━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ TMT 3.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:32F:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP4 [ISI 3 FEED]
-#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP4 [ISI 3 FEED]
+#SERVICE 1:0:1:32F:3:1:1F1003:0:0:0::⚙ 3.1E-TMT@PID4099PLP4 [ISI3 FEED]
+#DESCRIPTION ⚙ 3.1E-TMT@PID4099PLP4 [ISI3 FEED]
 #SERVICE 1:0:1:25E:3:1:1F1003:0:0:0:http%3a//0.0.0.0%3a9999/tmt/4099_3.1e_plp4:▶ TVM Inhambane
 #DESCRIPTION ▶ TVM Inhambane
-#SERVICE 1:64:120:0:0:0:0:0:0:0::━━━ SES 4.8°E ━━━ Freq: 12380 MHz | PID: 4096 | PLP: 0 ━━━
-#DESCRIPTION ━━━ SES 4.8°E ━━━ Freq: 12380 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:121:0:0:0:0:0:0:0::━━━ SES 4.8°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ SES 4.8°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:330:1:1:30305C:0:0:0::⚙ 4.8E-SES@PID4096PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 4.8E-SES@PID4096PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:FA:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ SBN International
-#DESCRIPTION ▶ SBN International
-#SERVICE 1:0:1:50B:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Belsat TV
-#DESCRIPTION ▶ Belsat TV
-#SERVICE 1:0:1:1:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Armiya TVArmіja TB
+#SERVICE 1:64:11E:0:0:0:0:0:0:0::━━━ RRT 4.9°E ━━━ Freq: 12380 MHz | PID: 4096 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RRT 4.9°E ━━━ Freq: 12380 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:11F:0:0:0:0:0:0:0::━━━ RRT 4.9°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RRT 4.9°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:330:1:1:31305C:0:0:0::⚙ 4.9E-RRT@PID4096PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 4.9E-RRT@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:1:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ Armiya TVArmіja TB
 #DESCRIPTION ▶ Armiya TVArmіja TB
-#SERVICE 1:0:1:2:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Rada
+#SERVICE 1:0:1:2:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ Rada
 #DESCRIPTION ▶ Rada
-#SERVICE 1:0:1:3:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Megogo Sport
+#SERVICE 1:0:1:3:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ Megogo Sport
 #DESCRIPTION ▶ Megogo Sport
-#SERVICE 1:0:1:4:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ My-UkrainaMi-Ukraїna
+#SERVICE 1:0:1:4:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ My-UkrainaMi-Ukraїna
 #DESCRIPTION ▶ My-UkrainaMi-Ukraїna
-#SERVICE 1:0:1:5:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ [test card]
+#SERVICE 1:0:1:5:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:6:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ [test card]
+#SERVICE 1:0:1:6:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:7:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Svit+
+#SERVICE 1:0:1:7:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ Svit+
 #DESCRIPTION ▶ Svit+
-#SERVICE 1:0:1:8:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ [test card]
+#SERVICE 1:0:1:8:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:9:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ PershiyPershij
+#SERVICE 1:0:1:9:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ PershiyPershij
 #DESCRIPTION ▶ PershiyPershij
-#SERVICE 1:0:1:A:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ Suspilne KulturaSuspіl'ne Kul'tura
+#SERVICE 1:0:1:A:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ Suspilne KulturaSuspіl'ne Kul'tura
 #DESCRIPTION ▶ Suspilne KulturaSuspіl'ne Kul'tura
-#SERVICE 1:0:1:B:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ [test card]
+#SERVICE 1:0:1:B:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:C:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ [test card]
+#SERVICE 1:0:1:C:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:64:122:0:0:0:0:0:0:0::━━━ SES 4.8°E ━━━ Freq: 12380 MHz | PID: 4097 | PLP: 0 ━━━
-#DESCRIPTION ━━━ SES 4.8°E ━━━ Freq: 12380 MHz | PID: 4097 | PLP: 0 ━━━
-#SERVICE 1:64:123:0:0:0:0:0:0:0::━━━ SES 4.8°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ SES 4.8°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:331:1:1:30305C:0:0:0::⚙ 4.8E-SES@PID4097PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 4.8E-SES@PID4097PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:1:1:1:30305C:0:0:0:http%3a//0.0.0.0%3a9999/ses/12380_4.8e_plp0:▶ (feeds)
+#SERVICE 1:64:120:0:0:0:0:0:0:0::━━━ RRT 4.9°E ━━━ Freq: 12380 MHz | PID: 4097 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RRT 4.9°E ━━━ Freq: 12380 MHz | PID: 4097 | PLP: 0 ━━━
+#SERVICE 1:64:121:0:0:0:0:0:0:0::━━━ RRT 4.9°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RRT 4.9°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:331:1:1:31305C:0:0:0::⚙ 4.9E-RRT@PID4097PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 4.9E-RRT@PID4097PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:1:1:1:31305C:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12380_4.9e_plp0:▶ (feeds)
 #DESCRIPTION ▶ (feeds)
-#SERVICE 1:64:124:0:0:0:0:0:0:0::━━━ Vidi TV 16.0°E ━━━ Freq: 11402 MHz | PID: 4095 | PLP: 0 ━━━
+#SERVICE 1:64:122:0:0:0:0:0:0:0::━━━ Vidi TV 16.0°E ━━━ Freq: 11402 MHz | PID: 4095 | PLP: 0 ━━━
 #DESCRIPTION ━━━ Vidi TV 16.0°E ━━━ Freq: 11402 MHz | PID: 4095 | PLP: 0 ━━━
-#SERVICE 1:64:125:0:0:0:0:0:0:0::━━━ Vidi TV 16.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:123:0:0:0:0:0:0:0::━━━ Vidi TV 16.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Vidi TV 16.0°E ━━━ FEED SOURCE ━━━
 #SERVICE 1:0:1:332:1:1:A02C8A:0:0:0::⚙ 16.0E-Vidi TV@PID4095PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 16.0E-Vidi TV@PID4095PLP0 [T2-MI FEED]
@@ -411,81 +407,83 @@
 #DESCRIPTION ▶ RTVISPTBIC
 #SERVICE 1:0:1:FB4:1:1:A02C8A:0:0:0:http%3a//0.0.0.0%3a9999/viditv/11402_16.0e_plp0:▶ TV K3
 #DESCRIPTION ▶ TV K3
-#SERVICE 1:64:126:0:0:0:0:0:0:0::━━━ SES Ukraine 23.5°E ━━━ Freq: 12285 MHz | PID: 4096 | PLP: 0 ━━━
-#DESCRIPTION ━━━ SES Ukraine 23.5°E ━━━ Freq: 12285 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:127:0:0:0:0:0:0:0::━━━ SES Ukraine 23.5°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ SES Ukraine 23.5°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:333:1:1:EB2FFD:0:0:0::⚙ 23.5E-SES Ukraine@PID4096PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 23.5E-SES Ukraine@PID4096PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:1E33:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ PershiyPershij
-#DESCRIPTION ▶ PershiyPershij
-#SERVICE 1:0:1:1E35:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Suspilne KulturaSuspіl'ne Kul'tura
-#DESCRIPTION ▶ Suspilne KulturaSuspіl'ne Kul'tura
-#SERVICE 1:0:1:1E46:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Espreso TV
-#DESCRIPTION ▶ Espreso TV
-#SERVICE 1:0:1:1E50:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Inter
-#DESCRIPTION ▶ Inter
-#SERVICE 1:0:1:1E5A:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ 1+1 International
-#DESCRIPTION ▶ 1+1 International
-#SERVICE 1:0:1:1E5B:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ 1+1 Marafon1+1 Marafon
-#DESCRIPTION ▶ 1+1 Marafon1+1 Marafon
-#SERVICE 1:0:1:1E64:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ ICTV(Ukraine)
-#DESCRIPTION ▶ ICTV(Ukraine)
-#SERVICE 1:0:1:1E65:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Telekanal STBSTB
-#DESCRIPTION ▶ Telekanal STBSTB
-#SERVICE 1:0:1:1E66:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Novy KanalNovij kanal
-#DESCRIPTION ▶ Novy KanalNovij kanal
-#SERVICE 1:0:2:1E1E:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Ukrayinske RadioUkraїns'ke radіo
-#DESCRIPTION ▶ Ukrayinske RadioUkraїns'ke radіo
-#SERVICE 1:0:2:1E20:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Radio ProminRadіo Promіn'
-#DESCRIPTION ▶ Radio ProminRadіo Promіn'
-#SERVICE 1:0:2:1E22:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Radio KulturaRadіo Kul'tura
-#DESCRIPTION ▶ Radio KulturaRadіo Kul'tura
-#SERVICE 1:0:2:1E24:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Radio TochkaRadіo Tochka
-#DESCRIPTION ▶ Radio TochkaRadіo Tochka
-#SERVICE 1:0:2:1E26:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Holos DonbasuGolos Donbasu
-#DESCRIPTION ▶ Holos DonbasuGolos Donbasu
-#SERVICE 1:0:2:1E2A:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Armiya FMArmіja FM
-#DESCRIPTION ▶ Armiya FMArmіja FM
-#SERVICE 1:0:2:1E2C:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Radio NVRadіo NV
-#DESCRIPTION ▶ Radio NVRadіo NV
-#SERVICE 1:0:1:1:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Armiya TVArmіja TB
+#SERVICE 1:64:124:0:0:0:0:0:0:0::━━━ RRT 23.5°E ━━━ Freq: 12285 MHz | PID: 4096 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RRT 23.5°E ━━━ Freq: 12285 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:125:0:0:0:0:0:0:0::━━━ RRT 23.5°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RRT 23.5°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:333:1:1:EB2FFD:0:0:0::⚙ 23.5E-RRT@PID4096PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 23.5E-RRT@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:1:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ Armiya TVArmіja TB
 #DESCRIPTION ▶ Armiya TVArmіja TB
-#SERVICE 1:0:1:2:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Rada
+#SERVICE 1:0:1:2:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ Rada
 #DESCRIPTION ▶ Rada
-#SERVICE 1:0:1:3:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Megogo Sport
+#SERVICE 1:0:1:3:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ Megogo Sport
 #DESCRIPTION ▶ Megogo Sport
-#SERVICE 1:0:1:4:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ My-UkrainaMi-Ukraїna
+#SERVICE 1:0:1:4:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ My-UkrainaMi-Ukraїna
 #DESCRIPTION ▶ My-UkrainaMi-Ukraїna
-#SERVICE 1:0:1:5:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ [test card]
+#SERVICE 1:0:1:5:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:6:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ [test card]
+#SERVICE 1:0:1:6:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:7:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Svit+
+#SERVICE 1:0:1:7:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ Svit+
 #DESCRIPTION ▶ Svit+
-#SERVICE 1:0:1:8:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ [test card]
+#SERVICE 1:0:1:8:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:9:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ PershiyPershij
+#SERVICE 1:0:1:9:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ PershiyPershij
 #DESCRIPTION ▶ PershiyPershij
-#SERVICE 1:0:1:A:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ Suspilne KulturaSuspіl'ne Kul'tura
+#SERVICE 1:0:1:A:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ Suspilne KulturaSuspіl'ne Kul'tura
 #DESCRIPTION ▶ Suspilne KulturaSuspіl'ne Kul'tura
-#SERVICE 1:0:1:B:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ [test card]
+#SERVICE 1:0:1:B:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:0:1:C:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ [test card]
+#SERVICE 1:0:1:C:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ [test card]
 #DESCRIPTION ▶ [test card]
-#SERVICE 1:64:128:0:0:0:0:0:0:0::━━━ SES Ukraine 23.5°E ━━━ Freq: 12285 MHz | PID: 4097 | PLP: 0 ━━━
-#DESCRIPTION ━━━ SES Ukraine 23.5°E ━━━ Freq: 12285 MHz | PID: 4097 | PLP: 0 ━━━
-#SERVICE 1:64:129:0:0:0:0:0:0:0::━━━ SES Ukraine 23.5°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ SES Ukraine 23.5°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:334:1:1:EB2FFD:0:0:0::⚙ 23.5E-SES Ukraine@PID4097PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 23.5E-SES Ukraine@PID4097PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:1:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/sesukraine/12285_23.5e_plp0:▶ (feeds)
+#SERVICE 1:64:126:0:0:0:0:0:0:0::━━━ RRT 23.5°E ━━━ Freq: 12285 MHz | PID: 4097 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RRT 23.5°E ━━━ Freq: 12285 MHz | PID: 4097 | PLP: 0 ━━━
+#SERVICE 1:64:127:0:0:0:0:0:0:0::━━━ RRT 23.5°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RRT 23.5°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:334:1:1:EB2FFD:0:0:0::⚙ 23.5E-RRT@PID4097PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 23.5E-RRT@PID4097PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:1:1:1:EB2FFD:0:0:0:http%3a//0.0.0.0%3a9999/rrt/12285_23.5e_plp0:▶ (feeds)
 #DESCRIPTION ▶ (feeds)
-#SERVICE 1:64:12A:0:0:0:0:0:0:0::━━━ RTRS Stavropol 40.1°E ━━━ Freq: 3608 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:128:0:0:0:0:0:0:0::━━━ Cypriotic mux 39.0°E ━━━ Freq: 11761 MHz | PID: 4096 | PLP: 0 | PLS242133 ━━━
+#DESCRIPTION ━━━ Cypriotic mux 39.0°E ━━━ Freq: 11761 MHz | PID: 4096 | PLP: 0 | PLS242133 ━━━
+#SERVICE 1:64:129:0:0:0:0:0:0:0::━━━ Cypriotic mux 39.0°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ Cypriotic mux 39.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:335:1:1:1862DF1:0:0:0::⚙ 39.0E-Cypriotic mux@PID4096PLP0 [PLS242133 FEED]
+#DESCRIPTION ⚙ 39.0E-Cypriotic mux@PID4096PLP0 [PLS242133 FEED]
+#SERVICE 1:0:1:1:1:1:1862DF1:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11761_39.0e_plp0:▶ Alpha KyprouAlpha Kyproy
+#DESCRIPTION ▶ Alpha KyprouAlpha Kyproy
+#SERVICE 1:0:1:2:1:1:1862DF1:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11761_39.0e_plp0:▶ Ant1 Kypros
+#DESCRIPTION ▶ Ant1 Kypros
+#SERVICE 1:0:1:3:1:1:1862DF1:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11761_39.0e_plp0:▶ [HS5 test card]
+#DESCRIPTION ▶ [HS5 test card]
+#SERVICE 1:0:1:4:1:1:1862DF1:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11761_39.0e_plp0:▶ Sigma TV
+#DESCRIPTION ▶ Sigma TV
+#SERVICE 1:0:1:5:1:1:1862DF1:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11761_39.0e_plp0:▶ Capital TV(Cyprus)
+#DESCRIPTION ▶ Capital TV(Cyprus)
+#SERVICE 1:64:12A:0:0:0:0:0:0:0::━━━ Cypriotic mux 39.0°E ━━━ Freq: 11778 MHz | PID: 4096 | PLP: 0 | PLS242133 ━━━
+#DESCRIPTION ━━━ Cypriotic mux 39.0°E ━━━ Freq: 11778 MHz | PID: 4096 | PLP: 0 | PLS242133 ━━━
+#SERVICE 1:64:12B:0:0:0:0:0:0:0::━━━ Cypriotic mux 39.0°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ Cypriotic mux 39.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:336:1:1:1862E02:0:0:0::⚙ 39.0E-Cypriotic mux@PID4096PLP0 [PLS242133 FEED]
+#DESCRIPTION ⚙ 39.0E-Cypriotic mux@PID4096PLP0 [PLS242133 FEED]
+#SERVICE 1:0:1:B:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ One Channel
+#DESCRIPTION ▶ One Channel
+#SERVICE 1:0:1:C:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ Plus
+#DESCRIPTION ▶ Plus
+#SERVICE 1:0:1:D:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ [HS6 test card]
+#DESCRIPTION ▶ [HS6 test card]
+#SERVICE 1:0:1:E:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ Vergina KyprosVergina Kyproy
+#DESCRIPTION ▶ Vergina KyprosVergina Kyproy
+#SERVICE 1:0:1:F:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ Hellas Sat TV promo
+#DESCRIPTION ▶ Hellas Sat TV promo
+#SERVICE 1:0:1:15:1:1:1862E02:0:0:0:http%3a//0.0.0.0%3a9999/cyprioticmux/11778_39.0e_plp0:▶ Hellas Sat TV promo
+#DESCRIPTION ▶ Hellas Sat TV promo
+#SERVICE 1:64:12C:0:0:0:0:0:0:0::━━━ RTRS Stavropol 40.1°E ━━━ Freq: 3608 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Stavropol 40.1°E ━━━ Freq: 3608 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:12B:0:0:0:0:0:0:0::━━━ RTRS Stavropol 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:12D:0:0:0:0:0:0:0::━━━ RTRS Stavropol 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Stavropol 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:335:1:1:1910E18:0:0:0::⚙ 40.1E-RTRS Stavropol@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:337:1:1:1910E18:0:0:0::⚙ 40.1E-RTRS Stavropol@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Stavropol@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E18:0:0:0:http%3a//0.0.0.0%3a9999/rtrsstavropol/3608_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -495,11 +493,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E18:0:0:0:http%3a//0.0.0.0%3a9999/rtrsstavropol/3608_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:12C:0:0:0:0:0:0:0::━━━ RTRS Tula 40.1°E ━━━ Freq: 3615 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:12E:0:0:0:0:0:0:0::━━━ RTRS Tula 40.1°E ━━━ Freq: 3615 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Tula 40.1°E ━━━ Freq: 3615 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:12D:0:0:0:0:0:0:0::━━━ RTRS Tula 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:12F:0:0:0:0:0:0:0::━━━ RTRS Tula 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Tula 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:336:1:1:1910E1F:0:0:0::⚙ 40.1E-RTRS Tula@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:338:1:1:1910E1F:0:0:0::⚙ 40.1E-RTRS Tula@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Tula@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E1F:0:0:0:http%3a//0.0.0.0%3a9999/rtrstula/3615_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -509,11 +507,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E1F:0:0:0:http%3a//0.0.0.0%3a9999/rtrstula/3615_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:12E:0:0:0:0:0:0:0::━━━ RTRS Kaluga 40.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:130:0:0:0:0:0:0:0::━━━ RTRS Kaluga 40.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Kaluga 40.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:12F:0:0:0:0:0:0:0::━━━ RTRS Kaluga 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:131:0:0:0:0:0:0:0::━━━ RTRS Kaluga 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Kaluga 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:337:1:1:1910E26:0:0:0::⚙ 40.1E-RTRS Kaluga@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:339:1:1:1910E26:0:0:0::⚙ 40.1E-RTRS Kaluga@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Kaluga@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E26:0:0:0:http%3a//0.0.0.0%3a9999/rtrskaluga/3622_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -523,11 +521,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E26:0:0:0:http%3a//0.0.0.0%3a9999/rtrskaluga/3622_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:130:0:0:0:0:0:0:0::━━━ RTRS Karelija 40.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:132:0:0:0:0:0:0:0::━━━ RTRS Karelija 40.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Karelija 40.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:131:0:0:0:0:0:0:0::━━━ RTRS Karelija 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:133:0:0:0:0:0:0:0::━━━ RTRS Karelija 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Karelija 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:338:1:1:1910E2C:0:0:0::⚙ 40.1E-RTRS Karelija@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:33A:1:1:1910E2C:0:0:0::⚙ 40.1E-RTRS Karelija@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Karelija@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E2C:0:0:0:http%3a//0.0.0.0%3a9999/rtrskarelija/3628_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -537,11 +535,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E2C:0:0:0:http%3a//0.0.0.0%3a9999/rtrskarelija/3628_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:132:0:0:0:0:0:0:0::━━━ RTRS Murmansk 40.1°E ━━━ Freq: 3635 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:134:0:0:0:0:0:0:0::━━━ RTRS Murmansk 40.1°E ━━━ Freq: 3635 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Murmansk 40.1°E ━━━ Freq: 3635 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:133:0:0:0:0:0:0:0::━━━ RTRS Murmansk 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:135:0:0:0:0:0:0:0::━━━ RTRS Murmansk 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Murmansk 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:339:1:1:1910E33:0:0:0::⚙ 40.1E-RTRS Murmansk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:33B:1:1:1910E33:0:0:0::⚙ 40.1E-RTRS Murmansk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Murmansk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E33:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmurmansk/3635_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -551,11 +549,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E33:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmurmansk/3635_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:134:0:0:0:0:0:0:0::━━━ RTRS Voronezh 40.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:136:0:0:0:0:0:0:0::━━━ RTRS Voronezh 40.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Voronezh 40.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:135:0:0:0:0:0:0:0::━━━ RTRS Voronezh 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:137:0:0:0:0:0:0:0::━━━ RTRS Voronezh 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Voronezh 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33A:1:1:1910E3B:0:0:0::⚙ 40.1E-RTRS Voronezh@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:33C:1:1:1910E3B:0:0:0::⚙ 40.1E-RTRS Voronezh@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Voronezh@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvoronezh/3643_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -565,11 +563,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvoronezh/3643_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:136:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:138:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:137:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:139:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33B:1:1:1910E51:0:0:0::⚙ 40.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:33D:1:1:1910E51:0:0:0::⚙ 40.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:1910E51:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3665_40.1e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
@@ -589,11 +587,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:1910E51:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3665_40.1e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:138:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:13A:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 40.1°E ━━━ Freq: 3665 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:139:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:13B:0:0:0:0:0:0:0::━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33C:1:1:1910E51:0:0:0::⚙ 40.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:33E:1:1:1910E51:0:0:0::⚙ 40.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E51:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3665_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -603,11 +601,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E51:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3665_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:13A:0:0:0:0:0:0:0::━━━ RTRS 2 40.1°E ━━━ Freq: 3685 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:13C:0:0:0:0:0:0:0::━━━ RTRS 2 40.1°E ━━━ Freq: 3685 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 2 40.1°E ━━━ Freq: 3685 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:13B:0:0:0:0:0:0:0::━━━ RTRS 2 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:13D:0:0:0:0:0:0:0::━━━ RTRS 2 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 2 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33D:1:1:1910E65:0:0:0::⚙ 40.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:33F:1:1:1910E65:0:0:0::⚙ 40.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:7DA:1:1:1910E65:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3685_40.1e_plp0:▶ REN TVREN TV
 #DESCRIPTION ▶ REN TVREN TV
@@ -629,11 +627,11 @@
 #DESCRIPTION ▶ TNTTNT
 #SERVICE 1:0:1:834:1:1:1910E65:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3685_40.1e_plp0:▶ Muz TV
 #DESCRIPTION ▶ Muz TV
-#SERVICE 1:64:13C:0:0:0:0:0:0:0::━━━ RTRS Mari El 40.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:13E:0:0:0:0:0:0:0::━━━ RTRS Mari El 40.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Mari El 40.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:13D:0:0:0:0:0:0:0::━━━ RTRS Mari El 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:13F:0:0:0:0:0:0:0::━━━ RTRS Mari El 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Mari El 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33E:1:1:1910E7D:0:0:0::⚙ 40.1E-RTRS Mari El@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:340:1:1:1910E7D:0:0:0::⚙ 40.1E-RTRS Mari El@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Mari El@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmari/3709_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -643,11 +641,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmari/3709_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:13E:0:0:0:0:0:0:0::━━━ RTRS Makhachkala 40.1°E ━━━ Freq: 3715 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:140:0:0:0:0:0:0:0::━━━ RTRS Makhachkala 40.1°E ━━━ Freq: 3715 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Makhachkala 40.1°E ━━━ Freq: 3715 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:13F:0:0:0:0:0:0:0::━━━ RTRS Makhachkala 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:141:0:0:0:0:0:0:0::━━━ RTRS Makhachkala 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Makhachkala 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:33F:1:1:1910E83:0:0:0::⚙ 40.1E-RTRS Makhachkala@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:341:1:1:1910E83:0:0:0::⚙ 40.1E-RTRS Makhachkala@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Makhachkala@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E83:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmakhachkala/3715_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -657,11 +655,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E83:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmakhachkala/3715_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:140:0:0:0:0:0:0:0::━━━ RTRS Ryazan 40.1°E ━━━ Freq: 3722 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:142:0:0:0:0:0:0:0::━━━ RTRS Ryazan 40.1°E ━━━ Freq: 3722 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Ryazan 40.1°E ━━━ Freq: 3722 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:141:0:0:0:0:0:0:0::━━━ RTRS Ryazan 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:143:0:0:0:0:0:0:0::━━━ RTRS Ryazan 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Ryazan 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:340:1:1:1910E8A:0:0:0::⚙ 40.1E-RTRS Ryazan@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:342:1:1:1910E8A:0:0:0::⚙ 40.1E-RTRS Ryazan@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Ryazan@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E8A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsryazan/3722_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -671,11 +669,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E8A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsryazan/3722_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:142:0:0:0:0:0:0:0::━━━ RTRS Penza 40.1°E ━━━ Freq: 3728 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:144:0:0:0:0:0:0:0::━━━ RTRS Penza 40.1°E ━━━ Freq: 3728 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Penza 40.1°E ━━━ Freq: 3728 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:143:0:0:0:0:0:0:0::━━━ RTRS Penza 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:145:0:0:0:0:0:0:0::━━━ RTRS Penza 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Penza 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:341:1:1:1910E90:0:0:0::⚙ 40.1E-RTRS Penza@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:343:1:1:1910E90:0:0:0::⚙ 40.1E-RTRS Penza@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Penza@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E90:0:0:0:http%3a//0.0.0.0%3a9999/rtrspenza/3728_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -685,11 +683,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E90:0:0:0:http%3a//0.0.0.0%3a9999/rtrspenza/3728_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:144:0:0:0:0:0:0:0::━━━ RTRS Arkhangelsk 40.1°E ━━━ Freq: 3735 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:146:0:0:0:0:0:0:0::━━━ RTRS Arkhangelsk 40.1°E ━━━ Freq: 3735 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Arkhangelsk 40.1°E ━━━ Freq: 3735 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:145:0:0:0:0:0:0:0::━━━ RTRS Arkhangelsk 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:147:0:0:0:0:0:0:0::━━━ RTRS Arkhangelsk 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Arkhangelsk 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:342:1:1:1910E97:0:0:0::⚙ 40.1E-RTRS Arkhangelsk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:344:1:1:1910E97:0:0:0::⚙ 40.1E-RTRS Arkhangelsk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Arkhangelsk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910E97:0:0:0:http%3a//0.0.0.0%3a9999/rtrsarkhangelsk/3735_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -699,11 +697,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910E97:0:0:0:http%3a//0.0.0.0%3a9999/rtrsarkhangelsk/3735_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:146:0:0:0:0:0:0:0::━━━ RTRS Lipetsk 40.1°E ━━━ Freq: 3758 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:148:0:0:0:0:0:0:0::━━━ RTRS Lipetsk 40.1°E ━━━ Freq: 3758 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Lipetsk 40.1°E ━━━ Freq: 3758 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:147:0:0:0:0:0:0:0::━━━ RTRS Lipetsk 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:149:0:0:0:0:0:0:0::━━━ RTRS Lipetsk 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Lipetsk 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:343:1:1:1910EAE:0:0:0::⚙ 40.1E-RTRS Lipetsk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:345:1:1:1910EAE:0:0:0::⚙ 40.1E-RTRS Lipetsk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Lipetsk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EAE:0:0:0:http%3a//0.0.0.0%3a9999/rtrslipetsk/3758_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -713,11 +711,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EAE:0:0:0:http%3a//0.0.0.0%3a9999/rtrslipetsk/3758_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:148:0:0:0:0:0:0:0::━━━ RTRS Tambov 40.1°E ━━━ Freq: 3765 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:14A:0:0:0:0:0:0:0::━━━ RTRS Tambov 40.1°E ━━━ Freq: 3765 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Tambov 40.1°E ━━━ Freq: 3765 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:149:0:0:0:0:0:0:0::━━━ RTRS Tambov 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:14B:0:0:0:0:0:0:0::━━━ RTRS Tambov 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Tambov 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:344:1:1:1910EB5:0:0:0::⚙ 40.1E-RTRS Tambov@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:346:1:1:1910EB5:0:0:0::⚙ 40.1E-RTRS Tambov@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Tambov@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EB5:0:0:0:http%3a//0.0.0.0%3a9999/rtrstambov/3765_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -727,11 +725,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EB5:0:0:0:http%3a//0.0.0.0%3a9999/rtrstambov/3765_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:14A:0:0:0:0:0:0:0::━━━ RTRS Elista 40.1°E ━━━ Freq: 3772 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:14C:0:0:0:0:0:0:0::━━━ RTRS Elista 40.1°E ━━━ Freq: 3772 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Elista 40.1°E ━━━ Freq: 3772 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:14B:0:0:0:0:0:0:0::━━━ RTRS Elista 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:14D:0:0:0:0:0:0:0::━━━ RTRS Elista 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Elista 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:345:1:1:1910EBC:0:0:0::⚙ 40.1E-RTRS Elista@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:347:1:1:1910EBC:0:0:0::⚙ 40.1E-RTRS Elista@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Elista@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EBC:0:0:0:http%3a//0.0.0.0%3a9999/rtrselista/3772_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -741,11 +739,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EBC:0:0:0:http%3a//0.0.0.0%3a9999/rtrselista/3772_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:14C:0:0:0:0:0:0:0::━━━ RTRS Mordovia 40.1°E ━━━ Freq: 3778 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:14E:0:0:0:0:0:0:0::━━━ RTRS Mordovia 40.1°E ━━━ Freq: 3778 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Mordovia 40.1°E ━━━ Freq: 3778 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:14D:0:0:0:0:0:0:0::━━━ RTRS Mordovia 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:14F:0:0:0:0:0:0:0::━━━ RTRS Mordovia 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Mordovia 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:346:1:1:1910EC2:0:0:0::⚙ 40.1E-RTRS Mordovia@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:348:1:1:1910EC2:0:0:0::⚙ 40.1E-RTRS Mordovia@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Mordovia@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EC2:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmordovia/3778_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -755,11 +753,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EC2:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmordovia/3778_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:14E:0:0:0:0:0:0:0::━━━ RTRS Cheboksary 40.1°E ━━━ Freq: 3785 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:150:0:0:0:0:0:0:0::━━━ RTRS Cheboksary 40.1°E ━━━ Freq: 3785 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Cheboksary 40.1°E ━━━ Freq: 3785 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:14F:0:0:0:0:0:0:0::━━━ RTRS Cheboksary 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:151:0:0:0:0:0:0:0::━━━ RTRS Cheboksary 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Cheboksary 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:347:1:1:1910EC9:0:0:0::⚙ 40.1E-RTRS Cheboksary@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:349:1:1:1910EC9:0:0:0::⚙ 40.1E-RTRS Cheboksary@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Cheboksary@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EC9:0:0:0:http%3a//0.0.0.0%3a9999/rtrscheboksary/3785_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -769,11 +767,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EC9:0:0:0:http%3a//0.0.0.0%3a9999/rtrscheboksary/3785_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:150:0:0:0:0:0:0:0::━━━ RTRS Velikiy Novgorod 40.1°E ━━━ Freq: 3792 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:152:0:0:0:0:0:0:0::━━━ RTRS Velikiy Novgorod 40.1°E ━━━ Freq: 3792 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Velikiy Novgorod 40.1°E ━━━ Freq: 3792 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:151:0:0:0:0:0:0:0::━━━ RTRS Velikiy Novgorod 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:153:0:0:0:0:0:0:0::━━━ RTRS Velikiy Novgorod 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Velikiy Novgorod 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:348:1:1:1910ED0:0:0:0::⚙ 40.1E-RTRS Velikiy Novgorod@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34A:1:1:1910ED0:0:0:0::⚙ 40.1E-RTRS Velikiy Novgorod@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Velikiy Novgorod@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910ED0:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvelikiy/3792_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -783,11 +781,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910ED0:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvelikiy/3792_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:152:0:0:0:0:0:0:0::━━━ RTRS Kabardino Balkarija 40.1°E ━━━ Freq: 3808 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:154:0:0:0:0:0:0:0::━━━ RTRS Kabardino Balkarija 40.1°E ━━━ Freq: 3808 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Kabardino Balkarija 40.1°E ━━━ Freq: 3808 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:153:0:0:0:0:0:0:0::━━━ RTRS Kabardino Balkarija 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:155:0:0:0:0:0:0:0::━━━ RTRS Kabardino Balkarija 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Kabardino Balkarija 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:349:1:1:1910EE0:0:0:0::⚙ 40.1E-RTRS Kabardino Balkarija@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34B:1:1:1910EE0:0:0:0::⚙ 40.1E-RTRS Kabardino Balkarija@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Kabardino Balkarija@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EE0:0:0:0:http%3a//0.0.0.0%3a9999/rtrskabardino/3808_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -797,11 +795,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EE0:0:0:0:http%3a//0.0.0.0%3a9999/rtrskabardino/3808_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:154:0:0:0:0:0:0:0::━━━ RTRS Syktyvkar 40.1°E ━━━ Freq: 3815 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:156:0:0:0:0:0:0:0::━━━ RTRS Syktyvkar 40.1°E ━━━ Freq: 3815 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Syktyvkar 40.1°E ━━━ Freq: 3815 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:155:0:0:0:0:0:0:0::━━━ RTRS Syktyvkar 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:157:0:0:0:0:0:0:0::━━━ RTRS Syktyvkar 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Syktyvkar 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34A:1:1:1910EE7:0:0:0::⚙ 40.1E-RTRS Syktyvkar@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34C:1:1:1910EE7:0:0:0::⚙ 40.1E-RTRS Syktyvkar@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Syktyvkar@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EE7:0:0:0:http%3a//0.0.0.0%3a9999/rtrssyktyvkar/3815_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -811,11 +809,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EE7:0:0:0:http%3a//0.0.0.0%3a9999/rtrssyktyvkar/3815_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:156:0:0:0:0:0:0:0::━━━ RTRS Nazran 40.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:158:0:0:0:0:0:0:0::━━━ RTRS Nazran 40.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Nazran 40.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:157:0:0:0:0:0:0:0::━━━ RTRS Nazran 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:159:0:0:0:0:0:0:0::━━━ RTRS Nazran 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Nazran 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34B:1:1:1910EEE:0:0:0::⚙ 40.1E-RTRS Nazran@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34D:1:1:1910EEE:0:0:0::⚙ 40.1E-RTRS Nazran@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Nazran@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EEE:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnazran/3822_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -825,11 +823,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EEE:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnazran/3822_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:158:0:0:0:0:0:0:0::━━━ RTRS Vologda 40.1°E ━━━ Freq: 3828 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:15A:0:0:0:0:0:0:0::━━━ RTRS Vologda 40.1°E ━━━ Freq: 3828 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Vologda 40.1°E ━━━ Freq: 3828 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:159:0:0:0:0:0:0:0::━━━ RTRS Vologda 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:15B:0:0:0:0:0:0:0::━━━ RTRS Vologda 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Vologda 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34C:1:1:1910EF4:0:0:0::⚙ 40.1E-RTRS Vologda@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34E:1:1:1910EF4:0:0:0::⚙ 40.1E-RTRS Vologda@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Vologda@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EF4:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvologda/3828_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -839,11 +837,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EF4:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvologda/3828_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:15A:0:0:0:0:0:0:0::━━━ RTRS Maykop 40.1°E ━━━ Freq: 3835 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:15C:0:0:0:0:0:0:0::━━━ RTRS Maykop 40.1°E ━━━ Freq: 3835 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Maykop 40.1°E ━━━ Freq: 3835 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:15B:0:0:0:0:0:0:0::━━━ RTRS Maykop 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:15D:0:0:0:0:0:0:0::━━━ RTRS Maykop 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Maykop 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34D:1:1:1910EFB:0:0:0::⚙ 40.1E-RTRS Maykop@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:34F:1:1:1910EFB:0:0:0::⚙ 40.1E-RTRS Maykop@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Maykop@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910EFB:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmaykop/3835_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -853,11 +851,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910EFB:0:0:0:http%3a//0.0.0.0%3a9999/rtrsmaykop/3835_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:15C:0:0:0:0:0:0:0::━━━ RTRS Vladimir 40.1°E ━━━ Freq: 3842 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:15E:0:0:0:0:0:0:0::━━━ RTRS Vladimir 40.1°E ━━━ Freq: 3842 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Vladimir 40.1°E ━━━ Freq: 3842 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:15D:0:0:0:0:0:0:0::━━━ RTRS Vladimir 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:15F:0:0:0:0:0:0:0::━━━ RTRS Vladimir 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Vladimir 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34E:1:1:1910F02:0:0:0::⚙ 40.1E-RTRS Vladimir@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:350:1:1:1910F02:0:0:0::⚙ 40.1E-RTRS Vladimir@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Vladimir@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F02:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladimir/3842_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -867,11 +865,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F02:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladimir/3842_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:15E:0:0:0:0:0:0:0::━━━ RTRS Orel 40.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:160:0:0:0:0:0:0:0::━━━ RTRS Orel 40.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Orel 40.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:15F:0:0:0:0:0:0:0::━━━ RTRS Orel 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:161:0:0:0:0:0:0:0::━━━ RTRS Orel 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Orel 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:34F:1:1:1910F12:0:0:0::⚙ 40.1E-RTRS Orel@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:351:1:1:1910F12:0:0:0::⚙ 40.1E-RTRS Orel@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Orel@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F12:0:0:0:http%3a//0.0.0.0%3a9999/rtrsorel/3858_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -881,11 +879,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F12:0:0:0:http%3a//0.0.0.0%3a9999/rtrsorel/3858_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:160:0:0:0:0:0:0:0::━━━ RTRS Cherkessk 40.1°E ━━━ Freq: 3865 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:162:0:0:0:0:0:0:0::━━━ RTRS Cherkessk 40.1°E ━━━ Freq: 3865 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Cherkessk 40.1°E ━━━ Freq: 3865 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:161:0:0:0:0:0:0:0::━━━ RTRS Cherkessk 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:163:0:0:0:0:0:0:0::━━━ RTRS Cherkessk 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Cherkessk 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:350:1:1:1910F19:0:0:0::⚙ 40.1E-RTRS Cherkessk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:352:1:1:1910F19:0:0:0::⚙ 40.1E-RTRS Cherkessk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Cherkessk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F19:0:0:0:http%3a//0.0.0.0%3a9999/rtrscherkessk/3865_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -895,11 +893,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F19:0:0:0:http%3a//0.0.0.0%3a9999/rtrscherkessk/3865_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:162:0:0:0:0:0:0:0::━━━ RTRS Bryansk 40.1°E ━━━ Freq: 3872 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:164:0:0:0:0:0:0:0::━━━ RTRS Bryansk 40.1°E ━━━ Freq: 3872 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 40.1°E ━━━ Freq: 3872 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:163:0:0:0:0:0:0:0::━━━ RTRS Bryansk 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:165:0:0:0:0:0:0:0::━━━ RTRS Bryansk 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:351:1:1:1910F20:0:0:0::⚙ 40.1E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:353:1:1:1910F20:0:0:0::⚙ 40.1E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F20:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/3872_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -909,11 +907,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F20:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/3872_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:164:0:0:0:0:0:0:0::━━━ RTRS Belgorod 40.1°E ━━━ Freq: 3878 MHz | PID: 4100 | PLP: 1 ━━━
+#SERVICE 1:64:166:0:0:0:0:0:0:0::━━━ RTRS Belgorod 40.1°E ━━━ Freq: 3878 MHz | PID: 4100 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Belgorod 40.1°E ━━━ Freq: 3878 MHz | PID: 4100 | PLP: 1 ━━━
-#SERVICE 1:64:165:0:0:0:0:0:0:0::━━━ RTRS Belgorod 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:167:0:0:0:0:0:0:0::━━━ RTRS Belgorod 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Belgorod 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:352:1:1:1910F26:0:0:0::⚙ 40.1E-RTRS Belgorod@PID4100PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:354:1:1:1910F26:0:0:0::⚙ 40.1E-RTRS Belgorod@PID4100PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Belgorod@PID4100PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F26:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbelgorod/3878_40.1e_plp1:▶ Rossiya 1 Belgorod
 #DESCRIPTION ▶ Rossiya 1 Belgorod
@@ -923,11 +921,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F26:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbelgorod/3878_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:166:0:0:0:0:0:0:0::━━━ RTRS Ivanovo 40.1°E ━━━ Freq: 3885 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:168:0:0:0:0:0:0:0::━━━ RTRS Ivanovo 40.1°E ━━━ Freq: 3885 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Ivanovo 40.1°E ━━━ Freq: 3885 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:167:0:0:0:0:0:0:0::━━━ RTRS Ivanovo 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:169:0:0:0:0:0:0:0::━━━ RTRS Ivanovo 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Ivanovo 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:353:1:1:1910F2D:0:0:0::⚙ 40.1E-RTRS Ivanovo@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:355:1:1:1910F2D:0:0:0::⚙ 40.1E-RTRS Ivanovo@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Ivanovo@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F2D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsivanovo/3885_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -937,11 +935,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F2D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsivanovo/3885_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:168:0:0:0:0:0:0:0::━━━ RTRS Kirov 40.1°E ━━━ Freq: 3892 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:16A:0:0:0:0:0:0:0::━━━ RTRS Kirov 40.1°E ━━━ Freq: 3892 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Kirov 40.1°E ━━━ Freq: 3892 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:169:0:0:0:0:0:0:0::━━━ RTRS Kirov 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:16B:0:0:0:0:0:0:0::━━━ RTRS Kirov 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Kirov 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:354:1:1:1910F34:0:0:0::⚙ 40.1E-RTRS Kirov@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:356:1:1:1910F34:0:0:0::⚙ 40.1E-RTRS Kirov@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Kirov@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F34:0:0:0:http%3a//0.0.0.0%3a9999/rtrskirov/3892_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -951,14 +949,12 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F34:0:0:0:http%3a//0.0.0.0%3a9999/rtrskirov/3892_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:16A:0:0:0:0:0:0:0::━━━ RTRS Vladikavkaz 40.1°E ━━━ Freq: 3908 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:16C:0:0:0:0:0:0:0::━━━ RTRS Vladikavkaz 40.1°E ━━━ Freq: 3908 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Vladikavkaz 40.1°E ━━━ Freq: 3908 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:16B:0:0:0:0:0:0:0::━━━ RTRS Vladikavkaz 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:16D:0:0:0:0:0:0:0::━━━ RTRS Vladikavkaz 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Vladikavkaz 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:355:1:1:1910F44:0:0:0::⚙ 40.1E-RTRS Vladikavkaz@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:357:1:1:1910F44:0:0:0::⚙ 40.1E-RTRS Vladikavkaz@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Vladikavkaz@PID4096PLP1 [T2-MI FEED]
-#SERVICE 1:0:2:1:1:1:1910F44:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladikavkaz/3908_40.1e_plp1:▶ Alania FM
-#DESCRIPTION ▶ Alania FM
 #SERVICE 1:0:1:3FC:1:1:1910F44:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladikavkaz/3908_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
 #SERVICE 1:0:1:42E:1:1:1910F44:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladikavkaz/3908_40.1e_plp1:▶ Rossiya 24Rossija 24
@@ -967,11 +963,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F44:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvladikavkaz/3908_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:16C:0:0:0:0:0:0:0::━━━ RTRS Kostroma 40.1°E ━━━ Freq: 3915 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:16E:0:0:0:0:0:0:0::━━━ RTRS Kostroma 40.1°E ━━━ Freq: 3915 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Kostroma 40.1°E ━━━ Freq: 3915 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:16D:0:0:0:0:0:0:0::━━━ RTRS Kostroma 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:16F:0:0:0:0:0:0:0::━━━ RTRS Kostroma 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Kostroma 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:356:1:1:1910F4B:0:0:0::⚙ 40.1E-RTRS Kostroma@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:358:1:1:1910F4B:0:0:0::⚙ 40.1E-RTRS Kostroma@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Kostroma@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F4B:0:0:0:http%3a//0.0.0.0%3a9999/rtrskostroma/3915_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -981,11 +977,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F4B:0:0:0:http%3a//0.0.0.0%3a9999/rtrskostroma/3915_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:16E:0:0:0:0:0:0:0::━━━ RTRS Naryan-Mar 40.1°E ━━━ Freq: 3922 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:170:0:0:0:0:0:0:0::━━━ RTRS Naryan-Mar 40.1°E ━━━ Freq: 3922 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Naryan-Mar 40.1°E ━━━ Freq: 3922 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:16F:0:0:0:0:0:0:0::━━━ RTRS Naryan-Mar 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:171:0:0:0:0:0:0:0::━━━ RTRS Naryan-Mar 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Naryan-Mar 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:357:1:1:1910F52:0:0:0::⚙ 40.1E-RTRS Naryan-Mar@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:359:1:1:1910F52:0:0:0::⚙ 40.1E-RTRS Naryan-Mar@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Naryan-Mar@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F52:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnaryan-mar/3922_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -995,11 +991,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F52:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnaryan-mar/3922_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:170:0:0:0:0:0:0:0::━━━ RTRS Tatarstan 40.1°E ━━━ Freq: 3928 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:172:0:0:0:0:0:0:0::━━━ RTRS Tatarstan 40.1°E ━━━ Freq: 3928 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Tatarstan 40.1°E ━━━ Freq: 3928 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:171:0:0:0:0:0:0:0::━━━ RTRS Tatarstan 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:173:0:0:0:0:0:0:0::━━━ RTRS Tatarstan 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Tatarstan 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:358:1:1:1910F58:0:0:0::⚙ 40.1E-RTRS Tatarstan@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35A:1:1:1910F58:0:0:0::⚙ 40.1E-RTRS Tatarstan@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Tatarstan@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F58:0:0:0:http%3a//0.0.0.0%3a9999/rtrstatarstan/3928_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1009,11 +1005,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F58:0:0:0:http%3a//0.0.0.0%3a9999/rtrstatarstan/3928_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:172:0:0:0:0:0:0:0::━━━ RTRS Nizhny Novgorod 40.1°E ━━━ Freq: 3942 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:174:0:0:0:0:0:0:0::━━━ RTRS Nizhny Novgorod 40.1°E ━━━ Freq: 3942 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Nizhny Novgorod 40.1°E ━━━ Freq: 3942 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:173:0:0:0:0:0:0:0::━━━ RTRS Nizhny Novgorod 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:175:0:0:0:0:0:0:0::━━━ RTRS Nizhny Novgorod 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Nizhny Novgorod 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:359:1:1:1910F66:0:0:0::⚙ 40.1E-RTRS Nizhny Novgorod@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35B:1:1:1910F66:0:0:0::⚙ 40.1E-RTRS Nizhny Novgorod@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Nizhny Novgorod@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F66:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnizhny/3942_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1023,11 +1019,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F66:0:0:0:http%3a//0.0.0.0%3a9999/rtrsnizhny/3942_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:174:0:0:0:0:0:0:0::━━━ RTRS Chechnya 40.1°E ━━━ Freq: 3965 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:176:0:0:0:0:0:0:0::━━━ RTRS Chechnya 40.1°E ━━━ Freq: 3965 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Chechnya 40.1°E ━━━ Freq: 3965 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:175:0:0:0:0:0:0:0::━━━ RTRS Chechnya 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:177:0:0:0:0:0:0:0::━━━ RTRS Chechnya 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Chechnya 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35A:1:1:1910F7D:0:0:0::⚙ 40.1E-RTRS Chechnya@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35C:1:1:1910F7D:0:0:0::⚙ 40.1E-RTRS Chechnya@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Chechnya@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrschechnya/3965_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1037,11 +1033,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrschechnya/3965_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:176:0:0:0:0:0:0:0::━━━ RTRS Volgograd 40.1°E ━━━ Freq: 3972 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:178:0:0:0:0:0:0:0::━━━ RTRS Volgograd 40.1°E ━━━ Freq: 3972 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Volgograd 40.1°E ━━━ Freq: 3972 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:177:0:0:0:0:0:0:0::━━━ RTRS Volgograd 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:179:0:0:0:0:0:0:0::━━━ RTRS Volgograd 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Volgograd 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35B:1:1:1910F84:0:0:0::⚙ 40.1E-RTRS Volgograd@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35D:1:1:1910F84:0:0:0::⚙ 40.1E-RTRS Volgograd@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Volgograd@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F84:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvolgograd/3972_40.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1051,11 +1047,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F84:0:0:0:http%3a//0.0.0.0%3a9999/rtrsvolgograd/3972_40.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:178:0:0:0:0:0:0:0::━━━ RTRS Rostov 40.1°E ━━━ Freq: 3978 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:17A:0:0:0:0:0:0:0::━━━ RTRS Rostov 40.1°E ━━━ Freq: 3978 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Rostov 40.1°E ━━━ Freq: 3978 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:179:0:0:0:0:0:0:0::━━━ RTRS Rostov 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:17B:0:0:0:0:0:0:0::━━━ RTRS Rostov 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Rostov 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35C:1:1:1910F8A:0:0:0::⚙ 40.1E-RTRS Rostov@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35E:1:1:1910F8A:0:0:0::⚙ 40.1E-RTRS Rostov@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Rostov@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F8A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsrostov/3978_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1065,11 +1061,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F8A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsrostov/3978_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:17A:0:0:0:0:0:0:0::━━━ RTRS Pskov 40.1°E ━━━ Freq: 3985 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:17C:0:0:0:0:0:0:0::━━━ RTRS Pskov 40.1°E ━━━ Freq: 3985 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Pskov 40.1°E ━━━ Freq: 3985 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:17B:0:0:0:0:0:0:0::━━━ RTRS Pskov 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:17D:0:0:0:0:0:0:0::━━━ RTRS Pskov 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Pskov 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35D:1:1:1910F91:0:0:0::⚙ 40.1E-RTRS Pskov@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:35F:1:1:1910F91:0:0:0::⚙ 40.1E-RTRS Pskov@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Pskov@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F91:0:0:0:http%3a//0.0.0.0%3a9999/rtrspskov/3985_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1079,11 +1075,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F91:0:0:0:http%3a//0.0.0.0%3a9999/rtrspskov/3985_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:17C:0:0:0:0:0:0:0::━━━ RTRS Tver 40.1°E ━━━ Freq: 3992 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:17E:0:0:0:0:0:0:0::━━━ RTRS Tver 40.1°E ━━━ Freq: 3992 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Tver 40.1°E ━━━ Freq: 3992 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:17D:0:0:0:0:0:0:0::━━━ RTRS Tver 40.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:17F:0:0:0:0:0:0:0::━━━ RTRS Tver 40.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Tver 40.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35E:1:1:1910F98:0:0:0::⚙ 40.1E-RTRS Tver@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:360:1:1:1910F98:0:0:0::⚙ 40.1E-RTRS Tver@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 40.1E-RTRS Tver@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1910F98:0:0:0:http%3a//0.0.0.0%3a9999/rtrstver/3992_40.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1093,75 +1089,75 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1910F98:0:0:0:http%3a//0.0.0.0%3a9999/rtrstver/3992_40.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:17E:0:0:0:0:0:0:0::━━━ RTRS 1 45.1°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 0 ━━━
-#DESCRIPTION ━━━ RTRS 1 45.1°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:17F:0:0:0:0:0:0:0::━━━ RTRS 1 45.1°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ RTRS 1 45.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:35F:1:1:1C30E88:0:0:0::⚙ 45.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 45.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:3F2:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ Perviy kanalPervyj kanal
+#SERVICE 1:64:180:0:0:0:0:0:0:0::━━━ RTRS 1 45.2°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RTRS 1 45.2°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:181:0:0:0:0:0:0:0::━━━ RTRS 1 45.2°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RTRS 1 45.2°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:361:1:1:1C40E88:0:0:0::⚙ 45.2E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 45.2E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:3F2:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
-#SERVICE 1:0:1:406:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ Match!Match!
+#SERVICE 1:0:1:406:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ Match!Match!
 #DESCRIPTION ▶ Match!Match!
-#SERVICE 1:0:1:410:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ NTVNTV
+#SERVICE 1:0:1:410:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ NTVNTV
 #DESCRIPTION ▶ NTVNTV
-#SERVICE 1:0:1:41A:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ 5 KanalPjatyj kanal
+#SERVICE 1:0:1:41A:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ 5 KanalPjatyj kanal
 #DESCRIPTION ▶ 5 KanalPjatyj kanal
-#SERVICE 1:0:1:424:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ Rossiya KRossija K
+#SERVICE 1:0:1:424:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ Rossiya KRossija K
 #DESCRIPTION ▶ Rossiya KRossija K
-#SERVICE 1:0:1:438:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ KaruselKarusel'
+#SERVICE 1:0:1:438:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ KaruselKarusel'
 #DESCRIPTION ▶ KaruselKarusel'
-#SERVICE 1:0:1:44C:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ TV CentrTV Centr
+#SERVICE 1:0:1:44C:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ TV CentrTV Centr
 #DESCRIPTION ▶ TV CentrTV Centr
-#SERVICE 1:0:2:456:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ Vesti FMVesti FM
+#SERVICE 1:0:2:456:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ Vesti FMVesti FM
 #DESCRIPTION ▶ Vesti FMVesti FM
-#SERVICE 1:0:2:460:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp0:▶ Radio Mayak
+#SERVICE 1:0:2:460:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:180:0:0:0:0:0:0:0::━━━ RTRS 1 45.1°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 1 ━━━
-#DESCRIPTION ━━━ RTRS 1 45.1°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:181:0:0:0:0:0:0:0::━━━ RTRS 1 45.1°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ RTRS 1 45.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:360:1:1:1C30E88:0:0:0::⚙ 45.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
-#DESCRIPTION ⚙ 45.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
-#SERVICE 1:0:1:3FC:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp1:▶ Rossiya 1Rossija 1
+#SERVICE 1:64:182:0:0:0:0:0:0:0::━━━ RTRS 1 45.2°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 1 ━━━
+#DESCRIPTION ━━━ RTRS 1 45.2°E ━━━ Freq: 3720 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:183:0:0:0:0:0:0:0::━━━ RTRS 1 45.2°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RTRS 1 45.2°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:362:1:1:1C40E88:0:0:0::⚙ 45.2E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#DESCRIPTION ⚙ 45.2E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:3FC:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
-#SERVICE 1:0:1:42E:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp1:▶ Rossiya 24Rossija 24
+#SERVICE 1:0:1:42E:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp1:▶ Rossiya 24Rossija 24
 #DESCRIPTION ▶ Rossiya 24Rossija 24
-#SERVICE 1:0:1:442:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp1:▶ OTR
+#SERVICE 1:0:1:442:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp1:▶ OTR
 #DESCRIPTION ▶ OTR
-#SERVICE 1:0:2:46A:1:1:1C30E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.1e_plp1:▶ Radio Rossii
+#SERVICE 1:0:2:46A:1:1:1C40E88:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3720_45.2e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:182:0:0:0:0:0:0:0::━━━ RTRS 2 45.1°E ━━━ Freq: 3760 MHz | PID: 4096 | PLP: 0 ━━━
-#DESCRIPTION ━━━ RTRS 2 45.1°E ━━━ Freq: 3760 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:183:0:0:0:0:0:0:0::━━━ RTRS 2 45.1°E ━━━ FEED SOURCE ━━━
-#DESCRIPTION ━━━ RTRS 2 45.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:361:1:1:1C30EB0:0:0:0::⚙ 45.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
-#DESCRIPTION ⚙ 45.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
-#SERVICE 1:0:1:7DA:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ REN TVREN TV
+#SERVICE 1:64:184:0:0:0:0:0:0:0::━━━ RTRS 2 45.2°E ━━━ Freq: 3760 MHz | PID: 4096 | PLP: 0 ━━━
+#DESCRIPTION ━━━ RTRS 2 45.2°E ━━━ Freq: 3760 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:185:0:0:0:0:0:0:0::━━━ RTRS 2 45.2°E ━━━ FEED SOURCE ━━━
+#DESCRIPTION ━━━ RTRS 2 45.2°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:0:1:363:1:1:1C40EB0:0:0:0::⚙ 45.2E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#DESCRIPTION ⚙ 45.2E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:7DA:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ REN TVREN TV
 #DESCRIPTION ▶ REN TVREN TV
-#SERVICE 1:0:1:7E4:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ Telekanal SpasSpas
+#SERVICE 1:0:1:7E4:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ Telekanal SpasSpas
 #DESCRIPTION ▶ Telekanal SpasSpas
-#SERVICE 1:0:1:7EE:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ STS
+#SERVICE 1:0:1:7EE:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ STS
 #DESCRIPTION ▶ STS
-#SERVICE 1:0:1:7F8:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ DomashniyDomashnij
+#SERVICE 1:0:1:7F8:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ DomashniyDomashnij
 #DESCRIPTION ▶ DomashniyDomashnij
-#SERVICE 1:0:1:802:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ TV 3TV-3
+#SERVICE 1:0:1:802:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ TV 3TV-3
 #DESCRIPTION ▶ TV 3TV-3
-#SERVICE 1:0:1:80C:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ Pyatnitsa!Pjatnica!
+#SERVICE 1:0:1:80C:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ Pyatnitsa!Pjatnica!
 #DESCRIPTION ▶ Pyatnitsa!Pjatnica!
-#SERVICE 1:0:1:816:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ Telekanal ZvezdaTelekanal Zvezda
+#SERVICE 1:0:1:816:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ Telekanal ZvezdaTelekanal Zvezda
 #DESCRIPTION ▶ Telekanal ZvezdaTelekanal Zvezda
-#SERVICE 1:0:1:820:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ MirMir TV
+#SERVICE 1:0:1:820:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ MirMir TV
 #DESCRIPTION ▶ MirMir TV
-#SERVICE 1:0:1:82A:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ TNTTNT
+#SERVICE 1:0:1:82A:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ TNTTNT
 #DESCRIPTION ▶ TNTTNT
-#SERVICE 1:0:1:834:1:1:1C30EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.1e_plp0:▶ Muz TV
+#SERVICE 1:0:1:834:1:1:1C40EB0:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3760_45.2e_plp0:▶ Muz TV
 #DESCRIPTION ▶ Muz TV
-#SERVICE 1:64:184:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ Freq: 4160 MHz | PID: 4051 | PLP: 1 ━━━
+#SERVICE 1:64:186:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ Freq: 4160 MHz | PID: 4051 | PLP: 1 ━━━
 #DESCRIPTION ━━━ Azam Digital 46.1°E ━━━ Freq: 4160 MHz | PID: 4051 | PLP: 1 ━━━
-#SERVICE 1:64:185:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:187:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:362:1:1:1CD1040:0:0:0::⚙ 46.1E-Azam Digital@PID4051PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:364:1:1:1CD1040:0:0:0::⚙ 46.1E-Azam Digital@PID4051PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 46.1E-Azam Digital@PID4051PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:92:1:1:1CD1040:0:0:0:http%3a//0.0.0.0%3a9999/azamdigital/4160_46.1e_plp1:▶ AMC Series
 #DESCRIPTION ▶ AMC Series
@@ -1229,11 +1225,11 @@
 #DESCRIPTION ▶ Arise & Shine TV
 #SERVICE 1:0:1:1D6:1:1:1CD1040:0:0:0:http%3a//0.0.0.0%3a9999/azamdigital/4160_46.1e_plp1:▶ Tumaini TV
 #DESCRIPTION ▶ Tumaini TV
-#SERVICE 1:64:186:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ Freq: 4180 MHz | PID: 4052 | PLP: 1 ━━━
+#SERVICE 1:64:188:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ Freq: 4180 MHz | PID: 4052 | PLP: 1 ━━━
 #DESCRIPTION ━━━ Azam Digital 46.1°E ━━━ Freq: 4180 MHz | PID: 4052 | PLP: 1 ━━━
-#SERVICE 1:64:187:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:189:0:0:0:0:0:0:0::━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ Azam Digital 46.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:363:1:1:1CD1054:0:0:0::⚙ 46.1E-Azam Digital@PID4052PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:365:1:1:1CD1054:0:0:0::⚙ 46.1E-Azam Digital@PID4052PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 46.1E-Azam Digital@PID4052PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:65:1:1:1CD1054:0:0:0:http%3a//0.0.0.0%3a9999/azamdigital/4180_46.1e_plp1:▶ Azam One
 #DESCRIPTION ▶ Azam One
@@ -1287,11 +1283,11 @@
 #DESCRIPTION ▶ Wasafi TV
 #SERVICE 1:0:2:3B6:1:1:1CD1054:0:0:0:http%3a//0.0.0.0%3a9999/azamdigital/4180_46.1e_plp1:▶ U FM Radio
 #DESCRIPTION ▶ U FM Radio
-#SERVICE 1:64:188:0:0:0:0:0:0:0::━━━ RTRS Yamal 49.1°E ━━━ Freq: 3594 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:18A:0:0:0:0:0:0:0::━━━ RTRS Yamal 49.1°E ━━━ Freq: 3594 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Yamal 49.1°E ━━━ Freq: 3594 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:189:0:0:0:0:0:0:0::━━━ RTRS Yamal 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:18B:0:0:0:0:0:0:0::━━━ RTRS Yamal 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Yamal 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:364:1:1:1EB0E0A:0:0:0::⚙ 49.1E-RTRS Yamal@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:366:1:1:1EB0E0A:0:0:0::⚙ 49.1E-RTRS Yamal@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Yamal@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E0A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsyamal/3594_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1301,11 +1297,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E0A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsyamal/3594_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:18A:0:0:0:0:0:0:0::━━━ RTRS Yugoria 49.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:18C:0:0:0:0:0:0:0::━━━ RTRS Yugoria 49.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Yugoria 49.1°E ━━━ Freq: 3622 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:18B:0:0:0:0:0:0:0::━━━ RTRS Yugoria 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:18D:0:0:0:0:0:0:0::━━━ RTRS Yugoria 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Yugoria 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:365:1:1:1EB0E26:0:0:0::⚙ 49.1E-RTRS Yugoria@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:367:1:1:1EB0E26:0:0:0::⚙ 49.1E-RTRS Yugoria@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Yugoria@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E26:0:0:0:http%3a//0.0.0.0%3a9999/rtrsyugoria/3622_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1315,11 +1311,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E26:0:0:0:http%3a//0.0.0.0%3a9999/rtrsyugoria/3622_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:18C:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:18E:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:18D:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:18F:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:366:1:1:1EB0E2B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:368:1:1:1EB0E2B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:1EB0E2B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3627_49.1e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
@@ -1339,11 +1335,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:1EB0E2B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3627_49.1e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:18E:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:190:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3627 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:18F:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:191:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:367:1:1:1EB0E2B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:369:1:1:1EB0E2B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E2B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3627_49.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1353,11 +1349,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E2B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3627_49.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:190:0:0:0:0:0:0:0::━━━ RTRS Tyumen 49.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:192:0:0:0:0:0:0:0::━━━ RTRS Tyumen 49.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Tyumen 49.1°E ━━━ Freq: 3628 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:191:0:0:0:0:0:0:0::━━━ RTRS Tyumen 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:193:0:0:0:0:0:0:0::━━━ RTRS Tyumen 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Tyumen 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:368:1:1:1EB0E2C:0:0:0::⚙ 49.1E-RTRS Tyumen@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:36A:1:1:1EB0E2C:0:0:0::⚙ 49.1E-RTRS Tyumen@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Tyumen@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E2C:0:0:0:http%3a//0.0.0.0%3a9999/rtrstyumen/3628_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1367,11 +1363,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E2C:0:0:0:http%3a//0.0.0.0%3a9999/rtrstyumen/3628_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:192:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:194:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:193:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:195:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:369:1:1:1EB0E3B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:36B:1:1:1EB0E3B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:1EB0E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3643_49.1e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
@@ -1391,11 +1387,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:1EB0E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3643_49.1e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:194:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:196:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3643 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:195:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:197:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36A:1:1:1EB0E3B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:36C:1:1:1EB0E3B:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3643_49.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1405,11 +1401,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E3B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3643_49.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:196:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ Freq: 3653 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:198:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ Freq: 3653 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 2 49.1°E ━━━ Freq: 3653 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:197:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:199:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36B:1:1:1EB0E45:0:0:0::⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:36D:1:1:1EB0E45:0:0:0::⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:7DA:1:1:1EB0E45:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3653_49.1e_plp0:▶ REN TVREN TV
 #DESCRIPTION ▶ REN TVREN TV
@@ -1431,11 +1427,11 @@
 #DESCRIPTION ▶ TNTTNT
 #SERVICE 1:0:1:834:1:1:1EB0E45:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3653_49.1e_plp0:▶ Muz TV
 #DESCRIPTION ▶ Muz TV
-#SERVICE 1:64:198:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ Freq: 3662 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:19A:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ Freq: 3662 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 2 49.1°E ━━━ Freq: 3662 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:199:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:19B:0:0:0:0:0:0:0::━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 2 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36C:1:1:1EB0E4E:0:0:0::⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:36E:1:1:1EB0E4E:0:0:0::⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:7DA:1:1:1EB0E4E:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3662_49.1e_plp0:▶ REN TVREN TV
 #DESCRIPTION ▶ REN TVREN TV
@@ -1457,11 +1453,11 @@
 #DESCRIPTION ▶ TNTTNT
 #SERVICE 1:0:1:834:1:1:1EB0E4E:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/3662_49.1e_plp0:▶ Muz TV
 #DESCRIPTION ▶ Muz TV
-#SERVICE 1:64:19A:0:0:0:0:0:0:0::━━━ RTRS Chelyabinsk 49.1°E ━━━ Freq: 3696 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:19C:0:0:0:0:0:0:0::━━━ RTRS Chelyabinsk 49.1°E ━━━ Freq: 3696 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Chelyabinsk 49.1°E ━━━ Freq: 3696 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:19B:0:0:0:0:0:0:0::━━━ RTRS Chelyabinsk 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:19D:0:0:0:0:0:0:0::━━━ RTRS Chelyabinsk 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Chelyabinsk 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36D:1:1:1EB0E70:0:0:0::⚙ 49.1E-RTRS Chelyabinsk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:36F:1:1:1EB0E70:0:0:0::⚙ 49.1E-RTRS Chelyabinsk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Chelyabinsk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E70:0:0:0:http%3a//0.0.0.0%3a9999/rtrschelyabinsk/3696_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1471,11 +1467,11 @@
 #DESCRIPTION ▶ OTR(+2h)
 #SERVICE 1:0:2:46A:1:1:1EB0E70:0:0:0:http%3a//0.0.0.0%3a9999/rtrschelyabinsk/3696_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:19C:0:0:0:0:0:0:0::━━━ RTRS Ufa 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:19E:0:0:0:0:0:0:0::━━━ RTRS Ufa 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Ufa 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:19D:0:0:0:0:0:0:0::━━━ RTRS Ufa 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:19F:0:0:0:0:0:0:0::━━━ RTRS Ufa 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Ufa 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36E:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS Ufa@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:370:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS Ufa@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Ufa@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrsufa/3704_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1487,11 +1483,11 @@
 #DESCRIPTION ▶ [RTRS Plus info card]
 #SERVICE 1:0:2:46A:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrsufa/3704_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:19E:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1A0:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:19F:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1A1:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:36F:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:371:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3704_49.1e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
@@ -1511,11 +1507,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3704_49.1e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:1A0:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1A2:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3704 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1A1:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1A3:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:370:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:372:1:1:1EB0E78:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3704_49.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1525,11 +1521,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0E78:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3704_49.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:1A2:0:0:0:0:0:0:0::━━━ RTRS Ekaterinburg 49.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1A4:0:0:0:0:0:0:0::━━━ RTRS Ekaterinburg 49.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Ekaterinburg 49.1°E ━━━ Freq: 3709 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1A3:0:0:0:0:0:0:0::━━━ RTRS Ekaterinburg 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1A5:0:0:0:0:0:0:0::━━━ RTRS Ekaterinburg 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Ekaterinburg 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:371:1:1:1EB0E7D:0:0:0::⚙ 49.1E-RTRS Ekaterinburg@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:373:1:1:1EB0E7D:0:0:0::⚙ 49.1E-RTRS Ekaterinburg@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Ekaterinburg@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0E7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsekaterinburg/3709_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1541,11 +1537,11 @@
 #DESCRIPTION ▶ [RTRS Plus info card]
 #SERVICE 1:0:2:46A:1:1:1EB0E7D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsekaterinburg/3709_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:1A4:0:0:0:0:0:0:0::━━━ RTRS Samara 49.1°E ━━━ Freq: 3803 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1A6:0:0:0:0:0:0:0::━━━ RTRS Samara 49.1°E ━━━ Freq: 3803 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Samara 49.1°E ━━━ Freq: 3803 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1A5:0:0:0:0:0:0:0::━━━ RTRS Samara 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1A7:0:0:0:0:0:0:0::━━━ RTRS Samara 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Samara 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:372:1:1:1EB0EDB:0:0:0::⚙ 49.1E-RTRS Samara@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:374:1:1:1EB0EDB:0:0:0::⚙ 49.1E-RTRS Samara@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Samara@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0EDB:0:0:0:http%3a//0.0.0.0%3a9999/rtrssamara/3803_49.1e_plp1:▶ Rossiya 1(+1h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+1h)Rossija 1
@@ -1555,11 +1551,11 @@
 #DESCRIPTION ▶ OTR(+1h)
 #SERVICE 1:0:2:46A:1:1:1EB0EDB:0:0:0:http%3a//0.0.0.0%3a9999/rtrssamara/3803_49.1e_plp1:▶ Radio Rossii(+1h)
 #DESCRIPTION ▶ Radio Rossii(+1h)
-#SERVICE 1:64:1A6:0:0:0:0:0:0:0::━━━ RTRS Saratov 49.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1A8:0:0:0:0:0:0:0::━━━ RTRS Saratov 49.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Saratov 49.1°E ━━━ Freq: 3822 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1A7:0:0:0:0:0:0:0::━━━ RTRS Saratov 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1A9:0:0:0:0:0:0:0::━━━ RTRS Saratov 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Saratov 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:373:1:1:1EB0EEE:0:0:0::⚙ 49.1E-RTRS Saratov@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:375:1:1:1EB0EEE:0:0:0::⚙ 49.1E-RTRS Saratov@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Saratov@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0EEE:0:0:0:http%3a//0.0.0.0%3a9999/rtrssaratov/3822_49.1e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1569,11 +1565,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0EEE:0:0:0:http%3a//0.0.0.0%3a9999/rtrssaratov/3822_49.1e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1A8:0:0:0:0:0:0:0::━━━ RTRS Udmurtia 49.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1AA:0:0:0:0:0:0:0::━━━ RTRS Udmurtia 49.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Udmurtia 49.1°E ━━━ Freq: 3858 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1A9:0:0:0:0:0:0:0::━━━ RTRS Udmurtia 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1AB:0:0:0:0:0:0:0::━━━ RTRS Udmurtia 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Udmurtia 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:374:1:1:1EB0F12:0:0:0::⚙ 49.1E-RTRS Udmurtia@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:376:1:1:1EB0F12:0:0:0::⚙ 49.1E-RTRS Udmurtia@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Udmurtia@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F12:0:0:0:http%3a//0.0.0.0%3a9999/rtrsudmurtia/3858_49.1e_plp1:▶ Rossiya 1(+1h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+1h)Rossija 1
@@ -1583,11 +1579,11 @@
 #DESCRIPTION ▶ OTR(+1h)
 #SERVICE 1:0:2:46A:1:1:1EB0F12:0:0:0:http%3a//0.0.0.0%3a9999/rtrsudmurtia/3858_49.1e_plp1:▶ Radio Rossii(+1h)
 #DESCRIPTION ▶ Radio Rossii(+1h)
-#SERVICE 1:64:1AA:0:0:0:0:0:0:0::━━━ RTRS Kurgan 49.1°E ━━━ Freq: 3873 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1AC:0:0:0:0:0:0:0::━━━ RTRS Kurgan 49.1°E ━━━ Freq: 3873 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Kurgan 49.1°E ━━━ Freq: 3873 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1AB:0:0:0:0:0:0:0::━━━ RTRS Kurgan 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1AD:0:0:0:0:0:0:0::━━━ RTRS Kurgan 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Kurgan 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:375:1:1:1EB0F21:0:0:0::⚙ 49.1E-RTRS Kurgan@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:377:1:1:1EB0F21:0:0:0::⚙ 49.1E-RTRS Kurgan@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Kurgan@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F21:0:0:0:http%3a//0.0.0.0%3a9999/rtrskurgan/3873_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1597,11 +1593,11 @@
 #DESCRIPTION ▶ OTR(+2h)
 #SERVICE 1:0:2:46A:1:1:1EB0F21:0:0:0:http%3a//0.0.0.0%3a9999/rtrskurgan/3873_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:1AC:0:0:0:0:0:0:0::━━━ RTRS Perm 49.1°E ━━━ Freq: 3882 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1AE:0:0:0:0:0:0:0::━━━ RTRS Perm 49.1°E ━━━ Freq: 3882 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Perm 49.1°E ━━━ Freq: 3882 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1AD:0:0:0:0:0:0:0::━━━ RTRS Perm 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1AF:0:0:0:0:0:0:0::━━━ RTRS Perm 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Perm 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:376:1:1:1EB0F2A:0:0:0::⚙ 49.1E-RTRS Perm@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:378:1:1:1EB0F2A:0:0:0::⚙ 49.1E-RTRS Perm@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Perm@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F2A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsperm/3882_49.1e_plp1:▶ GTRK Perm(+2h)
 #DESCRIPTION ▶ GTRK Perm(+2h)
@@ -1611,11 +1607,11 @@
 #DESCRIPTION ▶ OTR(+2h)
 #SERVICE 1:0:2:46A:1:1:1EB0F2A:0:0:0:http%3a//0.0.0.0%3a9999/rtrsperm/3882_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:1AE:0:0:0:0:0:0:0::━━━ RTRS Orenburg 49.1°E ━━━ Freq: 3921 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1B0:0:0:0:0:0:0:0::━━━ RTRS Orenburg 49.1°E ━━━ Freq: 3921 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Orenburg 49.1°E ━━━ Freq: 3921 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1AF:0:0:0:0:0:0:0::━━━ RTRS Orenburg 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1B1:0:0:0:0:0:0:0::━━━ RTRS Orenburg 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Orenburg 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:377:1:1:1EB0F51:0:0:0::⚙ 49.1E-RTRS Orenburg@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:379:1:1:1EB0F51:0:0:0::⚙ 49.1E-RTRS Orenburg@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Orenburg@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F51:0:0:0:http%3a//0.0.0.0%3a9999/rtrsorenburg/3921_49.1e_plp1:▶ Rossiya 1(+2h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+2h)Rossija 1
@@ -1625,11 +1621,11 @@
 #DESCRIPTION ▶ OTR(+2h)
 #SERVICE 1:0:2:46A:1:1:1EB0F51:0:0:0:http%3a//0.0.0.0%3a9999/rtrsorenburg/3921_49.1e_plp1:▶ Radio Rossii(+2h)
 #DESCRIPTION ▶ Radio Rossii(+2h)
-#SERVICE 1:64:1B0:0:0:0:0:0:0:0::━━━ RTRS Astrakhan 49.1°E ━━━ Freq: 3964 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1B2:0:0:0:0:0:0:0::━━━ RTRS Astrakhan 49.1°E ━━━ Freq: 3964 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Astrakhan 49.1°E ━━━ Freq: 3964 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1B1:0:0:0:0:0:0:0::━━━ RTRS Astrakhan 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1B3:0:0:0:0:0:0:0::━━━ RTRS Astrakhan 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Astrakhan 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:378:1:1:1EB0F7C:0:0:0::⚙ 49.1E-RTRS Astrakhan@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:37A:1:1:1EB0F7C:0:0:0::⚙ 49.1E-RTRS Astrakhan@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Astrakhan@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F7C:0:0:0:http%3a//0.0.0.0%3a9999/rtrsastrakhan/3964_49.1e_plp1:▶ Rossiya 1(+1h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(+1h)Rossija 1
@@ -1639,11 +1635,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0F7C:0:0:0:http%3a//0.0.0.0%3a9999/rtrsastrakhan/3964_49.1e_plp1:▶ Radio Rossii(+1h)
 #DESCRIPTION ▶ Radio Rossii(+1h)
-#SERVICE 1:64:1B2:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1B4:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1B3:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1B5:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:379:1:1:1EB0F89:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:37B:1:1:1EB0F89:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:1EB0F89:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3977_49.1e_plp0:▶ Perviy kanalPervyj kanal
 #DESCRIPTION ▶ Perviy kanalPervyj kanal
@@ -1663,11 +1659,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:1EB0F89:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3977_49.1e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:1B4:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1B6:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ Freq: 3977 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1B5:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1B7:0:0:0:0:0:0:0::━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37A:1:1:1EB0F89:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:37C:1:1:1EB0F89:0:0:0::⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS 1@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0F89:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3977_49.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1677,11 +1673,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0F89:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/3977_49.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:1B6:0:0:0:0:0:0:0::━━━ RTRS Ulyanovsk 49.1°E ━━━ Freq: 4018 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1B8:0:0:0:0:0:0:0::━━━ RTRS Ulyanovsk 49.1°E ━━━ Freq: 4018 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Ulyanovsk 49.1°E ━━━ Freq: 4018 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1B7:0:0:0:0:0:0:0::━━━ RTRS Ulyanovsk 49.1°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1B9:0:0:0:0:0:0:0::━━━ RTRS Ulyanovsk 49.1°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Ulyanovsk 49.1°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37B:1:1:1EB0FB2:0:0:0::⚙ 49.1E-RTRS Ulyanovsk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:37D:1:1:1EB0FB2:0:0:0::⚙ 49.1E-RTRS Ulyanovsk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 49.1E-RTRS Ulyanovsk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:1EB0FB2:0:0:0:http%3a//0.0.0.0%3a9999/rtrsulyanovsk/4018_49.1e_plp1:▶ Rossiya 1(0h)Rossija 1
 #DESCRIPTION ▶ Rossiya 1(0h)Rossija 1
@@ -1691,11 +1687,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:1EB0FB2:0:0:0:http%3a//0.0.0.0%3a9999/rtrsulyanovsk/4018_49.1e_plp1:▶ Radio Rossii(0h)
 #DESCRIPTION ▶ Radio Rossii(0h)
-#SERVICE 1:64:1B8:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10713 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1BA:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10713 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ Freq: 10713 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1B9:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1BB:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37C:1:1:21229D9:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:37E:1:1:21229D9:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:B:1:1:21229D9:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10713_53.0e_plp0:▶ Perviy kanal(0h)Pervyj kanal
 #DESCRIPTION ▶ Perviy kanal(0h)Pervyj kanal
@@ -1719,11 +1715,11 @@
 #DESCRIPTION ▶ Radio Mayak
 #SERVICE 1:0:2:46A:1:1:21229D9:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10713_53.0e_plp0:▶ Radio Rossii Krim
 #DESCRIPTION ▶ Radio Rossii Krim
-#SERVICE 1:64:1BA:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10730 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1BC:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10730 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ Freq: 10730 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1BB:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1BD:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37D:1:1:21229EA:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:37F:1:1:21229EA:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:1F:1:1:21229EA:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10730_53.0e_plp0:▶ Telekanal Zvezda(0h)Telekanal Zvezda
 #DESCRIPTION ▶ Telekanal Zvezda(0h)Telekanal Zvezda
@@ -1741,18 +1737,12 @@
 #DESCRIPTION ▶ Krim 24Krym 24
 #SERVICE 1:0:1:27:1:1:21229EA:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10730_53.0e_plp0:▶ Lugansk 24Lugansk 24
 #DESCRIPTION ▶ Lugansk 24Lugansk 24
-#SERVICE 1:64:1BC:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10749 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1BE:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ Freq: 10749 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ Freq: 10749 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1BD:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1BF:0:0:0:0:0:0:0::━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RSCC 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37E:1:1:21229FD:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:380:1:1:21229FD:0:0:0::⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RSCC@PID4096PLP0 [T2-MI FEED]
-#SERVICE 1:0:2:456:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ Vesti FMVesti FM
-#DESCRIPTION ▶ Vesti FMVesti FM
-#SERVICE 1:0:2:460:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ Radio Mayak
-#DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:0:2:46A:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ Radio Rossii Krim
-#DESCRIPTION ▶ Radio Rossii Krim
 #SERVICE 1:0:1:15:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ OTR
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:1:16:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ TV Centr(0h)TV Centr
@@ -1771,11 +1761,11 @@
 #DESCRIPTION ▶ Pyatnitsa!(0h)Pjatnica!
 #SERVICE 1:0:1:1D:1:1:21229FD:0:0:0:http%3a//0.0.0.0%3a9999/rscc/10749_53.0e_plp0:▶ Muz TV(Russia)
 #DESCRIPTION ▶ Muz TV(Russia)
-#SERVICE 1:64:1BE:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1C0:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1BF:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1C1:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:37F:1:1:2122A58:0:0:0::⚙ 53.0E-RTRS 1@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:381:1:1:2122A58:0:0:0::⚙ 53.0E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS 1@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:3F2:1:1:2122A58:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/10840_53.0e_plp0:▶ Perviy kanal(0h)Pervyj kanal
 #DESCRIPTION ▶ Perviy kanal(0h)Pervyj kanal
@@ -1795,11 +1785,11 @@
 #DESCRIPTION ▶ Vesti FMVesti FM
 #SERVICE 1:0:2:460:1:1:2122A58:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/10840_53.0e_plp0:▶ Radio Mayak
 #DESCRIPTION ▶ Radio Mayak
-#SERVICE 1:64:1C0:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4105 | PLP: 1 ━━━
+#SERVICE 1:64:1C2:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4105 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS 1 53.0°E ━━━ Freq: 10840 MHz | PID: 4105 | PLP: 1 ━━━
-#SERVICE 1:64:1C1:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1C3:0:0:0:0:0:0:0::━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 1 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:380:1:1:2122A58:0:0:0::⚙ 53.0E-RTRS 1@PID4105PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:382:1:1:2122A58:0:0:0::⚙ 53.0E-RTRS 1@PID4105PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS 1@PID4105PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A58:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/10840_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1809,11 +1799,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A58:0:0:0:http%3a//0.0.0.0%3a9999/rtrs1/10840_53.0e_plp1:▶ Radio Rossii Krasnodar
 #DESCRIPTION ▶ Radio Rossii Krasnodar
-#SERVICE 1:64:1C2:0:0:0:0:0:0:0::━━━ RTRS Smolensk 53.0°E ━━━ Freq: 10853 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1C4:0:0:0:0:0:0:0::━━━ RTRS Smolensk 53.0°E ━━━ Freq: 10853 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Smolensk 53.0°E ━━━ Freq: 10853 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1C3:0:0:0:0:0:0:0::━━━ RTRS Smolensk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1C5:0:0:0:0:0:0:0::━━━ RTRS Smolensk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Smolensk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:381:1:1:2122A65:0:0:0::⚙ 53.0E-RTRS Smolensk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:383:1:1:2122A65:0:0:0::⚙ 53.0E-RTRS Smolensk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Smolensk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A65:0:0:0:http%3a//0.0.0.0%3a9999/rtrssmolensk/10853_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1823,11 +1813,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A65:0:0:0:http%3a//0.0.0.0%3a9999/rtrssmolensk/10853_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1C4:0:0:0:0:0:0:0::━━━ RTRS 2 53.0°E ━━━ Freq: 10875 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1C6:0:0:0:0:0:0:0::━━━ RTRS 2 53.0°E ━━━ Freq: 10875 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ RTRS 2 53.0°E ━━━ Freq: 10875 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1C5:0:0:0:0:0:0:0::━━━ RTRS 2 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1C7:0:0:0:0:0:0:0::━━━ RTRS 2 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS 2 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:382:1:1:2122A7B:0:0:0::⚙ 53.0E-RTRS 2@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:384:1:1:2122A7B:0:0:0::⚙ 53.0E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS 2@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:7DA:1:1:2122A7B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/10875_53.0e_plp0:▶ REN TVREN TV
 #DESCRIPTION ▶ REN TVREN TV
@@ -1849,11 +1839,11 @@
 #DESCRIPTION ▶ TNT(Russia)TNT
 #SERVICE 1:0:1:834:1:1:2122A7B:0:0:0:http%3a//0.0.0.0%3a9999/rtrs2/10875_53.0e_plp0:▶ Muz TV(Russia)
 #DESCRIPTION ▶ Muz TV(Russia)
-#SERVICE 1:64:1C6:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4096 | PLP: 1 ━━━
+#SERVICE 1:64:1C8:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4096 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4096 | PLP: 1 ━━━
-#SERVICE 1:64:1C7:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1C9:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:383:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:385:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4096PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1863,11 +1853,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1C8:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4097 | PLP: 1 ━━━
+#SERVICE 1:64:1CA:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4097 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4097 | PLP: 1 ━━━
-#SERVICE 1:64:1C9:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1CB:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:384:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4097PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:386:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4097PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4097PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1877,11 +1867,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1CA:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4100 | PLP: 1 ━━━
+#SERVICE 1:64:1CC:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4100 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4100 | PLP: 1 ━━━
-#SERVICE 1:64:1CB:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1CD:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:385:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4100PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:387:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4100PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4100PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Rossiya 1 Belgorod
 #DESCRIPTION ▶ Rossiya 1 Belgorod
@@ -1891,11 +1881,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1CC:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4102 | PLP: 1 ━━━
+#SERVICE 1:64:1CE:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4102 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4102 | PLP: 1 ━━━
-#SERVICE 1:64:1CD:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1CF:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:386:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4102PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:388:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4102PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4102PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1905,11 +1895,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1CE:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 1 ━━━
+#SERVICE 1:64:1D0:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 1 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 1 ━━━
-#SERVICE 1:64:1CF:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1D1:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:387:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4105PLP1 [T2-MI FEED]
+#SERVICE 1:0:1:389:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4105PLP1 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4105PLP1 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1919,11 +1909,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp1:▶ Radio Rossii
 #DESCRIPTION ▶ Radio Rossii
-#SERVICE 1:64:1D0:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 2 ━━━
+#SERVICE 1:64:1D2:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 2 ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ Freq: 10909 MHz | PID: 4105 | PLP: 2 ━━━
-#SERVICE 1:64:1D1:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1D3:0:0:0:0:0:0:0::━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ RTRS Bryansk 53.0°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:388:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4105PLP2 [T2-MI FEED]
+#SERVICE 1:0:1:38A:1:1:2122A9D:0:0:0::⚙ 53.0E-RTRS Bryansk@PID4105PLP2 [T2-MI FEED]
 #DESCRIPTION ⚙ 53.0E-RTRS Bryansk@PID4105PLP2 [T2-MI FEED]
 #SERVICE 1:0:1:3FC:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp2:▶ Rossiya 1Rossija 1
 #DESCRIPTION ▶ Rossiya 1Rossija 1
@@ -1933,11 +1923,11 @@
 #DESCRIPTION ▶ OTR
 #SERVICE 1:0:2:46A:1:1:2122A9D:0:0:0:http%3a//0.0.0.0%3a9999/rtrsbryansk/10909_53.0e_plp2:▶ Radio Rossii Krasnodar
 #DESCRIPTION ▶ Radio Rossii Krasnodar
-#SERVICE 1:64:1D2:0:0:0:0:0:0:0::━━━ MCOT 78.6°E ━━━ Freq: 3970 MHz | PID: 4096 | PLP: 0 ━━━
+#SERVICE 1:64:1D4:0:0:0:0:0:0:0::━━━ MCOT 78.6°E ━━━ Freq: 3970 MHz | PID: 4096 | PLP: 0 ━━━
 #DESCRIPTION ━━━ MCOT 78.6°E ━━━ Freq: 3970 MHz | PID: 4096 | PLP: 0 ━━━
-#SERVICE 1:64:1D3:0:0:0:0:0:0:0::━━━ MCOT 78.6°E ━━━ FEED SOURCE ━━━
+#SERVICE 1:64:1D5:0:0:0:0:0:0:0::━━━ MCOT 78.6°E ━━━ FEED SOURCE ━━━
 #DESCRIPTION ━━━ MCOT 78.6°E ━━━ FEED SOURCE ━━━
-#SERVICE 1:0:1:389:1:1:3120F82:0:0:0::⚙ 78.6E-MCOT@PID4096PLP0 [T2-MI FEED]
+#SERVICE 1:0:1:38B:1:1:3120F82:0:0:0::⚙ 78.6E-MCOT@PID4096PLP0 [T2-MI FEED]
 #DESCRIPTION ⚙ 78.6E-MCOT@PID4096PLP0 [T2-MI FEED]
 #SERVICE 1:0:1:7:1:1:3120F82:0:0:0:http%3a//0.0.0.0%3a9999/mcot/3970_78.6e_plp0:▶ T Sports 7
 #DESCRIPTION ▶ T Sports 7

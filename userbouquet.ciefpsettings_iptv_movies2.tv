@@ -3229,7 +3229,8 @@
 #DESCRIPTION Zulu  (1964)
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/197909.mkv:Æon Flux (2005)
 #DESCRIPTION Æon Flux (2005)
-#SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/200584.mp4
+#SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/200584.mp4:http://panelguys.top:8080/movie/Rfsummerville@aol.com/5713739901/200584.mp4
+#DESCRIPTION http://panelguys.top:8080/movie/Rfsummerville@aol.com/5713739901/200584.mp4
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/200585.mkv:5th Passenger (2018)
 #DESCRIPTION 5th Passenger (2018)
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/200586.mp4:000 Leagues Under the Sea (1954)" tvg-logo="https://image.tmdb.org/t/p/w600_and_h900_bestv2/heAEH85f
@@ -6130,7 +6131,8 @@
 #DESCRIPTION Zombie at 17 (2018)
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/204950.mkv:(Romance) in the Digital Age (2017)
 #DESCRIPTION (Romance) in the Digital Age (2017)
-#SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/204951.mp4
+#SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/204951.mp4:http://panelguys.top:8080/movie/Rfsummerville@aol.com/5713739901/204951.mp4
+#DESCRIPTION http://panelguys.top:8080/movie/Rfsummerville@aol.com/5713739901/204951.mp4
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/204952.mkv:2 Hearts (2020)
 #DESCRIPTION 2 Hearts (2020)
 #SERVICE 4097:0:1:0:0:0:0:0:0:0:http%3a//panelguys.top%3a8080/movie/Rfsummerville@aol.com/5713739901/204954.mp4:35 and Ticking (2011)
