@@ -246,9 +246,22 @@ class UIManager:
 # Config Manager: Handles file I/O and parsing
 # ----------------------------------------------------------------------
 class ConfigManager:
-    timestamp = time.strftime("%Y-%m-%d_%H-%M-%S")
-    def __init__(self, ui: UIManager):
+    def __init__(self, ui: UIManager, timestamp: str):
         self.ui = ui
+        self.timestamp = timestamp
+        self.biss_db = self._load_biss_db()
+
+    def _load_biss_db(self):
+        """Loads the BISS provider database from a JSON file."""
+        import json
+        db_path = "biss_db.json"
+        if os.path.exists(db_path):
+            try:
+                with open(db_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                return {}
+        return {}
 
     def parse_astra_configs(self) -> Dict[str, Dict[str, str]]:
         configs = {}
@@ -278,23 +291,17 @@ class ConfigManager:
         if not os.path.exists(ws_path):
             os.makedirs(ws_path)
 
-        preserved_prefixes = ['.dx_history_', 'architect'] # Changed to prefix match
-        preserved_names = [] # Removed specific name 'architect.log' as prefix covers it
+        preserved_prefixes = ['.dx_history_', 'architect']
 
         for item in os.listdir(ws_path):
             full_path = os.path.join(ws_path, item)
             should_preserve = False
             
-            # Check specific names (if any remain in preserved_names)
-            if item in preserved_names:
-                should_preserve = True
-            
             # Check prefixes
-            if not should_preserve:
-                for prefix in preserved_prefixes:
-                    if item.startswith(prefix):
-                        should_preserve = True
-                        break
+            for prefix in preserved_prefixes:
+                if item.startswith(prefix):
+                    should_preserve = True
+                    break
             
             if should_preserve:
                 continue
@@ -464,10 +471,11 @@ class ConfigManager:
 
 class SatelliteArchitect:
     POL_CSV_MAP = {"2": "L", "3": "R", "0": "H", "1": "V"}
-    timestamp = time.strftime("%Y-%m-%d_%H-%M-%S")
+    
     def __init__(self):
         self.ui = UIManager()
-        self.config = ConfigManager(self.ui)
+        self.timestamp = time.strftime("%Y-%m-%d_%H-%M-%S")
+        self.config = ConfigManager(self.ui, self.timestamp)
         
         self.logger = logging.getLogger('ArchitectLogger')
         self.setup_logger()
@@ -519,7 +527,6 @@ class SatelliteArchitect:
         os.makedirs("workspace", exist_ok=True)
         
         if not self.logger.handlers:
-            # Append execution date AND time to filename (Hour-Minute-Second)
             log_file = f'workspace/architect_{self.timestamp}.log'
             
             try:
@@ -556,6 +563,36 @@ class SatelliteArchitect:
                 p, l = item.split(',', 1)
                 pairs.append((p.strip(), l.strip()))
         return pairs
+
+    def _parse_pls_pairs(self, raw_str):
+        """Parses the 'plsmode-plsvalue' string format into a list of (mode, code) tuples."""
+        pairs = []
+        if not raw_str or str(raw_str).strip() in ('', '-1'):
+            return pairs
+        
+        clean_str = str(raw_str).strip('{} \t\n\r')
+        for item in clean_str.split(';'):
+            if ',' in item:
+                m, c = item.split(',', 1)
+                pairs.append((m.strip(), c.strip()))
+        return pairs
+
+    def _is_known_biss(self, provider, sat_pos, sat_dir):
+        """Checks the external JSON DB for known BISS encrypted feeds."""
+        prov_upper = str(provider).strip().upper()
+        dir_upper = str(sat_dir).strip().upper()
+        pos_str = str(float(sat_pos)) # Ensure 4.9 is "4.9" not "4.90"
+
+        # Access the DB via the config instance
+        db = self.config.biss_db
+        
+        # Check: Direction -> Position -> Provider List
+        if dir_upper in db:
+            if pos_str in db[dir_upper]:
+                if prov_upper in [p.upper() for p in db[dir_upper][pos_str]]:
+                    return True
+                    
+        return False
 
     def run(self):
         try:
@@ -842,23 +879,48 @@ class SatelliteArchitect:
             self.mod = self.ui.ask("Modulation Type", "2", "1=QPSK, 2=8PSK", "💠")
             self.roll = self.ui.ask("Roll-Off Factor", "0", "0=0.35, 1=0.25, 2=0.20", "🌊")
             self.pilot = self.ui.ask("Pilot Tones", "2", "0=Off, 1=On, 2=Auto", "🔦")
+            
+            # --- NEW PLS FALLBACK LOGIC ---
+            isi_q = self.ui.ask("Stream ID (ISI)", "-1", "Enter ISI or -1 to use PLS Scrambling", "🆔")
+            if isi_q != "-1":
+                self.isi_input = isi_q
+                self.pls_mode = "0"
+                self.pls_code = "0"
+                self.is_multistream = True
+            else:
+                self.isi_input = "-1"
+                self.pls_mode = self.ui.ask("PLS Mode", "0", "0=Root, 1=Gold, 2=Combo", "🛡️")
+                self.pls_code = self.ui.ask("PLS Code", "0", "Enter numeric code (e.g. 123456)", "🔑")
+                # Set to True if a PLS code is actually provided
+                self.is_multistream = (self.pls_code != "0")
         else:
             self.sr, self.sat_pos, self.sat_dir, self.inv, self.fec, self.sys_type, self.mod, self.roll, self.pilot = 7325, 18.1, "W", "2", "9", "1", "2", "0", "2"
+            self.isi_input = "-1"
+            self.pls_mode = "0"
+            self.pls_code = "0"
 
     def step_multistream(self):
-        help_mis = ("Multistream (ISI) allows multiple streams on one transponder.\n"
-                    "Common in professional networks.\n"
-                    "y = Yes (Enter ISI IDs).\nn = No (Standard Transponder).")
-        is_mis = self.ui.ask("Enable Multistream?", "n", help_mis, "🌊")
+        # If already set via CSV or Physical Layer step, skip prompt
+        if self.isi_input != "-1" or self.pls_code != "0":
+            return
+
+        help_mis = ("Multistream (ISI/PLS) allows multiple streams on one transponder.\n"
+                    "y = Yes (Enter ISI or PLS).\nn = No (Standard).")
+        is_mis = self.ui.ask("Enable Multistream/PLS?", "n", help_mis, "🌊")
         
         if is_mis.lower() == 'y':
-            self.is_multistream = True
             help_isi = ("Enter numeric Stream IDs separated by commas.\n"
-                        "Example: 171, 172, 173")
-            self.isi_input = self.ui.ask("Stream IDs (ISIs)", "171", help_isi, "🆔")
+                "Example: 171, 172, 173 or -1 for PLS")
+            self.isi_input = self.ui.ask("Stream ID (ISI)", "-1", help_isi, "🆔")
+            if self.isi_input == "-1":
+                self.pls_mode = self.ui.ask("PLS Mode", "0", "0=Root, 1=Gold, 2=Combo", "🛡️")
+                self.pls_code = self.ui.ask("PLS Code", "0", "Numeric code", "🔑")
+            self.is_multistream = True
         else:
             self.is_multistream = False
             self.isi_input = "-1"
+            self.pls_mode = "0"
+            self.pls_code = "0"
 
     def step_service_metadata(self):
         self.ui.print_banner("SERVICE METADATA", "📝", Color.CYAN)
@@ -933,112 +995,132 @@ class SatelliteArchitect:
         print(f"\n{Color.GREEN}✅ Transponder Processing Complete.{Color.END}")
 
     def _process_single_service(self, isi, pid, plp, ns_hex, disp_sat, sid_start):
-        # The '1' is the required hardware flag for DVB-S2/Multistream (7th position)
         flags = "1"
-        if isi != "-1":
-            tsid_hex = format(int(isi), '04x')
-            isi_val = isi
-            stream_label = f"ISI{isi}"
-            # 12 Parameters: Freq:SR:Pol:FEC:Pos:Inv:FLAGS:Sys:Mod:Roll:Pilot:ISI
+        # Hardware logic: If using PLS, Enigma2 needs ISI (12th param) set to 0.
+        isi_val = isi if isi != "-1" else ("0" if getattr(self, 'pls_code', '0') != "0" else "-1")
+        p_mode = getattr(self, 'pls_mode', '0')
+        p_code = getattr(self, 'pls_code', '0')
+
+        # Check if we need the extended 14-parameter string
+        if isi != "-1" or p_code != "0":
+            tsid_hex = format(int(isi), '04x') if isi != "-1" else self.TSID
+            stream_label = f"ISI{isi}" if isi != "-1" else f"PLS{p_code}"
+            
+            # 14 Parameters: ...:Pilot:ISI:PLS_CODE:PLS_MODE
             tp_data = (f"{self.freq}000:{self.sr}000:{POL_MAP[self.pol]}:{self.fec}:"
                        f"{disp_sat}:{self.inv}:{flags}:{self.sys_type}:{self.mod}:"
-                       f"{self.roll}:{self.pilot}:{isi_val}")
+                       f"{self.roll}:{self.pilot}:{isi_val}:{p_code}:{p_mode}")
         else:
             tsid_hex = self.TSID
-            isi_val = "-1"
             stream_label = ""
-            # 11 Parameters: Freq:SR:Pol:FEC:Pos:Inv:FLAGS:Sys:Mod:Roll:Pilot
+            # 11 Parameters (Standard)
             tp_data = (f"{self.freq}000:{self.sr}000:{POL_MAP[self.pol]}:{self.fec}:"
                        f"{disp_sat}:{self.inv}:{flags}:{self.sys_type}:{self.mod}:"
                        f"{self.roll}:{self.pilot}")
 
-        # VERBOSE LOG
-        self.logger.debug(f"PROCESSING SINGLE SERVICE: ISI={isi}, PID={pid}, PLP={plp}, SID={sid_start}")
+        self.logger.debug(f"PROCESSING SINGLE SERVICE: ISI={isi}, PLS={p_code}, PID={pid}, PLP={plp}, SID={sid_start}")
         
         tp_key = f"{ns_hex}:{tsid_hex}:{self.ONID}"
         if tp_key not in self.new_tps:
-            self.new_tps[tp_key] = (
-                f"{ns_hex}:{tsid_hex}:{self.ONID}\n\ts {tp_data}\n/\n"
-            )
-            self.logger.info(f"Transponder added: {self.freq} {self.pol} ISI:{isi} TSID:{tsid_hex}")
+            self.new_tps[tp_key] = f"{ns_hex}:{tsid_hex}:{self.ONID}\n\ts {tp_data}\n/\n"
+            self.logger.info(f"Transponder added: {self.freq} {self.pol} {stream_label} TSID:{tsid_hex}")
 
-        # ... (Rest of the method remains identical to your source)
+        # Service / Bouquet Logic
         sid_hex = format(sid_start, 'x').lower()
         onid_hex = format(int(self.ONID, 16), 'x').lower()
         s_ref_core = f"{sid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}"
         pid_hex = format(int(pid), '04x')
         srv_key = f"{sid_hex}:{ns_hex}:{tsid_hex}:{self.ONID}"
+        
         pos_plain = f"{self.sat_pos}{self.sat_dir}"
         pos_disp = f"{self.sat_pos}°{self.sat_dir}"
+        
         label_feed = f"{pos_plain}-{self.provider}@PID{pid}PLP{plp} Feed Service"
         if stream_label: label_feed += f" ({stream_label})"
-        self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{self.provider},c:15{pid_hex},f:01\n"
+        
+        # Fixed biss_flag logic to use class variables
+        biss_flag = ",C:2600" if self._is_known_biss(self.provider, self.sat_pos, self.sat_dir) else ""
+        self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{self.provider},c:15{pid_hex}{biss_flag},f:05\n"
+        
+        # Bouquet headers
         header_parts = [f"━━━ {self.provider} {pos_disp} ━━━ Freq: {self.freq} MHz | PID: {pid} | PLP: {plp}"]
-        if isi != "-1": header_parts.append(f"| ISI: {isi}")
-        header_parts.append("━━━")
-        marker_1 = " ".join(header_parts)
+        if stream_label: header_parts.append(f"| {stream_label}")
+        marker_1 = " ".join(header_parts) + " ━━━"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_1}")
-        marker_2 = f"━━━ {self.provider} {pos_disp} ━━━ FEED SOURCE ━━━"
-        self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_2}")
+        
         feed_desc = f"⚙ {pos_plain}-{self.provider}@PID{pid}PLP{plp}"
-        feed_desc += f" [ISI {isi} FEED]" if isi != "-1" else " [T2-MI FEED]"
+        feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
         self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
+        
         print(f"  {Color.GREEN}✔ Added Feed Service: {label_feed}{Color.END}")
+
+        # Astra Config
         var_name = f"f{self.freq}{self.pol.lower()}{self.provider.lower()[:2]}p{pid}plp{plp}"
         if isi != "-1": var_name += f"isi{isi}"
-        label_plp = f"{self.provider} {self.freq}{self.pol} {stream_label} PID{pid} PLP{plp}"
-        freq_key = f"{self.freq}_{self.pol}_{self.sr}"
-        if freq_key not in self.printed_astra_headers:
-            self.astra_blocks.append(f"-- {self.provider}@{pos_plain} {self.freq}{self.pol}{self.sr} Configs")
-            self.printed_astra_headers.add(freq_key)
-        astra_header_specific = f"-- {self.freq} {self.pol} PID {pid} PLP {plp} {stream_label}".strip()
-        block = (f"{astra_header_specific}\n{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
+        elif p_code != "0": var_name += f"pls{p_code}"
+        
+        label_plp = f"{self.provider} {self.freq} {self.pol} {stream_label} PID{pid} PLP{plp}".strip()
+        
+        block = (f"-- {self.freq} {self.pol} PID {pid} PLP {plp} {stream_label}\n"
+                 f"{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
                  f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_plp}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
                  f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
-        self._process_sub_channels(plp, tsid_hex.lower(), onid_hex, ns_hex, label_plp, pid, isi)
+        
+        # Trigger Sub-channel import
+        self._process_sub_channels(plp, tsid_hex.lower(), onid_hex, ns_hex, label_feed, pid, isi, p_code)
 
-    def _process_sub_channels(self, plp, tsid_hex, onid_hex, ns_hex, label_parent, pid, isi):
+    def _process_sub_channels(self, plp, tsid_hex, onid_hex, ns_hex, label_parent, pid, isi, p_code="0"):
+        """
+        Locates the appropriate CSV for the stream and imports its channels.
+        Matches naming: 11778H15157PLP0PID4096_PLS242133.csv or _ISIxxx.csv
+        """
         orbital_folder = f"{self.sat_pos}{self.sat_dir.upper()}"
         csv_dir = os.path.join("channellist", orbital_folder)
         
-        filename_base = f"{self.freq}{self.pol}{self.sr}PLP{plp}PID{pid}"
+        # Priority Naming: ISI first, then PLS
+        filename_base = f"{self.freq}{self.pol.upper()}{self.sr}PLP{plp}PID{pid}"
         if isi != "-1":
             filename_base += f"_ISI{isi}"
+        elif p_code != "0" and p_code != "":
+            filename_base += f"_PLS{p_code}"
+            
         filename = f"{filename_base}.csv"
-        
         target_path = os.path.join(csv_dir, filename)
         
         print(f"  {Color.CYAN}📂 Searching for channel list: {filename}{Color.END}")
         
         if os.path.isfile(target_path):
             sub_url = f"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}".replace(":", "%3a")
-            print(f"  {Color.GREEN}   -> Importing channels...{Color.END}")
-            self.logger.info(f"Parsing channel file: {filename}")
+            print(f"  {Color.GREEN}    -> Found! Importing channels...{Color.END}")
+            self.logger.info(f"Importing channels from: {filename} for {label_parent}")
+            
             try:
                 with open(target_path, "r", encoding="utf8") as fh:
                     for csv_line in fh:
                         if "," not in csv_line: continue
-                        try:
-                            parts = [x.strip() for x in csv_line.strip().split(",")]
-                            if len(parts) >= 2:
-                                csid, name = parts[0], parts[1]
-                                stype = parts[2] if len(parts) > 2 else "1"
-                                csid_hex = format(int(csid), 'x').lower()
-                                c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
-                                self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ▶ {name}")
-                                print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
-                                self.logger.info(f"Service imported: {name}")
-                                self.logger.debug(f"IMPORTED CHANNEL REF: {c_ref}")
-                        except Exception:
-                            pass
-            except Exception:
-                pass
+                        parts = [x.strip() for x in csv_line.strip().split(",")]
+                        if len(parts) >= 2:
+                            csid, name = parts[0], parts[1]
+                            stype = parts[2] if len(parts) > 2 else "1"
+                            csid_hex = format(int(csid), 'x').lower()
+                            
+                            # Build Service Reference linking to the current Transponder's TSID
+                            c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                            
+                            # Add to Bouquet
+                            self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ▶ {name}")
+                            
+                            # Double Log (Screen + Log File)
+                            print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
+                            self.logger.info(f"Service '{name}' (SID:{csid}) added to bouquet from {filename}")
+            except Exception as e:
+                self.logger.error(f"Failed to parse {filename}: {str(e)}")
         else:
-            print(f"  {Color.YELLOW}   -> No channel list file found for this stream.{Color.END}")
-            self.logger.info(f"No channel list file found for stream: {filename}")
+            print(f"  {Color.YELLOW}    -> No channel list file found: {filename}{Color.END}")
+            self.logger.warning(f"No matching CSV found at {target_path}")
 
     # ==================================================================
     # BATCH FLOW LOGIC
@@ -1109,13 +1191,21 @@ class SatelliteArchitect:
         mod = row['Mod']
         roll = row['RO']
         pilot = row['Pilot']
-
+        
         ns_hex, disp_sat = self._calculate_namespace(freq, sat_pos, sat_dir)
 
+        # --- ISI EXTRACTION ---
         raw_isi = str(row.get('isi', '-1')).strip()
         is_multistream = raw_isi != '-1' and raw_isi != ''
-        isi_list = [i.strip() for i in raw_isi.split(',')] if is_multistream else ['-1']
+        isi_list = [i.strip() for i in raw_isi.split(',')] if is_multistream else []
 
+        # --- PLS EXTRACTION (Fallback if no ISI) ---
+        raw_pls = str(row.get('plsmode-plsvalue', '')).strip()
+        pls_list = self._parse_pls_pairs(raw_pls)
+        # Only activate PLS multistream logic if ISI is NOT active
+        is_pls_multi = len(pls_list) > 0 and not is_multistream
+
+        # --- PID/PLP EXTRACTION ---
         raw_pairs = row.get('pids-plps', '')
         flat_pair_list = self._parse_pid_plps(raw_pairs)
         
@@ -1127,50 +1217,56 @@ class SatelliteArchitect:
         current_sid = start_sid
 
         # 2. Logic: Group consecutive pairs with the SAME PID
-        # This ensures PID 4097 appearing later in the list gets a new ISI (Case 8.1W)
-        # But PID 4098 appearing consecutively shares the ISI (Case 3.1E)
-        
-        if is_multistream:
+        if is_multistream or is_pls_multi:
             grouped_pairs = []
             
             if flat_pair_list:
-                # Initialize first group
                 current_pid, current_plp = flat_pair_list[0]
                 current_group = [(current_pid, current_plp)]
                 
-                # Iterate through the rest
                 for pid, plp in flat_pair_list[1:]:
                     if pid == current_pid:
-                        # Same PID as previous? Add to current group (Shared ISI)
                         current_group.append((pid, plp))
                     else:
-                        # Different PID? Save previous group and start new one (New ISI)
                         grouped_pairs.append(current_group)
                         current_pid = pid
                         current_group = [(pid, plp)]
                 
-                # Append the last group
                 grouped_pairs.append(current_group)
 
-            # 3. Map Groups to ISIs
+            # 3. Map Groups to ISIs OR PLS pairs
             for idx, group in enumerate(grouped_pairs):
-                if idx < len(isi_list):
-                    isi = isi_list[idx]
-                else:
-                    isi = "-1"
-                    print(f"    {Color.YELLOW}⚠ Warning: Group index {idx} has no corresponding ISI.{Color.END}")
+                # Setup defaults
+                isi = "-1"
+                pls_mode, pls_code = "0", "0"
+
+                # Priority 1: ISI is active
+                if is_multistream:
+                    if idx < len(isi_list):
+                        isi = isi_list[idx]
+                    else:
+                        isi = "-1"
+                        print(f"    {Color.YELLOW}⚠ Warning: Group index {idx} has no corresponding ISI.{Color.END}")
                 
-                # Generate entries for all PLPs in this group using the same ISI
+                # Priority 2: PLS is active (and ISI is -1)
+                elif is_pls_multi:
+                    if idx < len(pls_list):
+                        pls_mode, pls_code = pls_list[idx]
+                    else:
+                        print(f"    {Color.YELLOW}⚠ Warning: Group index {idx} has no corresponding PLS pair.{Color.END}")
+                
+                # Generate entries for all PLPs in this group
                 for (pid, plp) in group:
                     self._generate_batch_entry(
                         freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, 
-                        provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot
+                        provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot, pls_mode, pls_code
                     )
                     current_sid += 1
         
         else:
-            # Non-multistream: Standard grouping by PID
+            # Non-multistream: Standard grouping by PID (No ISI, No PLS Multi)
             isi = "-1"
+            pls_mode, pls_code = "0", "0"
             pid_map = {}
             for p, l in flat_pair_list:
                 if p not in pid_map: pid_map[p] = []
@@ -1180,77 +1276,110 @@ class SatelliteArchitect:
                 for plp in plps:
                     self._generate_batch_entry(
                         freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, 
-                        provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot
+                        provider, path, current_sid, disp_sat, inv, fec, sys_type, mod, roll, pilot, pls_mode, pls_code
                     )
                     current_sid += 1
 
         return current_sid
 
-    def _generate_batch_entry(self, freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, provider, path, sid, disp_sat, inv, fec, sys_type, mod, roll, pilot):
-        flags = "1" # Restored fixed flag
-        if isi != "-1":
-            tsid_hex = format(int(isi), '04x')
-            isi_val = isi
-            stream_label = f"ISI{isi}"
-            # 12 Parameters (ISI at end)
-            tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}:{isi_val}"
+    def _generate_batch_entry(self, freq, pol, sr, sat_pos, sat_dir, ns_hex, isi, pid, plp, 
+                              provider, path, sid, disp_sat, inv, fec, sys_type, mod, 
+                              roll, pilot, pls_mode="0", pls_code="0"):
+        """
+        Generates lamedb entries, Astra configs, and imports sub-channels.
+        Supports 11-param standard and 14-param MIS/PLS strings.
+        """
+        flags = "1" 
+        
+        # Hardware logic: If using PLS, the 12th param (ISI) must be "0" for the tuner to see params 13 & 14.
+        isi_val = isi if isi != "-1" else ("0" if pls_code != "0" else "-1")
+        
+        if isi_val != "-1" or pls_code != "0":
+            # TSID must match ISI hex for the service to link; if PLS only, use default TSID
+            tsid_hex = format(int(isi), '04x') if isi != "-1" else self.TSID
+            stream_label = f"ISI{isi}" if isi != "-1" else f"PLS{pls_code}"
+            
+            # 14 Parameters: ...:Pilot:ISI:PLS_CODE:PLS_MODE
+            tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}:{isi_val}:{pls_code}:{pls_mode}"
         else:
             tsid_hex = self.TSID
-            isi_val = "-1"
             stream_label = ""
-            # 11 Parameters (Stops at Pilot)
+            # 11 Parameters (Standard)
             tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}"
 
+        # --- Transponder Entry ---
         tp_key = f"{ns_hex}:{tsid_hex}:{self.ONID}"
         if tp_key not in self.new_tps:
             self.new_tps[tp_key] = f"{ns_hex}:{tsid_hex}:{self.ONID}\n\ts {tp_data}\n/\n"
-            print(f"  {Color.CYAN}📡 Generated Transponder Entry for ISI {isi}{Color.END}" if isi != "-1" else f"  {Color.CYAN}📡 Generated Transponder Entry{Color.END}")
+            log_msg = f"📡 Generated TP: {stream_label}" if stream_label else "📡 Generated TP"
+            print(f"  {Color.CYAN}{log_msg}{Color.END}")
 
-        # ... (Rest of the method remains identical to your source)
+        # --- Service & Bouquet Logic ---
         sid_hex = format(sid, 'x').lower()
         onid_hex = format(int(self.ONID, 16), 'x').lower()
         s_ref_core = f"{sid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}"
         pid_hex = format(int(pid), '04x')
         srv_key = f"{sid_hex}:{ns_hex}:{tsid_hex}:{self.ONID}"
+        
         pos_plain = f"{sat_pos}{sat_dir}"
         pos_disp = f"{sat_pos}°{sat_dir}"
+        
         label_feed = f"{pos_plain}-{provider}@PID{pid}PLP{plp} Feed Service"
         if stream_label: label_feed += f" ({stream_label})"
-        self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{provider},c:15{pid_hex},f:01\n"
+        
+        # Original BISS helper check
+        biss_flag = ",C:2600" if self._is_known_biss(provider, sat_pos, sat_dir) else ""
+        self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{provider},c:15{pid_hex}{biss_flag},f:05\n"
+        
+        # Bouquet headers
         header_parts = [f"━━━ {provider} {pos_disp} ━━━ Freq: {freq} MHz | PID: {pid} | PLP: {plp}"]
-        if isi != "-1": header_parts.append(f"| ISI: {isi}")
-        header_parts.append("━━━")
-        marker_1 = " ".join(header_parts)
+        if stream_label: header_parts.append(f"| {stream_label}")
+        marker_1 = " ".join(header_parts) + " ━━━"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_1}")
         marker_2 = f"━━━ {provider} {pos_disp} ━━━ FEED SOURCE ━━━"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_2}")
+        
         feed_desc = f"⚙ {pos_plain}-{provider}@PID{pid}PLP{plp}"
-        feed_desc += f" [ISI {isi} FEED]" if isi != "-1" else " [T2-MI FEED]"
+        feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
         self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
+        
         print(f"  {Color.GREEN}✔ Added Feed Service: {label_feed}{Color.END}")
+
+        # --- Astra/Cesbo Config ---
         var_name = f"f{freq}{pol.lower()}{provider.lower()[:2]}p{pid}plp{plp}"
         if isi != "-1": var_name += f"isi{isi}"
-        label_full = f"{provider} {freq}{pol} {stream_label} PID{pid} PLP{plp}"
-        freq_key = f"{freq}_{pol}_{sr}"
-        if freq_key not in self.printed_astra_headers:
+        elif pls_code != "0": var_name += f"pls{pls_code}"
+        
+        label_full = f"{provider} {freq}{pol} {stream_label} PID{pid} PLP{plp}".strip()
+        
+        if f"{freq}_{pol}_{sr}" not in self.printed_astra_headers:
             self.astra_blocks.append(f"-- {provider}@{pos_plain} {freq}{pol}{sr} Configs")
-            self.printed_astra_headers.add(freq_key)
-        astra_header_specific = f"-- {freq} {pol} PID {pid} PLP {plp} {stream_label}".strip()
-        block = (f"{astra_header_specific}\n{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
+            self.printed_astra_headers.add(f"{freq}_{pol}_{sr}")
+            
+        block = (f"-- {freq} {pol} PID {pid} PLP {plp} {stream_label}\n"
+                 f"{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
                  f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_full}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
                  f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
-        
-        # Channel list import logic
+
+        # --- UPDATED: Channel list import logic with PLS filename support ---
         orbital_folder = f"{sat_pos}{sat_dir.upper()}"
         csv_dir = os.path.join("channellist", orbital_folder)
+        
+        # Build filename base
         filename_base = f"{freq}{pol}{sr}PLP{plp}PID{pid}"
-        if isi != "-1": filename_base += f"_ISI{isi}"
+        if isi != "-1": 
+            filename_base += f"_ISI{isi}"
+        if pls_code != "0": 
+            filename_base += f"_PLS{pls_code}" # Appends the PLS code as requested
+            
         filename = f"{filename_base}.csv"
         target_path = os.path.join(csv_dir, filename)
+        
         print(f"  {Color.CYAN}📂 Searching for channel list: {filename}{Color.END}")
+        
         if os.path.isfile(target_path):
             sub_url = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}".replace(":", "%3a")
             print(f"  {Color.GREEN}    -> Importing channels...{Color.END}")
