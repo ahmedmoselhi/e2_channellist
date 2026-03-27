@@ -38,7 +38,7 @@ jobs:
         run: |
           pip install requests beautifulsoup4 cloudscraper
 
-      - name: Run Orion Scraper CI
+      - name: Run Orion Scraper CI & Process Satellites Scripts
         run: |
           # Determine parameters based on trigger type
           START="${{ github.event.inputs.start_pos || '45.0W' }}"
@@ -49,6 +49,7 @@ jobs:
           if [[ "${{ github.event.inputs.add_advanced || 'true' }}" == "true" ]]; then ADV_FLAG="--advanced"; fi
           
           python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG
+          python CI/process_satellites.py satellites.xml
 
       - name: Commit and Push satellites.xml
         run: |
