@@ -631,7 +631,7 @@ class LyngSatDXMaster:
                         # Indices mapping:
                         # 0:Freq, 1:Pol, 2:SR, 3:Pos, 4:Dir, 5:Inv, 6:FEC, 7:Sys, 8:Mod, 9:RO, 10:Pilot
                         # 11:pids-plps, 12:isi, 13:plsmode-plsvalue, 14:prov, 15:MuxURL
-                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", sys_val, mod_val, "3", "0", "{}", "-1", "{}", prov, mux_url]
+                        "csv_row": [f_v, {"H":"0","V":"1","L":"2","R":"3"}.get(p_r,"0"), sr, f"{hw:.1f}", sat_dir, "2", "9", sys_val, mod_val, "2", "2", "{}", "-1", "{}", prov, mux_url]
                     })
                 except Exception as e: 
                     self.log_proc(f"Mux Error ({f_v}): {e}", self.color.CRIMSON)

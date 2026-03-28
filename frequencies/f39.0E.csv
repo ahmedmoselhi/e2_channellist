@@ -1,3 +1,3 @@
 Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
-11761,0,15157,39.0,E,2,9,1,2,3,0,"{4096,0}",-1,"{1,242133}",Cypriotic mux,https://www.lyngsat.com/muxes/Hellas-Sat-4_Europe_11761-H.html
-11778,0,15157,39.0,E,2,9,1,2,3,0,"{4096,0}",-1,"{1,242133}",Cypriotic mux,https://www.lyngsat.com/muxes/Hellas-Sat-4_Europe_11778-H.html
+11761,0,15157,39.0,E,2,9,1,2,2,2,"{4096,0}",-1,"{1,242133}",Cypriotic mux,https://www.lyngsat.com/muxes/Hellas-Sat-4_Europe_11761-H.html
+11778,0,15157,39.0,E,2,9,1,2,2,2,"{4096,0}",-1,"{1,242133}",Cypriotic mux,https://www.lyngsat.com/muxes/Hellas-Sat-4_Europe_11778-H.html

@@ -1,42 +1,42 @@
 Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
-3608,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Stavropol,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3608-L.html
-3615,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Tula,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3615-L.html
-3622,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Kaluga,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3622-L.html
-3628,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Karelija,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3628-L.html
-3635,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Murmansk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3635-L.html
-3643,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Voronezh,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3643-L.html
-3665,2,15284,40.1,E,2,9,1,2,3,0,"{4096,0;4096,1}",-1,"{0,0;0,0}",RTRS 1,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3665-L.html
-3685,2,15284,40.1,E,2,9,1,2,3,0,"{4096,0}",-1,"{0,0}",RTRS 2,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3685-L.html
-3709,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Mari El,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3709-L.html
-3715,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Makhachkala,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3715-L.html
-3722,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Ryazan,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3722-L.html
-3728,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Penza,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3728-L.html
-3735,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Arkhangelsk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3735-L.html
-3758,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Lipetsk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3758-L.html
-3765,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Tambov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3765-L.html
-3772,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Elista,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3772-L.html
-3778,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Mordovia,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3778-L.html
-3785,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Cheboksary,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3785-L.html
-3792,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Velikiy Novgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3792-L.html
-3808,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Kabardino Balkarija,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3808-L.html
-3815,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Syktyvkar,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3815-L.html
-3822,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Nazran,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3822-L.html
-3828,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Vologda,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3828-L.html
-3835,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Maykop,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3835-L.html
-3842,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Vladimir,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3842-L.html
-3858,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Orel,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3858-L.html
-3865,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Cherkessk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3865-L.html
-3872,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Bryansk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3872-L.html
-3878,2,5130,40.1,E,2,9,1,2,3,0,"{4100,1}",-1,"{0,0}",RTRS Belgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3878-L.html
-3885,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Ivanovo,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3885-L.html
-3892,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Kirov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3892-L.html
-3908,2,5140,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Vladikavkaz,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3908-L.html
-3915,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Kostroma,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3915-L.html
-3922,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Naryan-Mar,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3922-L.html
-3928,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Tatarstan,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3928-L.html
-3942,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Nizhny Novgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3942-L.html
-3965,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Chechnya,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3965-L.html
-3972,2,5130,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Volgograd,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3972-L.html
-3978,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Rostov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3978-L.html
-3985,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Pskov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3985-L.html
-3992,2,5120,40.1,E,2,9,1,2,3,0,"{4096,1}",-1,"{0,0}",RTRS Tver,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3992-L.html
+3608,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Stavropol,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3608-L.html
+3615,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tula,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3615-L.html
+3622,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Kaluga,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3622-L.html
+3628,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Karelija,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3628-L.html
+3635,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Murmansk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3635-L.html
+3643,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Voronezh,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3643-L.html
+3665,2,15284,40.1,E,2,9,1,2,2,2,"{4096,0;4096,1}",-1,"{0,0;0,0}",RTRS 1,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3665-L.html
+3685,2,15284,40.1,E,2,9,1,2,2,2,"{4096,0}",-1,"{0,0}",RTRS 2,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3685-L.html
+3709,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Mari El,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3709-L.html
+3715,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Makhachkala,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3715-L.html
+3722,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Ryazan,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3722-L.html
+3728,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Penza,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3728-L.html
+3735,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Arkhangelsk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3735-L.html
+3758,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Lipetsk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3758-L.html
+3765,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tambov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3765-L.html
+3772,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Elista,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3772-L.html
+3778,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Mordovia,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3778-L.html
+3785,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Cheboksary,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3785-L.html
+3792,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Velikiy Novgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3792-L.html
+3808,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Kabardino Balkarija,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3808-L.html
+3815,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Syktyvkar,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3815-L.html
+3822,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Nazran,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3822-L.html
+3828,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Vologda,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3828-L.html
+3835,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Maykop,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3835-L.html
+3842,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Vladimir,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3842-L.html
+3858,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Orel,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3858-L.html
+3865,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Cherkessk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3865-L.html
+3872,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Bryansk,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3872-L.html
+3878,2,5130,40.1,E,2,9,1,2,2,2,"{4100,1}",-1,"{0,0}",RTRS Belgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3878-L.html
+3885,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Ivanovo,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3885-L.html
+3892,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Kirov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3892-L.html
+3908,2,5140,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Vladikavkaz,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3908-L.html
+3915,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Kostroma,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3915-L.html
+3922,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Naryan-Mar,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3922-L.html
+3928,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tatarstan,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3928-L.html
+3942,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Nizhny Novgorod,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3942-L.html
+3965,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Chechnya,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3965-L.html
+3972,2,5130,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Volgograd,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3972-L.html
+3978,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Rostov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3978-L.html
+3985,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Pskov,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3985-L.html
+3992,2,5120,40.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tver,https://www.lyngsat.com/muxes/Express-AM7_C-Fixed_3992-L.html
