@@ -541,11 +541,30 @@ class SatelliteArchitect:
                 print(f"{Color.RED}⚠ Failed to initialize logger: {e}{Color.END}")
 
     def _calculate_namespace(self, freq, sat_pos, sat_dir):
-        """Calculates Enigma2 namespace hex and display position."""
+        """
+        Calculates Enigma2 namespace using the Dreambox simplified formula:
+        - Uses Two's Complement for West positions (e.g., -8.1°W -> FFAF).
+        - Zeroes out the frequency component (0000) for stability.
+        """
+        # Convert to tenths of a degree (e.g., 8.1 -> 81)
         raw_sat = int(sat_pos * 10)
-        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
+        
+        # Calculate signed position for the Hex ID
+        # West is negative, East is positive
+        signed_pos = -raw_sat if sat_dir == "W" else raw_sat
+        
+        # Apply 16-bit Two's Complement mask for the high 16 bits
+        # This converts -81 into 0xFFAF
+        ns_upper = signed_pos & 0xFFFF
+        
+        # Dreambox Simplified: Use 0000 for the frequency (low 16 bits)
+        ns_val = (ns_upper << 16)
+        
+        ns_hex = format(ns_val, '08x').lower()
+        
+        # The 'disp_sat' used in the transponder 's' line remains the negative decimal
         disp_sat = -raw_sat if sat_dir == "W" else raw_sat
-        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+        
         return ns_hex, disp_sat
 
     def _parse_pid_plps(self, raw_str):
