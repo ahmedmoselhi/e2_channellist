@@ -545,7 +545,11 @@ class SatelliteArchitect:
         raw_sat = int(sat_pos * 10)
         ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
         disp_sat = -raw_sat if sat_dir == "W" else raw_sat
-        ns_hex = format((ns_sat << 16) | freq, '08x').lower()
+        
+        # FIXED: Enigma2 Satellite namespaces do not append frequency. 
+        # The lower 16 bits remain 0000.
+        ns_hex = format((ns_sat << 16), '08x').lower()
+        
         return ns_hex, disp_sat
 
     def _parse_pid_plps(self, raw_str):
