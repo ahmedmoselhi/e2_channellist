@@ -7,6 +7,7 @@ import time
 import sys
 import threading
 from datetime import datetime, timezone
+import os
 
 # --- Enable Arrow Keys for Input ---
 try:
@@ -78,6 +79,28 @@ class OrionScraper:
         self.merged_db = []
         self.processed_urls = set()
         self.stats = OperationSummary()
+        self.overrides = []
+
+    def load_overrides(self, filename="custom_positions.txt"):
+        """Loads user-defined exact satellite positions to snap adjacent satellites together."""
+        if not os.path.exists(filename):
+            return
+        
+        try:
+            with open(filename, "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#"):
+                        val = self.parse_to_float(line)
+                        if val is not None:
+                            # Reconstruct a clean display string (e.g., "19.2E")
+                            display_str = line.upper().replace(' ', '')
+                            self.overrides.append((val, display_str))
+            
+            if self.overrides:
+                print(f"  [+] Loaded {len(self.overrides)} position overrides from '{filename}'")
+        except Exception as e:
+            print(f"  [!] Could not load {filename}: {e}")
 
     def get_html(self, url, retries=3):
         """Enhanced with Session Persistence and Exponential Backoff."""
@@ -222,6 +245,8 @@ class OrionScraper:
 
     def run(self):
         self.print_banner()
+        self.load_overrides() # Attempt to load custom positions file
+        
         s_in = self.timed_input("  ➤ Enter Start Position", "45.0W")
         e_in = self.timed_input("  ➤ Enter End Position", "108.2E")
         sep_choice = self.timed_input("  ➤ Separate C and KU bands? (Y/N)", "Y").upper()
@@ -262,6 +287,16 @@ class OrionScraper:
                                     self.processed_urls.add(full_url)
                                     data = self.scrape_sat_page(full_url)
                                     if data and self.is_in_range(data['pos'], u_start, u_end):
+                                        
+                                        # --- Position Snapping Override Logic ---
+                                        for target_pos, target_display in self.overrides:
+                                            # If scraped satellite is within 0.6 degrees of target override, force it
+                                            if abs(data['pos'] - target_pos) <= 0.6:
+                                                data['pos'] = target_pos
+                                                data['display'] = target_display
+                                                break
+                                        # ----------------------------------------
+                                        
                                         print(f"    📡 Found: {data['name']} ({data['display']})")
                                         matched = False
                                         for group in self.merged_db:
