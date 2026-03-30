@@ -1005,9 +1005,19 @@ class SatelliteArchitect:
         p_mode = getattr(self, 'pls_mode', '0')
         p_code = getattr(self, 'pls_code', '0')
 
+        try:
+            p_code_int = int(p_code)
+        except ValueError:
+            p_code_int = 0
+
+        # Ensure unique TSID for each transponder to prevent namespace collisions
+        if isi != "-1":
+            tsid_hex = format(int(isi) & 0xFFFF, '04x')
+        else:
+            tsid_hex = format((int(self.freq) + p_code_int) & 0xFFFF, '04x')
+
         # Check if we need the extended 14-parameter string
-        if isi != "-1" or p_code != "0":
-            tsid_hex = format(int(isi), '04x') if isi != "-1" else self.TSID
+        if isi_val != "-1" or p_code != "0":
             stream_label = f"ISI{isi}" if isi != "-1" else f"PLS{p_code}"
             
             # 14 Parameters: ...:Pilot:ISI:PLS_CODE:PLS_MODE
@@ -1015,7 +1025,6 @@ class SatelliteArchitect:
                        f"{disp_sat}:{self.inv}:{flags}:{self.sys_type}:{self.mod}:"
                        f"{self.roll}:{self.pilot}:{isi_val}:{p_code}:{p_mode}")
         else:
-            tsid_hex = self.TSID
             stream_label = ""
             # 11 Parameters (Standard)
             tp_data = (f"{self.freq}000:{self.sr}000:{POL_MAP[self.pol]}:{self.fec}:"
@@ -1298,15 +1307,23 @@ class SatelliteArchitect:
         # Hardware logic: If using PLS, the 12th param (ISI) must be "0" for the tuner to see params 13 & 14.
         isi_val = isi if isi != "-1" else ("0" if pls_code != "0" else "-1")
         
+        try:
+            p_code_int = int(pls_code)
+        except ValueError:
+            p_code_int = 0
+
+        # Ensure unique TSID for each transponder to prevent namespace collisions
+        if isi != "-1":
+            tsid_hex = format(int(isi) & 0xFFFF, '04x')
+        else:
+            tsid_hex = format((int(freq) + p_code_int) & 0xFFFF, '04x')
+            
         if isi_val != "-1" or pls_code != "0":
-            # TSID must match ISI hex for the service to link; if PLS only, use default TSID
-            tsid_hex = format(int(isi), '04x') if isi != "-1" else self.TSID
             stream_label = f"ISI{isi}" if isi != "-1" else f"PLS{pls_code}"
             
             # 14 Parameters: ...:Pilot:ISI:PLS_CODE:PLS_MODE
             tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}:{isi_val}:{pls_code}:{pls_mode}"
         else:
-            tsid_hex = self.TSID
             stream_label = ""
             # 11 Parameters (Standard)
             tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}"
