@@ -1,0 +1,2 @@
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+11627,1,14400,21.5,E,2,9,1,2,2,2,"{4096,0}",-1,"{0,0}",Oman TV,https://www.lyngsat.com/muxes/Eutelsat-21B_Eastern_11627-V.html
