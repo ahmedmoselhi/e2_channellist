@@ -37,11 +37,42 @@ Launch all major modules from one menu:
 python launcher.py
 ```
 
+
+### 🎨 Visual Guide
+
+| Icon | Meaning |
+|---|---|
+| 🧭 | Entry point / launcher |
+| 🛰️ | Scraping and satellite discovery |
+| 🧱 | Enigma2/lamedb transformation |
+| 🤖 | CI/non-interactive automation |
+| 🛠️ | Receiver maintenance utility |
+
+```mermaid
+flowchart LR
+    A[🧭 launcher.py] --> B[🛰️ LYNGSAT DX MASTER SUITE]
+    B --> C[🧱 T2-MI Ultimate DX Generator]
+    B --> D[🛰️ Satellites.xml-Scraper]
+    D --> E[🤖 CI/process_satellites.py]
+    C --> F[🛠️ E2/update_channellist_tuner.py]
+```
+
 ---
 
 ## 📚 Script Catalog (Detailed)
 
 > Each entry below includes: purpose, required parameters, exact execution command, and expected results.
+
+### 🗺️ Script Map at a Glance
+
+| Script | Category | Interface | Typical Output |
+|---|---|---|---|
+| `launcher.py` | 🧭 Orchestration | Interactive CLI | Module launcher menu |
+| `LYNGSAT DX MASTER SUITE.py` | 🛰️ Scraper | Interactive CLI | `frequencies/`, `channellist/`, `url.txt` |
+| `T2-MI Ultimate DX Generator (Automated Edition).py` | 🧱 Generator | Interactive CLI | `workspace/lamedb`, bouquets, Astra config |
+| `Satellites.xml-Scraper.py` / `CI/orion_ci.py` | 🛰️/🤖 Satellites XML | CLI (interactive/CI) | `satellites.xml` |
+| `CI/process_satellites.py` | 🤖 Post-process | CLI arg | Renamed + validated XML |
+| `E2/update_channellist_tuner.py` | 🛠️ Receiver ops | Interactive CLI | Receiver files + backups |
 
 ### 1) `launcher.py`
 
@@ -323,6 +354,22 @@ Common directories used by these tools:
 ---
 
 ## 🔄 Typical End-to-End Workflow
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant S as Scraper
+    participant G as Generator
+    participant X as XML Tools
+    participant R as Receiver
+    U->>S: Run LYNGSAT DX MASTER SUITE
+    S-->>U: frequencies + channellist
+    U->>G: Run T2-MI Generator
+    G-->>U: lamedb + bouquets + astra.conf
+    U->>X: Build/Process satellites.xml
+    X-->>U: Final satellites.xml
+    U->>R: Deploy/update via E2 utility
+```
 
 1. Scrape data from LyngSat:
    - `python "LYNGSAT DX MASTER SUITE.py"`
