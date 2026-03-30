@@ -4,199 +4,397 @@
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Welcome to the ultimate toolchain for Satellite DXers and IPTV/Astra enthusiasts! This repository contains two powerful, synergistic tools designed to automate the extraction and processing of complex T2-MI satellite data.
+This repository contains scraping, transformation, generation, and utility tools for Enigma2 satellite workflows.
 
 ---
 
 ## 📑 Table of Contents
-1. [LyngSat DX Master Suite (v17.13)](#-lyngsat-dx-master-suite---v1713)
-2. [T2-MI Ultimate DX Generator (v15.5)](#-t2-mi-ultimate-dx-generator---v155)
+1. [Quick Start](#-quick-start)
+2. [Script Catalog (Detailed)](#-script-catalog-detailed)
+3. [Input/Output Directory Expectations](#-inputoutput-directory-expectations)
+4. [Typical End-to-End Workflow](#-typical-end-to-end-workflow)
+5. [Troubleshooting](#-troubleshooting)
 
 ---
 
-# 🛰️ LyngSat DX Master Suite - (v17.13)
+## 🚀 Quick Start
 
-## 📖 Overview
-**LyngSat DX Master Suite** is a high-performance, recursive web scraper designed to extract satellite transponder data and channel lineups from LyngSat.com. It is specifically engineered to handle **T2-MI (DVB-T2)** modulations, extracting complex PLP (Physical Layer Pipe) and ISI (Input Stream Identifier) data often missed by standard scrapers.
-
-## ✨ Key Features
-* **T2-MI Deep Scan:** Automatically detects and parses T2-MI markers (`PLP`, `Stream`, `PID`) to build accurate PID/PLP matrices.
-* **Intelligent Filtering:** Automatically drops transponders that yield zero channels, ensuring clean output data.
-* **Robust Link Detection:** Uses a multi-pass algorithm to find mux links (handling both absolute `/muxes/` paths and relative filenames).
-* **C-Band Logic:** Automatically detects C-Band frequencies and applies the `+0.1` degree indexing standard.
-* **URL History Management:** Saves processed satellites to `url.txt` with position labels, allowing for "Set and Forget" batch processing.
-* **Smart Provider Extraction:** Prioritizes provider names from specific HTML headers to avoid capturing navigation noise.
-* **Silent Auditing:** Keeps the console clean by hiding verbose "Queueing/Rejected" logs (viewable only in session logs).
-
-## ⚙️ Requirements & Installation
-
-* **Python:** 3.7+
-* **OS:** Windows, Linux, or macOS.
-
-The script relies on `curl_cffi` for robust TLS fingerprinting (to avoid bot detection) and `beautifulsoup4` for parsing.
+Install common dependencies first:
 
 ```bash
-pip install curl-cffi beautifulsoup4
+pip install beautifulsoup4 requests cloudscraper curl-cffi prompt_toolkit
 ```
 
-To run the suite:
+For GUI tooling:
 
+```bash
+pip install PySide6
+```
+
+Launch all major modules from one menu:
+
+```bash
+python launcher.py
+```
+
+
+### 🎨 Visual Guide
+
+| Icon | Meaning |
+|---|---|
+| 🧭 | Entry point / launcher |
+| 🛰️ | Scraping and satellite discovery |
+| 🧱 | Enigma2/lamedb transformation |
+| 🤖 | CI/non-interactive automation |
+| 🛠️ | Receiver maintenance utility |
+
+```mermaid
+flowchart LR
+    A[🧭 launcher.py] --> B[🛰️ LYNGSAT DX MASTER SUITE]
+    B --> C[🧱 T2-MI Ultimate DX Generator]
+    B --> D[🛰️ Satellites.xml-Scraper]
+    D --> E[🤖 CI/process_satellites.py]
+    C --> F[🛠️ E2/update_channellist_tuner.py]
+```
+
+---
+
+## 📚 Script Catalog (Detailed)
+
+> Each entry below includes: purpose, required parameters, exact execution command, and expected results.
+
+### 🗺️ Script Map at a Glance
+
+| Script | Category | Interface | Typical Output |
+|---|---|---|---|
+| `launcher.py` | 🧭 Orchestration | Interactive CLI | Module launcher menu |
+| `LYNGSAT DX MASTER SUITE.py` | 🛰️ Scraper | Interactive CLI | `frequencies/`, `channellist/`, `url.txt` |
+| `T2-MI Ultimate DX Generator (Automated Edition).py` | 🧱 Generator | Interactive CLI | `workspace/lamedb`, bouquets, Astra config |
+| `Satellites.xml-Scraper.py` / `CI/orion_ci.py` | 🛰️/🤖 Satellites XML | CLI (interactive/CI) | `satellites.xml` |
+| `CI/process_satellites.py` | 🤖 Post-process | CLI arg | Renamed + validated XML |
+| `E2/update_channellist_tuner.py` | 🛠️ Receiver ops | Interactive CLI | Receiver files + backups |
+
+### 1) `launcher.py`
+
+**Purpose**
+- Main command center to launch major modules:
+  - LyngSat DX Master Suite
+  - T2-MI Generator
+  - URL sorter
+  - Enigma2 Suite GUI
+
+**Required parameters**
+- None.
+
+**How to execute**
+```bash
+python launcher.py
+```
+
+**Expected results**
+- Interactive terminal menu appears.
+- Selecting a module runs the target script.
+- After completion, you can return to menu, reload the same module, or quit.
+
+---
+
+### 2) `LYNGSAT DX MASTER SUITE.py`
+
+**Purpose**
+- Deep LyngSat scraper for T2-MI-aware transponder extraction.
+- Produces frequency CSVs and per-stream channel lists.
+
+**Required parameters**
+- None via CLI arguments.
+- Runtime interactive inputs are required:
+  - Logging on/off
+  - Batch/manual source selection
+  - URL input (manual mode)
+  - Band selection if needed
+
+**How to execute**
 ```bash
 python "LYNGSAT DX MASTER SUITE.py"
 ```
 
-## 📘 User Guide
-
-Upon launching, you will be greeted with a banner and a menu:
-
-1.  **Session Logging:** `❓ Enable session logging? (y/n)`
-    * **Yes (`y`):** Creates a timestamped log file (e.g., `DX_LOG_20231027_123456.log`) recording every action.
-    * **No (`n`):** Outputs only essential information to the console.
-2.  **Source Selection:**
-    * **Batch Mode:** Reads the `url.txt` file in the same directory. You can process specific satellites or all at once. If a position is provided (e.g., `...url, 78.5E`), it skips manual band selection.
-    * **Manual Mode:** Paste URLs one by one. Press `Enter` on an empty line to finish.
-3.  **Band Configuration (Manual Mode):**
-    * **C-BAND (3000-4999 MHz):** Auto-suggested. You have 10 seconds to change the choice. C-Band is auto-indexed by `+0.1` degrees (e.g., `78.5E` -> `78.6E`).
-    * **KU-BAND (10000+ MHz):** Auto-suggested.
-
-### 🔍 The Scan Process
-1.  **Discovery:** Scans the main page for frequency links.
-2.  **Filtering:** Visits each Mux link. Rejects standard DVB-S2 immediately if no `PLP` markers are found.
-3.  **Extraction:** Extracts the PID/PLP Matrix and Provider info.
-4.  **Drill-Down & Verification:** Downloads the channel list and drops the frequency if it contains 0 channels.
-
-## 📂 File Structure & CSV Output
-
-The script generates a precise directory structure:
-
-```text
-<Script_Directory>/
-├── url.txt                 # History of processed satellites
-├── frequencies/            # Master frequency lists (e.g., f78.6E.csv)
-├── channellist/            # Detailed channel lists
-│   └── 78.6E/              # Folder per satellite
-│       └── 3970H11664PLP0PID4097.csv  
-└── DX_LOG_...log           # Session logs (if enabled)
-```
-
-### Frequency List (`frequencies/f[POS].csv`)
-
-| Column | Description | Example |
-| :--- | :--- | :--- |
-| **Freq** | Frequency in MHz | `3970` |
-| **Pol** | Polarization | `0` (0=H, 1=V, 2=L, 3=R) |
-| **SR** | Symbol Rate | `11664` |
-| **Pos** | Orbital Position | `78.6` |
-| **pids-plps** | PID/PLP Matrix | `{4097,0;4099,2}` |
-| **isi** | Input Stream Identifiers | `171,173` |
-| **prov** | Provider Name | `MyProvider` |
-
-*Note: Channel List CSVs are standard service lists containing SID, Name, and Type (1=TV, 2=Radio).*
+**Expected results**
+- Creates/updates:
+  - `url.txt`
+  - `frequencies/f*.csv`
+  - `channellist/<position>/*.csv`
+  - Optional `DX_LOG_*.log`
+- Skips transponders that resolve to zero channels.
 
 ---
 
-# 📡 T2-MI Ultimate DX Generator - (v15.5)
-> **Automated Edition**
+### 3) `T2-MI Ultimate DX Generator (Automated Edition).py`
 
-## 📖 Overview
-The **Universal Architect** is a Python-based console application designed to streamline the process of receiving T2-MI satellite feeds and converting them into standard HTTP streaming endpoints using Astra. It automates the creation of three critical components:
+**Purpose**
+- Converts scraped frequency/channel inputs into:
+  - `lamedb`
+  - bouquet files
+  - `astra.conf`
 
-1.  **Enigma2 Database (`lamedb`):** Defines satellite transponders and services.
-2.  **Bouquet Files (`.tv`):** Creates user-friendly channel lists.
-3.  **Astra Configuration (`astra.conf`):** Scripts the T2-MI decapsulation logic.
+**Required parameters**
+- None via CLI arguments.
+- Runtime interactive inputs are required (mode selection, file paths, provider defaults, etc.).
 
-## ⚙️ Prerequisites & Setup
+**How to execute**
+```bash
+python "T2-MI Ultimate DX Generator (Automated Edition).py"
+```
 
-* **Python:** 3.8+ recommended.
-* **Dependencies:** `prompt_toolkit`. (The script attempts to auto-install this). If it fails, run:
-    ```bash
-    pip install prompt_toolkit
-    ```
+**Expected results**
+- Creates/updates `workspace/` outputs including Enigma2 database artifacts and Astra config.
+- Supports append mode and fresh rebuild mode.
 
-### Required Directory Structure
-The script expects (and creates) the following environment:
+---
+
+### 4) `Url.txt Order.py`
+
+**Purpose**
+- Sorts `url.txt` entries by orbital coordinate (West to East).
+
+**Required parameters**
+- None (always targets `url.txt` in current working directory).
+
+**How to execute**
+```bash
+python "Url.txt Order.py"
+```
+
+**Expected results**
+- `url.txt` is rewritten in sorted order.
+- Console reports count of sorted entries.
+
+---
+
+### 5) `Satellites.xml-Scraper.py`
+
+**Purpose**
+- Interactive LyngSat-to-`satellites.xml` scraper.
+- Supports position range selection, C/KU separation, and advanced MIS/PLS/T2-MI fields.
+
+**Required parameters**
+- None via CLI arguments.
+- Runtime interactive inputs are required:
+  - Start position (default `45.0W`)
+  - End position (default `108.2E`)
+  - Separate C/KU bands (Y/N)
+  - Include advanced params (Y/N)
+
+**How to execute**
+```bash
+python "Satellites.xml-Scraper.py"
+```
+
+**Expected results**
+- Writes `satellites.xml` in the current directory.
+- Outputs operation summary with total satellites and transponders.
+
+---
+
+### 6) `Enigma2 Suite.py`
+
+**Purpose**
+- Desktop GUI (PySide6) with two major tools:
+  - Lamedb merger
+  - satellites.xml processor
+
+**Required parameters**
+- None.
+- Runtime GUI selection of input/output files is required.
+
+**How to execute**
+```bash
+python "Enigma2 Suite.py"
+```
+
+**Expected results**
+- Opens a maximized GUI window.
+- Generates merged/processed files based on tab operations.
+- Writes timestamped logs (e.g., `enigma2_suite_*.log`).
+
+---
+
+### 7) `NameService Corrector.py`
+
+**Purpose**
+- Normalizes lamedb namespace format to implementation-2 style.
+
+**Required parameters**
+- Optional positional path argument:
+  - `python "NameService Corrector.py" /path/to/lamedb`
+- If omitted, defaults to `lamedb` in current directory.
+
+**How to execute**
+```bash
+python "NameService Corrector.py" /path/to/lamedb
+```
+
+or
+
+```bash
+python "NameService Corrector.py"
+```
+
+**Expected results**
+- Creates a new file beside source: `<original>.fixed`.
+- Original source file remains unchanged.
+
+---
+
+### 8) `Password Generator.py`
+
+**Purpose**
+- Interactive password generator constrained to a limited character set.
+
+**Required parameters**
+- None.
+
+**How to execute**
+```bash
+python "Password Generator.py"
+```
+
+**Expected results**
+- Interactive menu allows length/type toggles.
+- Generates and prints a password.
+
+---
+
+### 9) `CI/orion_ci.py`
+
+**Purpose**
+- Non-interactive/CI version of satellites scraping to produce `satellites.xml`.
+
+**Required parameters**
+- All parameters are optional (script has defaults):
+  - `--start` (default: `45.0W`)
+  - `--end` (default: `108.2E`)
+  - `--separate` (flag)
+  - `--advanced` (flag)
+
+**How to execute**
+```bash
+python CI/orion_ci.py --start 45.0W --end 108.2E --separate --advanced
+```
+
+**Expected results**
+- Writes `satellites.xml` in current working directory.
+- Suitable for automation pipelines.
+
+---
+
+### 10) `CI/process_satellites.py`
+
+**Purpose**
+- Post-processes an existing `satellites.xml`:
+  - renames satellites based on position map
+  - trims predefined position blocks
+  - validates XML integrity
+
+**Required parameters**
+- One required positional argument:
+  - path to target XML file
+
+**How to execute**
+```bash
+python CI/process_satellites.py satellites.xml
+```
+
+**Expected results**
+- Modifies the provided XML in place.
+- Creates backup file under sibling `backups/` directory.
+- Fails with non-zero exit code if output XML is malformed.
+
+---
+
+### 11) `E2/update_channellist_tuner.py`
+
+**Purpose**
+- Receiver-side maintenance utility for Enigma2 images:
+  - full channel update from GitHub ZIP
+  - tuner config backup
+  - advanced tuner setup injection
+  - Astra config update
+
+**Required parameters**
+- None via CLI.
+- Runtime menu/input required.
+- Must run in an environment where `/etc/enigma2`, `/etc/tuxbox`, and `/etc/astra` exist and where `init 3/4` is available.
+
+**How to execute**
+```bash
+python E2/update_channellist_tuner.py
+```
+
+**Expected results**
+- Depending on selected option:
+  - updates `/etc/enigma2/lamedb` and bouquet files
+  - writes `/etc/enigma2/backups/*`
+  - updates `/etc/astra/astra.conf`
+  - restarts Enigma2 service via init commands
+
+---
+
+## 📂 Input/Output Directory Expectations
+
+Common directories used by these tools:
 
 ```text
 ./
-├── T2-MI Ultimate DX Generator.py
-├── frequencies/              <-- INPUT: Your transponder CSVs (e.g., 8.1W.csv)
-├── channellist/              <-- INPUT: Service lists per stream
-│   └── 8.1W/
-│       └── 3732L7325PLP0PID4097.csv
-└── workspace/                <-- OUTPUT & CACHE
-    ├── lamedb                <-- Generated Database
-    ├── userbouquet.*.tv      <-- Generated Bouquet
-    ├── astra/astra.conf      <-- Generated Astra Script
-    └── architect.log         <-- Debug Log
+├── frequencies/                 # Input/Output transponder CSVs
+├── channellist/                 # Per-satellite service CSVs
+├── workspace/                   # Generator outputs and history
+├── CI/                          # Automation-friendly scripts
+└── E2/                          # Receiver-side maintenance scripts
 ```
-
-## 📄 Input File Formats
-
-### 1. Frequency CSVs (`frequencies/`)
-Defines the physical satellite parameters. 
-**Naming Convention:** `[Position][Dir].csv` (e.g., `8.1W.csv`). Sorting is automated (West -> East).
-
-* **Required Columns:** `Freq`, `Pol` (H,V,L,R or 0,1,2,3), `SR`, `Pos`, `Dir` (W/E), `Inv` (2=Auto), `FEC` (9=Auto), `Sys` (1=DVB-S2), `Mod` (2=8PSK), `RO` (0), `Pilot` (2=Auto).
-* **Optional Columns:** `prov` (Used to deduce Relay Path), `Provider` (Fallback), `isi`, `pids-plps` (e.g., `{pid,plp;pid,plp}`), `PID`, `PLP`.
-
-### 2. Channel Lists (`channellist/`)
-Maps the services inside the T2-MI stream. Headerless CSV format.
-**Naming Convention:** `[Freq][Pol][SR]PLP[plp]PID[pid]_ISI[isi].csv` (e.g., `3732L7325PLP0PID4097_ISI171.csv`)
-
-* **Col 1:** Service ID (Decimal)
-* **Col 2:** Channel Name
-* **Col 3:** Service Type (1=TV, 2=Radio) *(Optional)*
-
-## 🔄 Operation Modes & Main Menu
-
-Upon starting the script, select your desired workflow:
-
-### Mode Selection
-* **Mode A (Modify/Append):** Reads existing `workspace` files, adds new entries, prevents duplicates. Ideal for adding a new satellite.
-* **Mode B (Fresh Start):** Wipes `lamedb`, `astra/`, and `*.tv` files to build a clean database. Preserves `.dx_history_*` and logs.
-
-### Main Menu
-1.  **Manual Entry:** Best for testing single transponders. You verify physical details, enter provider paths, and build manually.
-2.  **Batch Import:** Processes a specific `.csv` file in `frequencies/` to create markers and services for that entire file.
-3.  **Fully Automated Mode (One-Click):** Scans `frequencies/` West to East, processes every CSV, compiles outputs into `workspace/`, overwrites the source `lamedb`, and exits automatically.
-
-## 🧠 Output Logic
-
-* **Relay Path Deduction:** Automatically creates the URL path based on the `prov` column (e.g., "RTRS" -> `/rtrs/`, "Vidi Tv" -> `/viditv/`). Falls back to user input if unknown.
-* **Service Naming:**
-    * *Bouquet Marker:* `⚙ 8.1W-Provider@PID4096PLP0 [ISI 171 FEED]`
-    * *Channel Name:* `▶ Channel Name`
-* **Astra Configuration:** Generates two blocks per stream:
-    1.  `make_t2mi_decap`: Listens to Enigma2 stream (`127.0.0.1:8001`).
-    2.  `make_channel`: Outputs clean HTTP stream (`0.0.0.0:9999`).
-
-## 📂 The File Manager
-A custom CLI File Manager is used to select the target `lamedb`.
-* **Up/Down Arrows:** Navigate.
-* **Space:** Move selection down.
-* **Enter:** Select item / Enter folder.
-* **Escape:** Cancel and use default.
-
-## 🚀 Workflow Example (Automated)
-1. Prepare CSVs in `frequencies/` and service lists in `channellist/`.
-2. Run `python "T2-MI Ultimate DX Generator (Automated Edition).py"`.
-3. Choose **FRESH START**.
-4. Select target `lamedb` (default is `workspace/lamedb`).
-5. Choose **FULLY AUTOMATED MODE**.
-6. Enter Default Provider.
-7. Wait for `ALL FILES SYNCHRONIZED SUCCESSFULLY`.
-8. Deploy `workspace/` contents to your receiver/server!
-
-## ⚠️ Troubleshooting
-
-| Issue | Quick Fix |
-| :--- | :--- |
-| **ImportError: prompt_toolkit** | Run `pip install prompt_toolkit` manually. |
-| **File Manager freezes** | Press `Esc` to default or `Enter` to confirm. Ensure your terminal supports mouse/utf-8 input. |
-| **Channels missing in Bouquet** | Check `channellist/` folder structure. Ensure filenames exactly match the `[Freq][Pol][SR]PLP...` format. |
-| **lamedb didn't update** | Ensure the target `lamedb` selected matches your intended output location. Check file permissions. |
-| **Service ID conflicts** | Use the "Starting SID" prompt to set a unique base ID (e.g., `8000`) if defaults overlap. |
 
 ---
 
-*Disclaimer: These scripts are intended for educational and personal archival purposes. Data is sourced from publicly available information on LyngSat.com. Please respect their terms of service. The developers are not responsible for any misuse of this software.*
+## 🔄 Typical End-to-End Workflow
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant S as Scraper
+    participant G as Generator
+    participant X as XML Tools
+    participant R as Receiver
+    U->>S: Run LYNGSAT DX MASTER SUITE
+    S-->>U: frequencies + channellist
+    U->>G: Run T2-MI Generator
+    G-->>U: lamedb + bouquets + astra.conf
+    U->>X: Build/Process satellites.xml
+    X-->>U: Final satellites.xml
+    U->>R: Deploy/update via E2 utility
+```
+
+1. Scrape data from LyngSat:
+   - `python "LYNGSAT DX MASTER SUITE.py"`
+2. (Optional) Sort history input file:
+   - `python "Url.txt Order.py"`
+3. Generate Enigma2 + Astra artifacts:
+   - `python "T2-MI Ultimate DX Generator (Automated Edition).py"`
+4. (Optional) Build/refresh `satellites.xml`:
+   - interactive: `python "Satellites.xml-Scraper.py"`
+   - CI: `python CI/orion_ci.py ...`
+5. (Optional) Post-process satellites naming profile:
+   - `python CI/process_satellites.py satellites.xml`
+6. Deploy to receiver and optionally run:
+   - `python E2/update_channellist_tuner.py`
+
+---
+
+## ⚠️ Troubleshooting
+
+- **`ModuleNotFoundError`**: install missing dependency with `pip` (see Quick Start).
+- **GUI fails to start**: ensure `PySide6` and desktop/X11/Wayland environment are available.
+- **No channels generated**: verify naming conventions under `frequencies/` and `channellist/`.
+- **Receiver script fails on desktop PC**: `E2/update_channellist_tuner.py` is designed for Enigma2 filesystem/service layout.
+- **CI XML processing fails**: validate input XML and check `process_satellites.log`.
+
+---
+
+*Disclaimer: These scripts are intended for educational and personal archival purposes. Data is sourced from publicly available information. Please respect upstream data provider terms of service.*
