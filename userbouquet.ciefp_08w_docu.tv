@@ -1,19 +1,19 @@
 #NAME • 0,8 W - Thor • Documentary 
-#SERVICE 1:64:47B:0:0:0:0:0:0:0::•••••::| EXYU Docu |::•••••
+#SERVICE 1:64:47D:0:0:0:0:0:0:0::•••••::| EXYU Docu |::•••••
 #DESCRIPTION •••••::| EXYU Docu |::•••••
-#SERVICE 1:64:47C:0:0:0:0:0:0:0::•••••::| History |::•••••
+#SERVICE 1:64:47E:0:0:0:0:0:0:0::•••••::| History |::•••••
 #DESCRIPTION •••••::| History |::•••••
-#SERVICE 1:64:47D:0:0:0:0:0:0:0::•••••::| BBC |::•••••
+#SERVICE 1:64:47F:0:0:0:0:0:0:0::•••••::| BBC |::•••••
 #DESCRIPTION •••••::| BBC |::•••••
-#SERVICE 1:64:47E:0:0:0:0:0:0:0::•••••::| Discovery |::•••••
+#SERVICE 1:64:480:0:0:0:0:0:0:0::•••••::| Discovery |::•••••
 #DESCRIPTION •••••::| Discovery |::•••••
-#SERVICE 1:64:47F:0:0:0:0:0:0:0::•••••::| Nat Geo |::•••••
+#SERVICE 1:64:481:0:0:0:0:0:0:0::•••••::| Nat Geo |::•••••
 #DESCRIPTION •••••::| Nat Geo |::•••••
-#SERVICE 1:64:480:0:0:0:0:0:0:0::•••••::| Animal |::•••••
+#SERVICE 1:64:482:0:0:0:0:0:0:0::•••••::| Animal |::•••••
 #DESCRIPTION •••••::| Animal |::•••••
-#SERVICE 1:64:481:0:0:0:0:0:0:0::•••••::| TLC |::•••••
+#SERVICE 1:64:483:0:0:0:0:0:0:0::•••••::| TLC |::•••••
 #DESCRIPTION •••••::| TLC |::•••••
-#SERVICE 1:64:482:0:0:0:0:0:0:0::•••••::| Documentary |::•••••
+#SERVICE 1:64:484:0:0:0:0:0:0:0::•••••::| Documentary |::•••••
 #DESCRIPTION •••••::| Documentary |::•••••
-#SERVICE 1:64:483:0:0:0:0:0:0:0::•••••::| Documentaries HUN |::•••••
+#SERVICE 1:64:485:0:0:0:0:0:0:0::•••••::| Documentaries HUN |::•••••
 #DESCRIPTION •••••::| Documentaries HUN |::•••••

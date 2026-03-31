@@ -1,11 +1,11 @@
 #NAME •••••| 0,8 W - THOR  5,6,7  |••••• :: 39 ::
-#SERVICE 1:64:468:0:0:0:0:0:0:0::•••••::| News |::•••••
+#SERVICE 1:64:46A:0:0:0:0:0:0:0::•••••::| News |::•••••
 #DESCRIPTION •••••::| News |::•••••
-#SERVICE 1:64:469:0:0:0:0:0:0:0::•••••::| Paramount |::•••••
+#SERVICE 1:64:46B:0:0:0:0:0:0:0::•••••::| Paramount |::•••••
 #DESCRIPTION •••••::| Paramount |::•••••
-#SERVICE 1:64:46A:0:0:0:0:0:0:0::•••••::| TV5MONDE |::•••••
+#SERVICE 1:64:46C:0:0:0:0:0:0:0::•••••::| TV5MONDE |::•••••
 #DESCRIPTION •••••::| TV5MONDE |::•••••
-#SERVICE 1:64:46B:0:0:0:0:0:0:0::--- test ---
+#SERVICE 1:64:46D:0:0:0:0:0:0:0::--- test ---
 #DESCRIPTION --- test ---
-#SERVICE 1:64:46C:0:0:0:0:0:0:0::* * * ciefpsettings * * *
+#SERVICE 1:64:46E:0:0:0:0:0:0:0::* * * ciefpsettings * * *
 #DESCRIPTION * * * ciefpsettings * * *

@@ -1,11 +1,11 @@
 #NAME • 28,2 E - SKY Movie
-#SERVICE 1:64:28A:0:0:0:0:0:0:0::•••••::| Sky Movie HD |::•••••
+#SERVICE 1:64:28C:0:0:0:0:0:0:0::•••••::| Sky Movie HD |::•••••
 #DESCRIPTION •••••::| Sky Movie HD |::•••••
-#SERVICE 1:64:28B:0:0:0:0:0:0:0::•••••::| Sky Movie |::•••••
+#SERVICE 1:64:28D:0:0:0:0:0:0:0::•••••::| Sky Movie |::•••••
 #DESCRIPTION •••••::| Sky Movie |::•••••
-#SERVICE 1:64:28C:0:0:0:0:0:0:0::•••••::| RTE |::•••••
+#SERVICE 1:64:28E:0:0:0:0:0:0:0::•••••::| RTE |::•••••
 #DESCRIPTION •••••::| RTE |::•••••
-#SERVICE 1:64:28D:0:0:0:0:0:0:0::•••••::| Virgin |::•••••
+#SERVICE 1:64:28F:0:0:0:0:0:0:0::•••••::| Virgin |::•••••
 #DESCRIPTION •••••::| Virgin |::•••••
-#SERVICE 1:64:28E:0:0:0:0:0:0:0::•••••::| Comedy |::•••••
+#SERVICE 1:64:290:0:0:0:0:0:0:0::•••••::| Comedy |::•••••
 #DESCRIPTION •••••::| Comedy |::•••••

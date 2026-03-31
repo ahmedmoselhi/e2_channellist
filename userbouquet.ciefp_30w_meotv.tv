@@ -1,31 +1,31 @@
 #NAME • 30,0 W - Meo Tv
-#SERVICE 1:64:50B:0:0:0:0:0:0:0::•••••::| Movies |::•••••
+#SERVICE 1:64:50D:0:0:0:0:0:0:0::•••••::| Movies |::•••••
 #DESCRIPTION •••••::| Movies |::•••••
-#SERVICE 1:64:50C:0:0:0:0:0:0:0::•••••::| Documentaries |::•••••
+#SERVICE 1:64:50E:0:0:0:0:0:0:0::•••••::| Documentaries |::•••••
 #DESCRIPTION •••••::| Documentaries |::•••••
-#SERVICE 1:64:50D:0:0:0:0:0:0:0::::| Kids |::
+#SERVICE 1:64:50F:0:0:0:0:0:0:0::::| Kids |::
 #DESCRIPTION ::| Kids |::
-#SERVICE 1:64:50E:0:0:0:0:0:0:0::•••••::| Music |::•••••
+#SERVICE 1:64:510:0:0:0:0:0:0:0::•••••::| Music |::•••••
 #DESCRIPTION •••••::| Music |::•••••
-#SERVICE 1:64:50F:0:0:0:0:0:0:0::•••••::| News |::•••••
+#SERVICE 1:64:511:0:0:0:0:0:0:0::•••••::| News |::•••••
 #DESCRIPTION •••••::| News |::•••••
-#SERVICE 1:64:510:0:0:0:0:0:0:0::•••••::| Eurosport |::•••••
+#SERVICE 1:64:512:0:0:0:0:0:0:0::•••••::| Eurosport |::•••••
 #DESCRIPTION •••••::| Eurosport |::•••••
-#SERVICE 1:64:511:0:0:0:0:0:0:0::•••••::| Sport TV |::•••••
+#SERVICE 1:64:513:0:0:0:0:0:0:0::•••••::| Sport TV |::•••••
 #DESCRIPTION •••••::| Sport TV |::•••••
-#SERVICE 1:64:512:0:0:0:0:0:0:0::•••••::| Eleven |::•••••
+#SERVICE 1:64:514:0:0:0:0:0:0:0::•••••::| Eleven |::•••••
 #DESCRIPTION •••••::| Eleven |::•••••
-#SERVICE 1:64:513:0:0:0:0:0:0:0::•••••::| Sport  |::•••••
+#SERVICE 1:64:515:0:0:0:0:0:0:0::•••••::| Sport  |::•••••
 #DESCRIPTION •••••::| Sport  |::•••••
-#SERVICE 1:64:514:0:0:0:0:0:0:0::•••••::| RTP |::•••••
+#SERVICE 1:64:516:0:0:0:0:0:0:0::•••••::| RTP |::•••••
 #DESCRIPTION •••••::| RTP |::•••••
-#SERVICE 1:64:515:0:0:0:0:0:0:0::•••••::| SIC |::•••••
+#SERVICE 1:64:517:0:0:0:0:0:0:0::•••••::| SIC |::•••••
 #DESCRIPTION •••••::| SIC |::•••••
-#SERVICE 1:64:516:0:0:0:0:0:0:0::•••••::| TVI |::•••••
+#SERVICE 1:64:518:0:0:0:0:0:0:0::•••••::| TVI |::•••••
 #DESCRIPTION •••••::| TVI |::•••••
-#SERVICE 1:64:517:0:0:0:0:0:0:0::•••••::| Genaral |::•••••
+#SERVICE 1:64:519:0:0:0:0:0:0:0::•••••::| Genaral |::•••••
 #DESCRIPTION •••••::| Genaral |::•••••
-#SERVICE 1:64:518:0:0:0:0:0:0:0::•••••::| xxx |::•••••
+#SERVICE 1:64:51A:0:0:0:0:0:0:0::•••••::| xxx |::•••••
 #DESCRIPTION •••••::| xxx |::•••••
-#SERVICE 1:64:519:0:0:0:0:0:0:0::* * * ciefpsettings * * *
+#SERVICE 1:64:51B:0:0:0:0:0:0:0::* * * ciefpsettings * * *
 #DESCRIPTION * * * ciefpsettings * * *

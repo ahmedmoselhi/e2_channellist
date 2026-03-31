@@ -1,25 +1,25 @@
 #NAME • 0,8 W - Thor • Music • Movies • Kids
-#SERVICE 1:64:484:0:0:0:0:0:0:0::•••••::| Music |::•••••
+#SERVICE 1:64:486:0:0:0:0:0:0:0::•••••::| Music |::•••••
 #DESCRIPTION •••••::| Music |::•••••
-#SERVICE 1:64:485:0:0:0:0:0:0:0::•••••::| Entertainment |::•••••
+#SERVICE 1:64:487:0:0:0:0:0:0:0::•••••::| Entertainment |::•••••
 #DESCRIPTION •••••::| Entertainment |::•••••
-#SERVICE 1:64:486:0:0:0:0:0:0:0::•••••::| HBO |::•••••
+#SERVICE 1:64:488:0:0:0:0:0:0:0::•••••::| HBO |::•••••
 #DESCRIPTION •••••::| HBO |::•••••
-#SERVICE 1:64:487:0:0:0:0:0:0:0::•••••::| AMC |::•••••
+#SERVICE 1:64:489:0:0:0:0:0:0:0::•••••::| AMC |::•••••
 #DESCRIPTION •••••::| AMC |::•••••
-#SERVICE 1:64:488:0:0:0:0:0:0:0::•••••::| AXN |::•••••
+#SERVICE 1:64:48A:0:0:0:0:0:0:0::•••••::| AXN |::•••••
 #DESCRIPTION •••••::| AXN |::•••••
-#SERVICE 1:64:489:0:0:0:0:0:0:0::•••••::| Cinemax |::•••••
+#SERVICE 1:64:48B:0:0:0:0:0:0:0::•••••::| Cinemax |::•••••
 #DESCRIPTION •••••::| Cinemax |::•••••
-#SERVICE 1:64:48A:0:0:0:0:0:0:0::•••••::| Filmbox |::•••••
+#SERVICE 1:64:48C:0:0:0:0:0:0:0::•••••::| Filmbox |::•••••
 #DESCRIPTION •••••::| Filmbox |::•••••
-#SERVICE 1:64:48B:0:0:0:0:0:0:0::•••••::| Film |::•••••
+#SERVICE 1:64:48D:0:0:0:0:0:0:0::•••••::| Film |::•••••
 #DESCRIPTION •••••::| Film |::•••••
-#SERVICE 1:64:48C:0:0:0:0:0:0:0::•••••::| Comedy Central |::•••••
+#SERVICE 1:64:48E:0:0:0:0:0:0:0::•••••::| Comedy Central |::•••••
 #DESCRIPTION •••••::| Comedy Central |::•••••
-#SERVICE 1:64:48D:0:0:0:0:0:0:0::•••••::| Paramount |::•••••
+#SERVICE 1:64:48F:0:0:0:0:0:0:0::•••••::| Paramount |::•••••
 #DESCRIPTION •••••::| Paramount |::•••••
-#SERVICE 1:64:48E:0:0:0:0:0:0:0::•••••::| Movies |::•••••
+#SERVICE 1:64:490:0:0:0:0:0:0:0::•••••::| Movies |::•••••
 #DESCRIPTION •••••::| Movies |::•••••
-#SERVICE 1:64:48F:0:0:0:0:0:0:0::•••••::| Kids |::•••••
+#SERVICE 1:64:491:0:0:0:0:0:0:0::•••••::| Kids |::•••••
 #DESCRIPTION •••••::| Kids |::•••••

@@ -1,13 +1,13 @@
 #NAME • 4,8 E - Ukraina FTA • KRRT T2Mi
-#SERVICE 1:64:455:0:0:0:0:0:0:0::•••••::| FTA |::•••••
+#SERVICE 1:64:457:0:0:0:0:0:0:0::•••••::| FTA |::•••••
 #DESCRIPTION •••••::| FTA |::•••••
-#SERVICE 1:64:456:0:0:0:0:0:0:0::---- :: Biss :: ----
+#SERVICE 1:64:458:0:0:0:0:0:0:0::---- :: Biss :: ----
 #DESCRIPTION ---- :: Biss :: ----
-#SERVICE 1:64:457:0:0:0:0:0:0:0::--- 12073  ---
+#SERVICE 1:64:459:0:0:0:0:0:0:0::--- 12073  ---
 #DESCRIPTION --- 12073  ---
-#SERVICE 1:64:458:0:0:0:0:0:0:0::##### KRRT T2Mi  #####
+#SERVICE 1:64:45A:0:0:0:0:0:0:0::##### KRRT T2Mi  #####
 #DESCRIPTION ##### KRRT T2Mi  #####
-#SERVICE 1:64:459:0:0:0:0:0:0:0:::: T2Mi :: MX :: pid 4096 :: Satellite 4.8E ::
+#SERVICE 1:64:45B:0:0:0:0:0:0:0:::: T2Mi :: MX :: pid 4096 :: Satellite 4.8E ::
 #DESCRIPTION :: T2Mi :: MX :: pid 4096 :: Satellite 4.8E ::
 #SERVICE 1:0:1:1:3157:1000:0:0:0:0:http%3a//0.0.0.0%3a9999/krrt_4096:Armіja TB
 #DESCRIPTION Armіja TB
@@ -31,7 +31,7 @@
 #DESCRIPTION TEST11
 #SERVICE 1:0:1:C:3157:1000:0:0:0:0:http%3a//0.0.0.0%3a9999/krrt_4096:TEST12
 #DESCRIPTION TEST12
-#SERVICE 1:64:45A:0:0:0:0:0:0:0:::: T2Mi :: Service 801 :: pid 4097 :: Satellite 4.8E ::
+#SERVICE 1:64:45C:0:0:0:0:0:0:0:::: T2Mi :: Service 801 :: pid 4097 :: Satellite 4.8E ::
 #DESCRIPTION :: T2Mi :: Service 801 :: pid 4097 :: Satellite 4.8E ::
 #SERVICE 1:0:1:1:3157:1001:0:0:0:0:http%3a//0.0.0.0%3a9999/krrt_4097:DSNS Informed
 #DESCRIPTION DSNS Informed

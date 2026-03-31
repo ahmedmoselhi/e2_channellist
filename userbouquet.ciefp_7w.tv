@@ -1,11 +1,11 @@
 #NAME •••••| 7,0W • 8,0W  |••••• :: 43 ::
-#SERVICE 1:64:4E4:0:0:0:0:0:0:0::•••••::| Nilesat 7.0W :: 43 ::|::•••••
+#SERVICE 1:64:4E6:0:0:0:0:0:0:0::•••••::| Nilesat 7.0W :: 43 ::|::•••••
 #DESCRIPTION •••••::| Nilesat 7.0W :: 43 ::|::•••••
-#SERVICE 1:64:4E5:0:0:0:0:0:0:0::•••••| News |•••••
+#SERVICE 1:64:4E7:0:0:0:0:0:0:0::•••••| News |•••••
 #DESCRIPTION •••••| News |•••••
-#SERVICE 1:64:4E6:0:0:0:0:0:0:0::•••••::| Tunisia  |::•••••
+#SERVICE 1:64:4E8:0:0:0:0:0:0:0::•••••::| Tunisia  |::•••••
 #DESCRIPTION •••••::| Tunisia  |::•••••
-#SERVICE 1:64:4E7:0:0:0:0:0:0:0::•••••| General |•••••
+#SERVICE 1:64:4E9:0:0:0:0:0:0:0::•••••| General |•••••
 #DESCRIPTION •••••| General |•••••
-#SERVICE 1:64:4E8:0:0:0:0:0:0:0::•••••| 8.0W  Eutelstat 8 West B |••••• 44
+#SERVICE 1:64:4EA:0:0:0:0:0:0:0::•••••| 8.0W  Eutelstat 8 West B |••••• 44
 #DESCRIPTION •••••| 8.0W  Eutelstat 8 West B |••••• 44

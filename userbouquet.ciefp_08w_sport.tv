@@ -1,29 +1,29 @@
 #NAME • 0,8 W - Thor • Sport
-#SERVICE 1:64:46D:0:0:0:0:0:0:0::•••••::| EUROSPORT  |::•••••
+#SERVICE 1:64:46F:0:0:0:0:0:0:0::•••••::| EUROSPORT  |::•••••
 #DESCRIPTION •••••::| EUROSPORT  |::•••••
-#SERVICE 1:64:46E:0:0:0:0:0:0:0::•••••::| EUROSPORT SD |::•••••
+#SERVICE 1:64:470:0:0:0:0:0:0:0::•••••::| EUROSPORT SD |::•••••
 #DESCRIPTION •••••::| EUROSPORT SD |::•••••
-#SERVICE 1:64:46F:0:0:0:0:0:0:0::•••••::| DIGI TV UPC |::•••••
+#SERVICE 1:64:471:0:0:0:0:0:0:0::•••••::| DIGI TV UPC |::•••••
 #DESCRIPTION •••••::| DIGI TV UPC |::•••••
-#SERVICE 1:64:470:0:0:0:0:0:0:0::•••••::| Prima Sport |::•••••
+#SERVICE 1:64:472:0:0:0:0:0:0:0::•••••::| Prima Sport |::•••••
 #DESCRIPTION •••••::| Prima Sport |::•••••
-#SERVICE 1:64:471:0:0:0:0:0:0:0::•••••::| Digi Sport RO |::•••••
+#SERVICE 1:64:473:0:0:0:0:0:0:0::•••••::| Digi Sport RO |::•••••
 #DESCRIPTION •••••::| Digi Sport RO |::•••••
-#SERVICE 1:64:472:0:0:0:0:0:0:0::•••••::| Sport HUN |::•••••
+#SERVICE 1:64:474:0:0:0:0:0:0:0::•••••::| Sport HUN |::•••••
 #DESCRIPTION •••••::| Sport HUN |::•••••
-#SERVICE 1:64:473:0:0:0:0:0:0:0::•••••::| MTV SPORT |::•••••
+#SERVICE 1:64:475:0:0:0:0:0:0:0::•••••::| MTV SPORT |::•••••
 #DESCRIPTION •••••::| MTV SPORT |::•••••
-#SERVICE 1:64:474:0:0:0:0:0:0:0::•••••::| TV2,3,4  SPORT |::•••••
+#SERVICE 1:64:476:0:0:0:0:0:0:0::•••••::| TV2,3,4  SPORT |::•••••
 #DESCRIPTION •••••::| TV2,3,4  SPORT |::•••••
-#SERVICE 1:64:475:0:0:0:0:0:0:0::•••••::| V sport |::•••••
+#SERVICE 1:64:477:0:0:0:0:0:0:0::•••••::| V sport |::•••••
 #DESCRIPTION •••••::| V sport |::•••••
-#SERVICE 1:64:476:0:0:0:0:0:0:0::•••••::| V sport live |::•••••
+#SERVICE 1:64:478:0:0:0:0:0:0:0::•••••::| V sport live |::•••••
 #DESCRIPTION •••••::| V sport live |::•••••
-#SERVICE 1:64:477:0:0:0:0:0:0:0::•••••::| V sport premier league |::•••••
+#SERVICE 1:64:479:0:0:0:0:0:0:0::•••••::| V sport premier league |::•••••
 #DESCRIPTION •••••::| V sport premier league |::•••••
-#SERVICE 1:64:478:0:0:0:0:0:0:0::•••••::| SPORT |::•••••
+#SERVICE 1:64:47A:0:0:0:0:0:0:0::•••••::| SPORT |::•••••
 #DESCRIPTION •••••::| SPORT |::•••••
-#SERVICE 1:64:479:0:0:0:0:0:0:0::•••••::| Slovak Telekom |::•••••
+#SERVICE 1:64:47B:0:0:0:0:0:0:0::•••••::| Slovak Telekom |::•••••
 #DESCRIPTION •••••::| Slovak Telekom |::•••••
-#SERVICE 1:64:47A:0:0:0:0:0:0:0::* * *  ciefpsettings * * *
+#SERVICE 1:64:47C:0:0:0:0:0:0:0::* * *  ciefpsettings * * *
 #DESCRIPTION * * *  ciefpsettings * * *

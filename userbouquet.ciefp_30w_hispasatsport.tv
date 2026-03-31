@@ -1,19 +1,19 @@
 #NAME • 30,0 W - Hispasat Sport
-#SERVICE 1:64:4F3:0:0:0:0:0:0:0::##### NOS #####
+#SERVICE 1:64:4F5:0:0:0:0:0:0:0::##### NOS #####
 #DESCRIPTION ##### NOS #####
-#SERVICE 1:64:4F4:0:0:0:0:0:0:0::•••••::| EuroSport |::•••••
+#SERVICE 1:64:4F6:0:0:0:0:0:0:0::•••••::| EuroSport |::•••••
 #DESCRIPTION •••••::| EuroSport |::•••••
-#SERVICE 1:64:4F5:0:0:0:0:0:0:0::•••••::| Eleven Sport |::•••••
+#SERVICE 1:64:4F7:0:0:0:0:0:0:0::•••••::| Eleven Sport |::•••••
 #DESCRIPTION •••••::| Eleven Sport |::•••••
-#SERVICE 1:64:4F6:0:0:0:0:0:0:0::•••••::| Sport |::•••••
+#SERVICE 1:64:4F8:0:0:0:0:0:0:0::•••••::| Sport |::•••••
 #DESCRIPTION •••••::| Sport |::•••••
-#SERVICE 1:64:4F7:0:0:0:0:0:0:0::##### MEO TV #####
+#SERVICE 1:64:4F9:0:0:0:0:0:0:0::##### MEO TV #####
 #DESCRIPTION ##### MEO TV #####
-#SERVICE 1:64:4F8:0:0:0:0:0:0:0::•••••::| Eurosport |::•••••
+#SERVICE 1:64:4FA:0:0:0:0:0:0:0::•••••::| Eurosport |::•••••
 #DESCRIPTION •••••::| Eurosport |::•••••
-#SERVICE 1:64:4F9:0:0:0:0:0:0:0::•••••::| Sport TV |::•••••
+#SERVICE 1:64:4FB:0:0:0:0:0:0:0::•••••::| Sport TV |::•••••
 #DESCRIPTION •••••::| Sport TV |::•••••
-#SERVICE 1:64:4FA:0:0:0:0:0:0:0::•••••::| Eleven |::•••••
+#SERVICE 1:64:4FC:0:0:0:0:0:0:0::•••••::| Eleven |::•••••
 #DESCRIPTION •••••::| Eleven |::•••••
-#SERVICE 1:64:4FB:0:0:0:0:0:0:0::•••••::| Sport  |::•••••
+#SERVICE 1:64:4FD:0:0:0:0:0:0:0::•••••::| Sport  |::•••••
 #DESCRIPTION •••••::| Sport  |::•••••
