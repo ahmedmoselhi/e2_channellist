@@ -3,7 +3,7 @@
 -- during revival and testing
 -- log.set({ stdout = true, debug = true, syslog = "astra", filename = "/tmp/astrasm.log", })
 -- after revival and testing
-log.set({ stdout = false, debug = false, syslog = "astra", })
+log.set({ stdout = true, debug = false, syslog = "astra", filename = "/tmp/astra.log" })
 
 -- =========================================================================
 -- [ SECTION 1: ABERTIS PID CHANNELS ]
