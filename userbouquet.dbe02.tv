@@ -1,0 +1,815 @@
+#NAME •••••| (5) 26.0E KU-band Badr 5 / Badr 7/8 & Es'hail 2 |•••••
+#SERVICE 1:64:1FB:0:0:0:0:0:0:0::| إسلامي |
+#DESCRIPTION | إسلامي |
+#SERVICE 1:0:2:D:7594:77E:1040000:0:0:0::اذاعة القرآن الكريم الكويتية
+#DESCRIPTION اذاعة القرآن الكريم الكويتية
+#SERVICE 1:0:1:6:202:2BE:1040000:0:0:0::البحرين القرآن الكريم (HD)
+#DESCRIPTION البحرين القرآن الكريم (HD)
+#SERVICE 1:0:2:A3C:1A:2BE:1040000:0:0:0::إذاعة القرآن الكريم السعودية
+#DESCRIPTION إذاعة القرآن الكريم السعودية
+#SERVICE 1:0:2:16:2:1:1040000:0:0:0::إذاعة القرآن الكريم 103.4 إف إم قطر
+#DESCRIPTION إذاعة القرآن الكريم 103.4 إف إم قطر
+#SERVICE 1:0:2:16:3:1:1040000:0:0:0::إذاعة القرآن الكريم 103.4 إف إم قطر
+#DESCRIPTION إذاعة القرآن الكريم 103.4 إف إم قطر
+#SERVICE 1:0:2:1A:2:1:1040000:0:0:0::إذاعة القرآن الكريم 106 إف إم
+#DESCRIPTION إذاعة القرآن الكريم 106 إف إم
+#SERVICE 1:0:2:1A:3:1:1040000:0:0:0::إذاعة القرآن الكريم 106 إف إم
+#DESCRIPTION إذاعة القرآن الكريم 106 إف إم
+#SERVICE 1:0:2:A41:1A:2BE:1040000:0:0:0::إذاعة نداء الإسلام
+#DESCRIPTION إذاعة نداء الإسلام
+#SERVICE 1:0:1:3:3:1:1040000:0:0:0::تلفزيون قطر القرآن الكريم
+#DESCRIPTION تلفزيون قطر القرآن الكريم
+#SERVICE 1:0:2:11:202:2BE:1040000:0:0:0::القرآن الكريم 106.1
+#DESCRIPTION القرآن الكريم 106.1
+#SERVICE 1:0:1:15E1:1A:2BE:1040000:0:0:0::قناة القرآن الكريم
+#DESCRIPTION قناة القرآن الكريم
+#SERVICE 1:0:2:50E0:816:E0:1040000:0:0:0::صوت الإسلام
+#DESCRIPTION صوت الإسلام
+#SERVICE 1:64:1FC:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#DESCRIPTION | افلام ومسلسلات |
+#SERVICE 1:0:19:9CB4:FAA:E0:1040000:0:0:0::بي إن دراما 1
+#DESCRIPTION بي إن دراما 1
+#SERVICE 1:0:19:20D5:1F68:E0:1040000:0:0:0::بي إن موفيز 1
+#DESCRIPTION بي إن موفيز 1
+#SERVICE 1:0:19:2269:1F90:E0:1040000:0:0:0::بي إن موفيز 1 بريمير
+#DESCRIPTION بي إن موفيز 1 بريمير
+#SERVICE 1:0:19:2200:1F86:E0:1040000:0:0:0::بي إن موفيز 2 أكشن
+#DESCRIPTION بي إن موفيز 2 أكشن
+#SERVICE 1:0:19:9D0F:FB4:E0:1040000:0:0:0::بي إن موفيز 3 دراما
+#DESCRIPTION بي إن موفيز 3 دراما
+#SERVICE 1:0:19:2202:1F86:E0:1040000:0:0:0::بي إن موفيز 4 فاميلي
+#DESCRIPTION بي إن موفيز 4 فاميلي
+#SERVICE 1:0:19:9D74:FBE:E0:1040000:0:0:0::بي إن مسلسلات 1
+#DESCRIPTION بي إن مسلسلات 1
+#SERVICE 1:0:19:2201:1F86:E0:1040000:0:0:0::بي إن سيريس 2
+#DESCRIPTION بي إن سيريس 2
+#SERVICE 1:0:1:73C:12D:2BE:1040000:0:0:0::آي فيلم العربية
+#DESCRIPTION آي فيلم العربية
+#SERVICE 1:0:1:1:1BC0:2BE:1040000:0:0:0::إم بي سي
+#DESCRIPTION إم بي سي
+#SERVICE 1:0:19:12D:17F8:2BE:1040000:0:0:0::إم بي سي (HD)
+#DESCRIPTION إم بي سي (HD)
+#SERVICE 1:0:1:A:1BC0:2BE:1040000:0:0:0::إم بي سي (SD)
+#DESCRIPTION إم بي سي (SD)
+#SERVICE 1:0:1:6:1BC0:2BE:1040000:0:0:0::إم بي سي 2
+#DESCRIPTION إم بي سي 2
+#SERVICE 1:0:19:12E:17F8:2BE:1040000:0:0:0::إم بي سي 2 (HD)
+#DESCRIPTION إم بي سي 2 (HD)
+#SERVICE 1:0:1:7:1BC0:2BE:1040000:0:0:0::إم بي سي أكشن
+#DESCRIPTION إم بي سي أكشن
+#SERVICE 1:0:19:130:17F8:2BE:1040000:0:0:0::إم بي سي أكشن (HD)
+#DESCRIPTION إم بي سي أكشن (HD)
+#SERVICE 1:0:1:5:1BC0:2BE:1040000:0:0:0::إم بي سي بوليوود
+#DESCRIPTION إم بي سي بوليوود
+#SERVICE 1:0:19:137:17F8:2BE:1040000:0:0:0::إم بي سي بوليوود (HD)
+#DESCRIPTION إم بي سي بوليوود (HD)
+#SERVICE 1:0:1:3:1BC0:2BE:1040000:0:0:0::إم بي سي دراما
+#DESCRIPTION إم بي سي دراما
+#SERVICE 1:0:19:133:17F8:2BE:1040000:0:0:0::إم بي سي دراما (HD)
+#DESCRIPTION إم بي سي دراما (HD)
+#SERVICE 1:0:19:136:17F8:2BE:1040000:0:0:0::إم بي سي دراما بلس (HD)
+#DESCRIPTION إم بي سي دراما بلس (HD)
+#SERVICE 1:0:1:8:1BC0:2BE:1040000:0:0:0::إم بي سي ماكس
+#DESCRIPTION إم بي سي ماكس
+#SERVICE 1:0:19:131:17F8:2BE:1040000:0:0:0::إم بي سي ماكس (HD)
+#DESCRIPTION إم بي سي ماكس (HD)
+#SERVICE 1:0:19:134:17F8:2BE:1040000:0:0:0::إم بي سي فارييتي بلس (HD)
+#DESCRIPTION إم بي سي فارييتي بلس (HD)
+#SERVICE 1:0:19:5141:820:E0:1040000:0:0:0::Rotana Cinema Saudi Arabia (HD)
+#DESCRIPTION Rotana Cinema Saudi Arabia (HD)
+#SERVICE 1:0:19:5145:820:E0:1040000:0:0:0::Rotana Drama (HD)
+#DESCRIPTION Rotana Drama (HD)
+#SERVICE 1:0:19:9E39:FD2:E0:1040000:0:0:0::Spare-Fox Family Movies HD
+#DESCRIPTION Spare-Fox Family Movies HD
+#SERVICE 1:0:19:9D0A:FB4:E0:1040000:0:0:0::ستار أفلام
+#DESCRIPTION ستار أفلام
+#SERVICE 1:0:19:9D0B:FB4:E0:1040000:0:0:0::ستار موفيز الشرق الأوسط (HD)
+#DESCRIPTION ستار موفيز الشرق الأوسط (HD)
+#SERVICE 1:0:1:9D09:FB4:E0:1040000:0:0:0::ستار سيريز
+#DESCRIPTION ستار سيريز
+#SERVICE 1:64:1FD:0:0:0:0:0:0:0::| رياضة |
+#DESCRIPTION | رياضة |
+#SERVICE 1:0:1:72:1029:E0:1040000:0:0:0::الكأس الثامنة (HD)
+#DESCRIPTION الكأس الثامنة (HD)
+#SERVICE 1:0:1:6F:1029:E0:1040000:0:0:0::الكأس الخامسة (HD)
+#DESCRIPTION الكأس الخامسة (HD)
+#SERVICE 1:0:1:5:2:1:1040000:0:0:0::الكأس 4 (HD)
+#DESCRIPTION الكأس 4 (HD)
+#SERVICE 1:0:1:5:22B:2BE:1040000:0:0:0::الكأس 4 (HD)
+#DESCRIPTION الكأس 4 (HD)
+#SERVICE 1:0:1:3:2:1:1040000:0:0:0::الكأس 1 (HD)
+#DESCRIPTION الكأس 1 (HD)
+#SERVICE 1:0:1:3:22B:2BE:1040000:0:0:0::الكأس 1 (HD)
+#DESCRIPTION الكأس 1 (HD)
+#SERVICE 1:0:1:71:1029:E0:1040000:0:0:0::الكأس السابعة (HD)
+#DESCRIPTION الكأس السابعة (HD)
+#SERVICE 1:0:1:70:1029:E0:1040000:0:0:0::الكأس السادسة (HD)
+#DESCRIPTION الكأس السادسة (HD)
+#SERVICE 1:0:1:1:22B:2BE:1040000:0:0:0::الكأس 3 (HD)
+#DESCRIPTION الكأس 3 (HD)
+#SERVICE 1:0:1:4:2:1:1040000:0:0:0::الكأس 2 (HD)
+#DESCRIPTION الكأس 2 (HD)
+#SERVICE 1:0:1:4:22B:2BE:1040000:0:0:0::الكأس 2 (HD)
+#DESCRIPTION الكأس 2 (HD)
+#SERVICE 1:0:19:4FC8:7F8:E0:1040000:0:0:0::الكأس 11 HD
+#DESCRIPTION الكأس 11 HD
+#SERVICE 1:0:19:2203:1F86:E0:1040000:0:0:0::الكاس إكسترا 1
+#DESCRIPTION الكاس إكسترا 1
+#SERVICE 1:0:19:4FBF:7F8:E0:1040000:0:0:0::الكأس 9 HD
+#DESCRIPTION الكأس 9 HD
+#SERVICE 1:0:1:6:2:1:1040000:0:0:0::راديو الكأس 01
+#DESCRIPTION راديو الكأس 01
+#SERVICE 1:0:2:6:22B:2BE:1040000:0:0:0::إذاعة الكأس 01
+#DESCRIPTION إذاعة الكأس 01
+#SERVICE 1:0:19:4FC0:7F8:E0:1040000:0:0:0::الكأس 10 HD
+#DESCRIPTION الكأس 10 HD
+#SERVICE 1:0:19:4FB6:7F8:E0:1040000:0:0:0::الكأس 3 HD
+#DESCRIPTION الكأس 3 HD
+#SERVICE 1:0:19:4FB5:7F8:E0:1040000:0:0:0::الكأس 2 HD
+#DESCRIPTION الكأس 2 HD
+#SERVICE 1:0:1:3:202:2BE:1040000:0:0:0::البحرين الرياضية 1 (HD)
+#DESCRIPTION البحرين الرياضية 1 (HD)
+#SERVICE 1:0:1:4:202:2BE:1040000:0:0:0::البحرين الرياضية 2 (HD)
+#DESCRIPTION البحرين الرياضية 2 (HD)
+#SERVICE 1:0:19:9CB5:FAA:E0:1040000:0:0:0::بي إن 4K
+#DESCRIPTION بي إن 4K
+#SERVICE 1:0:19:9CB3:FAA:E0:1040000:0:0:0::بي إن بوكس أوفيس 1
+#DESCRIPTION بي إن بوكس أوفيس 1
+#SERVICE 1:0:19:21FF:1F86:E0:1040000:0:0:0::بي إن بوكس أوفيس 2
+#DESCRIPTION بي إن بوكس أوفيس 2
+#SERVICE 1:0:19:9DDB:FC8:E0:1040000:0:0:0::بي إن جورميه
+#DESCRIPTION بي إن جورميه
+#SERVICE 1:0:19:4FC1:7F8:E0:1040000:0:0:0::بي إن سبورت
+#DESCRIPTION بي إن سبورت
+#SERVICE 1:0:19:20D1:1F68:E0:1040000:0:0:0::بي إن سبورت 1
+#DESCRIPTION بي إن سبورت 1
+#SERVICE 1:0:19:20D2:1F68:E0:1040000:0:0:0::بي إن سبورت 2
+#DESCRIPTION بي إن سبورت 2
+#SERVICE 1:0:19:20D3:1F68:E0:1040000:0:0:0::بي إن سبورت 3
+#DESCRIPTION بي إن سبورت 3
+#SERVICE 1:0:19:219A:1F7C:E0:1040000:0:0:0::بي إن سبورت 4
+#DESCRIPTION بي إن سبورت 4
+#SERVICE 1:0:19:20D4:1F68:E0:1040000:0:0:0::بي إن سبورتس 5
+#DESCRIPTION بي إن سبورتس 5
+#SERVICE 1:0:19:2199:1F7C:E0:1040000:0:0:0::بي إن سبورت 6
+#DESCRIPTION بي إن سبورت 6
+#SERVICE 1:0:19:2261:1F90:E0:1040000:0:0:0::بي إن سبورتس 7
+#DESCRIPTION بي إن سبورتس 7
+#SERVICE 1:0:19:219B:1F7C:E0:1040000:0:0:0::بي إن سبورت 8
+#DESCRIPTION بي إن سبورت 8
+#SERVICE 1:0:19:2262:1F90:E0:1040000:0:0:0::بي إن سبورتس 9
+#DESCRIPTION بي إن سبورتس 9
+#SERVICE 1:0:19:2263:1F90:E0:1040000:0:0:0::بي إن سبورتس الإنجليزية 1
+#DESCRIPTION بي إن سبورتس الإنجليزية 1
+#SERVICE 1:0:19:21FE:1F86:E0:1040000:0:0:0::بي إن سبورتس الإنجليزية 2
+#DESCRIPTION بي إن سبورتس الإنجليزية 2
+#SERVICE 1:0:19:21FD:1F86:E0:1040000:0:0:0::بي إن سبورتس الفرنسية 1
+#DESCRIPTION بي إن سبورتس الفرنسية 1
+#SERVICE 1:0:19:2264:1F90:E0:1040000:0:0:0::بي إن سبورتس الفرنسية 2
+#DESCRIPTION بي إن سبورتس الفرنسية 2
+#SERVICE 1:0:19:219D:1F7C:E0:1040000:0:0:0::بي إن سبورتس ماكس 1
+#DESCRIPTION بي إن سبورتس ماكس 1
+#SERVICE 1:0:19:2265:1F90:E0:1040000:0:0:0::بي إن سبورتس ماكس 2
+#DESCRIPTION بي إن سبورتس ماكس 2
+#SERVICE 1:0:19:4FC2:7F8:E0:1040000:0:0:0::بي إن سبورت ماكس 3
+#DESCRIPTION بي إن سبورت ماكس 3
+#SERVICE 1:0:19:4FC3:7F8:E0:1040000:0:0:0::بي إن سبورتس ماكس 4
+#DESCRIPTION بي إن سبورتس ماكس 4
+#SERVICE 1:0:19:4FC4:7F8:E0:1040000:0:0:0::بي إن سبورتس ماكس 5
+#DESCRIPTION بي إن سبورتس ماكس 5
+#SERVICE 1:0:19:4FC5:7F8:E0:1040000:0:0:0::بي إن سبورتس ماكس 6
+#DESCRIPTION بي إن سبورتس ماكس 6
+#SERVICE 1:0:19:2267:1F90:E0:1040000:0:0:0::بي إن سبورتس إن بي إيه
+#DESCRIPTION بي إن سبورتس إن بي إيه
+#SERVICE 1:0:19:219F:1F7C:E0:1040000:0:0:0::بي إن سبورتس الإخبارية
+#DESCRIPTION بي إن سبورتس الإخبارية
+#SERVICE 1:0:19:4FB7:7F8:E0:1040000:0:0:0::بي إن سبورتس اكسترا 1
+#DESCRIPTION بي إن سبورتس اكسترا 1
+#SERVICE 1:0:19:4FB8:7F8:E0:1040000:0:0:0::بي إن سبورتس اكسترا 2
+#DESCRIPTION بي إن سبورتس اكسترا 2
+#SERVICE 1:0:19:219C:1F7C:E0:1040000:0:0:0::بي إن سبورت إكسترا 3
+#DESCRIPTION بي إن سبورت إكسترا 3
+#SERVICE 1:0:19:21A3:1F7C:E0:1040000:0:0:0::بي إن سبورتس إكسترا 4
+#DESCRIPTION بي إن سبورتس إكسترا 4
+#SERVICE 1:0:19:4FCB:7F8:E0:1040000:0:0:0::بي إن سبورت إكسترا 5
+#DESCRIPTION بي إن سبورت إكسترا 5
+#SERVICE 1:0:19:4FCC:7F8:E0:1040000:0:0:0::بي إن سبورتس إكسترا 6
+#DESCRIPTION بي إن سبورتس إكسترا 6
+#SERVICE 1:0:19:2268:1F90:E0:1040000:0:0:0::بي إن سبورتس إكسترا 7
+#DESCRIPTION بي إن سبورتس إكسترا 7
+#SERVICE 1:0:19:20D8:1F68:E0:1040000:0:0:0::بي إن سبورت إكسترا 8
+#DESCRIPTION بي إن سبورت إكسترا 8
+#SERVICE 1:0:19:4FCD:7F8:E0:1040000:0:0:0::بي إن سبورت إكسترا 9
+#DESCRIPTION بي إن سبورت إكسترا 9
+#SERVICE 1:0:19:5:1FC:2BE:1040000:0:0:0::دبي الرياضية (HD)
+#DESCRIPTION دبي الرياضية (HD)
+#SERVICE 1:0:19:6:1FC:2BE:1040000:0:0:0::دبي الرياضية 2 (HD)
+#DESCRIPTION دبي الرياضية 2 (HD)
+#SERVICE 1:0:1:15E3:1A:2BE:1040000:0:0:0::السعودية الرياضية 1
+#DESCRIPTION السعودية الرياضية 1
+#SERVICE 1:0:1:15E4:1A:2BE:1040000:0:0:0::السعودية الرياضية 2
+#DESCRIPTION السعودية الرياضية 2
+#SERVICE 1:0:1:15E5:1A:2BE:1040000:0:0:0::السعودية الرياضية 3
+#DESCRIPTION السعودية الرياضية 3
+#SERVICE 1:0:19:450:7594:77E:1040000:0:0:0::الكويت الرياضية
+#DESCRIPTION الكويت الرياضية
+#SERVICE 1:0:19:451:7594:77E:1040000:0:0:0::الكويت الرياضية 2
+#DESCRIPTION الكويت الرياضية 2
+#SERVICE 1:0:1:20D:2:2BE:1040000:0:0:0::ليبيا سبورت 1 HD
+#DESCRIPTION ليبيا سبورت 1 HD
+#SERVICE 1:0:1:8FE:2:2BE:1040000:0:0:0::ليبيا الرياضية 2 HD
+#DESCRIPTION ليبيا الرياضية 2 HD
+#SERVICE 1:64:1FE:0:0:0:0:0:0:0::| اخبار |
+#DESCRIPTION | اخبار |
+#SERVICE 1:0:19:4:802:E0:1040000:0:0:0::إيه نيوز
+#DESCRIPTION إيه نيوز
+#SERVICE 1:0:2:37:1BC0:2BE:1040000:0:0:0::العربية إف إم
+#DESCRIPTION العربية إف إم
+#SERVICE 1:0:1:1B:208:2BE:1040000:0:0:0::قناة الحدث
+#DESCRIPTION قناة الحدث
+#SERVICE 1:0:19:9E41:FD2:E0:1040000:0:0:0::بي بي سي إيرث الشرق الأوسط
+#DESCRIPTION بي بي سي إيرث الشرق الأوسط
+#SERVICE 1:0:1:17:1FD:2BE:1040000:0:0:0::بي بي سي العربية
+#DESCRIPTION بي بي سي العربية
+#SERVICE 1:0:19:1E:1FD:2BE:1040000:0:0:0::بي بي سي نيوز عربي (HD)
+#DESCRIPTION بي بي سي نيوز عربي (HD)
+#SERVICE 1:0:2:2E:1FD:2BE:1040000:0:0:0::BBC World Service English
+#DESCRIPTION BBC World Service English
+#SERVICE 1:0:2:2F:1FD:2BE:1040000:0:0:0::BBC World Service Horn of Africa
+#DESCRIPTION BBC World Service Horn of Africa
+#SERVICE 1:0:19:9DD3:FC8:E0:1040000:0:0:0::سي إن إن الدولية أوروبا (HD)
+#DESCRIPTION سي إن إن الدولية أوروبا (HD)
+#SERVICE 1:0:16:259:1F9:2BE:1040000:0:0:0::سي إن إن الدولية - أوروبا (SD)
+#DESCRIPTION سي إن إن الدولية - أوروبا (SD)
+#SERVICE 1:0:1:34:1FD:2BE:1040000:0:0:0::يورونيوز الإنجليزية
+#DESCRIPTION يورونيوز الإنجليزية
+#SERVICE 1:0:19:44E:7594:77E:1040000:0:0:0::قناة الكويت الإخبارية
+#DESCRIPTION قناة الكويت الإخبارية
+#SERVICE 1:0:19:50E3:816:E0:1040000:0:0:0::رؤيا إخباري
+#DESCRIPTION رؤيا إخباري
+#SERVICE 1:0:1:73A:1FA:2BE:1040000:0:0:0::روسيا اليوم
+#DESCRIPTION روسيا اليوم
+#SERVICE 1:0:16:19:1FD:2BE:1040000:0:0:0::سكاي نيوز عربية
+#DESCRIPTION سكاي نيوز عربية
+#SERVICE 1:0:19:1A:1FD:2BE:1040000:0:0:0::سكاي نيوز عربية (HD)
+#DESCRIPTION سكاي نيوز عربية (HD)
+#SERVICE 1:0:16:23:1FD:2BE:1040000:0:0:0::سكاي نيوز عربية 90.3 إف إم
+#DESCRIPTION سكاي نيوز عربية 90.3 إف إم
+#SERVICE 1:0:1:7DB:2:2BE:1040000:0:0:0::قناة السودان الإخبارية
+#DESCRIPTION قناة السودان الإخبارية
+#SERVICE 1:64:1FF:0:0:0:0:0:0:0::| موسيقى |
+#DESCRIPTION | موسيقى |
+#SERVICE 1:0:A:16:1F7:2BE:1040000:0:0:0::إذاعة أذان أبوظبي
+#DESCRIPTION إذاعة أذان أبوظبي
+#SERVICE 1:0:A:19:1F7:2BE:1040000:0:0:0::إذاعة أذان عجمان
+#DESCRIPTION إذاعة أذان عجمان
+#SERVICE 1:0:A:17:1F7:2BE:1040000:0:0:0::إذاعة أذان العين
+#DESCRIPTION إذاعة أذان العين
+#SERVICE 1:0:2:50DF:816:E0:1040000:0:0:0::إذاعة الريان
+#DESCRIPTION إذاعة الريان
+#SERVICE 1:0:2:A48:1A:2BE:1040000:0:0:0::إذاعة العزم
+#DESCRIPTION إذاعة العزم
+#SERVICE 1:0:2:35:1BC0:2BE:1040000:0:0:0::العلا إف إم
+#DESCRIPTION العلا إف إم
+#SERVICE 1:0:2:E:202:2BE:1040000:0:0:0::إذاعة الكلاسيكية العربية 96.0
+#DESCRIPTION إذاعة الكلاسيكية العربية 96.0
+#SERVICE 1:0:2:F:202:2BE:1040000:0:0:0::إذاعة الخليج العربي
+#DESCRIPTION إذاعة الخليج العربي
+#SERVICE 1:0:2:C:202:2BE:1040000:0:0:0::بحرين إف إم 93.3
+#DESCRIPTION بحرين إف إم 93.3
+#SERVICE 1:0:A:1F:1F7:2BE:1040000:0:0:0::إذاعة أذان دبي
+#DESCRIPTION إذاعة أذان دبي
+#SERVICE 1:0:2:D:1FC:2BE:1040000:0:0:0::إذاعة دبي 93
+#DESCRIPTION إذاعة دبي 93
+#SERVICE 1:0:2:A42:1A:2BE:1040000:0:0:0::إذاعة الإخبارية
+#DESCRIPTION إذاعة الإخبارية
+#SERVICE 1:0:A:18:1F7:2BE:1040000:0:0:0::إذاعة أذان الفجيرة
+#DESCRIPTION إذاعة أذان الفجيرة
+#SERVICE 1:0:A:1C:1F7:2BE:1040000:0:0:0::إذاعة أذان غياثي
+#DESCRIPTION إذاعة أذان غياثي
+#SERVICE 1:0:2:1B:2:1:1040000:0:0:0::إذاعة هولا قطر
+#DESCRIPTION إذاعة هولا قطر
+#SERVICE 1:0:2:1B:3:1:1040000:0:0:0::إذاعة هولا قطر
+#DESCRIPTION إذاعة هولا قطر
+#SERVICE 1:0:2:5025:802:E0:1040000:0:0:0::إفريقيا إف إم
+#DESCRIPTION إفريقيا إف إم
+#SERVICE 1:0:2:A3E:1A:2BE:1040000:0:0:0::إذاعة جدة
+#DESCRIPTION إذاعة جدة
+#SERVICE 1:0:2:718:1FA:2BE:1040000:0:0:0::إذاعة المملكة الأردنية الهاشمية
+#DESCRIPTION إذاعة المملكة الأردنية الهاشمية
+#SERVICE 1:0:2:A49:1A:2BE:1040000:0:0:0::إذاعة خزامى
+#DESCRIPTION إذاعة خزامى
+#SERVICE 1:0:2:F:7594:77E:1040000:0:0:0::كويت إف إم
+#DESCRIPTION كويت إف إم
+#SERVICE 1:0:2:B:7594:77E:1040000:0:0:0::إذاعة الكويت البرنامج العام
+#DESCRIPTION إذاعة الكويت البرنامج العام
+#SERVICE 1:0:2:14:7594:77E:1040000:0:0:0::إذاعة الكويت البرنامج العام
+#DESCRIPTION إذاعة الكويت البرنامج العام
+#SERVICE 1:0:2:C:7594:77E:1040000:0:0:0::إذاعة الكويت البرنامج الثاني
+#DESCRIPTION إذاعة الكويت البرنامج الثاني
+#SERVICE 1:0:A:1D:1F7:2BE:1040000:0:0:0::إذاعة أذان ليوا
+#DESCRIPTION إذاعة أذان ليوا
+#SERVICE 1:0:2:34:1BC0:2BE:1040000:0:0:0::MBC إف إم
+#DESCRIPTION MBC إف إم
+#SERVICE 1:0:2:38:1BC0:2BE:1040000:0:0:0::MBC إف إم
+#DESCRIPTION MBC إف إم
+#SERVICE 1:0:2:3C:1BC0:2BE:1040000:0:0:0::MBC لاود إف إم
+#DESCRIPTION MBC لاود إف إم
+#SERVICE 1:0:2:50:1BC0:2BE:1040000:0:0:0::إم بي سي إف إم - الجزء الأول
+#DESCRIPTION إم بي سي إف إم - الجزء الأول
+#SERVICE 1:0:2:51:1BC0:2BE:1040000:0:0:0::إم بي سي إف إم - الجزء الثاني
+#DESCRIPTION إم بي سي إف إم - الجزء الثاني
+#SERVICE 1:0:2:107:12D:2BE:1040000:0:0:0::إذاعة مدل بيست
+#DESCRIPTION إذاعة مدل بيست
+#SERVICE 1:0:2:B:1FC:2BE:1040000:0:0:0::إذاعة نور دبي
+#DESCRIPTION إذاعة نور دبي
+#SERVICE 1:0:2:13:7594:77E:1040000:0:0:0::أو إف إم
+#DESCRIPTION أو إف إم
+#SERVICE 1:0:2:17:2:1:1040000:0:0:0::أوريكس إف إم
+#DESCRIPTION أوريكس إف إم
+#SERVICE 1:0:2:17:3:1:1040000:0:0:0::أوريكس إف إم
+#DESCRIPTION أوريكس إف إم
+#SERVICE 1:0:2:36:1BC0:2BE:1040000:0:0:0::بانوراما إف إم
+#DESCRIPTION بانوراما إف إم
+#SERVICE 1:0:2:15:2:1:1040000:0:0:0::إذاعة قطر
+#DESCRIPTION إذاعة قطر
+#SERVICE 1:0:2:15:3:1:1040000:0:0:0::إذاعة قطر
+#DESCRIPTION إذاعة قطر
+#SERVICE 1:0:2:18:2:1:1040000:0:0:0::إذاعة qbs
+#DESCRIPTION إذاعة qbs
+#SERVICE 1:0:2:18:3:1:1040000:0:0:0::إذاعة qbs
+#DESCRIPTION إذاعة qbs
+#SERVICE 1:0:2:5022:802:E0:1040000:0:0:0::الإذاعة الجزائرية الدولية
+#DESCRIPTION الإذاعة الجزائرية الدولية
+#SERVICE 1:0:2:714:1FA:2BE:1040000:0:0:0::إذاعة عمّان
+#DESCRIPTION إذاعة عمّان
+#SERVICE 1:0:2:B:202:2BE:1040000:0:0:0::إذاعة البحرين 102.3
+#DESCRIPTION إذاعة البحرين 102.3
+#SERVICE 1:0:2:D:202:2BE:1040000:0:0:0::إذاعة البحرين 96.5
+#DESCRIPTION إذاعة البحرين 96.5
+#SERVICE 1:0:2:5024:802:E0:1040000:0:0:0::إذاعة القرآن الكريم
+#DESCRIPTION إذاعة القرآن الكريم
+#SERVICE 1:0:1:72D:1FA:2BE:1040000:0:0:0::إذاعة جيبوتي الأولى
+#DESCRIPTION إذاعة جيبوتي الأولى
+#SERVICE 1:0:2:72E:1FA:2BE:1040000:0:0:0::إذاعة جيبوتي الثانية
+#DESCRIPTION إذاعة جيبوتي الثانية
+#SERVICE 1:0:2:72F:1FA:2BE:1040000:0:0:0::إذاعة جيبوتي الثالثة
+#DESCRIPTION إذاعة جيبوتي الثالثة
+#SERVICE 1:0:2:14:1FD:2BE:1040000:0:0:0::إذاعة فرنسا الدولية
+#DESCRIPTION إذاعة فرنسا الدولية
+#SERVICE 1:0:2:19A:1F6:2BE:1040000:0:0:0::راديو زارا إف إم
+#DESCRIPTION راديو زارا إف إم
+#SERVICE 1:0:2:19C:1F6:2BE:1040000:0:0:0::راديو زارا إف إم
+#DESCRIPTION راديو زارا إف إم
+#SERVICE 1:0:A:1B:1F7:2BE:1040000:0:0:0::إذاعة أذان رأس الخيمة
+#DESCRIPTION إذاعة أذان رأس الخيمة
+#SERVICE 1:0:2:A3D:1A:2BE:1040000:0:0:0::إذاعة الرياض
+#DESCRIPTION إذاعة الرياض
+#SERVICE 1:0:19:5146:820:E0:1040000:0:0:0::Rotana Music (HD)
+#DESCRIPTION Rotana Music (HD)
+#SERVICE 1:0:2:A44:1A:2BE:1040000:0:0:0::إذاعة السعودية - البنغالية
+#DESCRIPTION إذاعة السعودية - البنغالية
+#SERVICE 1:0:2:A45:1A:2BE:1040000:0:0:0::إذاعة السعودية - الفرنسية
+#DESCRIPTION إذاعة السعودية - الفرنسية
+#SERVICE 1:0:2:A46:1A:2BE:1040000:0:0:0::إذاعة السعودية - البشتوية
+#DESCRIPTION إذاعة السعودية - البشتوية
+#SERVICE 1:0:2:A3F:1A:2BE:1040000:0:0:0::إذاعة السعودية
+#DESCRIPTION إذاعة السعودية
+#SERVICE 1:0:A:20:1F7:2BE:1040000:0:0:0::إذاعة أذان الشارقة
+#DESCRIPTION إذاعة أذان الشارقة
+#SERVICE 1:0:A:B:1F7:2BE:1040000:0:0:0::إذاعة الشارقة
+#DESCRIPTION إذاعة الشارقة
+#SERVICE 1:0:A:1E:1F7:2BE:1040000:0:0:0::إذاعة أذان السلع
+#DESCRIPTION إذاعة أذان السلع
+#SERVICE 1:0:2:12:202:2BE:1040000:0:0:0::الإذاعة التقليدية 95.0
+#DESCRIPTION الإذاعة التقليدية 95.0
+#SERVICE 1:0:A:1A:1F7:2BE:1040000:0:0:0::إذاعة أذان أم القيوين
+#DESCRIPTION إذاعة أذان أم القيوين
+#SERVICE 1:0:2:19:2:1:1040000:0:0:0::إذاعة أردو
+#DESCRIPTION إذاعة أردو
+#SERVICE 1:0:2:19:3:1:1040000:0:0:0::إذاعة أردو
+#DESCRIPTION إذاعة أردو
+#SERVICE 1:64:200:0:0:0:0:0:0:0::| وثائقيات |
+#DESCRIPTION | وثائقيات |
+#SERVICE 1:0:19:9DD4:FC8:E0:1040000:0:0:0::قناة ديسكفري الشرق الأوسط
+#DESCRIPTION قناة ديسكفري الشرق الأوسط
+#SERVICE 1:64:201:0:0:0:0:0:0:0::| أطفال |
+#DESCRIPTION | أطفال |
+#SERVICE 1:0:19:9DD9:FC8:E0:1040000:0:0:0::دي كيدز
+#DESCRIPTION دي كيدز
+#SERVICE 1:0:1:2:1BC0:2BE:1040000:0:0:0::إم بي سي 4
+#DESCRIPTION إم بي سي 4
+#SERVICE 1:0:19:12F:17F8:2BE:1040000:0:0:0::إم بي سي 4 (HD)
+#DESCRIPTION إم بي سي 4 (HD)
+#SERVICE 1:0:19:50E4:816:E0:1040000:0:0:0::رؤيا أطفال
+#DESCRIPTION رؤيا أطفال
+#SERVICE 1:0:1:710:1CEA:1:1040000:0:0:0::سبيستون عربي
+#DESCRIPTION سبيستون عربي
+#SERVICE 1:64:202:0:0:0:0:0:0:0::| مطبخ |
+#DESCRIPTION | مطبخ |
+#SERVICE 1:0:19:9D6F:FBE:E0:1040000:0:0:0::فتافيت (HD)
+#DESCRIPTION فتافيت (HD)
+#SERVICE 1:0:19:9E40:FD2:E0:1040000:0:0:0::فود نتورك إي إم إي إيه
+#DESCRIPTION فود نتورك إي إم إي إيه
+#SERVICE 1:64:203:0:0:0:0:0:0:0::| عام |
+#DESCRIPTION | عام |
+#SERVICE 1:0:C:FFFE:1F68:E0:1040000:0:0:0::10810H SID 0xfffe
+#DESCRIPTION 10810H SID 0xfffe
+#SERVICE 1:0:C:FFFE:1F7C:E0:1040000:0:0:0::10810V SID 0xfffe
+#DESCRIPTION 10810V SID 0xfffe
+#SERVICE 1:0:C:FFFE:1F90:E0:1040000:0:0:0::10850V SID 0xfffe
+#DESCRIPTION 10850V SID 0xfffe
+#SERVICE 1:0:C:270A:FD2:E0:1040000:0:0:0::10890H SID 0x270a
+#DESCRIPTION 10890H SID 0x270a
+#SERVICE 1:0:C:2709:FAA:E0:1040000:0:0:0::11310H SID 0x2709
+#DESCRIPTION 11310H SID 0x2709
+#SERVICE 1:0:C:270B:FAA:E0:1040000:0:0:0::11310H SID 0x270b
+#DESCRIPTION 11310H SID 0x270b
+#SERVICE 1:0:C:270D:FAA:E0:1040000:0:0:0::11310H SID 0x270d
+#DESCRIPTION 11310H SID 0x270d
+#SERVICE 1:0:C:270E:FAA:E0:1040000:0:0:0::11310H SID 0x270e
+#DESCRIPTION 11310H SID 0x270e
+#SERVICE 1:0:C:270F:FAA:E0:1040000:0:0:0::11310H SID 0x270f
+#DESCRIPTION 11310H SID 0x270f
+#SERVICE 1:0:C:272F:FAA:E0:1040000:0:0:0::11310H SID 0x272f
+#DESCRIPTION 11310H SID 0x272f
+#SERVICE 1:0:C:2730:FAA:E0:1040000:0:0:0::11310H SID 0x2730
+#DESCRIPTION 11310H SID 0x2730
+#SERVICE 1:0:C:FFFE:FAA:E0:1040000:0:0:0::11310H SID 0xfffe
+#DESCRIPTION 11310H SID 0xfffe
+#SERVICE 1:0:C:2708:FB4:E0:1040000:0:0:0::11350V SID 0x2708
+#DESCRIPTION 11350V SID 0x2708
+#SERVICE 1:0:C:FFFE:FB4:E0:1040000:0:0:0::11350V SID 0xfffe
+#DESCRIPTION 11350V SID 0xfffe
+#SERVICE 1:0:C:FFFE:1F86:E0:1040000:0:0:0::11390V SID 0xfffe
+#DESCRIPTION 11390V SID 0xfffe
+#SERVICE 1:0:FF:67:1F6:2BE:1040000:0:0:0::11938V SID 0x67
+#DESCRIPTION 11938V SID 0x67
+#SERVICE 1:0:1:70B:1FA:2BE:1040000:0:0:0::قناة عدن
+#DESCRIPTION قناة عدن
+#SERVICE 1:0:1:1D:1:2BE:1040000:0:0:0::أغاني أغاني تي في
+#DESCRIPTION أغاني أغاني تي في
+#SERVICE 1:0:1:18:1:2BE:1040000:0:0:0::الجديد (HD)
+#DESCRIPTION الجديد (HD)
+#SERVICE 1:0:16:5019:802:E0:1040000:0:0:0::الرحمة
+#DESCRIPTION الرحمة
+#SERVICE 1:0:19:50DD:816:E0:1040000:0:0:0::الريان (HD)
+#DESCRIPTION الريان (HD)
+#SERVICE 1:0:19:50DE:816:E0:1040000:0:0:0::الريان القديم (HD)
+#DESCRIPTION الريان القديم (HD)
+#SERVICE 1:0:19:D:1F7:2BE:1040000:0:0:0::الثقافية (HD)
+#DESCRIPTION الثقافية (HD)
+#SERVICE 1:0:19:253:1F6:2BE:1040000:0:0:0::المشهد
+#DESCRIPTION المشهد
+#SERVICE 1:0:1:250:1F6:2BE:1040000:0:0:0::العربية
+#DESCRIPTION العربية
+#SERVICE 1:0:1:7:1F6:2BE:1040000:0:0:0::العربية (HD)
+#DESCRIPTION العربية (HD)
+#SERVICE 1:0:19:132:17F8:2BE:1040000:0:0:0::العربية (HD)
+#DESCRIPTION العربية (HD)
+#SERVICE 1:0:1:255:1F6:2BE:1040000:0:0:0::العربية للأعمال
+#DESCRIPTION العربية للأعمال
+#SERVICE 1:0:19:5015:802:E0:1040000:0:0:0::التلفزيون العربي (HD)
+#DESCRIPTION التلفزيون العربي (HD)
+#SERVICE 1:0:19:5018:802:E0:1040000:0:0:0::تلفزيون العربي 2 (HD)
+#DESCRIPTION تلفزيون العربي 2 (HD)
+#SERVICE 1:0:19:502C:802:E0:1040000:0:0:0::الإخبارية السورية
+#DESCRIPTION الإخبارية السورية
+#SERVICE 1:0:19:51A5:82A:E0:1040000:0:0:0::الإخبارية السورية
+#DESCRIPTION الإخبارية السورية
+#SERVICE 1:0:1:193:12D:2BE:1040000:0:0:0::قناة الكوثر (HD)
+#DESCRIPTION قناة الكوثر (HD)
+#SERVICE 1:0:19:5148:820:E0:1040000:0:0:0::قناة الرسالة (HD)
+#DESCRIPTION قناة الرسالة (HD)
+#SERVICE 1:0:19:51A6:82A:E0:1040000:0:0:0::القناة السورية
+#DESCRIPTION القناة السورية
+#SERVICE 1:0:19:502D:802:E0:1040000:0:0:0::قناة التغيير
+#DESCRIPTION قناة التغيير
+#SERVICE 1:0:1:173E:1CEA:1:1040000:0:0:0::تلفزيون الواقع HD
+#DESCRIPTION تلفزيون الواقع HD
+#SERVICE 1:0:19:12:1F9:2BE:1040000:0:0:0::القناة الوطنية
+#DESCRIPTION القناة الوطنية
+#SERVICE 1:0:1:1F:1:2BE:1040000:0:0:0::أنا سورية
+#DESCRIPTION أنا سورية
+#SERVICE 1:0:1:1C:1:2BE:1040000:0:0:0::أرابيكا تي في
+#DESCRIPTION أرابيكا تي في
+#SERVICE 1:0:1:2:12D:2BE:1040000:0:0:0::أطفال ومواهب
+#DESCRIPTION أطفال ومواهب
+#SERVICE 1:0:1:B:1CEA:1:1040000:0:0:0::أطفال ومواهب
+#DESCRIPTION أطفال ومواهب
+#SERVICE 1:0:19:9D0D:FB4:E0:1040000:0:0:0::بيبي تي في أوروبا (HD)
+#DESCRIPTION بيبي تي في أوروبا (HD)
+#SERVICE 1:0:19:2:202:2BE:1040000:0:0:0::البحرين الدولية (HD)
+#DESCRIPTION البحرين الدولية (HD)
+#SERVICE 1:0:19:1:202:2BE:1040000:0:0:0::تلفزيون البحرين (HD)
+#DESCRIPTION تلفزيون البحرين (HD)
+#SERVICE 1:0:19:9D6E:FBE:E0:1040000:0:0:0::براعم
+#DESCRIPTION براعم
+#SERVICE 1:0:19:9D70:FBE:E0:1040000:0:0:0::بي جونيور
+#DESCRIPTION بي جونيور
+#SERVICE 1:0:19:9D72:FBE:E0:1040000:0:0:0::بلومبرج تي في أوروبا
+#DESCRIPTION بلومبرج تي في أوروبا
+#SERVICE 1:0:19:9DDA:FC8:E0:1040000:0:0:0::كرتون نتورك العربية
+#DESCRIPTION كرتون نتورك العربية
+#SERVICE 1:0:19:9DD6:FC8:E0:1040000:0:0:0::كارتون نتورك هندي
+#DESCRIPTION كارتون نتورك هندي
+#SERVICE 1:0:19:9DD2:FC8:E0:1040000:0:0:0::كارتون نتورك الشرق الأوسط وشمال أفريقيا (HD)
+#DESCRIPTION كارتون نتورك الشرق الأوسط وشمال أفريقيا (HD)
+#SERVICE 1:0:19:9DD1:FC8:E0:1040000:0:0:0::كارتونيتو الشرق الأوسط
+#DESCRIPTION كارتونيتو الشرق الأوسط
+#SERVICE 1:0:19:9DD7:FC8:E0:1040000:0:0:0::سي بيبيز
+#DESCRIPTION سي بيبيز
+#SERVICE 1:0:19:B:1F9:2BE:1040000:0:0:0::سي جي تي إن العربية (HD)
+#DESCRIPTION سي جي تي إن العربية (HD)
+#SERVICE 1:0:19:9CB6:FAA:E0:1040000:0:0:0::قناة 999
+#DESCRIPTION قناة 999
+#SERVICE 1:0:2:5021:802:E0:1040000:0:0:0::القناة الأولى
+#DESCRIPTION القناة الأولى
+#SERVICE 1:0:2:5023:802:E0:1040000:0:0:0::القناة الثالثة
+#DESCRIPTION القناة الثالثة
+#SERVICE 1:0:19:3:1FF:2BE:1040000:0:0:0::سي إن بي سي عربية
+#DESCRIPTION سي إن بي سي عربية
+#SERVICE 1:0:2:19B:1F6:2BE:1040000:0:0:0::ديمتسي حافاش
+#DESCRIPTION ديمتسي حافاش
+#SERVICE 1:0:2:19D:1F6:2BE:1040000:0:0:0::ديمتسي حافاش
+#DESCRIPTION ديمتسي حافاش
+#SERVICE 1:0:19:9D11:FB4:E0:1040000:0:0:0::قناة ديزني الشرق الأوسط
+#DESCRIPTION قناة ديزني الشرق الأوسط
+#SERVICE 1:0:19:9D12:FB4:E0:1040000:0:0:0::ديزني جونيور الشرق الأوسط
+#DESCRIPTION ديزني جونيور الشرق الأوسط
+#SERVICE 1:0:19:9DD8:FC8:E0:1040000:0:0:0::دريم ووركس
+#DESCRIPTION دريم ووركس
+#SERVICE 1:0:19:3:1FC:2BE:1040000:0:0:0::دبي ون (HD)
+#DESCRIPTION دبي ون (HD)
+#SERVICE 1:0:19:7:1FC:2BE:1040000:0:0:0::دبي ريسينج (HD)
+#DESCRIPTION دبي ريسينج (HD)
+#SERVICE 1:0:19:8:1FC:2BE:1040000:0:0:0::دبي ريسينج 2 (HD)
+#DESCRIPTION دبي ريسينج 2 (HD)
+#SERVICE 1:0:19:1:1FC:2BE:1040000:0:0:0::قناة دبي (HD)
+#DESCRIPTION قناة دبي (HD)
+#SERVICE 1:0:2:E:7594:77E:1040000:0:0:0::إيزي 92.5
+#DESCRIPTION إيزي 92.5
+#SERVICE 1:0:1:A2C:1A:2BE:1040000:0:0:0::قناة الإخبارية
+#DESCRIPTION قناة الإخبارية
+#SERVICE 1:0:1:251:1F6:2BE:1040000:0:0:0::تلفزيون إري 1
+#DESCRIPTION تلفزيون إري 1
+#SERVICE 1:0:19:9CAC:FAA:E0:1040000:0:0:0::فاين ليفينج HD
+#DESCRIPTION فاين ليفينج HD
+#SERVICE 1:0:19:4FB1:7F8:E0:1040000:0:0:0::فوكس لايف HD
+#DESCRIPTION فوكس لايف HD
+#SERVICE 1:0:1:16:1FD:2BE:1040000:0:0:0::فرانس 24 عربي
+#DESCRIPTION فرانس 24 عربي
+#SERVICE 1:0:1:1F:1FD:2BE:1040000:0:0:0::فرانس 24 فرنسي
+#DESCRIPTION فرانس 24 فرنسي
+#SERVICE 1:0:19:138:17F8:2BE:1040000:0:0:0::غوبكس مرحبا
+#DESCRIPTION غوبكس مرحبا
+#SERVICE 1:0:1:70C:1FA:2BE:1040000:0:0:0::قناة حضرموت
+#DESCRIPTION قناة حضرموت
+#SERVICE 1:0:19:9D73:FBE:E0:1040000:0:0:0::HGTV عربية
+#DESCRIPTION HGTV عربية
+#SERVICE 1:0:1:2:1F9:2BE:1040000:0:0:0::إيران إنترناشيونال (HD)
+#DESCRIPTION إيران إنترناشيونال (HD)
+#SERVICE 1:0:19:9D6D:FBE:E0:1040000:0:0:0::جيم تي في
+#DESCRIPTION جيم تي في
+#SERVICE 1:0:16:502E:802:E0:1040000:0:0:0::الأردن سما تي في
+#DESCRIPTION الأردن سما تي في
+#SERVICE 1:0:19:70A:1FA:2BE:1040000:0:0:0::التلفزيون الأردني (HD)
+#DESCRIPTION التلفزيون الأردني (HD)
+#SERVICE 1:0:19:44D:7594:77E:1040000:0:0:0::قناة الكويت الأولى
+#DESCRIPTION قناة الكويت الأولى
+#SERVICE 1:0:19:44F:7594:77E:1040000:0:0:0::قناة الكويت الثانية
+#DESCRIPTION قناة الكويت الثانية
+#SERVICE 1:0:19:5147:820:E0:1040000:0:0:0::إل بي سي (HD)
+#DESCRIPTION إل بي سي (HD)
+#SERVICE 1:0:1:17:1:2BE:1040000:0:0:0::إل بي سي انترناشيونال
+#DESCRIPTION إل بي سي انترناشيونال
+#SERVICE 1:0:1:518:2:2BE:1040000:0:0:0::ليبيا الرسمية
+#DESCRIPTION ليبيا الرسمية
+#SERVICE 1:0:1:20C:2:2BE:1040000:0:0:0::ليبيا الوطنية
+#DESCRIPTION ليبيا الوطنية
+#SERVICE 1:0:1:8FF:2:2BE:1040000:0:0:0::ليبيا التعليمية
+#DESCRIPTION ليبيا التعليمية
+#SERVICE 1:0:19:501D:802:E0:1040000:0:0:0::قناة مجان (HD)
+#DESCRIPTION قناة مجان (HD)
+#SERVICE 1:0:1:23A:1F6:2BE:1040000:0:0:0::تلفزيون مكة
+#DESCRIPTION تلفزيون مكة
+#SERVICE 1:0:1:9:1BC0:2BE:1040000:0:0:0::إم بي سي 3
+#DESCRIPTION إم بي سي 3
+#SERVICE 1:0:19:135:17F8:2BE:1040000:0:0:0::إم بي سي 3 (HD)
+#DESCRIPTION إم بي سي 3 (HD)
+#SERVICE 1:0:1:3:1F7:2BE:1040000:0:0:0::إم بي سي العراق
+#DESCRIPTION إم بي سي العراق
+#SERVICE 1:0:19:C:1F7:2BE:1040000:0:0:0::إم بي سي العراق (HD)
+#DESCRIPTION إم بي سي العراق (HD)
+#SERVICE 1:0:16:50E6:816:E0:1040000:0:0:0::مسك تي في
+#DESCRIPTION مسك تي في
+#SERVICE 1:0:2:33:1FD:2BE:1040000:0:0:0::مونت كارلو الدولية
+#DESCRIPTION مونت كارلو الدولية
+#SERVICE 1:0:2:A43:1A:2BE:1040000:0:0:0::مواجهات
+#DESCRIPTION مواجهات
+#SERVICE 1:0:1:15:1:2BE:1040000:0:0:0::إم تي في (HD)
+#DESCRIPTION إم تي في (HD)
+#SERVICE 1:0:19:11:1FF:2BE:1040000:0:0:0::إم تي في (HD)
+#DESCRIPTION إم تي في (HD)
+#SERVICE 1:0:19:9E35:FD2:E0:1040000:0:0:0::ناشيونال جيوغرافيك الشرق الأوسط (HD)
+#DESCRIPTION ناشيونال جيوغرافيك الشرق الأوسط (HD)
+#SERVICE 1:0:19:9E37:FD2:E0:1040000:0:0:0::ناشيونال جيوغرافيك وايلد الشرق الأوسط (HD)
+#DESCRIPTION ناشيونال جيوغرافيك وايلد الشرق الأوسط (HD)
+#SERVICE 1:0:1:1B:1:2BE:1040000:0:0:0::إن بي إن
+#DESCRIPTION إن بي إن
+#SERVICE 1:0:1:C:1CEA:1:1040000:0:0:0::تلفزيون عمان
+#DESCRIPTION تلفزيون عمان
+#SERVICE 1:0:1:16:1:2BE:1040000:0:0:0::ون تي في (HD)
+#DESCRIPTION ون تي في (HD)
+#SERVICE 1:0:C:1A04:1BC0:2BE:1040000:0:0:0::OTA
+#DESCRIPTION OTA
+#SERVICE 1:0:C:1A06:1BC0:2BE:1040000:0:0:0::OTA1
+#DESCRIPTION OTA1
+#SERVICE 1:0:C:1A05:1BC0:2BE:1040000:0:0:0::OTA2
+#DESCRIPTION OTA2
+#SERVICE 1:0:1:1A:1:2BE:1040000:0:0:0::أو تي في
+#DESCRIPTION أو تي في
+#SERVICE 1:0:19:10:1FF:2BE:1040000:0:0:0::بيس تي في الإنجليزية (HD)
+#DESCRIPTION بيس تي في الإنجليزية (HD)
+#SERVICE 1:0:1:1:2:1:1040000:0:0:0::تلفزيون قطر (HD)
+#DESCRIPTION تلفزيون قطر (HD)
+#SERVICE 1:0:1:4:3:1:1040000:0:0:0::تلفزيون قطر (HD)
+#DESCRIPTION تلفزيون قطر (HD)
+#SERVICE 1:0:1:2:2:1:1040000:0:0:0::تلفزيون قطر 2
+#DESCRIPTION تلفزيون قطر 2
+#SERVICE 1:0:1:2:3:1:1040000:0:0:0::تلفزيون قطر 2
+#DESCRIPTION تلفزيون قطر 2
+#SERVICE 1:0:1:5:3:1:1040000:0:0:0::قناة الكوثر HD
+#DESCRIPTION قناة الكوثر HD
+#SERVICE 1:0:1:6:3:1:1040000:0:0:0::كيو بي سي UHD
+#DESCRIPTION كيو بي سي UHD
+#SERVICE 1:0:1:19:1:2BE:1040000:0:0:0::ريد تي في (HD)
+#DESCRIPTION ريد تي في (HD)
+#SERVICE 1:0:19:5143:820:E0:1040000:0:0:0::Rotana Classic (HD)
+#DESCRIPTION Rotana Classic (HD)
+#SERVICE 1:0:19:5149:820:E0:1040000:0:0:0::Rotana Clip (HD)
+#DESCRIPTION Rotana Clip (HD)
+#SERVICE 1:0:19:5142:820:E0:1040000:0:0:0::Rotana Comedy (HD)
+#DESCRIPTION Rotana Comedy (HD)
+#SERVICE 1:0:19:5144:820:E0:1040000:0:0:0::Rotana Khalejia (HD)
+#DESCRIPTION Rotana Khalejia (HD)
+#SERVICE 1:0:19:50E2:816:E0:1040000:0:0:0::رؤيا تي في
+#DESCRIPTION رؤيا تي في
+#SERVICE 1:0:1:733:1FA:2BE:1040000:0:0:0::RT العربية
+#DESCRIPTION RT العربية
+#SERVICE 1:0:1:6A7:12D:2BE:1040000:0:0:0::روسيا اليوم (HD)
+#DESCRIPTION روسيا اليوم (HD)
+#SERVICE 1:0:1:729:1FA:2BE:1040000:0:0:0::RTD 4
+#DESCRIPTION RTD 4
+#SERVICE 1:0:16:36:1FD:2BE:1040000:0:0:0::آر تي آي 1
+#DESCRIPTION آر تي آي 1
+#SERVICE 1:0:1:258:1F6:2BE:1040000:0:0:0::قناة صاد الفضائية
+#DESCRIPTION قناة صاد الفضائية
+#SERVICE 1:0:1:501A:802:E0:1040000:0:0:0::تلفزيون سلام
+#DESCRIPTION تلفزيون سلام
+#SERVICE 1:0:19:2:1FC:2BE:1040000:0:0:0::سما دبي (HD)
+#DESCRIPTION سما دبي (HD)
+#SERVICE 1:0:1:A29:1A:2BE:1040000:0:0:0::تلفزيون السعودية
+#DESCRIPTION تلفزيون السعودية
+#SERVICE 1:0:1:A2D:1A:2BE:1040000:0:0:0::قناة السعودية الآن
+#DESCRIPTION قناة السعودية الآن
+#SERVICE 1:0:1:2A:1FD:2BE:1040000:0:0:0::إذاعة صوت العالم
+#DESCRIPTION إذاعة صوت العالم
+#SERVICE 1:0:1:A2B:1A:2BE:1040000:0:0:0::إس بي سي
+#DESCRIPTION إس بي سي
+#SERVICE 1:0:1:1:1F7:2BE:1040000:0:0:0::تلفزيون الشارقة
+#DESCRIPTION تلفزيون الشارقة
+#SERVICE 1:0:1:6:1F7:2BE:1040000:0:0:0::تلفزيون الشرقية
+#DESCRIPTION تلفزيون الشرقية
+#SERVICE 1:0:1:C:1BC0:2BE:1040000:0:0:0::تسوق 3
+#DESCRIPTION تسوق 3
+#SERVICE 1:0:2:A:2:1:1040000:0:0:0::صوت الخليج 2
+#DESCRIPTION صوت الخليج 2
+#SERVICE 1:0:2:A:3:1:1040000:0:0:0::صوت الخليج 2
+#DESCRIPTION صوت الخليج 2
+#SERVICE 1:0:2:B:2:1:1040000:0:0:0::صوت الخليج 3
+#DESCRIPTION صوت الخليج 3
+#SERVICE 1:0:2:B:3:1:1040000:0:0:0::صوت الخليج 3
+#DESCRIPTION صوت الخليج 3
+#SERVICE 1:0:2:C:2:1:1040000:0:0:0::صوت الخليج 4
+#DESCRIPTION صوت الخليج 4
+#SERVICE 1:0:2:C:3:1:1040000:0:0:0::صوت الخليج 4
+#DESCRIPTION صوت الخليج 4
+#SERVICE 1:0:2:D:2:1:1040000:0:0:0::صوت الخليج أوروبا
+#DESCRIPTION صوت الخليج أوروبا
+#SERVICE 1:0:2:D:3:1:1040000:0:0:0::صوت الخليج أوروبا
+#DESCRIPTION صوت الخليج أوروبا
+#SERVICE 1:0:19:9CB2:FAA:E0:1040000:0:0:0::Spare
+#DESCRIPTION Spare
+#SERVICE 1:0:19:9E36:FD2:E0:1040000:0:0:0::SPARE 40502
+#DESCRIPTION SPARE 40502
+#SERVICE 1:0:19:9E38:FD2:E0:1040000:0:0:0::SPARE 40504
+#DESCRIPTION SPARE 40504
+#SERVICE 1:0:19:4FB2:7F8:E0:1040000:0:0:0::Spare-FOX Crime HD
+#DESCRIPTION Spare-FOX Crime HD
+#SERVICE 1:0:19:9E3B:FD2:E0:1040000:0:0:0::Spare-MTV 80s
+#DESCRIPTION Spare-MTV 80s
+#SERVICE 1:0:19:9E3C:FD2:E0:1040000:0:0:0::Spare-MTV 90s
+#DESCRIPTION Spare-MTV 90s
+#SERVICE 1:0:19:9E3A:FD2:E0:1040000:0:0:0::Spare-MTV Club
+#DESCRIPTION Spare-MTV Club
+#SERVICE 1:0:19:4FB3:7F8:E0:1040000:0:0:0::SPARE_20403
+#DESCRIPTION SPARE_20403
+#SERVICE 1:0:1:1:1CEA:1:1040000:0:0:0::إس إس بي سي تي في
+#DESCRIPTION إس إس بي سي تي في
+#SERVICE 1:0:1:4:1F9:2BE:1040000:0:0:0::إس إس بي سي تي في
+#DESCRIPTION إس إس بي سي تي في
+#SERVICE 1:0:1:73B:12D:2BE:1040000:0:0:0::تلفزيون SSBC
+#DESCRIPTION تلفزيون SSBC
+#SERVICE 1:0:19:9D0E:FB4:E0:1040000:0:0:0::ستار أكشن
+#DESCRIPTION ستار أكشن
+#SERVICE 1:0:19:9E3E:FD2:E0:1040000:0:0:0::ستار لايف
+#DESCRIPTION ستار لايف
+#SERVICE 1:0:19:9D0C:FB4:E0:1040000:0:0:0::ستار وورلد الشرق الأوسط (HD)
+#DESCRIPTION ستار وورلد الشرق الأوسط (HD)
+#SERVICE 1:0:1:7DA:2:2BE:1040000:0:0:0::تلفزيون السودان
+#DESCRIPTION تلفزيون السودان
+#SERVICE 1:0:1:15E2:1A:2BE:1040000:0:0:0::قناة السنة
+#DESCRIPTION قناة السنة
+#SERVICE 1:0:2:10:7594:77E:1040000:0:0:0::سوبر ستيشن
+#DESCRIPTION سوبر ستيشن
+#SERVICE 1:0:19:5016:802:E0:1040000:0:0:0::تلفزيون سوريا
+#DESCRIPTION تلفزيون سوريا
+#SERVICE 1:0:16:5028:802:E0:1040000:0:0:0::تناصح تي في
+#DESCRIPTION تناصح تي في
+#SERVICE 1:0:16:5027:802:E0:1040000:0:0:0::طيبة تي في
+#DESCRIPTION طيبة تي في
+#SERVICE 1:0:19:9DD5:FC8:E0:1040000:0:0:0::تي سي إم HD
+#DESCRIPTION تي سي إم HD
+#SERVICE 1:0:1:1:12D:2BE:1040000:0:0:0::Test
+#DESCRIPTION Test
+#SERVICE 1:0:1:36:12D:2BE:1040000:0:0:0::TEST
+#DESCRIPTION TEST
+#SERVICE 1:0:1:37:12D:2BE:1040000:0:0:0::TEST
+#DESCRIPTION TEST
+#SERVICE 1:0:1:64D:12D:2BE:1040000:0:0:0::TEST
+#DESCRIPTION TEST
+#SERVICE 1:0:1:6A5:12D:2BE:1040000:0:0:0::Test
+#DESCRIPTION Test
+#SERVICE 1:0:1:6A8:12D:2BE:1040000:0:0:0::Test
+#DESCRIPTION Test
+#SERVICE 1:0:A:3:12D:2BE:1040000:0:0:0::Test
+#DESCRIPTION Test
+#SERVICE 1:0:16:E:1F9:2BE:1040000:0:0:0::TEST
+#DESCRIPTION TEST
+#SERVICE 1:0:16:3E8:1F9:2BE:1040000:0:0:0::TEST
+#DESCRIPTION TEST
+#SERVICE 1:0:1:1F8:1F6:2BE:1040000:0:0:0::Test 1
+#DESCRIPTION Test 1
+#SERVICE 1:0:1:1C7:12D:2BE:1040000:0:0:0::Test 2
+#DESCRIPTION Test 2
+#SERVICE 1:0:1:1BA:12D:2BE:1040000:0:0:0::Test 3
+#DESCRIPTION Test 3
+#SERVICE 1:0:1:1A:208:2BE:1040000:0:0:0::Test 5
+#DESCRIPTION Test 5
+#SERVICE 1:0:1:1C:208:2BE:1040000:0:0:0::Test 6
+#DESCRIPTION Test 6
+#SERVICE 1:0:1:23F:1F6:2BE:1040000:0:0:0::Test 8
+#DESCRIPTION Test 8
+#SERVICE 1:0:1:1F7:1F6:2BE:1040000:0:0:0::Test-3
+#DESCRIPTION Test-3
+#SERVICE 1:0:19:21A2:1F7C:E0:1040000:0:0:0::Test-3
+#DESCRIPTION Test-3
+#SERVICE 1:0:1:231:1F6:2BE:1040000:0:0:0::Test-5
+#DESCRIPTION Test-5
+#SERVICE 1:0:1:1FE:1F6:2BE:1040000:0:0:0::Test-6
+#DESCRIPTION Test-6
+#SERVICE 1:0:1:230:1F6:2BE:1040000:0:0:0::Test-7
+#DESCRIPTION Test-7
+#SERVICE 1:0:1:5020:802:E0:1040000:0:0:0::الثالثة A3
+#DESCRIPTION الثالثة A3
+#SERVICE 1:0:19:1:1FB4:2BE:1040000:0:0:0::ثمانية 1
+#DESCRIPTION ثمانية 1
+#SERVICE 1:0:19:2:1FB4:2BE:1040000:0:0:0::ثمانية 2
+#DESCRIPTION ثمانية 2
+#SERVICE 1:0:19:3:1FB4:2BE:1040000:0:0:0::ثمانية 3
+#DESCRIPTION ثمانية 3
+#SERVICE 1:0:19:4:1FB4:2BE:1040000:0:0:0::ثمانية 4
+#DESCRIPTION ثمانية 4
+#SERVICE 1:0:2:11:7594:77E:1040000:0:0:0::الأغاني العربية القديمة
+#DESCRIPTION الأغاني العربية القديمة
+#SERVICE 1:0:1:A2A:1A:2BE:1040000:0:0:0::قناة ذكريات
+#DESCRIPTION قناة ذكريات
+#SERVICE 1:0:1:3:1F9:2BE:1040000:0:0:0::تي في 5 موند
+#DESCRIPTION تي في 5 موند
+#SERVICE 1:0:2:12:7594:77E:1040000:0:0:0::الإذاعة التراثية
+#DESCRIPTION الإذاعة التراثية
+#SERVICE 1:0:19:9E3F:FD2:E0:1040000:0:0:0::قناة السفر أوروبا
+#DESCRIPTION قناة السفر أوروبا
+#SERVICE 1:0:1:18:208:2BE:1040000:0:0:0::تي آر تي عربي
+#DESCRIPTION تي آر تي عربي
+#SERVICE 1:0:1:1E:1:2BE:1040000:0:0:0::تلفزيون لبنان
+#DESCRIPTION تلفزيون لبنان
+#SERVICE 1:0:1:72B:1FA:2BE:1040000:0:0:0::تلفزيون لبنان
+#DESCRIPTION تلفزيون لبنان
+#SERVICE 1:0:19:50E1:816:E0:1040000:0:0:0::زور قطر
+#DESCRIPTION زور قطر
+#SERVICE 1:0:1:B:1BC0:2BE:1040000:0:0:0::وناسة
+#DESCRIPTION وناسة
+#SERVICE 1:0:1:70D:1FA:2BE:1040000:0:0:0::قناة اليمن
+#DESCRIPTION قناة اليمن
