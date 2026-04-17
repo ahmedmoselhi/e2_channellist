@@ -82,7 +82,7 @@ class UIManager:
             os.execvp("python", ["python"] + sys.argv)
 
         print(f"\n{Color.YELLOW}⚠ Module 'prompt_toolkit' not found.{Color.END}")
-        print(f"{Color.CYAN}⚙ Attempting installation...{Color.END}")
+        print(f"{Color.CYAN}● Attempting installation...{Color.END}")
 
         commands = [
             [sys.executable, "-m", "pip", "install", "prompt_toolkit"],
@@ -1056,12 +1056,12 @@ class SatelliteArchitect:
         self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{self.provider},c:15{pid_hex}{biss_flag},f:05\n"
         
         # Bouquet headers
-        header_parts = [f"━━━ {self.provider} {pos_disp} ━━━ Freq: {self.freq} MHz | PID: {pid} | PLP: {plp}"]
+        header_parts = [f"▬ ▬ ▬ {self.provider} {pos_disp} ▬ ▬ ▬ Freq: {self.freq} MHz | PID: {pid} | PLP: {plp}"]
         if stream_label: header_parts.append(f"| {stream_label}")
-        marker_1 = " ".join(header_parts) + " ━━━"
+        marker_1 = " ".join(header_parts) + " ▬ ▬ ▬"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_1}")
         
-        feed_desc = f"⚙ {pos_plain}-{self.provider}@PID{pid}PLP{plp}"
+        feed_desc = f"● {pos_plain}-{self.provider}@PID{pid}PLP{plp}"
         feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
         self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
         
@@ -1124,7 +1124,7 @@ class SatelliteArchitect:
                             c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
                             
                             # Add to Bouquet
-                            self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ▶ {name}")
+                            self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ❯ {name}")
                             
                             # Double Log (Screen + Log File)
                             print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
@@ -1353,14 +1353,14 @@ class SatelliteArchitect:
         self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{provider},c:15{pid_hex}{biss_flag},f:05\n"
         
         # Bouquet headers
-        header_parts = [f"━━━ {provider} {pos_disp} ━━━ Freq: {freq} MHz | PID: {pid} | PLP: {plp}"]
+        header_parts = [f"▬ ▬ ▬ {provider} {pos_disp} ▬ ▬ ▬ Freq: {freq} MHz | PID: {pid} | PLP: {plp}"]
         if stream_label: header_parts.append(f"| {stream_label}")
-        marker_1 = " ".join(header_parts) + " ━━━"
+        marker_1 = " ".join(header_parts) + " ▬ ▬ ▬"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_1}")
-        marker_2 = f"━━━ {provider} {pos_disp} ━━━ FEED SOURCE ━━━"
+        marker_2 = f"▬ ▬ ▬ {provider} {pos_disp} ▬ ▬ ▬ FEED SOURCE ▬ ▬ ▬"
         self.bouquet.append(f"#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION {marker_2}")
         
-        feed_desc = f"⚙ {pos_plain}-{provider}@PID{pid}PLP{plp}"
+        feed_desc = f"● {pos_plain}-{provider}@PID{pid}PLP{plp}"
         feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
         self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
         
@@ -1413,7 +1413,7 @@ class SatelliteArchitect:
                         stype = parts[2] if len(parts) > 2 else "1"
                         csid_hex = format(int(csid), 'x').lower()
                         c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
-                        self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ▶ {name}")
+                        self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ❯ {name}")
                         print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
         else:
             print(f"  {Color.YELLOW}    -> No channel list file found for this stream.{Color.END}")

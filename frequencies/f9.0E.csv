@@ -1,0 +1,3 @@
+Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
+12226,1,30000,9.0,E,2,9,1,2,2,2,"{4096,0;4096,0}","10,20","{0,0;0,0}",ZeonBud,https://www.lyngsat.com/muxes/Eutelsat-9B_Nordic-and-Eastern_12226-V.html
+12303,1,30000,9.0,E,2,9,1,2,2,2,"{4096,0;4096,0}","30,40","{0,0;0,0}",ZeonBud,https://www.lyngsat.com/muxes/Eutelsat-9B_Nordic-and-Eastern_12303-V.html
