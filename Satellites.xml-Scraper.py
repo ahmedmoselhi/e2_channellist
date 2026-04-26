@@ -348,7 +348,16 @@ class OrionScraper:
         
         seen_tps = set()
         for tp in tps:
-            tp_key = (tp["frequency"], tp["polarization"], tp.get("is_id", ""), tp.get("t2mi_plp_id", ""))
+            # FIX: Expanded key to distinguish between feeds/streams sharing a frequency
+            tp_key = (
+                tp["frequency"], 
+                tp["polarization"], 
+                tp["symbol_rate"],
+                tp["system"],
+                tp["modulation"],
+                tp.get("is_id", ""), 
+                tp.get("t2mi_plp_id", "")
+            )
             
             if tp_key not in seen_tps:
                 seen_tps.add(tp_key)

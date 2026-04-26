@@ -225,7 +225,16 @@ class OrionScraperCI:
         sat = ET.SubElement(root, "sat", name=name, flags="1", position=pos)
         seen = set()
         for tp in tps:
-            key = (tp["frequency"], tp["polarization"], tp.get("is_id", ""), tp.get("t2mi_plp_id", ""))
+            # FIX: Expanded key to distinguish between feeds/streams sharing a frequency
+            key = (
+                tp["frequency"], 
+                tp["polarization"], 
+                tp["symbol_rate"],
+                tp["system"],
+                tp["modulation"],
+                tp.get("is_id", ""), 
+                tp.get("t2mi_plp_id", "")
+            )
             if key not in seen:
                 seen.add(key)
                 if not self.advanced:
