@@ -140,7 +140,7 @@ class SatellitesProcessor:
             {"pos": "1014", "new_name": "(46) 101.4E KU-band ChinaSat 9B"},
             {"pos": "1031", "new_name": "(127) 103.0E C-band Express AMU3"},
             {"pos": "1030", "new_name": "(47) 103.0E KU-band Express AMU3"},
-            {"pos": "1055", "new_name": "(128) 105.4E C-band AsiaSat 7/8"},
+            {"pos": "1056", "new_name": "(128) 105.5E C-band AsiaSat 7/8"},
             {"pos": "1054", "new_name": "(48) 105.4E KU-band AsiaSat 7/8"},
             {"pos": "1082", "new_name": "(129) 108.1E C-band SES 7/9 &amp; Merah Putih"},
             {"pos": "1081", "new_name": "(49) 108.1E KU-band SES 7/9 &amp; Merah Putih"},
