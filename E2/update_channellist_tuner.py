@@ -4,6 +4,7 @@ import sys
 import zipfile
 import time
 import shutil
+import argparse
 from datetime import datetime
 
 # --- PYTHON 2/3 COMPATIBILITY ---
@@ -235,9 +236,10 @@ def download_and_extract_channels():
     finally:
         start_enigma2()
 
-def update_tuner_settings():
+def update_tuner_settings(tuner_target=None, firmware_logic=None):
     """
     [TASK] Advanced Tuner Configuration (Restore/Inject).
+    Accepts arguments to bypass prompts during parameterised runs.
     """
     if not os.path.exists(SETTINGS_FILE):
         return
@@ -246,18 +248,29 @@ def update_tuner_settings():
 
     get_input = raw_input if sys.version_info[0] == 2 else input
 
-    choice = get_input("\n[?] Select Target Tuner [0: Tuner A | 1: Tuner B]: ").strip()
+    if tuner_target is not None:
+        choice = str(tuner_target)
+    else:
+        choice = get_input("\n[?] Select Target Tuner [0: Tuner A | 1: Tuner B]: ").strip()
     
     if choice not in ['0', '1']:
+        print("-> [ERROR] Invalid tuner choice. Aborting.")
         return
 
     other_tuner = '1' if choice == '0' else '0'
 
-    print("\n[?] Select Firmware Logic:")
-    print(" (1) OpenATV - Uses full '.dvbs.' tagging.")
-    print(" (2) OpenPLi - Uses stripped path syntax.")
-    
-    fmt_choice = get_input("Choice [1/2]: ").strip()
+    if firmware_logic is not None:
+        fmt_choice = str(firmware_logic)
+    else:
+        print("\n[?] Select Firmware Logic:")
+        print(" (1) OpenATV - Uses full '.dvbs.' tagging.")
+        print(" (2) OpenPLi - Uses stripped path syntax.")
+        
+        fmt_choice = get_input("Choice [1/2]: ").strip()
+
+    if fmt_choice not in ['1', '2']:
+        print("-> [ERROR] Invalid firmware logic choice. Aborting.")
+        return
 
     stop_enigma2()
     
@@ -323,7 +336,10 @@ def update_tuner_settings():
     finally:
         start_enigma2()
 
-def main():
+def run_interactive_menu():
+    """
+    Renders the interactive menu and handles user input.
+    """
     print("\n" + "★" * 50)
     print("   _____       _                       ___  ")
     print("  |   __|___ _| |___ _ _ ___ ___ ___  |_  | ")
@@ -371,6 +387,54 @@ def main():
         download_astra_conf()
     else:
         sys.exit()
+
+def main():
+    # Setup argparse for command line functionality
+    parser = argparse.ArgumentParser(
+        description="Ultimate Utility v6.6 - Enigma2 Management Tool",
+        epilog="""
+Examples of Parameterised Usage:
+  python update_channellist_tuner.py -c                         # Run Full Channel Update only
+  python update_channellist_tuner.py -b                         # Backup Tuner Configuration
+  python update_channellist_tuner.py -t --tuner-target 0 --firmware-logic 1 # Advanced setup for Tuner A on OpenATV
+  python update_channellist_tuner.py -a                         # Astra Configuration update
+  python update_channellist_tuner.py --all --tuner-target 1 --firmware-logic 2 # Total System Refresh specifying Tuner B and OpenPLi
+        """,
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+
+    parser.add_argument('-c', '--channels', action='store_true', help='Execute Full Channel Update')
+    parser.add_argument('-b', '--backup', action='store_true', help='Backup Tuner Configuration')
+    parser.add_argument('-t', '--tuner', action='store_true', help='Execute Advanced Tuner Setup')
+    parser.add_argument('--tuner-target', choices=['0', '1'], help='Target Tuner [0: Tuner A | 1: Tuner B]')
+    parser.add_argument('--firmware-logic', choices=['1', '2'], help='Firmware Logic [1: OpenATV | 2: OpenPLi]')
+    parser.add_argument('-a', '--astra', action='store_true', help='Execute Astra Configuration Update')
+    parser.add_argument('--all', action='store_true', help='Execute Total System Refresh (Channels, Tuner, Astra)')
+
+    # If no arguments are passed, fall back to interactive menu
+    if len(sys.argv) == 1:
+        run_interactive_menu()
+    else:
+        args = parser.parse_args()
+
+        # Enforce required secondary arguments if tuner setup is triggered in parameter mode
+        if args.all or args.tuner:
+            if not args.tuner_target or not args.firmware_logic:
+                parser.error("Advanced Tuner Setup (--tuner or --all) requires --tuner-target and --firmware-logic to be specified.")
+
+        if args.all:
+            download_and_extract_channels()
+            update_tuner_settings(tuner_target=args.tuner_target, firmware_logic=args.firmware_logic)
+            download_astra_conf()
+        else:
+            if args.channels:
+                download_and_extract_channels()
+            if args.backup:
+                export_tuner_config()
+            if args.tuner:
+                update_tuner_settings(tuner_target=args.tuner_target, firmware_logic=args.firmware_logic)
+            if args.astra:
+                download_astra_conf()
 
 if __name__ == "__main__":
     main()
