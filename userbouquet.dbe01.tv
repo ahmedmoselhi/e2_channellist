@@ -117,8 +117,6 @@
 #DESCRIPTION قناة النيل الدولية
 #SERVICE 1:0:19:3E9:A:800:DC90000:0:0:0::Nilesat Promo
 #DESCRIPTION Nilesat Promo
-#SERVICE 1:0:1:CA:2:800:DC90000:0:0:0::أون إي
-#DESCRIPTION أون إي
 #SERVICE 1:0:1:CE:2:800:DC90000:0:0:0::أون إي
 #DESCRIPTION أون إي
 #SERVICE 1:0:19:CA:2:800:DC90000:0:0:0::أون إي HD
@@ -317,12 +315,8 @@
 #DESCRIPTION أون سبورت
 #SERVICE 1:0:19:7D1:14:800:DC90000:0:0:0::أون سبورت (HD)
 #DESCRIPTION أون سبورت (HD)
-#SERVICE 1:0:1:CB:2:800:DC90000:0:0:0::أون سبورت 1
-#DESCRIPTION أون سبورت 1
 #SERVICE 1:0:1:CF:2:800:DC90000:0:0:0::أون سبورت 1
 #DESCRIPTION أون سبورت 1
-#SERVICE 1:0:1:C9:2:800:DC90000:0:0:0::أون سبورت 2
-#DESCRIPTION أون سبورت 2
 #SERVICE 1:0:1:CD:2:800:DC90000:0:0:0::أون سبورت 2
 #DESCRIPTION أون سبورت 2
 #SERVICE 1:0:1:522:D:800:DC90000:0:0:0::أون سبورت ماكس
@@ -1099,8 +1093,6 @@
 #DESCRIPTION مودرن إم تي آي
 #SERVICE 1:0:19:136:3:157C:DC90000:0:0:0::مون باج
 #DESCRIPTION مون باج
-#SERVICE 1:0:1:CC:2:800:DC90000:0:0:0::موتور فيجن
-#DESCRIPTION موتور فيجن
 #SERVICE 1:0:2:A43:1A:2BE:DC90000:0:0:0::مواجهات
 #DESCRIPTION مواجهات
 #SERVICE 1:0:1:1B62:17:6E:DC90000:0:0:0::إم تي أي 3 العربية
