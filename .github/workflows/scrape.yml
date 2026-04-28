@@ -49,6 +49,21 @@ jobs:
           if [[ "${{ github.event.inputs.add_advanced || 'true' }}" == "true" ]]; then ADV_FLAG="--advanced"; fi
           
           python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG
+
+          # Safety check: stop workflow if scraped output is empty or has no transponders.
+          if [[ ! -s satellites.xml ]]; then
+            echo "ERROR: satellites.xml is empty after scraping. Stopping workflow to avoid overwriting valid data."
+            exit 1
+          fi
+
+          SATELLITE_COUNT=$(grep -c '<sat ' satellites.xml || true)
+          TRANSPONDER_COUNT=$(grep -c '<transponder ' satellites.xml || true)
+          if [[ "$SATELLITE_COUNT" -eq 0 || "$TRANSPONDER_COUNT" -eq 0 ]]; then
+            echo "ERROR: satellites.xml has no satellites/transponders (satellites=$SATELLITE_COUNT, transponders=$TRANSPONDER_COUNT)."
+            echo "Stopping workflow to avoid committing invalid scraped data."
+            exit 1
+          fi
+
           python CI/process_satellites.py satellites.xml
 
       - name: Commit and Push satellites.xml
