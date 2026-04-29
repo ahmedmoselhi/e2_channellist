@@ -143,9 +143,7 @@ def export_tuner_config():
             for line in tuner_lines:
                 f.write(line + '\n')
         
-        # Verify write before moving
-        if os.path.exists(target_file):
-            os.remove(target_file)
+        # Verify write before moving (Removed redundant os.remove)
         shutil.move(tmp_file, target_file)
 
         print("-> [SUCCESS] Exported {0} tuner lines to:".format(len(tuner_lines)))
@@ -183,7 +181,7 @@ def download_astra_conf():
         print("\n[✘] ERROR: Astra update failed -> {0}".format(str(e)))
         if os.path.exists(tmp_file): os.remove(tmp_file)
 
-def download_and_extract_channels():
+def download_and_extract_channels(manage_e2_state=True):
     """
     [TASK] Update Channel List & Satellites.
     """
@@ -194,7 +192,8 @@ def download_and_extract_channels():
 
     print_banner("CHANNEL LIST UPDATE PROCESS")
 
-    stop_enigma2()
+    if manage_e2_state:
+        stop_enigma2()
     
     try:
         backup_file(LAMEDB_PATH)
@@ -234,9 +233,10 @@ def download_and_extract_channels():
         print("\n[✘] ERROR: Update failed -> {0}".format(str(e)))
     
     finally:
-        start_enigma2()
+        if manage_e2_state:
+            start_enigma2()
 
-def update_tuner_settings(tuner_target=None, firmware_logic=None):
+def update_tuner_settings(tuner_target=None, firmware_logic=None, manage_e2_state=True):
     """
     [TASK] Advanced Tuner Configuration (Restore/Inject).
     Accepts arguments to bypass prompts during parameterised runs.
@@ -272,7 +272,8 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None):
         print("-> [ERROR] Invalid firmware logic choice. Aborting.")
         return
 
-    stop_enigma2()
+    if manage_e2_state:
+        stop_enigma2()
     
     backup_file(SETTINGS_FILE)
 
@@ -281,8 +282,13 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None):
     try:
         print("-> Pulling source data from GitHub...")
         req = Request(TUNER_URL)
-        with urlopen(req) as response:
+        
+        # Python 2 backward compatibility fix for urlopen context manager
+        response = urlopen(req)
+        try:
             raw_content = response.read().decode('utf-8').splitlines()
+        finally:
+            response.close()
 
         if not raw_content:
             raise ValueError("Tuner configuration source is empty.")
@@ -308,7 +314,9 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None):
 
         with open(SETTINGS_FILE, 'r') as f:
             all_lines = [l.strip() for l in f.readlines()]
-        clean_base = [l for l in all_lines if not l.startswith('config.Nims.')]
+            
+        # Target specific tuner removal to avoid deleting completely unrelated tuners (e.g. Tuner C)
+        clean_base = [l for l in all_lines if not (l.startswith('config.Nims.{0}.'.format(choice)) or l.startswith('config.Nims.{0}.'.format(other_tuner)))]
 
         print("-> Writing configuration atomically...")
         with open(tmp_settings, 'w') as f:
@@ -334,7 +342,8 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None):
             os.remove(tmp_settings)
 
     finally:
-        start_enigma2()
+        if manage_e2_state:
+            start_enigma2()
 
 def run_interactive_menu():
     """
@@ -382,9 +391,11 @@ def run_interactive_menu():
     elif menu_choice == '4':
         download_astra_conf()
     elif menu_choice == '5':
-        download_and_extract_channels()
-        update_tuner_settings()
+        stop_enigma2()
+        download_and_extract_channels(manage_e2_state=False)
+        update_tuner_settings(manage_e2_state=False)
         download_astra_conf()
+        start_enigma2()
     else:
         sys.exit()
 
@@ -423,9 +434,11 @@ Examples of Parameterised Usage:
                 parser.error("Advanced Tuner Setup (--tuner or --all) requires --tuner-target and --firmware-logic to be specified.")
 
         if args.all:
-            download_and_extract_channels()
-            update_tuner_settings(tuner_target=args.tuner_target, firmware_logic=args.firmware_logic)
+            stop_enigma2()
+            download_and_extract_channels(manage_e2_state=False)
+            update_tuner_settings(tuner_target=args.tuner_target, firmware_logic=args.firmware_logic, manage_e2_state=False)
             download_astra_conf()
+            start_enigma2()
         else:
             if args.channels:
                 download_and_extract_channels()
