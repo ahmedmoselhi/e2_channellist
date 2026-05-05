@@ -1,0 +1,67 @@
+name: Build Enigma2 Channel List IPK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-ipk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fakeroot binutils tar gzip rsync
+
+      - name: Build IPK package
+        run: |
+          set -euo pipefail
+
+          PKG_NAME="enigma2-channellist-ahmedmoselhi"
+          VERSION="$(date +'%Y.%m.%d').${GITHUB_RUN_NUMBER}"
+          ARCH="all"
+          BUILD_DIR="${GITHUB_WORKSPACE}/build"
+          PKG_DIR="${BUILD_DIR}/${PKG_NAME}"
+          CURRENT_DATE="$(date +'%Y%m%d')"
+          GIT_HASH="$(git rev-parse --short HEAD)"
+
+          rm -rf "${BUILD_DIR}"
+          mkdir -p "${PKG_DIR}/CONTROL" "${PKG_DIR}/etc/enigma2"
+
+          printf '%s\n' \
+            "Package: ${PKG_NAME}" \
+            "Version: ${VERSION}" \
+            "Section: base" \
+            "Priority: optional" \
+            "Architecture: ${ARCH}" \
+            "Maintainer: GitHub Actions" \
+            "Description: Enigma2 channel list package" \
+            > "${PKG_DIR}/CONTROL/control"
+
+          install -m 0755 packaging/preinst "${PKG_DIR}/CONTROL/preinst"
+          install -m 0755 packaging/postinst "${PKG_DIR}/CONTROL/postinst"
+
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'packaging' ./ "${PKG_DIR}/etc/enigma2/"
+
+          pushd "${PKG_DIR}" >/dev/null
+          printf '2.0\n' > debian-binary
+          fakeroot tar -czf control.tar.gz -C CONTROL .
+          fakeroot tar -czf data.tar.gz ./etc
+          FINAL_IPK="${BUILD_DIR}/${PKG_NAME}-${CURRENT_DATE}_${GIT_HASH}.ipk"
+          ar r "${FINAL_IPK}" debian-binary control.tar.gz data.tar.gz
+          popd >/dev/null
+
+          mkdir -p artifacts
+          mv "${FINAL_IPK}" artifacts/
+
+      - name: Upload IPK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: enigma2-channellist-ipk
+          path: artifacts/*.ipk
