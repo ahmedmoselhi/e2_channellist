@@ -1,0 +1,9 @@
+#!/bin/sh
+
+init 4
+rm -f /etc/enigma2/*.tv
+rm -f /etc/enigma2/*.radio
+rm -f /etc/enigma2/lamedb
+rm -f /etc/enigma2/satellites.xml
+
+exit 0

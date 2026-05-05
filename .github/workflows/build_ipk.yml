@@ -1,0 +1,65 @@
+name: Build Enigma2 Channel List IPK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-ipk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y opkg-utils fakeroot
+
+      - name: Build IPK package
+        run: |
+          set -euo pipefail
+
+          PKG_NAME="enigma2-channellist-ahmedmoselhi"
+          VERSION="$(date +'%Y.%m.%d').${GITHUB_RUN_NUMBER}"
+          ARCH="all"
+          BUILD_DIR="${GITHUB_WORKSPACE}/build"
+          PKG_DIR="${BUILD_DIR}/${PKG_NAME}"
+          CURRENT_DATE="$(date +'%Y%m%d')"
+          GIT_HASH="$(git rev-parse --short HEAD)"
+
+          rm -rf "${BUILD_DIR}"
+          mkdir -p "${PKG_DIR}/CONTROL" "${PKG_DIR}/etc/enigma2"
+
+          cat > "${PKG_DIR}/CONTROL/control" <<CONTROL
+Package: ${PKG_NAME}
+Version: ${VERSION}
+Section: base
+Priority: optional
+Architecture: ${ARCH}
+Maintainer: GitHub Actions
+Description: Enigma2 channel list package
+CONTROL
+
+          install -m 0755 packaging/preinst "${PKG_DIR}/CONTROL/preinst"
+          install -m 0755 packaging/postinst "${PKG_DIR}/CONTROL/postinst"
+
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'packaging' ./ "${PKG_DIR}/etc/enigma2/"
+
+          fakeroot opkg-build "${PKG_DIR}" "${BUILD_DIR}"
+
+          ORIGINAL_IPK="$(ls -1 "${BUILD_DIR}"/*.ipk | head -n 1)"
+          FINAL_IPK="${BUILD_DIR}/${PKG_NAME}-${CURRENT_DATE}_${GIT_HASH}.ipk"
+          mv "${ORIGINAL_IPK}" "${FINAL_IPK}"
+
+          mkdir -p artifacts
+          mv "${FINAL_IPK}" artifacts/
+
+      - name: Upload IPK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: enigma2-channellist-ipk
+          path: artifacts/*.ipk
