@@ -23,7 +23,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          PKG_NAME="enigma2-chanellist-ahmedmoselhi"
+          PKG_NAME="enigma2-channellist-ahmedmoselhi"
           VERSION="$(date +'%Y.%m.%d').${GITHUB_RUN_NUMBER}"
           ARCH="all"
           BUILD_DIR="${GITHUB_WORKSPACE}/build"
