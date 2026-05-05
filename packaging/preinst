@@ -1,5 +1,19 @@
 #!/bin/sh
 
+set -e
+
+BACKUP_ROOT="/etc/enigma2-backup"
+BACKUP_DIR="${BACKUP_ROOT}/$(date +'%Y%m%d-%H%M%S')"
+
+mkdir -p "${BACKUP_DIR}"
+
+for pattern in '*.tv' '*.radio' 'lamedb' 'satellites.xml'; do
+  for file in /etc/enigma2/${pattern}; do
+    [ -e "${file}" ] || continue
+    cp -a "${file}" "${BACKUP_DIR}/"
+  done
+done
+
 init 4
 rm -f /etc/enigma2/*.tv
 rm -f /etc/enigma2/*.radio

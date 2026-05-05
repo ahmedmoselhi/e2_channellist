@@ -52,7 +52,7 @@ jobs:
           install -m 0755 packaging/preinst "${PKG_DIR}/CONTROL/preinst"
           install -m 0755 packaging/postinst "${PKG_DIR}/CONTROL/postinst"
 
-          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'packaging' ./ "${PKG_DIR}/etc/enigma2/"
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'build' --exclude 'packaging' --exclude '.gitignore' ./ "${PKG_DIR}/etc/enigma2/"
 
           pushd "${PKG_DIR}" >/dev/null
           printf '2.0\n' > debian-binary
