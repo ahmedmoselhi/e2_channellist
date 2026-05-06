@@ -1,0 +1,96 @@
+name: Build Astra SM Config IPK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: write
+
+jobs:
+  build-ipk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fakeroot binutils tar gzip rsync
+
+      - name: Build IPK package
+        run: |
+          set -euo pipefail
+
+          PKG_NAME="astra-sm-config"
+          VERSION="$(date +'%Y.%m.%d').${GITHUB_RUN_NUMBER}"
+          ARCH="all"
+          BUILD_DIR="${GITHUB_WORKSPACE}/build"
+          PKG_DIR="${BUILD_DIR}/${PKG_NAME}"
+          CURRENT_DATE="$(date +'%Y%m%d')"
+          GIT_HASH="$(git rev-parse --short HEAD)"
+
+          rm -rf "${BUILD_DIR}"
+          mkdir -p "${PKG_DIR}/CONTROL" "${PKG_DIR}/etc/astra"
+
+          printf '%s\n' \
+            "Package: ${PKG_NAME}" \
+            "Version: ${VERSION}" \
+            "Section: base" \
+            "Priority: optional" \
+            "Architecture: ${ARCH}" \
+            "Maintainer: GitHub Actions" \
+            "Description: Astra SM configuration package" \
+            > "${PKG_DIR}/CONTROL/control"
+
+          install -m 0644 astra.conf "${PKG_DIR}/etc/astra/astra.conf"
+
+          pushd "${PKG_DIR}" >/dev/null
+          printf '2.0\n' > debian-binary
+          fakeroot tar -czf control.tar.gz -C CONTROL .
+          fakeroot tar -czf data.tar.gz ./etc
+          FINAL_IPK="${BUILD_DIR}/${PKG_NAME}-${CURRENT_DATE}_${GIT_HASH}.ipk"
+          ar r "${FINAL_IPK}" debian-binary control.tar.gz data.tar.gz
+          popd >/dev/null
+
+          mkdir -p artifacts
+          mv "${FINAL_IPK}" artifacts/
+
+      - name: Upload IPK artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: astra-sm-config-ipk
+          path: artifacts/*.ipk
+
+      - name: Prepare release metadata
+        id: release_meta
+        run: |
+          set -euo pipefail
+          BRANCH_NAME="${GITHUB_REF_NAME//\//-}"
+          TAG_NAME="ipk-${BRANCH_NAME}"
+          echo "tag_name=${TAG_NAME}" >> "$GITHUB_OUTPUT"
+          echo "release_name=IPK Build (${BRANCH_NAME})" >> "$GITHUB_OUTPUT"
+
+      - name: Force-refresh release tag
+        run: |
+          set -euo pipefail
+          TAG_NAME="${{ steps.release_meta.outputs.tag_name }}"
+          git tag -f "$TAG_NAME" "$GITHUB_SHA"
+          git push origin "refs/tags/$TAG_NAME" --force
+
+      - name: Create or update GitHub release
+        uses: ncipollo/release-action@v1.21.0
+        with:
+          tag: ${{ steps.release_meta.outputs.tag_name }}
+          name: ${{ steps.release_meta.outputs.release_name }}
+          artifacts: artifacts/*.ipk
+          allowUpdates: true
+          replacesArtifacts: true
+          artifactErrorsFailBuild: true
+          generateReleaseNotes: true
