@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <satellites>
-    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-05-05 13:10:25 GMT -->
+    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-05-06 17:39:39 GMT -->
     <sat name="(50) 45.0W KU-band Intelsat 14" flags="1" position="-450">
         <transponder frequency="11735000" symbol_rate="7500000" polarization="1" fec_inner="4" system="1" modulation="1"/>
         <transponder frequency="11766000" symbol_rate="3600000" polarization="0" fec_inner="2" system="1" modulation="2"/>
@@ -1494,7 +1494,6 @@
         <transponder frequency="12456000" symbol_rate="27500000" polarization="0" fec_inner="3" system="0" modulation="1"/>
         <transponder frequency="12476000" symbol_rate="27500000" polarization="1" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="12523000" symbol_rate="27500000" polarization="0" fec_inner="2" system="1" modulation="2"/>
-        <transponder frequency="12523000" symbol_rate="30000000" polarization="1" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="12563000" symbol_rate="27500000" polarization="1" fec_inner="2" system="1" modulation="2"/>
         <transponder frequency="12576000" symbol_rate="3330000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="12626000" symbol_rate="3600000" polarization="1" fec_inner="4" system="1" modulation="2"/>
@@ -1874,6 +1873,8 @@
         <transponder frequency="11516000" symbol_rate="2000000" polarization="0" fec_inner="4" system="1" modulation="2"/>
         <transponder frequency="11760000" symbol_rate="16515000" polarization="0" fec_inner="4" system="1" modulation="2" is_id="1" pls_mode="1" pls_code="242133" t2mi_plp_id="0"/>
         <transponder frequency="11779000" symbol_rate="16515000" polarization="0" fec_inner="4" system="1" modulation="2" is_id="1" pls_mode="1" pls_code="242133" t2mi_plp_id="0"/>
+        <transponder frequency="11837000" symbol_rate="16515000" polarization="0" fec_inner="4" system="1" modulation="2" t2mi_plp_id="0"/>
+        <transponder frequency="11855000" symbol_rate="16515000" polarization="0" fec_inner="4" system="1" modulation="2" t2mi_plp_id="0"/>
         <transponder frequency="12117000" symbol_rate="30000000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="12137000" symbol_rate="30000000" polarization="1" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="12156000" symbol_rate="30000000" polarization="0" fec_inner="4" system="1" modulation="2"/>
