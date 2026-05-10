@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from .tasks import *
-from .cli import main
 try:
     from Plugins.Plugin import PluginDescriptor
     from Screens.ChoiceBox import ChoiceBox
@@ -21,7 +20,7 @@ def _run_selected_action(session, selection):
 
 def main_plugin(session, **kwargs):
     if ChoiceBox is None:
-        main(); return
+        return
     choices = [
         ("Full Channel Update", 'channels'),
         ("Backup Tuner Configuration", 'backup'),
