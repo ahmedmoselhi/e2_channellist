@@ -48,6 +48,40 @@ ASTRA_URL = 'https://raw.githubusercontent.com/ahmedmoselhi/e2_channellist/refs/
 
 # --- HELPER FUNCTIONS ---
 
+def detect_firmware_logic():
+    """
+    Auto-detect firmware logic:
+      '1' => OpenATV-style (.dvbs. keys)
+      '2' => OpenPLi-style (stripped syntax)
+    Returns None if detection is inconclusive.
+    """
+    for path in ['/etc/issue', '/etc/image-version', SETTINGS_FILE]:
+        if not os.path.exists(path):
+            continue
+
+        try:
+            with open(path, 'r') as handle:
+                content = handle.read().lower()
+        except Exception:
+            continue
+
+        if 'openpli' in content or 'openbh' in content or 'openhdf' in content:
+            print("-> [DETECT] OpenPLi-based image detected via {0}.".format(path))
+            return '2'
+        if 'openatv' in content or 'openvix' in content or 'egami' in content:
+            print("-> [DETECT] OpenATV-based image detected via {0}.".format(path))
+            return '1'
+
+        if 'config.nims.0.dvbs.' in content or 'config.nims.1.dvbs.' in content:
+            print("-> [DETECT] OpenATV-style tuner keys detected in {0}.".format(path))
+            return '1'
+        if 'config.nims.0.advanced.' in content or 'config.nims.1.advanced.' in content:
+            print("-> [DETECT] OpenPLi-style tuner keys detected in {0}.".format(path))
+            return '2'
+
+    print("-> [DETECT] Could not auto-detect image type. Falling back to manual selection.")
+    return None
+
 def print_banner(title):
     """
     Draws a formatted ASCII box around the title.
@@ -270,11 +304,14 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None, manage_e2_stat
     if firmware_logic is not None:
         fmt_choice = str(firmware_logic)
     else:
-        print("\n[?] Select Firmware Logic:")
-        print(" (1) OpenATV - Uses full '.dvbs.' tagging.")
-        print(" (2) OpenPLi - Uses stripped path syntax.")
-        
-        fmt_choice = get_input("Choice [1/2]: ").strip()
+        fmt_choice = detect_firmware_logic()
+        if fmt_choice is None:
+            print("\n[?] Select Firmware Logic:")
+            print(" (1) OpenATV - Uses full '.dvbs.' tagging.")
+            print(" (2) OpenPLi - Uses stripped path syntax.")
+            fmt_choice = get_input("Choice [1/2]: ").strip()
+        else:
+            print("-> [AUTO] Firmware logic selected: {0}".format("OpenATV" if fmt_choice == '1' else "OpenPLi"))
 
     if fmt_choice not in ['1', '2']:
         print("-> [ERROR] Invalid firmware logic choice. Aborting.")
@@ -466,6 +503,10 @@ def _run_selected_action(session, selection):
         download_and_extract_channels()
     elif choice == 'backup':
         export_tuner_config()
+    elif choice == 'tuner_a_auto':
+        update_tuner_settings(tuner_target='0')
+    elif choice == 'tuner_b_auto':
+        update_tuner_settings(tuner_target='1')
     elif choice == 'tuner_a_openatv':
         update_tuner_settings(tuner_target='0', firmware_logic='1')
     elif choice == 'tuner_b_openatv':
@@ -498,6 +539,8 @@ def main_plugin(session, **kwargs):
     choices = [
         ("Full Channel Update", 'channels'),
         ("Backup Tuner Configuration", 'backup'),
+        ("Advanced Tuner Setup: A/Auto", 'tuner_a_auto'),
+        ("Advanced Tuner Setup: B/Auto", 'tuner_b_auto'),
         ("Advanced Tuner Setup: A/OpenATV", 'tuner_a_openatv'),
         ("Advanced Tuner Setup: B/OpenATV", 'tuner_b_openatv'),
         ("Advanced Tuner Setup: A/OpenPLi", 'tuner_a_openpli'),
