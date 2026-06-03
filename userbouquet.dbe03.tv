@@ -1,5 +1,5 @@
 #NAME •••••| (73) 16.0E KU-band Eutelsat 16A |•••••
-#SERVICE 1:64:1E6:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1EA:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:682:9FC4:16E:A00000:0:0:0::Cinemania (HD)
 #DESCRIPTION Cinemania (HD)
@@ -159,7 +159,7 @@
 #DESCRIPTION Star Movies Srbija
 #SERVICE 1:0:1:5B1:75FC:16E:A00000:0:0:0::Star Movies Srbija (HD)
 #DESCRIPTION Star Movies Srbija (HD)
-#SERVICE 1:64:1E7:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1EB:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:119A:A028:16E:A00000:0:0:0::Arena Adrenalin (HD)
 #DESCRIPTION Arena Adrenalin (HD)
@@ -331,7 +331,7 @@
 #DESCRIPTION Tring Sport News
 #SERVICE 1:0:19:D:C8:1:A00000:0:0:0::TVR Sport (HD)
 #DESCRIPTION TVR Sport (HD)
-#SERVICE 1:64:1E8:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:1EC:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:19:CE4:5014:16E:A00000:0:0:0::A2 CNN
 #DESCRIPTION A2 CNN
@@ -367,7 +367,7 @@
 #DESCRIPTION Sky News International
 #SERVICE 1:0:19:5F0:4F4C:16E:A00000:0:0:0::Top News (HD)
 #DESCRIPTION Top News (HD)
-#SERVICE 1:64:1E9:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1ED:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:16:84:3:40:A00000:0:0:0::Adria Music TV
 #DESCRIPTION Adria Music TV
@@ -665,7 +665,7 @@
 #DESCRIPTION Top Gold Radio
 #SERVICE 1:0:2:D:CB2B:16E:A00000:0:0:0::Welcome To Fun Radio
 #DESCRIPTION Welcome To Fun Radio
-#SERVICE 1:64:1EA:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1EE:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:16:83:2:40:A00000:0:0:0::CGTN Documentary
 #DESCRIPTION CGTN Documentary
@@ -713,7 +713,7 @@
 #DESCRIPTION Viasat History East (HD)
 #SERVICE 1:0:16:44F:526C:16E:A00000:0:0:0::Viasat History East (SD)
 #DESCRIPTION Viasat History East (SD)
-#SERVICE 1:64:1EB:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:1EF:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:5B8:75FC:16E:A00000:0:0:0::IDJ Kids (HD)
 #DESCRIPTION IDJ Kids (HD)
@@ -735,7 +735,7 @@
 #DESCRIPTION Pink Kids
 #SERVICE 1:0:1:66:CB2B:16E:A00000:0:0:0::Pink Super Kids
 #DESCRIPTION Pink Super Kids
-#SERVICE 1:64:1EC:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1F0:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:0:D04:2:40:A00000:0:0:0:
 #SERVICE 1:0:C:1838:C544:16E:A00000:0:0:0:

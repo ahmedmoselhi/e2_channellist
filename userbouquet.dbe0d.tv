@@ -1,15 +1,15 @@
 #NAME •••••| (30) 70.5E KU-band Eutelsat 70B |•••••
-#SERVICE 1:64:22F:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:233:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:7:2:1:2C10000:0:0:0::Fastsports
 #DESCRIPTION Fastsports
-#SERVICE 1:64:230:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:234:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:2:2:1:2C10000:0:0:0::First Channel News
 #DESCRIPTION First Channel News
 #SERVICE 1:0:1:1:1:FFFF:2C12B69:0:0:0::i-news
 #DESCRIPTION i-news
-#SERVICE 1:64:231:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:235:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:A:2:1:2C10000:0:0:0::Armenian Public Radio
 #DESCRIPTION Armenian Public Radio
@@ -17,7 +17,7 @@
 #DESCRIPTION Radio Arevik
 #SERVICE 1:0:2:B:2:1:2C10000:0:0:0::Yerevan FM
 #DESCRIPTION Yerevan FM
-#SERVICE 1:64:232:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:236:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1:0:0:2C1B0EA:0:0:0::12522V SID 0x01
 #DESCRIPTION 12522V SID 0x01

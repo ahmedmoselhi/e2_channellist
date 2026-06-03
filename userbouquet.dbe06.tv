@@ -1,5 +1,5 @@
 #NAME •••••| (12) 39.0E KU-band Hellas Sat 3/4 |•••••
-#SERVICE 1:64:204:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:208:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:16:1FA:1:1:1862FEF:0:0:0::BTV Cinema
 #DESCRIPTION BTV Cinema
@@ -71,7 +71,7 @@
 #DESCRIPTION Pro Cinema (HD)
 #SERVICE 1:0:1:7DA:3F2:39E:1860000:0:0:0::Tring Series (HD)
 #DESCRIPTION Tring Series (HD)
-#SERVICE 1:64:205:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:209:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:19:2EF:7:1:1860000:0:0:0::Auto Motor und Sport
 #DESCRIPTION Auto Motor und Sport
@@ -199,7 +199,7 @@
 #DESCRIPTION ERT 2 Spor
 #SERVICE 1:0:2:1F:2:212C:1860000:0:0:0::ERA Spor
 #DESCRIPTION ERA Spor
-#SERVICE 1:64:206:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:20A:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1F:87:B1:39E:1860000:0:0:0::Aljazeera English
 #DESCRIPTION Aljazeera English
@@ -249,7 +249,7 @@
 #DESCRIPTION Sky News International
 #SERVICE 1:0:1:137E:3FC:39E:1860000:0:0:0::Top News
 #DESCRIPTION Top News
-#SERVICE 1:64:207:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:20B:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:16:E4:2:1:1860000:0:0:0::Balkanika Music TV
 #DESCRIPTION Balkanika Music TV
@@ -293,7 +293,7 @@
 #DESCRIPTION Radio Zu
 #SERVICE 1:0:2:38:0:16E:1860000:0:0:0::Romantic FM
 #DESCRIPTION Romantic FM
-#SERVICE 1:64:208:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:20C:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:16:3F8:1:1:1862FEF:0:0:0::Discovery Channel Bulgaria
 #DESCRIPTION Discovery Channel Bulgaria
@@ -325,7 +325,7 @@
 #DESCRIPTION Viasat History East
 #SERVICE 1:0:1F:CD:B2:39E:1860000:0:0:0::Viasat History East
 #DESCRIPTION Viasat History East
-#SERVICE 1:64:209:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:20D:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:16:84:5:1:1860000:0:0:0::EKids
 #DESCRIPTION EKids
@@ -349,11 +349,11 @@
 #DESCRIPTION Nicktoons România
 #SERVICE 1:0:1:712:3FC:39E:1860000:0:0:0::Tring Kids
 #DESCRIPTION Tring Kids
-#SERVICE 1:64:20A:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:20E:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:16:2C8:7:1:1860000:0:0:0::Food Network EMEA
 #DESCRIPTION Food Network EMEA
-#SERVICE 1:64:20B:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:20F:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1:0:0:1862CFC:0:0:0::11516H SID 0x01
 #DESCRIPTION 11516H SID 0x01

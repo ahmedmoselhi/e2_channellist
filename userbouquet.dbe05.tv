@@ -1,5 +1,5 @@
 #NAME •••••| (3) 23.5E KU-band Astra 3B/3C |•••••
-#SERVICE 1:64:1F5:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1F9:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:19:4E6A:CA8:3:EB0000:0:0:0::Cinemax 2 Central Europe
 #DESCRIPTION Cinemax 2 Central Europe
@@ -121,7 +121,7 @@
 #DESCRIPTION Star Movies Srbija (HD)
 #SERVICE 1:0:16:527C:C96:3:EB0000:0:0:0::VTM Series
 #DESCRIPTION VTM Series
-#SERVICE 1:64:1F6:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1FA:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:4EFB:CA5:3:EB0000:0:0:0::Arena 4
 #DESCRIPTION Arena 4
@@ -255,7 +255,7 @@
 #DESCRIPTION Ziggo Sport 2
 #SERVICE 1:0:16:51C2:C96:3:EB0000:0:0:0::Ziggo Sport 6
 #DESCRIPTION Ziggo Sport 6
-#SERVICE 1:64:1F7:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:1FB:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:4E99:CA4:3:EB0000:0:0:0::BBC Earth Türkiye
 #DESCRIPTION BBC Earth Türkiye
@@ -279,7 +279,7 @@
 #DESCRIPTION Newsmax Balkans
 #SERVICE 1:0:1:1E37:C9E:3:EB0000:0:0:0::Suspilne News
 #DESCRIPTION Suspilne News
-#SERVICE 1:64:1F8:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1FC:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:1F4A:0:1:EB0000:0:0:0::8010 Radio Rodzina
 #DESCRIPTION 8010 Radio Rodzina
@@ -385,7 +385,7 @@
 #DESCRIPTION Tysa FM
 #SERVICE 1:0:2:1E1E:C9E:3:EB0000:0:0:0::Ukrayinske Radio
 #DESCRIPTION Ukrayinske Radio
-#SERVICE 1:64:1F9:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1FD:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:16:335A:C93:3:EB0000:0:0:0::CS History
 #DESCRIPTION CS History
@@ -411,7 +411,7 @@
 #DESCRIPTION Viasat History East
 #SERVICE 1:0:19:3CF0:C95:3:EB0000:0:0:0::Viasat History East (HD)
 #DESCRIPTION Viasat History East (HD)
-#SERVICE 1:64:1FA:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1FE:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:2:70B:B:3:EB0000:0:0:0:
 #SERVICE 1:0:2:517:B:3:EB0000:0:0:0:

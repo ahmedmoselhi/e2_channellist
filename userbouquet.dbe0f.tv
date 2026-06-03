@@ -1,5 +1,5 @@
 #NAME •••••| (49) 108.1E KU-band SES 7/9 & Merah Putih |•••••
-#SERVICE 1:64:233:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:237:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:3558:15:AC:4390000:0:0:0::Airtel Movies Home
 #DESCRIPTION Airtel Movies Home
@@ -107,7 +107,7 @@
 #DESCRIPTION Zee Cinemalu
 #SERVICE 1:0:19:3455:D:AC:4390000:0:0:0::Zee Cinemalu (HD)
 #DESCRIPTION Zee Cinemalu (HD)
-#SERVICE 1:64:234:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:238:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:3598:10:AC:4390000:0:0:0::1Sports @ Rs 4
 #DESCRIPTION 1Sports @ Rs 4
@@ -159,7 +159,7 @@
 #DESCRIPTION Star Sports Khel
 #SERVICE 1:0:1:33D2:E:AC:4390000:0:0:0::True Sports
 #DESCRIPTION True Sports
-#SERVICE 1:64:235:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:239:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:3438:10:AC:4390000:0:0:0::1st India News Rajasthan
 #DESCRIPTION 1st India News Rajasthan
@@ -269,7 +269,7 @@
 #DESCRIPTION V6 News
 #SERVICE 1:0:1:1884:F:AC:4390000:0:0:0::Zee News @ Rs 0
 #DESCRIPTION Zee News @ Rs 0
-#SERVICE 1:64:236:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:23A:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:33DD:11:AC:4390000:0:0:0::7S Music @ FREE
 #DESCRIPTION 7S Music @ FREE
@@ -285,7 +285,7 @@
 #DESCRIPTION PTC Music
 #SERVICE 1:0:1:2542:10:AC:4390000:0:0:0::Star Maa Music
 #DESCRIPTION Star Maa Music
-#SERVICE 1:64:237:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:23B:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:2F0C:15:AC:4390000:0:0:0::Discovery Kids India
 #DESCRIPTION Discovery Kids India
@@ -293,7 +293,7 @@
 #DESCRIPTION History TV 18 (HD)
 #SERVICE 1:0:19:3418:13:AC:4390000:0:0:0::Investigation Discovery India (HD)
 #DESCRIPTION Investigation Discovery India (HD)
-#SERVICE 1:64:238:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:23C:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:369F:15:AC:4390000:0:0:0::AIRTEL KIDS JUNIOR @Rs 50
 #DESCRIPTION AIRTEL KIDS JUNIOR @Rs 50
@@ -305,13 +305,13 @@
 #DESCRIPTION ikidsworld_portal NW
 #SERVICE 1:0:1:3494:15:AC:4390000:0:0:0::IKIDSWORLDTEST NEW
 #DESCRIPTION IKIDSWORLDTEST NEW
-#SERVICE 1:64:239:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:23D:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:1:3514:10:AC:4390000:0:0:0::FOOD FOOD @ FREE
 #DESCRIPTION FOOD FOOD @ FREE
 #SERVICE 1:0:19:33F9:F:AC:4390000:0:0:0::Living Foodz HD @ Rs 10
 #DESCRIPTION Living Foodz HD @ Rs 10
-#SERVICE 1:64:23A:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:23E:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:82:3520:11:AC:4390000:0:0:0:
 #SERVICE 1:0:82:352C:E:AC:4390000:0:0:0:

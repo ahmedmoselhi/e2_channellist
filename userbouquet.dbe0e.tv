@@ -1,19 +1,19 @@
 #NAME •••••| (29) 68.5E KU-band Intelsat 20/36 |•••••
-#SERVICE 1:64:22A:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:22E:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:2:143:2:49:2AD0000:0:0:0::Radio Islam
 #DESCRIPTION Radio Islam
 #SERVICE 1:0:2:146:5:49:2AD0000:0:0:0::Radio Islam_new
 #DESCRIPTION Radio Islam_new
-#SERVICE 1:64:22B:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:22F:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:326:1:E26:2AD0000:0:0:0::iFILM ENG
 #DESCRIPTION iFILM ENG
-#SERVICE 1:64:22C:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:230:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:6:1A:14:2AD0000:0:0:0::AVO - TVC News
 #DESCRIPTION AVO - TVC News
-#SERVICE 1:64:22D:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:231:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:5F:1A:14:2AD0000:0:0:0::AWR SID Radio
 #DESCRIPTION AWR SID Radio
@@ -25,7 +25,7 @@
 #DESCRIPTION Radio Maranatha
 #SERVICE 1:0:2:5E:1A:14:2AD0000:0:0:0::Radio Novo Tempo
 #DESCRIPTION Radio Novo Tempo
-#SERVICE 1:64:22E:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:232:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:0:160:2:49:2AD0000:0:0:0:
 #SERVICE 1:0:64:3ED:5:49:2AD0000:0:0:0::12682V SID 0x3ed

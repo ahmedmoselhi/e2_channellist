@@ -1,5 +1,5 @@
 #NAME •••••| (1) 19.2E KU-band Astra 1KR/1M/1N/1P |•••••
-#SERVICE 1:64:1ED:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1F1:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:7477:3F0:1:C00000:0:0:0::AXN España
 #DESCRIPTION AXN España
@@ -27,7 +27,7 @@
 #DESCRIPTION TF 1 Séries Films
 #SERVICE 1:0:19:8C:4:85:C00000:0:0:0::Warner TV Film
 #DESCRIPTION Warner TV Film
-#SERVICE 1:64:1EE:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1F2:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:19:2462:440:1:C00000:0:0:0::BeIn Sports 1 France
 #DESCRIPTION BeIn Sports 1 France
@@ -139,7 +139,7 @@
 #DESCRIPTION Sportdigital Fussball (HD)
 #SERVICE 1:0:19:2887:40F:1:C00000:0:0:0::Tagesschau 24 (HD)
 #DESCRIPTION Tagesschau 24 (HD)
-#SERVICE 1:64:1EF:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:1F3:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:19:13A7:3EA:1:C00000:0:0:0::Aljazeera English (HD)
 #DESCRIPTION Aljazeera English (HD)
@@ -165,7 +165,7 @@
 #DESCRIPTION CNN International Europe
 #SERVICE 1:0:1:18F4:3F4:1:C00000:0:0:0::EuroNews Deutsch (SD)
 #DESCRIPTION EuroNews Deutsch (SD)
-#SERVICE 1:64:1F0:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1F4:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:23EE:446:1:C00000:0:0:0::Beur FM
 #DESCRIPTION Beur FM
@@ -257,7 +257,7 @@
 #DESCRIPTION Toggo Radio
 #SERVICE 1:0:A:28E5:425:1:C00000:0:0:0::You FM
 #DESCRIPTION You FM
-#SERVICE 1:64:1F1:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1F5:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:19:22CE:434:1:C00000:0:0:0::Canal + Docs
 #DESCRIPTION Canal + Docs
@@ -273,15 +273,15 @@
 #DESCRIPTION M+ Documentales (HD)
 #SERVICE 1:0:19:70:D:85:C00000:0:0:0::Sky Documentaries
 #DESCRIPTION Sky Documentaries
-#SERVICE 1:64:1F2:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:1F6:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:19:2265:438:1:C00000:0:0:0::Canal + Kids
 #DESCRIPTION Canal + Kids
-#SERVICE 1:64:1F3:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:1F7:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:1:6E43:431:1:C00000:0:0:0::Just Cooking
 #DESCRIPTION Just Cooking
-#SERVICE 1:64:1F4:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1F8:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:75A6:422:1:C00000:0:0:0:
 #SERVICE 1:0:1:75AA:422:1:C00000:0:0:0:
