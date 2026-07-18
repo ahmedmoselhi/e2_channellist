@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <satellites>
-    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-07-17 13:01:52 GMT -->
+    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-07-18 12:48:15 GMT -->
     <sat name="(50) 45.0W KU-band Intelsat 14" flags="1" position="-450">
         <transponder frequency="11788000" symbol_rate="2500000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11791000" symbol_rate="2500000" polarization="0" fec_inner="3" system="1" modulation="1"/>
