@@ -1,3 +1,4 @@
 workspace/*
 *.log
 *.bak
+.python-version

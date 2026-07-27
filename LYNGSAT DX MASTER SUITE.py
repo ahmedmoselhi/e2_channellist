@@ -339,7 +339,7 @@ class LyngSatDXMaster:
         try:
             from curl_cffi import requests
             from bs4 import BeautifulSoup
-            res = requests.get(url, impersonate="chrome", timeout=15)
+            res = requests.get(url, impersonate="chrome", timeout=15, verify=False)
             soup = BeautifulSoup(res.content, 'html.parser')
             buckets = self._extract_channels_from_soup(soup)
             if not buckets: return 0, []
@@ -443,7 +443,7 @@ class LyngSatDXMaster:
             from bs4 import BeautifulSoup
             
             self.log_proc(f"Establishing Uplink: {url}", self.color.GOLD)
-            res = requests.get(url, impersonate="chrome", timeout=15)
+            res = requests.get(url, impersonate="chrome", timeout=15, verify=False)
             soup = BeautifulSoup(res.text, 'html.parser')
 
             # 1. Info
@@ -533,7 +533,7 @@ class LyngSatDXMaster:
                 self.log_proc(f"Queueing Mux: {f_v} {p_r} -> {mux_url.split('/')[-1]}", self.color.BASE, debug_only=True)
                 
                 try:
-                    mux_res = requests.get(mux_url, impersonate="chrome", timeout=12)
+                    mux_res = requests.get(mux_url, impersonate="chrome", timeout=12, verify=False)
                     mux_soup = BeautifulSoup(mux_res.text, 'html.parser')
                     
                     # [FIXED] PLS EXTRACTION LOGIC
