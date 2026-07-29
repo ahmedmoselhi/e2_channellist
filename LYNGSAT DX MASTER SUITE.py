@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """
-LyngSat DX Master Suite - Version 17.18
-FIX: PLS Extraction Logic Corrected.
+LyngSat DX Master Suite - Version 17.19
+FIX: 
+     - Skip non-T2-MI streams (e.g., standard streams lacking PLP).
+     - Extract exact Freq/Pol from Mux page to prevent duplicate/wrong entries.
+     - PLS Extraction Logic Corrected.
      - Properly extracts PLS Mode/Code from mux page text.
      - Maps the extracted PLS value (e.g., 1,242133) 1:1 with the pids-plps matrix.
      - Defaults to 0,0 only if no PLS string is found.
+     - File cleanup logic added before processing.
+     - Duplication avoided in channel name extraction.
 """
 
 import os
@@ -14,6 +19,7 @@ import csv
 import time
 import signal
 import unicodedata
+import shutil
 from datetime import datetime
 from typing import Optional, Dict, List, Tuple, Any
 
@@ -89,7 +95,7 @@ class UIRenderer:
         lines.append(self.color.GOLD + "█" + "▄" * inner_width + "█" + self.color.ENDC)
         return lines
 
-    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.18 | PLS-FIX") -> None:
+    def print_banner(self, title: str = "🛰️  LYNGSAT DX MASTER SUITE", version: str = "VER 17.19 | T2MI-FIX") -> None:
         for line in self.render_banner(title, version): print(line)
 
     def print_instructions_box(self, instructions: List[str], notes: List[str]) -> None:
@@ -97,7 +103,7 @@ class UIRenderer:
         width = self.terminal_width
         inner_width = width - 2
         print(f"{c.BASE}┌{'─' * inner_width}┐{c.ENDC}")
-        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.18{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
+        print(f"{c.BASE}│{self._pad_to_width(f'  {c.BOLD}{c.SKY}RECURSIVE DEEP-SCAN SYSTEM v17.19{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         print(f"{c.BASE}│{' ' * inner_width}│{c.ENDC}")
         print(f"{c.BASE}│{self._pad_to_width(f'  {c.LIME}Instructions:{c.ENDC}', inner_width)}{c.BASE}│{c.ENDC}")
         for instr in instructions: print(f"{c.BASE}│{self._pad_to_width(f'  • {instr}', inner_width)}{c.BASE}│{c.ENDC}")
@@ -291,11 +297,27 @@ class LyngSatDXMaster:
     # --------------------------------------------------------------------------
     # [ STORAGE & USER INPUT ]
     # --------------------------------------------------------------------------
+    
+    def _cleanup_position(self, pos_label: str) -> None:
+        """Ensure all files corresponding to selected orbital positions are deleted before processing."""
+        # 1. Delete frequency file
+        freq_file = os.path.join("frequencies", f"f{pos_label}.csv")
+        if os.path.exists(freq_file):
+            try: os.remove(freq_file)
+            except: pass
+        
+        # 2. Clear channellist directory for this position
+        c_dir = os.path.join("channellist", pos_label)
+        if os.path.exists(c_dir):
+            try: shutil.rmtree(c_dir)
+            except: pass
 
     def setup_storage(self, sat_deg: float, sat_dir: str, is_cband: bool) -> Tuple[str, str, str]:
         effective_pos = float(sat_deg) + 0.1 if is_cband else float(sat_deg)
         # Ensure exact formatting: e.g., 39.0E (forced uppercase direction)
         pos_label = f"{effective_pos:.1f}{sat_dir.upper()}"
+        
+        self._cleanup_position(pos_label)
         
         f_dir = "frequencies"
         c_dir = os.path.join("channellist", pos_label)
@@ -394,6 +416,14 @@ class LyngSatDXMaster:
             # 1. Look for the T2-MI / Multistream Header Div
             if el.name == 'div' and 'mux-header' in el.get('class', []):
                 txt = el.get_text(" ", strip=True).upper()
+                
+                # FIX: Ordinary streams (lacking PLP) are not T2-MI and should be skipped
+                if "PLP" not in txt:
+                    plp = None
+                    pid = None
+                    isi = None
+                    continue
+                
                 # If we find a header, update our active bucket pointers
                 m_plp = re.search(r'PLP\s*(\d+)', txt)
                 m_pid = re.search(r'PID\s*(\d+)', txt)
@@ -415,7 +445,10 @@ class LyngSatDXMaster:
                 
                 # Extraction
                 name_td = tds[2]
-                name = name_td.get_text(strip=True)
+                
+                # FIX: Avoid duplication by retrieving only the first text node using stripped_strings
+                name_strings = list(name_td.stripped_strings)
+                name = name_strings[0] if name_strings else ""
                 
                 # Filter junk
                 if not name or any(k in name.upper() for k in self.JUNK_KEYWORDS) or "," in name:
@@ -474,6 +507,8 @@ class LyngSatDXMaster:
                     sat_dir = hist_dir
                 else:
                     pos_label = pre_determined_pos
+
+                self._cleanup_position(pos_label)
 
                 f_dir = "frequencies"
                 c_dir = os.path.join("channellist", pos_label)
@@ -535,6 +570,15 @@ class LyngSatDXMaster:
                 try:
                     mux_res = requests.get(mux_url, impersonate="chrome", timeout=12, verify=False)
                     mux_soup = BeautifulSoup(mux_res.text, 'html.parser')
+                    
+                    # FIX: Extract true frequency and polarization from the mux page itself
+                    # (Overrides potential incorrect values or duplicated rows from satellite page)
+                    title_tag = mux_soup.find('title')
+                    if title_tag:
+                        true_f_m = re.search(r':\s*(\d{4,5})\s*([LRHV])', title_tag.get_text(strip=True), re.IGNORECASE)
+                        if true_f_m:
+                            f_v = true_f_m.group(1)
+                            p_r = true_f_m.group(2).upper()
                     
                     # [FIXED] PLS EXTRACTION LOGIC
                     # We extract text from the entire soup safely to catch 'PLS Gold 242133' anywhere

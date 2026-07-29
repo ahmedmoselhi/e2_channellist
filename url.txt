@@ -12,4 +12,5 @@ https://www.lyngsat.com/Cosmos-2520.html,45.2E
 https://www.lyngsat.com/Azerspace-1.html,46.1E
 https://www.lyngsat.com/Yamal-601.html,49.1E
 https://www.lyngsat.com/Express-AM6.html,53.0E
+https://www.lyngsat.com/Intelsat-39.html,62.1E
 https://www.lyngsat.com/Thaicom-6.html,78.6E
