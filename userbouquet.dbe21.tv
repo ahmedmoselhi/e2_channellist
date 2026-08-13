@@ -1,9 +1,9 @@
 #NAME •••••| (69) 7.0E KU-band Eutelsat 7B/7C |•••••
-#SERVICE 1:64:208:0:0:0:0:0:0:0::| مسيحي |
+#SERVICE 1:64:204:0:0:0:0:0:0:0::| مسيحي |
 #DESCRIPTION | مسيحي |
 #SERVICE 1:0:1:9:CE4:7E:460000:0:0:0::Sat 7 Pars
 #DESCRIPTION Sat 7 Pars
-#SERVICE 1:64:209:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:205:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:13:CE4:7E:460000:0:0:0::Araz News
 #DESCRIPTION Araz News
@@ -11,7 +11,7 @@
 #DESCRIPTION Ava News
 #SERVICE 1:0:1:B:CE4:7E:460000:0:0:0::BBC News Persian
 #DESCRIPTION BBC News Persian
-#SERVICE 1:64:20A:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:206:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:36B0:A12:7E:460000:0:0:0::La Radio Plus
 #DESCRIPTION La Radio Plus
@@ -19,7 +19,7 @@
 #DESCRIPTION Radio Javan HD
 #SERVICE 1:0:2:14:CE4:7E:460000:0:0:0::Radio Payam Azadi
 #DESCRIPTION Radio Payam Azadi
-#SERVICE 1:64:20B:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:207:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:A:CE8:7E:460000:0:0:0::4U Family (HD)
 #DESCRIPTION 4U Family (HD)

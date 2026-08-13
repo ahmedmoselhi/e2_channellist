@@ -1,15 +1,15 @@
 #NAME •••••| (13) 40.0E KU-band Express AM7 |•••••
-#SERVICE 1:64:264:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:260:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:1:6C:65:E26:1900000:0:0:0::Quran TV
 #DESCRIPTION Quran TV
 #SERVICE 1:0:2:F7:65:E26:1900000:0:0:0::Radio Quran
 #DESCRIPTION Radio Quran
-#SERVICE 1:64:265:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:261:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:72:65:E26:1900000:0:0:0::IFilm Persian
 #DESCRIPTION IFilm Persian
-#SERVICE 1:64:266:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:262:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:103:65:E26:1900000:0:0:0::IRIB World Service Radio 3
 #DESCRIPTION IRIB World Service Radio 3
@@ -51,11 +51,11 @@
 #DESCRIPTION Radio Varzesh
 #SERVICE 1:0:2:106:65:E26:1900000:0:0:0::Radio Ziarat
 #DESCRIPTION Radio Ziarat
-#SERVICE 1:64:267:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:263:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:6D:65:E26:1900000:0:0:0::Doc TV
 #DESCRIPTION Doc TV
-#SERVICE 1:64:268:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:264:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:6B:65:E26:1900000:0:0:0::Amouzesh TV
 #DESCRIPTION Amouzesh TV

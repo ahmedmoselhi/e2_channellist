@@ -1,11 +1,11 @@
 #NAME •••••| (23) 54.9E KU-band G-Sat 16 & Yamal 402 |•••••
-#SERVICE 1:64:289:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:285:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:16:DD32:236:70:225314C:0:0:0::Extreme Sports Channel
 #DESCRIPTION Extreme Sports Channel
 #SERVICE 1:0:16:DD24:236:70:225314C:0:0:0::Viju+ Sport
 #DESCRIPTION Viju+ Sport
-#SERVICE 1:64:28A:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:286:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:1:9:1:2250000:0:0:0::Dorognoe FM
 #DESCRIPTION Dorognoe FM
@@ -39,11 +39,11 @@
 #DESCRIPTION Radio Zvezda
 #SERVICE 1:0:2:6:9:1:2250000:0:0:0::Retro FM Rossiya
 #DESCRIPTION Retro FM Rossiya
-#SERVICE 1:64:28B:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:287:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:16:DD21:236:70:225314C:0:0:0::Viju History
 #DESCRIPTION Viju History
-#SERVICE 1:64:28C:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:288:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:A:D:1:2250000:0:0:0::1 Krim
 #DESCRIPTION 1 Krim

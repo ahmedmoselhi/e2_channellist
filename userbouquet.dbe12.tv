@@ -1,15 +1,15 @@
 #NAME •••••| (24) 57.0E KU-band NSS 12 |•••••
-#SERVICE 1:64:28D:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:289:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:1:1940:277A:A:23A0000:0:0:0::Africa TV 1 Quran
 #DESCRIPTION Africa TV 1 Quran
 #SERVICE 1:0:1:177E:2775:A:23A0000:0:0:0::Quran TV
 #DESCRIPTION Quran TV
-#SERVICE 1:64:28E:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:28A:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:17D6:2777:A:23A0000:0:0:0::EBS Cinema
 #DESCRIPTION EBS Cinema
-#SERVICE 1:64:28F:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:28B:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:1770:2775:A:23A0000:0:0:0::BBC News Africa
 #DESCRIPTION BBC News Africa
@@ -19,7 +19,7 @@
 #DESCRIPTION ETV News (HD)
 #SERVICE 1:0:1:1772:2775:A:23A0000:0:0:0::Aljazeera English
 #DESCRIPTION Aljazeera English
-#SERVICE 1:64:290:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:28C:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:18D7:2778:A:23A0000:0:0:0::Amhara Radio
 #DESCRIPTION Amhara Radio
@@ -49,7 +49,7 @@
 #DESCRIPTION OBN Radio
 #SERVICE 1:0:2:1860:277B:1:23A0000:0:0:0::Radio Zara FM
 #DESCRIPTION Radio Zara FM
-#SERVICE 1:64:291:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:28D:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1928:277A:A:23A0000:0:0:0::A Plus TV
 #DESCRIPTION A Plus TV

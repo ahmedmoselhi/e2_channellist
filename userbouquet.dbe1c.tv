@@ -1,5 +1,5 @@
 #NAME •••••| (55) 30.0W KU-band SpainSat / Hispasat 30W-5/30W-6 |•••••
-#SERVICE 1:64:1DB:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1D7:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:191:27:36:CE40000:0:0:0::AXN Movies (HD)
 #DESCRIPTION AXN Movies (HD)
@@ -9,7 +9,7 @@
 #DESCRIPTION STAR Movies
 #SERVICE 1:0:1:E9:30:36:CE40000:0:0:0::Star Movies
 #DESCRIPTION Star Movies
-#SERVICE 1:64:1DC:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1D8:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:199:27:36:CE40000:0:0:0::Eurosport 1 (HD)
 #DESCRIPTION Eurosport 1 (HD)
@@ -65,7 +65,7 @@
 #DESCRIPTION Sporting TV
 #SERVICE 1:0:1:FB:30:36:CE40000:0:0:0::Sporting TV
 #DESCRIPTION Sporting TV
-#SERVICE 1:64:1DD:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:1D9:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:1393:30:36:CE40000:0:0:0::CNN
 #DESCRIPTION CNN
@@ -85,7 +85,7 @@
 #DESCRIPTION Sky News
 #SERVICE 1:0:1:A8C:6:6:CE40000:0:0:0::Record News (SD)
 #DESCRIPTION Record News (SD)
-#SERVICE 1:64:1DE:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1DA:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:17A8:2F:36:CE40000:0:0:0::Afro Music Channel
 #DESCRIPTION Afro Music Channel
@@ -125,7 +125,7 @@
 #DESCRIPTION SuperFM
 #SERVICE 1:0:2:126F:2F:36:CE40000:0:0:0::Super FM
 #DESCRIPTION Super FM
-#SERVICE 1:64:1DF:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1DB:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:17A0:2F:36:CE40000:0:0:0::Discovery Channel HD
 #DESCRIPTION Discovery Channel HD
@@ -135,7 +135,7 @@
 #DESCRIPTION ID Investigation Discovery
 #SERVICE 1:0:1:1CB:27:36:CE40000:0:0:0::Investigation Discovery Europe
 #DESCRIPTION Investigation Discovery Europe
-#SERVICE 1:64:1E0:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:1DC:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:17BF:30:36:CE40000:0:0:0::Panda Kids
 #DESCRIPTION Panda Kids
@@ -145,7 +145,7 @@
 #DESCRIPTION Panda Kids
 #SERVICE 1:0:1:12F7:30:36:CE40000:0:0:0::Panda Kids
 #DESCRIPTION Panda Kids
-#SERVICE 1:64:1E1:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1DD:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:0:4:26:36:CE40000:0:0:0:
 #SERVICE 1:0:0:4:27:36:CE40000:0:0:0:

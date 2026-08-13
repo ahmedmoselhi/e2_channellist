@@ -1,5 +1,5 @@
 #NAME •••••| (20) 52.0E KU-band TurkmenÄlem/MonacoSat |•••••
-#SERVICE 1:64:277:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:273:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:13:117E:117E:2080000:0:0:0::Afra Film HD
 #DESCRIPTION Afra Film HD
@@ -27,7 +27,7 @@
 #DESCRIPTION Persiana Series
 #SERVICE 1:0:1:2C0:2BC:1:2080000:0:0:0::Supermovies
 #DESCRIPTION Supermovies
-#SERVICE 1:64:278:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:274:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:1:1:1:2082C50:0:0:0::Persiana Sports
 #DESCRIPTION Persiana Sports
@@ -51,7 +51,7 @@
 #DESCRIPTION Solh Sports
 #SERVICE 1:0:1:2C1:2BC:1:2080000:0:0:0::Trace Sports HD
 #DESCRIPTION Trace Sports HD
-#SERVICE 1:64:279:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:275:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:19:26A:258:1:2080000:0:0:0::BBC Earth
 #DESCRIPTION BBC Earth
@@ -61,7 +61,7 @@
 #DESCRIPTION Newsmax TV
 #SERVICE 1:0:1:2C7:2BC:1:2080000:0:0:0::SkyNews HD
 #DESCRIPTION SkyNews HD
-#SERVICE 1:64:27A:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:276:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:3E:2506:2506:2080000:0:0:0::Afghanistan Intl Radio
 #DESCRIPTION Afghanistan Intl Radio
@@ -89,7 +89,7 @@
 #DESCRIPTION Radio Zamaneh
 #SERVICE 1:0:1:23:117E:117E:2080000:0:0:0::Sun Music TV
 #DESCRIPTION Sun Music TV
-#SERVICE 1:64:27B:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:277:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:19:2C8:2BC:1:2080000:0:0:0::Discovery HD
 #DESCRIPTION Discovery HD
@@ -99,7 +99,7 @@
 #DESCRIPTION Persiana Documentary
 #SERVICE 1:0:1:13:1D36:1D36:2080000:0:0:0::Persiana Documentary
 #DESCRIPTION Persiana Documentary
-#SERVICE 1:64:27C:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:278:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:11:117E:117E:2080000:0:0:0::1TV
 #DESCRIPTION 1TV

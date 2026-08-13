@@ -1,5 +1,5 @@
 #NAME •••••| (3) 23.5E KU-band Astra 3B/3C |•••••
-#SERVICE 1:64:237:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:233:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:4F19:C9F:3:EB0000:0:0:0::Viasat Epic Drama
 #DESCRIPTION Viasat Epic Drama
@@ -39,7 +39,7 @@
 #DESCRIPTION FilmBox Nederland (HD)
 #SERVICE 1:0:19:36E9:C8C:3:EB0000:0:0:0::FilmBox+ One Central Europe
 #DESCRIPTION FilmBox+ One Central Europe
-#SERVICE 1:64:238:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:234:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:4F40:C9F:3:EB0000:0:0:0::Arena Sport 7
 #DESCRIPTION Arena Sport 7
@@ -87,13 +87,13 @@
 #DESCRIPTION Nova Sport 3 (HD)
 #SERVICE 1:0:19:36E7:C8C:3:EB0000:0:0:0::Nova Sport 4 (HD)
 #DESCRIPTION Nova Sport 4 (HD)
-#SERVICE 1:64:239:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:235:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:4F17:C9F:3:EB0000:0:0:0::BBC News Europe
 #DESCRIPTION BBC News Europe
 #SERVICE 1:0:19:36FF:C8C:3:EB0000:0:0:0::CNN Prima News (HD)
 #DESCRIPTION CNN Prima News (HD)
-#SERVICE 1:64:23A:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:236:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:4EBF:C9F:3:EB0000:0:0:0::Bravo Music
 #DESCRIPTION Bravo Music
@@ -153,18 +153,14 @@
 #DESCRIPTION Radio Prague International
 #SERVICE 1:0:16:3C3A:C90:3:EB0000:0:0:0::Retro Music TV
 #DESCRIPTION Retro Music TV
-#SERVICE 1:64:23B:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:237:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:4E94:C9F:3:EB0000:0:0:0::History Polska
 #DESCRIPTION History Polska
 #SERVICE 1:0:16:335A:C93:3:EB0000:0:0:0::CS History
 #DESCRIPTION CS History
-#SERVICE 1:64:23C:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:238:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
-#SERVICE 1:0:1:337:2FFD:1:EB0000:0:0:0::23.5E-RRT@PID4097PLP0 Feed Service
-#DESCRIPTION 23.5E-RRT@PID4097PLP0 Feed Service
-#SERVICE 1:0:1:336:2FFD:1:EB0000:0:0:0::23.5E-RRT@PID4096PLP0 Feed Service
-#DESCRIPTION 23.5E-RRT@PID4096PLP0 Feed Service
 #SERVICE 1:0:1:4F02:C9F:3:EB0000:0:0:0::Digi 24
 #DESCRIPTION Digi 24
 #SERVICE 1:0:1:4F0E:C9F:3:EB0000:0:0:0::Rai 1

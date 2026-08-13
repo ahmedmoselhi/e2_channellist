@@ -1,13 +1,13 @@
 #NAME •••••| (10) 36.0E KU-band Eutelsat 36D & Express AMU1 |•••••
-#SERVICE 1:64:255:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:251:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:19:2:1:539:1680000:0:0:0::Quran TV
 #DESCRIPTION Quran TV
-#SERVICE 1:64:256:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:252:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:16:72:F5:1:1680000:0:0:0::Star Movies Slovenija (SD)
 #DESCRIPTION Star Movies Slovenija (SD)
-#SERVICE 1:64:257:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:253:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:16:A427:FFA2:36E:1680000:0:0:0::NBS Sport
 #DESCRIPTION NBS Sport
@@ -17,7 +17,7 @@
 #DESCRIPTION SuperSport Cricket Africa
 #SERVICE 1:0:1:7DE:2:FD:1680000:0:0:0::TV Sport (HD)
 #DESCRIPTION TV Sport (HD)
-#SERVICE 1:64:258:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:254:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:16:A42C:FFA2:36E:1680000:0:0:0::EuroNews Deutsch
 #DESCRIPTION EuroNews Deutsch
@@ -27,7 +27,7 @@
 #DESCRIPTION EuroNews Français
 #SERVICE 1:0:1:1:1:FFFF:168ACF4:0:0:0::Iraq Alhadath
 #DESCRIPTION Iraq Alhadath
-#SERVICE 1:64:259:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:255:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:A0C5:FFA1:36E:1680000:0:0:0::Ahadu Radio
 #DESCRIPTION Ahadu Radio
@@ -49,11 +49,11 @@
 #DESCRIPTION Wasafi FM
 #SERVICE 1:0:2:A0C1:FFA1:36E:1680000:0:0:0::YFM Accra
 #DESCRIPTION YFM Accra
-#SERVICE 1:64:25A:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:256:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:19:5:1:539:1680000:0:0:0::Karbala Documentary
 #DESCRIPTION Karbala Documentary
-#SERVICE 1:64:25B:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:257:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:19:12C3:37:1:1680000:0:0:0::1 TV
 #DESCRIPTION 1 TV

@@ -1,5 +1,5 @@
 #NAME •••••| (21) 52.5E KU-band Al Yah 1 |•••••
-#SERVICE 1:64:27D:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:279:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:2:A3C:1A:2BE:20D0000:0:0:0::Holly Quran Radio
 #DESCRIPTION Holly Quran Radio
@@ -7,11 +7,11 @@
 #DESCRIPTION Nida Alislam Radio
 #SERVICE 1:0:1:15E1:1A:2BE:20D0000:0:0:0::Quran TV (HD)
 #DESCRIPTION Quran TV (HD)
-#SERVICE 1:64:27E:0:0:0:0:0:0:0::| مسيحي |
+#SERVICE 1:64:27A:0:0:0:0:0:0:0::| مسيحي |
 #DESCRIPTION | مسيحي |
 #SERVICE 1:0:1:11:2:1:20DAEB6:0:0:0::Sat 7 Pars
 #DESCRIPTION Sat 7 Pars
-#SERVICE 1:64:27F:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:27B:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:45:1:1:20DADF6:0:0:0::Film +
 #DESCRIPTION Film +
@@ -43,7 +43,7 @@
 #DESCRIPTION GEM Series + (HD)
 #SERVICE 1:0:1:1F:2:1:20DAEB6:0:0:0::Grand Cinema
 #DESCRIPTION Grand Cinema
-#SERVICE 1:64:280:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:27C:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:8:7:1:20D0000:0:0:0::Futbol (HD)
 #DESCRIPTION Futbol (HD)
@@ -67,7 +67,7 @@
 #DESCRIPTION GEM Sport 1 (HD)
 #SERVICE 1:0:1:239:5:1:20D2EA2:0:0:0::AF Sports
 #DESCRIPTION AF Sports
-#SERVICE 1:64:281:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:27D:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:65A:4:20D:20D0000:0:0:0::ATN News
 #DESCRIPTION ATN News
@@ -105,7 +105,7 @@
 #DESCRIPTION RTA News HD
 #SERVICE 1:0:1:23C:5:1:20D2EA2:0:0:0::Tolo News
 #DESCRIPTION Tolo News
-#SERVICE 1:64:282:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:27E:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:8:A:1:20D0000:0:0:0::24.7 Music TV
 #DESCRIPTION 24.7 Music TV
@@ -185,11 +185,11 @@
 #DESCRIPTION Radio Nawa FM
 #SERVICE 1:0:A:1D3:5:1:20D2EA2:0:0:0::Radio Ashna
 #DESCRIPTION Radio Ashna
-#SERVICE 1:64:283:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:27F:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:1A:7:1:20DAF02:0:0:0::GEM Documentary (HD)
 #DESCRIPTION GEM Documentary (HD)
-#SERVICE 1:64:284:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:280:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:19:18:18:20D:20D0000:0:0:0::Disney Channel Middle East
 #DESCRIPTION Disney Channel Middle East
@@ -199,11 +199,11 @@
 #DESCRIPTION GEM Kids
 #SERVICE 1:0:1:4A:1:1:20DADF6:0:0:0::Tala Kids Club
 #DESCRIPTION Tala Kids Club
-#SERVICE 1:64:285:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:281:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:1:E:6:1:20D0000:0:0:0::GEM Food
 #DESCRIPTION GEM Food
-#SERVICE 1:64:286:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:282:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:F:7:1:20D0000:0:0:0::Ilm va Tabiat
 #DESCRIPTION Ilm va Tabiat

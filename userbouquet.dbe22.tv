@@ -1,5 +1,5 @@
 #NAME •••••| (70) 9.0E KU-band Eutelsat 9B & Ka-Sat 9A |•••••
-#SERVICE 1:64:20C:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:208:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:19:6D:65:12:5A0000:0:0:0::AFN|movie
 #DESCRIPTION AFN|movie
@@ -15,7 +15,7 @@
 #DESCRIPTION Cosmote Series Marathon
 #SERVICE 1:0:1:3F8:9:AA:5A0000:0:0:0::Village Cinemas (HD)
 #DESCRIPTION Village Cinemas (HD)
-#SERVICE 1:64:20D:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:209:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:19:68:65:12:5A0000:0:0:0::AFN|sports
 #DESCRIPTION AFN|sports
@@ -89,7 +89,7 @@
 #DESCRIPTION TalkSport
 #SERVICE 1:0:1:E:170C:9E:5A0000:0:0:0::Trace Sport Stars (HD)
 #DESCRIPTION Trace Sport Stars (HD)
-#SERVICE 1:64:20E:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:20A:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:19:67:65:12:5A0000:0:0:0::AFN|news
 #DESCRIPTION AFN|news
@@ -129,7 +129,7 @@
 #DESCRIPTION Phoenix InfoNews Channel
 #SERVICE 1:0:1:46A:7:AA:5A0000:0:0:0::Sky News International
 #DESCRIPTION Sky News International
-#SERVICE 1:64:20F:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:20B:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:94:65:12:5A0000:0:0:0::AFN Sembach Afternoon Radio
 #DESCRIPTION AFN Sembach Afternoon Radio
@@ -157,7 +157,7 @@
 #DESCRIPTION TEST Radio 2
 #SERVICE 1:0:2:42B:6:AA:5A0000:0:0:0::TEST Radio1
 #DESCRIPTION TEST Radio1
-#SERVICE 1:64:210:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:20C:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:26F:1900:9C:5A0000:0:0:0::CGTN Documentary
 #DESCRIPTION CGTN Documentary
@@ -177,11 +177,11 @@
 #DESCRIPTION Investigation Discovery Europe (HD)
 #SERVICE 1:0:1:45B:4:AA:5A0000:0:0:0::Viasat History East (HD)
 #DESCRIPTION Viasat History East (HD)
-#SERVICE 1:64:211:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:20D:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:19:16A8:C3AA:9E:5A0000:0:0:0::Food Network EMEA (HD)
 #DESCRIPTION Food Network EMEA (HD)
-#SERVICE 1:64:212:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:20E:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:C:FFFE:14B4:9C:5A0000:0:0:0::11785H SID 0xfffe
 #DESCRIPTION 11785H SID 0xfffe
@@ -201,12 +201,6 @@
 #DESCRIPTION 4E
 #SERVICE 1:0:19:CC:19C8:9E:5A0000:0:0:0::6ter Suisse
 #DESCRIPTION 6ter Suisse
-#SERVICE 1:0:1:332:A:1:5A0000:0:0:0::9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI10)
-#DESCRIPTION 9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI10)
-#SERVICE 1:0:1:331:A:1:5A0000:0:0:0::9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI10)
-#DESCRIPTION 9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI10)
-#SERVICE 1:0:1:333:1E:1:5A0000:0:0:0::9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI30)
-#DESCRIPTION 9.0E-ZeonBud@PID4096PLP0 Feed Service (ISI30)
 #SERVICE 1:0:1:464:8:AA:5A0000:0:0:0::Action 24
 #DESCRIPTION Action 24
 #SERVICE 1:0:1:3E9:2:AA:5A0000:0:0:0::AEK Super League Pass
