@@ -1,8 +1,6 @@
 Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov,MuxURL
-3594,3,5120,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Yamal,https://www.lyngsat.com/muxes/Yamal-601_C_3594-R.html
 3622,3,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Yugoria,https://www.lyngsat.com/muxes/Yamal-601_C_3622-R.html
 3627,2,20580,49.1,E,2,9,1,1,2,2,"{4096,0;4096,1}",-1,"{0,0;0,0}",RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3627-L.html
-3628,3,5120,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tyumen,https://www.lyngsat.com/muxes/Yamal-601_C_3628-R.html
 3643,3,15284,49.1,E,2,9,1,2,2,2,"{4096,0;4096,1}",-1,"{0,0;0,0}",RTRS 1,https://www.lyngsat.com/muxes/Yamal-601_C_3643-R.html
 3653,2,20580,49.1,E,2,9,1,1,2,2,"{4096,0}",-1,"{0,0}",RTRS 2,https://www.lyngsat.com/muxes/Yamal-601_C_3653-L.html
 3662,3,15284,49.1,E,2,9,1,2,2,2,"{4096,0}",-1,"{0,0}",RTRS 2,https://www.lyngsat.com/muxes/Yamal-601_C_3662-R.html
@@ -12,6 +10,8 @@ Freq,Pol,SR,Pos,Dir,Inv,FEC,Sys,Mod,RO,Pilot,pids-plps,isi,plsmode-plsvalue,prov
 3709,3,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Ekaterinburg,https://www.lyngsat.com/muxes/Yamal-601_C_3709-R.html
 3716,3,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Kurgan,https://www.lyngsat.com/muxes/Yamal-601_C_3716-R.html
 3722,3,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Perm,https://www.lyngsat.com/muxes/Yamal-601_C_3722-R.html
+3728,3,5120,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Yamal,https://www.lyngsat.com/muxes/Yamal-601_C_3728-R.html
+3741,3,5120,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Tyumen,https://www.lyngsat.com/muxes/Yamal-601_C_3741-R.html
 3803,2,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Samara,https://www.lyngsat.com/muxes/Yamal-601_C_3803-L.html
 3839,2,5130,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Saratov,https://www.lyngsat.com/muxes/Yamal-601_C_3839-L.html
 3858,2,5120,49.1,E,2,9,1,2,2,2,"{4096,1}",-1,"{0,0}",RTRS Udmurtia,https://www.lyngsat.com/muxes/Yamal-601_C_3858-L.html
