@@ -457,7 +457,7 @@ class ConfigManager:
             
             final_astra = (old_conf.strip() + "\n\n-- [ ARCHITECT MODIFIED ENTRIES ] --\n")
         else:
-            final_astra = "-- [ ARCHITECT GENERATED CONFIG ] --\n"
+            final_astra = "-- [ T2-MI Transponders GENERATED CONFIG ] --\n"
 
         final_astra += "\n".join(astra_blocks)
         with open(astra_path, "w", encoding="utf-8") as fh:
@@ -491,7 +491,7 @@ class SatelliteArchitect:
 
         self.bouquet_name = "T2MI_DX"
         self.bouquet_file = os.path.join("workspace", "userbouquet.t2mi_dx.tv")
-        self.ONID = "0001"
+        self.ONID = "1"
         self.TSID = "0001"
 
         self.freq = 4014
@@ -541,14 +541,13 @@ class SatelliteArchitect:
                 print(f"{Color.RED}⚠ Failed to initialize logger: {e}{Color.END}")
 
     def _calculate_namespace(self, freq, sat_pos, sat_dir):
-        """Calculates Enigma2 namespace hex and display position."""
+        """Calculates exact Enigma2 DVB namespace hex and display position."""
         raw_sat = int(sat_pos * 10)
-        ns_sat = (3600 - raw_sat) if sat_dir == "W" else raw_sat
         disp_sat = -raw_sat if sat_dir == "W" else raw_sat
         
-        # FIXED: Enigma2 Satellite namespaces do not append frequency. 
-        # The lower 16 bits remain 0000.
-        ns_hex = format((ns_sat << 16), '08x').lower()
+        # REAL DVB Namespace Calculation (Enigma2 Standard)
+        ns_val = raw_sat if sat_dir == "E" else (3600 - raw_sat)
+        ns_hex = format(ns_val << 16, 'x').lower()
         
         return ns_hex, disp_sat
 
@@ -1033,17 +1032,22 @@ class SatelliteArchitect:
 
         self.logger.debug(f"PROCESSING SINGLE SERVICE: ISI={isi}, PLS={p_code}, PID={pid}, PLP={plp}, SID={sid_start}")
         
-        tp_key = f"{ns_hex}:{tsid_hex}:{self.ONID}"
+        ns_hex_lower = ns_hex.lower()
+        tsid_hex_lower = tsid_hex.lower()
+        onid_hex = format(int(self.ONID, 16), 'x').lower()
+
+        # =========================================================================
+        # lamedb LOGIC (Uses mathematically correct REAL DVB Namespace and ONID)
+        # =========================================================================
+        tp_key = f"{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}"
         if tp_key not in self.new_tps:
-            self.new_tps[tp_key] = f"{ns_hex}:{tsid_hex}:{self.ONID}\n\ts {tp_data}\n/\n"
+            self.new_tps[tp_key] = f"{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}\n\ts {tp_data}\n/\n"
             self.logger.info(f"Transponder added: {self.freq} {self.pol} {stream_label} TSID:{tsid_hex}")
 
-        # Service / Bouquet Logic
         sid_hex = format(sid_start, 'x').lower()
-        onid_hex = format(int(self.ONID, 16), 'x').lower()
-        s_ref_core = f"{sid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}"
-        pid_hex = format(int(pid), '04x')
-        srv_key = f"{sid_hex}:{ns_hex}:{tsid_hex}:{self.ONID}"
+        pid_hex = format(int(pid), '04x').lower()
+        
+        srv_key = f"{sid_hex}:{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}"
         
         pos_plain = f"{self.sat_pos}{self.sat_dir}"
         pos_disp = f"{self.sat_pos}°{self.sat_dir}"
@@ -1051,9 +1055,16 @@ class SatelliteArchitect:
         label_feed = f"{pos_plain}-{self.provider}@PID{pid}PLP{plp} Feed Service"
         if stream_label: label_feed += f" ({stream_label})"
         
-        # Fixed biss_flag logic to use class variables
         biss_flag = ",C:2600" if self._is_known_biss(self.provider, self.sat_pos, self.sat_dir) else ""
         self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{self.provider},c:15{pid_hex}{biss_flag},f:05\n"
+        
+        # =========================================================================
+        # BOUQUET & ASTRA LOGIC 
+        # =========================================================================
+        
+        # Feed service in bouquet uses the real parameters of lamedb feed service
+        s_ref_core = f"{sid_hex}:{tsid_hex_lower}:{onid_hex}:{ns_hex_lower}".upper()
+        full_sref = f"1:0:1:{s_ref_core}:0:0:0:"
         
         # Bouquet headers
         header_parts = [f"▬ ▬ ▬ {self.provider} {pos_disp} ▬ ▬ ▬ Freq: {self.freq} MHz | PID: {pid} | PLP: {plp}"]
@@ -1063,11 +1074,14 @@ class SatelliteArchitect:
         
         feed_desc = f"● {pos_plain}-{self.provider}@PID{pid}PLP{plp}"
         feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
-        self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
+        self.bouquet.append(f"#SERVICE {full_sref}\n#DESCRIPTION {feed_desc}")
         
         print(f"  {Color.GREEN}✔ Added Feed Service: {label_feed}{Color.END}")
 
-        # Astra Config
+        # Astra Config uses the mathematically correct lamedb target reference 
+        lamedb_sref_core = f"{sid_hex}:{tsid_hex_lower}:{onid_hex}:{ns_hex_lower}".upper()
+        lamedb_full_sref = f"1:0:1:{lamedb_sref_core}:0:0:0:"
+
         var_name = f"f{self.freq}{self.pol.lower()}{self.provider.lower()[:2]}p{pid}plp{plp}"
         if isi != "-1": var_name += f"isi{isi}"
         elif p_code != "0": var_name += f"pls{p_code}"
@@ -1076,16 +1090,16 @@ class SatelliteArchitect:
         
         block = (f"-- {self.freq} {self.pol} PID {pid} PLP {plp} {stream_label}\n"
                  f"{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
-                 f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
+                 f"    input = \"http://127.0.0.1:8001/{lamedb_full_sref}\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_plp}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
                  f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
         
         # Trigger Sub-channel import
-        self._process_sub_channels(plp, tsid_hex.lower(), onid_hex, ns_hex, label_feed, pid, isi, p_code)
+        self._process_sub_channels(plp, tsid_hex.lower(), label_feed, pid, isi, p_code)
 
-    def _process_sub_channels(self, plp, tsid_hex, onid_hex, ns_hex, label_parent, pid, isi, p_code="0"):
+    def _process_sub_channels(self, plp, tsid_hex, label_parent, pid, isi, p_code="0"):
         """
         Locates the appropriate CSV for the stream and imports its channels.
         Matches naming: 11778H15157PLP0PID4096_PLS242133.csv or _ISIxxx.csv
@@ -1120,8 +1134,11 @@ class SatelliteArchitect:
                             stype = parts[2] if len(parts) > 2 else "1"
                             csid_hex = format(int(csid), 'x').lower()
                             
-                            # Build Service Reference linking to the current Transponder's TSID
-                            c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                            # Apply Bouquet T2-MI PID for Network ID (ONID) for sub-channels
+                            bouquet_onid = format(int(pid), 'x')
+                            bouquet_ns = "0"
+                            c_ref_core = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{bouquet_onid}:{bouquet_ns}:0:0:0".upper()
+                            c_ref = f"{c_ref_core}:{sub_url}:{name}"
                             
                             # Add to Bouquet
                             self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ❯ {name}")
@@ -1328,19 +1345,23 @@ class SatelliteArchitect:
             # 11 Parameters (Standard)
             tp_data = f"{freq}000:{sr}000:{POL_MAP[pol]}:{fec}:{disp_sat}:{inv}:{flags}:{sys_type}:{mod}:{roll}:{pilot}"
 
-        # --- Transponder Entry ---
-        tp_key = f"{ns_hex}:{tsid_hex}:{self.ONID}"
+        ns_hex_lower = ns_hex.lower()
+        tsid_hex_lower = tsid_hex.lower()
+        onid_hex = format(int(self.ONID, 16), 'x').lower()
+
+        # =========================================================================
+        # lamedb LOGIC (Uses mathematically correct REAL DVB Namespace and ONID)
+        # =========================================================================
+        tp_key = f"{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}"
         if tp_key not in self.new_tps:
-            self.new_tps[tp_key] = f"{ns_hex}:{tsid_hex}:{self.ONID}\n\ts {tp_data}\n/\n"
+            self.new_tps[tp_key] = f"{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}\n\ts {tp_data}\n/\n"
             log_msg = f"📡 Generated TP: {stream_label}" if stream_label else "📡 Generated TP"
             print(f"  {Color.CYAN}{log_msg}{Color.END}")
 
-        # --- Service & Bouquet Logic ---
         sid_hex = format(sid, 'x').lower()
-        onid_hex = format(int(self.ONID, 16), 'x').lower()
-        s_ref_core = f"{sid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}"
-        pid_hex = format(int(pid), '04x')
-        srv_key = f"{sid_hex}:{ns_hex}:{tsid_hex}:{self.ONID}"
+        pid_hex = format(int(pid), '04x').lower()
+        
+        srv_key = f"{sid_hex}:{ns_hex_lower}:{tsid_hex_lower}:{onid_hex}"
         
         pos_plain = f"{sat_pos}{sat_dir}"
         pos_disp = f"{sat_pos}°{sat_dir}"
@@ -1352,6 +1373,14 @@ class SatelliteArchitect:
         biss_flag = ",C:2600" if self._is_known_biss(provider, sat_pos, sat_dir) else ""
         self.new_srvs[srv_key] = f"{srv_key}:1:0\n{label_feed}\np:{provider},c:15{pid_hex}{biss_flag},f:05\n"
         
+        # =========================================================================
+        # BOUQUET & ASTRA LOGIC
+        # =========================================================================
+        
+        # Feed service in bouquet uses the real parameters of lamedb feed service
+        s_ref_core = f"{sid_hex}:{tsid_hex_lower}:{onid_hex}:{ns_hex_lower}".upper()
+        full_sref = f"1:0:1:{s_ref_core}:0:0:0:"
+
         # Bouquet headers
         header_parts = [f"▬ ▬ ▬ {provider} {pos_disp} ▬ ▬ ▬ Freq: {freq} MHz | PID: {pid} | PLP: {plp}"]
         if stream_label: header_parts.append(f"| {stream_label}")
@@ -1362,11 +1391,14 @@ class SatelliteArchitect:
         
         feed_desc = f"● {pos_plain}-{provider}@PID{pid}PLP{plp}"
         feed_desc += f" [{stream_label} FEED]" if stream_label else " [T2-MI FEED]"
-        self.bouquet.append(f"#SERVICE 1:0:1:{s_ref_core}:0:0:0:\n#DESCRIPTION {feed_desc}")
+        self.bouquet.append(f"#SERVICE {full_sref}\n#DESCRIPTION {feed_desc}")
         
         print(f"  {Color.GREEN}✔ Added Feed Service: {label_feed}{Color.END}")
 
-        # --- Astra/Cesbo Config ---
+        # --- Astra/Cesbo Config uses the mathematically correct lamedb target reference ---
+        lamedb_sref_core = f"{sid_hex}:{tsid_hex_lower}:{onid_hex}:{ns_hex_lower}".upper()
+        lamedb_full_sref = f"1:0:1:{lamedb_sref_core}:0:0:0:"
+
         var_name = f"f{freq}{pol.lower()}{provider.lower()[:2]}p{pid}plp{plp}"
         if isi != "-1": var_name += f"isi{isi}"
         elif pls_code != "0": var_name += f"pls{pls_code}"
@@ -1379,7 +1411,7 @@ class SatelliteArchitect:
             
         block = (f"-- {freq} {pol} PID {pid} PLP {plp} {stream_label}\n"
                  f"{var_name} = make_t2mi_decap({{\n    name = \"decap_{var_name}\",\n"
-                 f"    input = \"http://127.0.0.1:8001/1:0:1:{s_ref_core}:0:0:0:\",\n"
+                 f"    input = \"http://127.0.0.1:8001/{lamedb_full_sref}\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_full}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
                  f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\" }},\n}})\n")
@@ -1412,7 +1444,13 @@ class SatelliteArchitect:
                         csid, name = parts[0], parts[1]
                         stype = parts[2] if len(parts) > 2 else "1"
                         csid_hex = format(int(csid), 'x').lower()
-                        c_ref = f"1:0:{stype}:{csid_hex}:{tsid_hex.lower()}:{onid_hex}:{ns_hex}:0:0:0:{sub_url}:{name}"
+                        
+                        # Apply Bouquet T2-MI PID for Network ID (ONID) for sub-channels
+                        bouquet_onid = format(int(pid), 'x')
+                        bouquet_ns = "0"
+                        c_ref_core = f"1:0:{stype}:{csid_hex}:{tsid_hex_lower}:{bouquet_onid}:{bouquet_ns}:0:0:0".upper()
+                        c_ref = f"{c_ref_core}:{sub_url}:{name}"
+                        
                         self.bouquet.append(f"#SERVICE {c_ref}\n#DESCRIPTION ❯ {name}")
                         print(f"    {Color.GREEN}✔ Added: {name}{Color.END}")
         else:
