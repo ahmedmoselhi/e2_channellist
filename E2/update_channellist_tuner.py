@@ -5,6 +5,7 @@ import zipfile
 import time
 import shutil
 import argparse
+import ssl
 from datetime import datetime
 
 # --- PYTHON 2/3 COMPATIBILITY ---
@@ -21,6 +22,15 @@ except ImportError:
     urlretrieve = urllib.urlretrieve
     urlopen = urllib2.urlopen
     Request = urllib2.Request
+
+# --- SSL CONTEXT FIX FOR ENIGMA2 ---
+# Prevents connection drops due to outdated certificates on older STB environments
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
 # --- CONFIGURATION ---
 SETTINGS_FILE = '/etc/enigma2/settings'
@@ -39,6 +49,24 @@ TUNER_URL = 'https://github.com/ahmedmoselhi/e2_channellist/raw/refs/heads/tuner
 ASTRA_URL = 'https://raw.githubusercontent.com/ahmedmoselhi/e2_channellist/refs/heads/astra/astra.conf'
 
 # --- HELPER FUNCTIONS ---
+
+def download_with_headers(url, dest_path):
+    """
+    [HELPER] Downloads a file using a custom User-Agent.
+    Prevents remote servers from closing connections on default urllib requests.
+    """
+    headers = {'User-Agent': 'Mozilla/5.0 (Enigma2; Linux; U)'}
+    req = Request(url, headers=headers)
+    response = urlopen(req)
+    try:
+        with open(dest_path, 'wb') as f:
+            while True:
+                chunk = response.read(8192)
+                if not chunk:
+                    break
+                f.write(chunk)
+    finally:
+        response.close()
 
 def print_banner(title):
     """
@@ -169,7 +197,7 @@ def download_astra_conf():
             os.makedirs(ASTRA_CONF_PATH)
 
         print("-> Downloading astra.conf from GitHub...")
-        urlretrieve(ASTRA_URL, tmp_file)
+        download_with_headers(ASTRA_URL, tmp_file)
 
         verify_file_integrity(tmp_file)
         shutil.move(tmp_file, ASTRA_FILE_PATH)
@@ -199,7 +227,7 @@ def download_and_extract_channels(manage_e2_state=True):
         backup_file(LAMEDB_PATH)
 
         print("-> Downloading latest channel database...")
-        urlretrieve(CHANNELS_URL, tmp_zip)
+        download_with_headers(CHANNELS_URL, tmp_zip)
 
         verify_file_integrity(tmp_zip, is_zip=True)
 
@@ -281,7 +309,8 @@ def update_tuner_settings(tuner_target=None, firmware_logic=None, manage_e2_stat
 
     try:
         print("-> Pulling source data from GitHub...")
-        req = Request(TUNER_URL)
+        headers = {'User-Agent': 'Mozilla/5.0 (Enigma2; Linux; U)'}
+        req = Request(TUNER_URL, headers=headers)
         
         # Python 2 backward compatibility fix for urlopen context manager
         response = urlopen(req)
