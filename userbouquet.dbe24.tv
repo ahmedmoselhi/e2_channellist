@@ -1,5 +1,5 @@
 #NAME •••••| (72) 13.0E KU-band Hotbird 13F/13G |•••••
-#SERVICE 1:64:214:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:213:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:2:397:2134:13E:820000:0:0:0::AlQuran Alkarem
 #DESCRIPTION AlQuran Alkarem
@@ -9,13 +9,13 @@
 #DESCRIPTION Holy Quran Radio
 #SERVICE 1:0:19:4B3:23F0:13E:820000:0:0:0::Quran TV (HD)
 #DESCRIPTION Quran TV (HD)
-#SERVICE 1:64:215:0:0:0:0:0:0:0::| القنوات المصرية |
+#SERVICE 1:64:214:0:0:0:0:0:0:0::| القنوات المصرية |
 #DESCRIPTION | القنوات المصرية |
 #SERVICE 1:0:19:38E:2134:13E:820000:0:0:0::Egyptian TV 2
 #DESCRIPTION Egyptian TV 2
 #SERVICE 1:0:19:2C9:14B4:13E:820000:0:0:0::WedoTV Film al Femminile
 #DESCRIPTION WedoTV Film al Femminile
-#SERVICE 1:64:216:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:215:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:3779:44C:13E:820000:0:0:0::Canal + Film (HD)
 #DESCRIPTION Canal + Film (HD)
@@ -97,7 +97,7 @@
 #DESCRIPTION Viasat Epic Drama
 #SERVICE 1:0:19:104:2C24:13E:820000:0:0:0::WedoTV Movies
 #DESCRIPTION WedoTV Movies
-#SERVICE 1:64:217:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:216:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:64D:2454:13E:820000:0:0:0::ACI Sport TV
 #DESCRIPTION ACI Sport TV
@@ -321,7 +321,7 @@
 #DESCRIPTION TVP Sport (HD)
 #SERVICE 1:0:19:105:2C24:13E:820000:0:0:0::WedoTV Sports
 #DESCRIPTION WedoTV Sports
-#SERVICE 1:64:218:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:217:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:19:252A:13EF:13E:820000:0:0:0::Al Hadath (HD)
 #DESCRIPTION Al Hadath (HD)
@@ -429,7 +429,7 @@
 #DESCRIPTION Sky News International
 #SERVICE 1:0:16:66:2FA8:13E:820000:0:0:0::Svoboda News
 #DESCRIPTION Svoboda News
-#SERVICE 1:64:219:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:218:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:6D8:3138:13E:820000:0:0:0::Bahai Radio
 #DESCRIPTION Bahai Radio
@@ -707,7 +707,7 @@
 #DESCRIPTION Virgin Radio TV
 #SERVICE 1:0:1:2910:1EDC:71:820000:0:0:0::Vox Music TV (HD)
 #DESCRIPTION Vox Music TV (HD)
-#SERVICE 1:64:21A:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:219:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:369:3C28:13E:820000:0:0:0::CGTN Documentary
 #DESCRIPTION CGTN Documentary
@@ -751,7 +751,7 @@
 #DESCRIPTION Sky Documentaries
 #SERVICE 1:0:1:C20:1E78:71:820000:0:0:0::Viasat History Polsat (HD)
 #DESCRIPTION Viasat History Polsat (HD)
-#SERVICE 1:64:21B:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:21A:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:428E:2BC0:13E:820000:0:0:0::4 Fun Kids
 #DESCRIPTION 4 Fun Kids
@@ -763,7 +763,7 @@
 #DESCRIPTION IDJ Kids (HD)
 #SERVICE 1:0:1:654:2454:13E:820000:0:0:0::Nour Kids
 #DESCRIPTION Nour Kids
-#SERVICE 1:64:21C:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:21B:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:19:3B63:12C:13E:820000:0:0:0::Food Network Italia (HD)
 #DESCRIPTION Food Network Italia (HD)
@@ -771,7 +771,7 @@
 #DESCRIPTION Food Network Polska (HD)
 #SERVICE 1:0:19:3DEC:640:13E:820000:0:0:0::Food Network Polska (HD)
 #DESCRIPTION Food Network Polska (HD)
-#SERVICE 1:64:21D:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:21C:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:0:110:3070:13E:820000:0:0:0:
 #SERVICE 1:0:0:111:3070:13E:820000:0:0:0:

@@ -1,5 +1,5 @@
 #NAME •••••| (42) 93.5E KU-band G-Sat 15/17 |•••••
-#SERVICE 1:64:2A4:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:2A3:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:7E1:1:63:3A70000:0:0:0::All Time Movies
 #DESCRIPTION All Time Movies
@@ -19,7 +19,7 @@
 #DESCRIPTION Oscar Movies Bhojpuri
 #SERVICE 1:0:1:804:2:63:3A70000:0:0:0::Star Utsav Movies
 #DESCRIPTION Star Utsav Movies
-#SERVICE 1:64:2A5:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:2A4:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:879:4:63:3A70000:0:0:0::DD Sports
 #DESCRIPTION DD Sports
@@ -27,7 +27,7 @@
 #DESCRIPTION DD Sports
 #SERVICE 1:0:19:909:7:63:3A70000:0:0:0::DD Sports (HD)
 #DESCRIPTION DD Sports (HD)
-#SERVICE 1:64:2A6:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:2A5:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:7DA:1:63:3A70000:0:0:0::ABP News India
 #DESCRIPTION ABP News India
@@ -77,7 +77,7 @@
 #DESCRIPTION VTV News
 #SERVICE 1:0:1:843:3:63:3A70000:0:0:0::Zee News
 #DESCRIPTION Zee News
-#SERVICE 1:64:2A7:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:2A6:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:B56:6:63:3A70000:0:0:0::AIR FM Gold Delhi
 #DESCRIPTION AIR FM Gold Delhi
@@ -87,7 +87,7 @@
 #DESCRIPTION B4U Music India
 #SERVICE 1:0:1:7D7:1:63:3A70000:0:0:0::Epic Music
 #DESCRIPTION Epic Music
-#SERVICE 1:64:2A8:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:2A7:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:8153:6:63:3A70000:0:0:0::11630V SID 0x8153
 #DESCRIPTION 11630V SID 0x8153

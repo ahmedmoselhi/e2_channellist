@@ -1,5 +1,5 @@
 #NAME •••••| (12) 39.0E KU-band Hellas Sat 3/4 |•••••
-#SERVICE 1:64:258:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:257:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:200:10:1C:1860000:0:0:0::Film Café Romania
 #DESCRIPTION Film Café Romania
@@ -71,7 +71,7 @@
 #DESCRIPTION Viasat Epic Drama
 #SERVICE 1:0:1F:D3:B2:39E:1860000:0:0:0::FilmBox+ Emotion Bulgaria (HD)
 #DESCRIPTION FilmBox+ Emotion Bulgaria (HD)
-#SERVICE 1:64:259:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:258:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:1108:3FC:39E:1860000:0:0:0::SuperSport 1 (HD)
 #DESCRIPTION SuperSport 1 (HD)
@@ -193,7 +193,7 @@
 #DESCRIPTION Diema Sport 2 (HD)
 #SERVICE 1:0:1F:CA:B2:39E:1860000:0:0:0::Diema Sport (HD)
 #DESCRIPTION Diema Sport (HD)
-#SERVICE 1:64:25A:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:259:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:3:0:16E:1860000:0:0:0::Antena 3 CNN
 #DESCRIPTION Antena 3 CNN
@@ -243,7 +243,7 @@
 #DESCRIPTION Sky News International
 #SERVICE 1:0:1F:F9:B2:39E:1860000:0:0:0::Nova News (HD)
 #DESCRIPTION Nova News (HD)
-#SERVICE 1:64:25B:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:25A:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:7:A:A:1860000:0:0:0::Ellada FM
 #DESCRIPTION Ellada FM
@@ -287,7 +287,7 @@
 #DESCRIPTION Balkanika Music TV
 #SERVICE 1:0:1F:ED:B2:39E:1860000:0:0:0::Hit Mix Music
 #DESCRIPTION Hit Mix Music
-#SERVICE 1:64:25C:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:25B:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:126:12:1C:1860000:0:0:0::History România
 #DESCRIPTION History România
@@ -319,7 +319,7 @@
 #DESCRIPTION Viasat History East
 #SERVICE 1:0:1F:E8:B2:39E:1860000:0:0:0::History Europe
 #DESCRIPTION History Europe
-#SERVICE 1:64:25D:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:25C:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:712:3FC:39E:1860000:0:0:0::Tring Kids
 #DESCRIPTION Tring Kids
@@ -329,7 +329,7 @@
 #DESCRIPTION Kids Stars
 #SERVICE 1:0:1F:F2:B2:39E:1860000:0:0:0::EKids
 #DESCRIPTION EKids
-#SERVICE 1:64:25E:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:25D:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:1:5:0:16E:1860000:0:0:0::Chefi.ro
 #DESCRIPTION Chefi.ro
@@ -337,7 +337,7 @@
 #DESCRIPTION Chefi.ro
 #SERVICE 1:0:16:2C8:7:1:1860000:0:0:0::Food Network EMEA
 #DESCRIPTION Food Network EMEA
-#SERVICE 1:64:25F:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:25E:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1900:3FC:39E:1860000:0:0:0::Panorama TV
 #DESCRIPTION Panorama TV

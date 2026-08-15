@@ -1,13 +1,13 @@
 #NAME •••••| (17) 46.0E KU-band Azerspace 1 |•••••
-#SERVICE 1:64:26F:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:26E:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:8:1:1:1CC2BA7:0:0:0::CBC Sport (HD)
 #DESCRIPTION CBC Sport (HD)
-#SERVICE 1:64:270:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:26F:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:11:0:0:1CC2B57:0:0:0::Palitra News
 #DESCRIPTION Palitra News
-#SERVICE 1:64:271:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:270:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:5:0:0:1CC2B57:0:0:0::Radio Ajara
 #DESCRIPTION Radio Ajara
@@ -61,7 +61,7 @@
 #DESCRIPTION Pal FM
 #SERVICE 1:0:2:36:1:FFFF:1CC2B7F:0:0:0::Radio Belarus
 #DESCRIPTION Radio Belarus
-#SERVICE 1:64:272:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:271:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1:0:0:1CC2B57:0:0:0::1 TV
 #DESCRIPTION 1 TV

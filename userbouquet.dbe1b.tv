@@ -1,5 +1,5 @@
 #NAME •••••| (49) 108.1E KU-band SES 7/9 & Merah Putih |•••••
-#SERVICE 1:64:2AD:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:2AC:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:1:3558:15:AC:4390000:0:0:0::Airtel Movies Home
 #DESCRIPTION Airtel Movies Home
@@ -89,7 +89,7 @@
 #DESCRIPTION Airtel Movies Home 1
 #SERVICE 1:0:19:3455:D:AC:43931A7:0:0:0::Zee Cinemalu HD @ Rs 19
 #DESCRIPTION Zee Cinemalu HD @ Rs 19
-#SERVICE 1:64:2AE:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:2AD:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1:3598:10:AC:4390000:0:0:0::1Sports @ Rs 4
 #DESCRIPTION 1Sports @ Rs 4
@@ -149,7 +149,7 @@
 #DESCRIPTION SONY SPORTS TEN 2 HD @ Rs 30
 #SERVICE 1:0:19:33E2:D:AC:43931A7:0:0:0::Sony Sports Ten 3 Hindi HD @ Rs 30
 #DESCRIPTION Sony Sports Ten 3 Hindi HD @ Rs 30
-#SERVICE 1:64:2AF:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:2AE:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:1:3438:10:AC:4390000:0:0:0::1st India News Rajasthan
 #DESCRIPTION 1st India News Rajasthan
@@ -241,7 +241,7 @@
 #DESCRIPTION V6 News
 #SERVICE 1:0:19:337B:D:AC:43931A7:0:0:0::Sony BBC earth HD @ Rs 19
 #DESCRIPTION Sony BBC earth HD @ Rs 19
-#SERVICE 1:64:2B0:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:2AF:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:1:33DD:11:AC:4390000:0:0:0::7S Music @ FREE
 #DESCRIPTION 7S Music @ FREE
@@ -257,7 +257,7 @@
 #DESCRIPTION PTC Music
 #SERVICE 1:0:1:2542:10:AC:4390000:0:0:0::Star Maa Music
 #DESCRIPTION Star Maa Music
-#SERVICE 1:64:2B1:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:2B0:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:1:2F0C:15:AC:4390000:0:0:0::Discovery Kids India
 #DESCRIPTION Discovery Kids India
@@ -265,7 +265,7 @@
 #DESCRIPTION History TV 18 (HD)
 #SERVICE 1:0:19:3418:13:AC:4390000:0:0:0::Investigation Discovery India (HD)
 #DESCRIPTION Investigation Discovery India (HD)
-#SERVICE 1:64:2B2:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:2B1:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:1:369F:15:AC:4390000:0:0:0::Airtel Kids Junior
 #DESCRIPTION Airtel Kids Junior
@@ -279,11 +279,11 @@
 #DESCRIPTION IKIDSWORLDTEST NEW
 #SERVICE 1:0:1:3587:13:AC:4390000:0:0:0::Epic Kids
 #DESCRIPTION Epic Kids
-#SERVICE 1:64:2B3:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:2B2:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:1:3514:10:AC:4390000:0:0:0::FOOD FOOD @ FREE
 #DESCRIPTION FOOD FOOD @ FREE
-#SERVICE 1:64:2B4:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:2B3:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:82:3520:11:AC:4390000:0:0:0:
 #SERVICE 1:0:82:352C:E:AC:4390000:0:0:0:

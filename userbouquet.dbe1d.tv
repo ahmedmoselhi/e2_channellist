@@ -1,5 +1,5 @@
 #NAME •••••| (57) 22.0W KU-band SES 4 |•••••
-#SERVICE 1:64:1DE:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1DD:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:6:1:FFFF:D343180:0:0:0::Radio Décrochage
 #DESCRIPTION Radio Décrochage
@@ -109,7 +109,7 @@
 #DESCRIPTION Radio Culture
 #SERVICE 1:0:2:299:1:FFFF:D343180:0:0:0::Radio Jil FM
 #DESCRIPTION Radio Jil FM
-#SERVICE 1:64:1DF:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1DE:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1:1:FFFF:D343180:0:0:0::TV 6
 #DESCRIPTION TV 6

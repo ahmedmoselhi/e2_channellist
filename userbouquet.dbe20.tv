@@ -1,5 +1,5 @@
 #NAME •••••| (68) 4.9E KU-band Astra 4A & SES 5 |•••••
-#SERVICE 1:64:1FD:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1FC:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
 #SERVICE 1:0:19:1EF5:2E:55:310000:0:0:0::Enter Film (HD)
 #DESCRIPTION Enter Film (HD)
@@ -9,7 +9,7 @@
 #DESCRIPTION Star Cinema
 #SERVICE 1:0:1F:9D9:18:44:310000:0:0:0::Viasat Epic Drama (HD)
 #DESCRIPTION Viasat Epic Drama (HD)
-#SERVICE 1:64:1FE:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1FD:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:1F:9F1:18:44:310000:0:0:0::Eurosport 1 East Europe (HD)
 #DESCRIPTION Eurosport 1 East Europe (HD)
@@ -21,7 +21,7 @@
 #DESCRIPTION Setanta Sports Ukraine
 #SERVICE 1:0:1:1F01:2E:55:310000:0:0:0::Suspilne Sport
 #DESCRIPTION Suspilne Sport
-#SERVICE 1:64:1FF:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1FE:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:2:19E1:10:55:310000:0:0:0::Armiya FM
 #DESCRIPTION Armiya FM
@@ -37,7 +37,7 @@
 #DESCRIPTION Svitle Radio Emmanuel
 #SERVICE 1:0:2:19C8:10:55:310000:0:0:0::Ukrayinske Radio
 #DESCRIPTION Ukrayinske Radio
-#SERVICE 1:64:200:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1FF:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
 #SERVICE 1:0:16:17FF:C:55:310000:0:0:0::Discovery Channel Central Europe
 #DESCRIPTION Discovery Channel Central Europe
@@ -49,17 +49,17 @@
 #DESCRIPTION Investigation Discovery Rossiya
 #SERVICE 1:0:1F:9CB:18:44:310000:0:0:0::Viasat History East
 #DESCRIPTION Viasat History East
-#SERVICE 1:64:201:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:200:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
 #SERVICE 1:0:16:A03:18:44:310000:0:0:0::Cine+ Kids
 #DESCRIPTION Cine+ Kids
 #SERVICE 1:0:16:1817:C:55:310000:0:0:0::Niki Kids
 #DESCRIPTION Niki Kids
-#SERVICE 1:64:202:0:0:0:0:0:0:0::| مطبخ |
+#SERVICE 1:64:201:0:0:0:0:0:0:0::| مطبخ |
 #DESCRIPTION | مطبخ |
 #SERVICE 1:0:16:1823:C:55:310000:0:0:0::Food Network EMEA
 #DESCRIPTION Food Network EMEA
-#SERVICE 1:64:203:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:202:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:0:3E7:65:1:310000:0:0:0:
 #SERVICE 1:0:16:17ED:C:55:310000:0:0:0::1+1 International
