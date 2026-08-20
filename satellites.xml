@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <satellites>
-    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-08-19 12:22:07 GMT -->
+    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-08-20 12:24:19 GMT -->
     <sat name="(50) 45.0W KU-band Intelsat 14" flags="1" position="-450">
         <transponder frequency="11788000" symbol_rate="2500000" polarization="0" fec_inner="3" system="1" modulation="2"/>
     </sat>
@@ -169,10 +169,7 @@
         <transponder frequency="11532000" symbol_rate="6750000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11534000" symbol_rate="4500000" polarization="1" fec_inner="2" system="1" modulation="2"/>
         <transponder frequency="11566000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
-        <transponder frequency="11588000" symbol_rate="15000000" polarization="0" fec_inner="3" system="1" modulation="2"/>
-        <transponder frequency="11606000" symbol_rate="15000000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11617000" symbol_rate="7500000" polarization="1" fec_inner="3" system="1" modulation="2"/>
-        <transponder frequency="11624000" symbol_rate="15000000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11626000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11670000" symbol_rate="7500000" polarization="1" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="11675000" symbol_rate="15750000" polarization="0" fec_inner="3" system="1" modulation="2"/>
@@ -1860,7 +1857,7 @@
     <sat name="(102) 38.1E C-band Paksat 1R/MM1" flags="1" position="382">
         <transponder frequency="12687000" symbol_rate="1300000" polarization="1" fec_inner="4" system="0" modulation="1"/>
     </sat>
-    <sat name="38.2E C-band Paksat MM1 / Paksat 1R" flags="1" position="383">
+    <sat name="38.2E C-band Paksat MM1" flags="1" position="383">
         <transponder frequency="3707000" symbol_rate="1200000" polarization="0" fec_inner="3" system="0" modulation="1"/>
         <transponder frequency="3722000" symbol_rate="3200000" polarization="0" fec_inner="7" system="1" modulation="2"/>
         <transponder frequency="3725000" symbol_rate="3000000" polarization="0" fec_inner="3" system="1" modulation="2"/>
@@ -1877,7 +1874,7 @@
         <transponder frequency="3799000" symbol_rate="1600000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="3803000" symbol_rate="3200000" polarization="0" fec_inner="7" system="1" modulation="2"/>
         <transponder frequency="3806000" symbol_rate="2000000" polarization="0" fec_inner="3" system="1" modulation="1"/>
-        <transponder frequency="3810000" symbol_rate="4000000" polarization="0" fec_inner="2" system="1" modulation="1"/>
+        <transponder frequency="3810000" symbol_rate="3000000" polarization="0" fec_inner="2" system="1" modulation="1"/>
         <transponder frequency="3830000" symbol_rate="3200000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="3833000" symbol_rate="2035000" polarization="0" fec_inner="3" system="1" modulation="2"/>
         <transponder frequency="3845000" symbol_rate="8800000" polarization="0" fec_inner="3" system="1" modulation="2"/>
