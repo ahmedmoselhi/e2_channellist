@@ -226,6 +226,8 @@ class SatellitesProcessor:
                     skip_block = False
                 if trim2_start_delete_marker in line and '<sat' in line:
                     skip_block = True
+                if 'name="Teresterrial Networks"' in line and '<sat' in line:
+                    skip_block = False
                 if trim2_end_keep_marker in line:
                     skip_block = False
 

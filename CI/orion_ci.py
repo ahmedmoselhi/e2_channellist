@@ -217,9 +217,31 @@ class OrionScraperCI:
             else:
                 self.add_node(root, f"{item['display']} {item['name']}", str(base_p), item['tps'])
         
+        self.add_terrestrial_networks(root)
+
         pretty = minidom.parseString(ET.tostring(root, 'utf-8')).toprettyxml(indent="    ")
         final = re.sub(r'<\?xml.*?\?>', '<?xml version="1.0" encoding="iso-8859-1"?>', pretty)
         with open('satellites.xml', 'w', encoding='iso-8859-1') as f: f.write(final)
+
+    @staticmethod
+    def add_terrestrial_networks(root):
+        """Append the fixed terrestrial network transponders to the output XML."""
+        satellite = ET.SubElement(
+            root, "sat", name="Teresterrial Networks", flags="1", position="1800"
+        )
+        for frequency, symbol_rate in (("11665000", "45000000"), ("11895000", "44000000")):
+            ET.SubElement(
+                satellite,
+                "transponder",
+                frequency=frequency,
+                symbol_rate=symbol_rate,
+                polarization="0",
+                fec_inner="3",
+                system="1",
+                modulation="2",
+                onid="1",
+                tsid="1",
+            )
 
     def add_node(self, root, name, pos, tps):
         sat = ET.SubElement(root, "sat", name=name, flags="1", position=pos)
