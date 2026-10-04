@@ -457,8 +457,11 @@ class ConfigManager:
             
             final_astra = (old_conf.strip() + "\n\n-- [ ARCHITECT MODIFIED ENTRIES ] --\n")
         else:
-            final_astra = "-- [ T2-MI Transponders GENERATED CONFIG ] --\n"
-
+            final_astra = (
+                          "-- =========================================================================\n" 
+                          "-- [ SECTION 2: T2-MI Transponders GENERATED CONFIG ]\n"
+                          "-- =========================================================================\n"
+                          )
         final_astra += "\n".join(astra_blocks)
         with open(astra_path, "w", encoding="utf-8") as fh:
             fh.write(final_astra.strip() + "\n")
@@ -1093,7 +1096,7 @@ class SatelliteArchitect:
                  f"    input = \"http://127.0.0.1:8001/{lamedb_full_sref}\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_plp}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
-                 f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}\" }},\n}})\n")
+                 f"    output = {{ \"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_pid{pid}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
         
         # Trigger Sub-channel import
@@ -1120,7 +1123,7 @@ class SatelliteArchitect:
         print(f"  {Color.CYAN}📂 Searching for channel list: {filename}{Color.END}")
         
         if os.path.isfile(target_path):
-            sub_url = f"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_plp{plp}".replace(":", "%3a")
+            sub_url = f"http://0.0.0.0:9999/{self.path}/{self.freq}_{self.sat_pos}{self.sat_dir.lower()}_pid{pid}_plp{plp}".replace(":", "%3a")
             print(f"  {Color.GREEN}    -> Found! Importing channels...{Color.END}")
             self.logger.info(f"Importing channels from: {filename} for {label_parent}")
             
@@ -1414,7 +1417,7 @@ class SatelliteArchitect:
                  f"    input = \"http://127.0.0.1:8001/{lamedb_full_sref}\",\n"
                  f"    plp = {plp},\n    pnr = 0,\n    pid = {pid},\n}})\n"
                  f"make_channel({{\n    name = \"{label_full}\",\n    input = {{ \"t2mi://{var_name}\" }},\n"
-                 f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}\" }},\n}})\n")
+                 f"    output = {{ \"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_pid{pid}_plp{plp}\" }},\n}})\n")
         self.astra_blocks.append(block)
 
         # --- UPDATED: Channel list import logic with PLS filename support ---
@@ -1434,7 +1437,7 @@ class SatelliteArchitect:
         print(f"  {Color.CYAN}📂 Searching for channel list: {filename}{Color.END}")
         
         if os.path.isfile(target_path):
-            sub_url = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_plp{plp}".replace(":", "%3a")
+            sub_url = f"http://0.0.0.0:9999/{path}/{freq}_{sat_pos}{sat_dir.lower()}_pid{pid}_plp{plp}".replace(":", "%3a")
             print(f"  {Color.GREEN}    -> Importing channels...{Color.END}")
             with open(target_path, "r", encoding="utf8") as fh:
                 for csv_line in fh:
