@@ -13,7 +13,7 @@ log.set({ stdout = true, debug = false, syslog = "astra", filename = "/tmp/astra
 make_channel({
   name = "Abertis PID 301",
   input = {
-    "http://localhost:8001/1:0:1:515:EA63:0:CE42D85:0:0:0:",
+    "http://localhost:8001/1:0:1:515:EA63:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -27,7 +27,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 303",
   input = {
-    "http://localhost:8001/1:0:1:517:EA63:0:CE42D85:0:0:0:",
+    "http://localhost:8001/1:0:1:517:EA63:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -41,7 +41,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 420",
   input = {
-    "http://localhost:8001/1:0:1:58C:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:58C:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -55,7 +55,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 421",
   input = {
-    "http://localhost:8001/1:0:1:58D:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:58D:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -69,7 +69,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 423",
   input = {
-    "http://localhost:8001/1:0:1:58F:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:58F:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -83,7 +83,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 431",
   input = {
-    "http://localhost:8001/1:0:1:597:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:597:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -97,7 +97,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 433",
   input = {
-    "http://localhost:8001/1:0:1:599:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:599:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -111,7 +111,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 440",
   input = {
-    "http://localhost:8001/1:0:1:5A0:EA64:0:CE42D9D:0:0:0:",
+    "http://localhost:8001/1:0:1:5A0:EA64:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -125,7 +125,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 701",
   input = {
-    "http://localhost:8001/1:0:1:6A5:EA67:0:CE4B104:0:0:0:",
+    "http://localhost:8001/1:0:1:6A5:EA67:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -139,7 +139,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 702",
   input = {
-    "http://localhost:8001/1:0:1:6A6:EA67:0:CE4B104:0:0:0:",
+    "http://localhost:8001/1:0:1:6A6:EA67:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -153,7 +153,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 703",
   input = {
-    "http://localhost:8001/1:0:1:6A7:EA67:0:CE4B104:0:0:0:",
+    "http://localhost:8001/1:0:1:6A7:EA67:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -167,7 +167,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 801",
   input = {
-    "http://localhost:8001/1:0:1:709:EA7C:0:CE4ACEE:0:0:0:",
+    "http://localhost:8001/1:0:1:709:EA7C:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -181,7 +181,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2025",
   input = {
-    "http://localhost:8001/1:0:1:BD1:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BD1:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -195,7 +195,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2026",
   input = {
-    "http://localhost:8001/1:0:1:BD2:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BD2:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -209,7 +209,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2027",
   input = {
-    "http://localhost:8001/1:0:1:BD3:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BD3:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -223,7 +223,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2028",
   input = {
-    "http://localhost:8001/1:0:1:BD4:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BD4:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -237,7 +237,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2035",
   input = {
-    "http://localhost:8001/1:0:1:BDB:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BDB:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -251,7 +251,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2036",
   input = {
-    "http://localhost:8001/1:0:1:BDC:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BDC:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -265,7 +265,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2037",
   input = {
-    "http://localhost:8001/1:0:1:BDD:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BDD:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -279,7 +279,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2038",
   input = {
-    "http://localhost:8001/1:0:1:BDE:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BDE:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -293,7 +293,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2050",
   input = {
-    "http://localhost:8001/1:0:1:BEA:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BEA:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -307,7 +307,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2060",
   input = {
-    "http://localhost:8001/1:0:1:BF4:EA74:1:CE42BD6:0:0:0:",
+    "http://localhost:8001/1:0:1:BF4:EA74:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -321,7 +321,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2270",
   input = {
-    "http://localhost:8001/1:0:1:CC6:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CC6:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -335,7 +335,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2271",
   input = {
-    "http://localhost:8001/1:0:1:CC7:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CC7:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -349,7 +349,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2272",
   input = {
-    "http://localhost:8001/1:0:1:CC8:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CC8:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -363,7 +363,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2273",
   input = {
-    "http://localhost:8001/1:0:1:CC9:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CC9:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -377,7 +377,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2274",
   input = {
-    "http://localhost:8001/1:0:1:CCA:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CCA:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -391,7 +391,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2281",
   input = {
-    "http://localhost:8001/1:0:1:CD1:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CD1:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -405,7 +405,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2282",
   input = {
-    "http://localhost:8001/1:0:1:CD2:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CD2:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -419,7 +419,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2283",
   input = {
-    "http://localhost:8001/1:0:1:CD3:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CD3:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -433,7 +433,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2284",
   input = {
-    "http://localhost:8001/1:0:1:CD4:EA76:1:CE42C26:0:0:0:",
+    "http://localhost:8001/1:0:1:CD4:EA76:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -447,7 +447,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2301",
   input = {
-    "http://localhost:8001/1:0:1:CE5:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CE5:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -461,7 +461,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2302",
   input = {
-    "http://localhost:8001/1:0:1:CE6:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CE6:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -475,7 +475,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2303",
   input = {
-    "http://localhost:8001/1:0:1:CE7:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CE7:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -489,7 +489,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2304",
   input = {
-    "http://localhost:8001/1:0:1:CE8:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CE8:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -503,7 +503,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2305",
   input = {
-    "http://localhost:8001/1:0:1:CE9:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CE9:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -517,7 +517,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2306",
   input = {
-    "http://localhost:8001/1:0:1:CEA:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CEA:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -531,7 +531,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2307",
   input = {
-    "http://localhost:8001/1:0:1:CEB:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CEB:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -545,7 +545,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2308",
   input = {
-    "http://localhost:8001/1:0:1:CEC:EA77:0:CE42C53:0:0:0:",
+    "http://localhost:8001/1:0:1:CEC:EA77:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -559,7 +559,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2520",
   input = {
-    "http://localhost:8001/1:0:1:DC0:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DC0:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -573,7 +573,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2521",
   input = {
-    "http://localhost:8001/1:0:1:DC1:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DC1:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -587,7 +587,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2522",
   input = {
-    "http://localhost:8001/1:0:1:DC2:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DC2:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -601,7 +601,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2523",
   input = {
-    "http://localhost:8001/1:0:1:DC3:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DC3:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -615,7 +615,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2524",
   input = {
-    "http://localhost:8001/1:0:1:DC4:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DC4:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -629,7 +629,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2531",
   input = {
-    "http://localhost:8001/1:0:1:DCB:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DCB:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -643,7 +643,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2532",
   input = {
-    "http://localhost:8001/1:0:1:DCC:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DCC:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -657,7 +657,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2533",
   input = {
-    "http://localhost:8001/1:0:1:DCD:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DCD:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -671,7 +671,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 2534",
   input = {
-    "http://localhost:8001/1:0:1:DCE:EA79:1:CE42C76:0:0:0:",
+    "http://localhost:8001/1:0:1:DCE:EA79:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -685,7 +685,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 3701",
   input = {                
-    "http://localhost:8001/1:0:1:125D:EA7B:1:CE4AF69:0:0:0:",
+    "http://localhost:8001/1:0:1:125D:EA7B:1:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -699,7 +699,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8000",
   input = { 
-    "http://localhost:8001/1:0:1:3E8:EA61:0:CE4B17F:0:0:0:", 
+    "http://localhost:8001/1:0:1:3E8:EA61:0:CE40000:0:0:0:", 
 	},
   transform = {{
     format = "pipe",
@@ -712,7 +712,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8001",
   input = {
-    "http://localhost:8001/1:0:1:3E9:EA62:0:CE4B157:0:0:0:",
+    "http://localhost:8001/1:0:1:3E9:EA62:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -726,7 +726,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8002",
   input = {
-    "http://localhost:8001/1:0:1:3EA:EA62:0:CE4B157:0:0:0:",
+    "http://localhost:8001/1:0:1:3EA:EA62:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -740,7 +740,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8003",
   input = {
-    "http://localhost:8001/1:0:1:3EB:EA62:0:CE4B157:0:0:0:",
+    "http://localhost:8001/1:0:1:3EB:EA62:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -754,7 +754,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8004",
   input = {
-    "http://localhost:8001/1:0:1:3EC:EA61:0:CE4B17F:0:0:0:",
+    "http://localhost:8001/1:0:1:3EC:EA61:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -768,7 +768,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8005",
   input = {
-    "http://localhost:8001/1:0:1:3ED:EA61:0:CE4B17F:0:0:0:",
+    "http://localhost:8001/1:0:1:3ED:EA61:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -782,7 +782,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8006",
   input = {
-    "http://localhost:8001/1:0:1:3EE:EA61:0:CE4B17F:0:0:0:",
+    "http://localhost:8001/1:0:1:3EE:EA61:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -796,7 +796,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8008",
   input = {
-    "http://127.0.0.1:8001/1:0:1:3F0:EA68:0:CE4B128:0:0:0:",
+    "http://127.0.0.1:8001/1:0:1:3F0:EA68:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -810,7 +810,7 @@ make_channel({
 make_channel({
   name = "Abertis PID 8009",
   input = {
-    "http://127.0.0.1:8001/1:0:1:3F1:EA69:0:CE4B138:0:0:0:",
+    "http://127.0.0.1:8001/1:0:1:3F1:EA69:0:CE40000:0:0:0:",
   },
   transform = {{
     format = "pipe",
@@ -820,10 +820,3 @@ make_channel({
     "http://0.0.0.0:9999/abertis/pid8009",
   },
 })
-
-
-
-
-
-
--- [ T2-MI Transponders GENERATED CONFIG ] --
