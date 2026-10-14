@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Astra config joiner
+GenericName=DX Suite Generator
+Comment=
+Exec=python3 astra_join.py
+Path=/home/midoo/astra
+Icon=applications-internet
+Terminal=true
+StartupNotify=true
+Categories=Network;HamRadio;Utility;
+Keywords=abertis;cellnex;hispasat;dx;lamedb;astra;enigma2;bouquet;streamrelay;
