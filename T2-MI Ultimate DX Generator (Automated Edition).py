@@ -369,6 +369,42 @@ class ConfigManager:
         else:
             db_lines = ["eDVB services /4/", "transponders", "end", "services", "end"]
 
+        # ------------------------------------------------------------------
+        # STALE FEED-SERVICE CLEANUP
+        # Remove existing 3-line service entries whose service name matches
+        # the feed-service pattern (PID..PLP..Feed Service), e.g.
+        # "16.0E-Vidi TV@PID4095PLP0 Feed Service", so re-runs do not leave
+        # orphaned entries behind when the same feed is re-added.
+        # ------------------------------------------------------------------
+        feed_name_re = re.compile(r'PID\s*\d+.*PLP\s*\d+.*Feed Service', re.IGNORECASE)
+        cleaned_lines = []
+        in_services = False
+        idx = 0
+        removed_feeds = 0
+        while idx < len(db_lines):
+            line = db_lines[idx]
+            if line == "services":
+                in_services = True
+                cleaned_lines.append(line)
+                idx += 1
+                continue
+            if line == "end":
+                in_services = False
+                cleaned_lines.append(line)
+                idx += 1
+                continue
+            if in_services and idx + 2 < len(db_lines):
+                name_line = db_lines[idx + 1]
+                if feed_name_re.search(name_line):
+                    removed_feeds += 1
+                    idx += 3  # drop ref line + name line + p:... line
+                    continue
+            cleaned_lines.append(line)
+            idx += 1
+        db_lines = cleaned_lines
+        if removed_feeds:
+            print(f"\n  {Color.YELLOW}ℹ Removed {removed_feeds} stale feed-service entr{'y' if removed_feeds == 1 else 'ies'} from existing lamedb.{Color.END}")
+
         try:
             tp_header_idx = db_lines.index("transponders")
             for tp_key, tp_block in new_tps.items():
