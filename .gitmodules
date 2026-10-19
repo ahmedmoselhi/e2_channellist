@@ -1,0 +1,4 @@
+[submodule "astra"]
+	path = astra
+	url = https://github.com/ahmedmoselhi/e2_channellist.git
+	branch = astra
