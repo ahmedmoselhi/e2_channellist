@@ -85,21 +85,13 @@ jobs:
 
           python CI/process_satellites.py satellites.xml
 
-      - name: Update branch state and push changes
+      - name: Commit, rebase, and push satellites.xml
         shell: bash
         run: |
           set -euo pipefail
 
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git fetch origin scripts
-
-          if ! git rebase origin/scripts; then
-            echo "Rebase conflict detected while updating from origin/scripts"
-            git rebase --abort || true
-            exit 1
-          fi
 
           git add satellites.xml
 
@@ -109,4 +101,13 @@ jobs:
           fi
 
           git commit -m "Update satellites.xml - $(date -u)"
+
+          git fetch origin scripts
+
+          if ! git pull --rebase origin scripts; then
+            echo "Rebase conflict detected while updating from origin/scripts"
+            git rebase --abort || true
+            exit 1
+          fi
+
           git push origin HEAD:scripts
