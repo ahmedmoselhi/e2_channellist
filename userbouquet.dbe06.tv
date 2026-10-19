@@ -1,127 +1,25 @@
 #NAME •••••| (7) 30.5E KU-band Arabsat 5A/6A |•••••
-#SERVICE 1:64:24C:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:24A:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
-#SERVICE 1:0:2:A3C:1A:2BE:1310000:0:0:0::إذاعة القرآن الكريم السعودية
-#DESCRIPTION إذاعة القرآن الكريم السعودية
-#SERVICE 1:0:2:A41:1A:2BE:1310000:0:0:0::إذاعة نداء الإسلام
-#DESCRIPTION إذاعة نداء الإسلام
-#SERVICE 1:0:1:1:1:FFFF:1312A2A:0:0:0::قناة القرآن الكريم
-#DESCRIPTION قناة القرآن الكريم
-#SERVICE 1:0:1:1:1:FFFF:1312ABB:0:0:0::قناة القرآن الكريم
-#DESCRIPTION قناة القرآن الكريم
-#SERVICE 1:0:1:15E1:1A:2BE:1310000:0:0:0::قناة القرآن الكريم
-#DESCRIPTION قناة القرآن الكريم
-#SERVICE 1:64:24D:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:24B:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
-#SERVICE 1:0:1:A2B:1A:2BE:1310000:0:0:0::السعودية الرياضية 1
-#DESCRIPTION السعودية الرياضية 1
-#SERVICE 1:0:1:A2A:1A:2BE:1310000:0:0:0::السعودية الرياضية 2
-#DESCRIPTION السعودية الرياضية 2
-#SERVICE 1:0:1:15E4:1A:2BE:1310000:0:0:0::السعودية الرياضية 3
-#DESCRIPTION السعودية الرياضية 3
-#SERVICE 1:64:24E:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:24C:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
-#SERVICE 1:0:2:A48:1A:2BE:1310000:0:0:0::إذاعة العزم
-#DESCRIPTION إذاعة العزم
-#SERVICE 1:0:2:A3E:1A:2BE:1310000:0:0:0::إذاعة جدة
-#DESCRIPTION إذاعة جدة
-#SERVICE 1:0:2:A49:1A:2BE:1310000:0:0:0::إذاعة خزامى
-#DESCRIPTION إذاعة خزامى
 #SERVICE 1:0:1:2:1:FFFF:1312B86:0:0:0::إذاعة دوزيم
 #DESCRIPTION إذاعة دوزيم
-#SERVICE 1:0:2:2:FFFF:FFFF:1312A4E:0:0:0::إذاعة جيبوتي 1
-#DESCRIPTION إذاعة جيبوتي 1
-#SERVICE 1:0:2:3:FFFF:FFFF:1312A4E:0:0:0::إذاعة جيبوتي 2
-#DESCRIPTION إذاعة جيبوتي 2
-#SERVICE 1:0:2:4:FFFF:FFFF:1312A4E:0:0:0::إذاعة جيبوتي 3
-#DESCRIPTION إذاعة جيبوتي 3
-#SERVICE 1:0:2:A3D:1A:2BE:1310000:0:0:0::إذاعة الرياض
-#DESCRIPTION إذاعة الرياض
-#SERVICE 1:0:2:A3F:1A:2BE:1310000:0:0:0::إذاعة السعودية
-#DESCRIPTION إذاعة السعودية
-#SERVICE 1:64:24F:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:24D:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
 #SERVICE 1:0:1:1:1:FFFF:1312B86:0:0:0::دوزيم
 #DESCRIPTION دوزيم
 #SERVICE 1:0:1:1:1:FFFF:131AB48:0:0:0::قناة البصرة
 #DESCRIPTION قناة البصرة
-#SERVICE 1:0:2:A42:1A:2BE:1310000:0:0:0::الإخبارية
-#DESCRIPTION الإخبارية
 #SERVICE 1:0:1:1:1:FFFF:131AD9F:0:0:0::الجديد
 #DESCRIPTION الجديد
-#SERVICE 1:0:2:A44:1A:2BE:1310000:0:0:0::البنغالية
-#DESCRIPTION البنغالية
-#SERVICE 1:0:1:1:1:FFFF:13129F6:0:0:0::بريدة إم سي آر
-#DESCRIPTION بريدة إم سي آر
-#SERVICE 1:0:1:1:1:FFFF:13129FA:0:0:0::بريدة إم سي آر
-#DESCRIPTION بريدة إم سي آر
 #SERVICE 1:0:1:1:1:FFFF:1312B6E:0:0:0::قناة ديوان
 #DESCRIPTION قناة ديوان
-#SERVICE 1:0:1:A2C:1A:2BE:1310000:0:0:0::قناة الإخبارية
-#DESCRIPTION قناة الإخبارية
 #SERVICE 1:0:19:1:1:1:131AB9E:0:0:0::تلفزيون إريتريا 1
 #DESCRIPTION تلفزيون إريتريا 1
 #SERVICE 1:0:2:A45:1A:2BE:1310000:0:0:0::الفرنسية
 #DESCRIPTION الفرنسية
-#SERVICE 1:0:1:1:1:1:1312B92:0:0:0::تغذية 01 HD
-#DESCRIPTION تغذية 01 HD
-#SERVICE 1:0:1:1:1:FFFF:1312A48:0:0:0::قناة عين دروس
-#DESCRIPTION قناة عين دروس
-#SERVICE 1:0:1:1:1:FFFF:13129DB:0:0:0::المدينة 2
-#DESCRIPTION المدينة 2
-#SERVICE 1:0:1:1:1:FFFF:13129E2:0:0:0::المدينة 2
-#DESCRIPTION المدينة 2
-#SERVICE 1:0:1:1:1:FFFF:13129FE:0:0:0::مينوس تبوك
-#DESCRIPTION مينوس تبوك
-#SERVICE 1:0:2:A43:1A:2BE:1310000:0:0:0::موجات
-#DESCRIPTION موجات
 #SERVICE 1:0:1:15:1:1:131ABB1:0:0:0::إم تي في لبنان HD
 #DESCRIPTION إم تي في لبنان HD
-#SERVICE 1:0:19:1B:0:0:131B1BE:0:0:0::إن بي إن
-#DESCRIPTION إن بي إن
-#SERVICE 1:0:2:A46:1A:2BE:1310000:0:0:0::البشتو
-#DESCRIPTION البشتو
-#SERVICE 1:0:2:7D0:1:58:1310000:0:0:0::البرنامج الثاني
-#DESCRIPTION البرنامج الثاني
-#SERVICE 1:0:1:1:FFFF:FFFF:1312A4E:0:0:0::إر تي دي 4
-#DESCRIPTION إر تي دي 4
-#SERVICE 1:0:1:1:1:1:1312B71:0:0:0::قناة سبأ (HD)
-#DESCRIPTION قناة سبأ (HD)
-#SERVICE 1:0:1:A29:1A:2BE:1310000:0:0:0::تلفزيون السعودية
-#DESCRIPTION تلفزيون السعودية
-#SERVICE 1:0:1:15E5:1A:2BE:1310000:0:0:0::قناة السعودية الآن
-#DESCRIPTION قناة السعودية الآن
-#SERVICE 1:0:1:15E3:1A:2BE:1310000:0:0:0::إس بي سي
-#DESCRIPTION إس بي سي
-#SERVICE 1:0:1:1:2:2:1310000:0:0:0::SERVICE 01
-#DESCRIPTION SERVICE 01
-#SERVICE 1:0:1:2:2:2:1310000:0:0:0::SERVICE 02
-#DESCRIPTION SERVICE 02
-#SERVICE 1:0:1:2:1:FFFF:131B0FE:0:0:0::Service 2 SD
-#DESCRIPTION Service 2 SD
-#SERVICE 1:0:1:2:1:FFFF:1312A06:0:0:0::Service Name
-#DESCRIPTION Service Name
-#SERVICE 1:0:1:2:1:FFFF:1312A0A:0:0:0::Service Name
-#DESCRIPTION Service Name
-#SERVICE 1:0:1:1:1:FFFF:1312A06:0:0:0::سموي
-#DESCRIPTION سموي
-#SERVICE 1:0:1:1:1:FFFF:1312A0A:0:0:0::سموي
-#DESCRIPTION سموي
-#SERVICE 1:0:1:1:1:1:1310000:0:0:0::إس إن جي 12 بي
-#DESCRIPTION إس إن جي 12 بي
-#SERVICE 1:0:1:1:1:1:1312A0E:0:0:0::إس إن جي 12 بي
-#DESCRIPTION إس إن جي 12 بي
-#SERVICE 1:0:1:1:1:1:1312A12:0:0:0::إس إن جي 12 بي
-#DESCRIPTION إس إن جي 12 بي
-#SERVICE 1:0:1:1:1:FFFF:1312A30:0:0:0::قناة السنة
-#DESCRIPTION قناة السنة
-#SERVICE 1:0:1:1:1:FFFF:1312A42:0:0:0::قناة السنة
-#DESCRIPTION قناة السنة
-#SERVICE 1:0:1:15E2:1A:2BE:1310000:0:0:0::قناة السنة
-#DESCRIPTION قناة السنة
-#SERVICE 1:0:1:1:1:FFFF:1312AC2:0:0:0::Tandberg Service
-#DESCRIPTION Tandberg Service
-#SERVICE 1:0:1:A2D:1A:2BE:1310000:0:0:0::قناة ذكريات
-#DESCRIPTION قناة ذكريات
-#SERVICE 1:0:1:101:1:1:131AD7E:0:0:0::تلفزيون-122
-#DESCRIPTION تلفزيون-122

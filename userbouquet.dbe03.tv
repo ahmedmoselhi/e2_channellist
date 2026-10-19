@@ -1,12 +1,10 @@
 #NAME •••••| (60) 8.0W KU-band Eutelsat 8 West B |•••••
-#SERVICE 1:64:1DF:0:0:0:0:0:0:0::| إسلامي |
+#SERVICE 1:64:1DD:0:0:0:0:0:0:0::| إسلامي |
 #DESCRIPTION | إسلامي |
 #SERVICE 1:0:1:F:C3B4:77E:DC00000:0:0:0::قناة إفريقيا 1 القرآن الكريم
 #DESCRIPTION قناة إفريقيا 1 القرآن الكريم
 #SERVICE 1:0:2:D:7594:77E:DC00000:0:0:0::اذاعة القرآن الكريم الكويتية
 #DESCRIPTION اذاعة القرآن الكريم الكويتية
-#SERVICE 1:0:A:23A:3B6:5000:DC00000:0:0:0::إذاعة الوادي للقرآن
-#DESCRIPTION إذاعة الوادي للقرآن
 #SERVICE 1:0:A:138B:384:5000:DC00000:0:0:0::إذاعة القرآن الكريم
 #DESCRIPTION إذاعة القرآن الكريم
 #SERVICE 1:0:A:A:208:2BE:DC00000:0:0:0::إذاعة الشارقة للقرآن الكريم
@@ -17,12 +15,10 @@
 #DESCRIPTION صوت الإسلام
 #SERVICE 1:0:19:1338:1F4:5000:DC00000:0:0:0::قناة القرآن الكريم
 #DESCRIPTION قناة القرآن الكريم
-#SERVICE 1:64:1E0:0:0:0:0:0:0:0::| القنوات المصرية |
+#SERVICE 1:64:1DE:0:0:0:0:0:0:0::| القنوات المصرية |
 #DESCRIPTION | القنوات المصرية |
 #SERVICE 1:0:1:1CEF:4A:800:DC00000:0:0:0::القناة المصرية الثانية (SD)
 #DESCRIPTION القناة المصرية الثانية (SD)
-#SERVICE 1:0:1:24E:3B6:5000:DC00000:0:0:0::قناة النيل الأزرق
-#DESCRIPTION قناة النيل الأزرق
 #SERVICE 1:0:1:672:FFDC:1:DC00000:0:0:0::التلفزيون القبطي مصر
 #DESCRIPTION التلفزيون القبطي مصر
 #SERVICE 1:0:1:1CF2:4A:800:DC00000:0:0:0::قناة النيل التعليمية
@@ -37,36 +33,12 @@
 #DESCRIPTION Nilesat Promo
 #SERVICE 1:0:A:262:3B6:5000:DC00000:0:0:0::إذاعة ولاية النيل الأبيض
 #DESCRIPTION إذاعة ولاية النيل الأبيض
-#SERVICE 1:0:1:F46:384:5000:DC00000:0:0:0::كايرو بلس سينما
-#DESCRIPTION كايرو بلس سينما
-#SERVICE 1:0:1:F50:384:5000:DC00000:0:0:0::كايرو بلس دراما
-#DESCRIPTION كايرو بلس دراما
-#SERVICE 1:0:1:F64:384:5000:DC00000:0:0:0::كايرو بلس اليوم
-#DESCRIPTION كايرو بلس اليوم
-#SERVICE 1:64:1E1:0:0:0:0:0:0:0::| افلام ومسلسلات |
+#SERVICE 1:64:1DF:0:0:0:0:0:0:0::| افلام ومسلسلات |
 #DESCRIPTION | افلام ومسلسلات |
-#SERVICE 1:0:1:193C:2BC:5000:DC00000:0:0:0::الشاشة سينما
-#DESCRIPTION الشاشة سينما
-#SERVICE 1:0:1:1F54:2BC:5000:DC00000:0:0:0::الشاشة دراما
-#DESCRIPTION الشاشة دراما
-#SERVICE 1:0:1:1F7C:2BC:5000:DC00000:0:0:0::الشاشة فيلم
-#DESCRIPTION الشاشة فيلم
-#SERVICE 1:0:1:1950:2BC:5000:DC00000:0:0:0::السكرية سينما
-#DESCRIPTION السكرية سينما
 #SERVICE 1:0:1:19F0:2BC:5000:DC00000:0:0:0::العروسة أفلام
 #DESCRIPTION العروسة أفلام
-#SERVICE 1:0:1:1F90:2BC:5000:DC00000:0:0:0::السكرية دراما
-#DESCRIPTION السكرية دراما
 #SERVICE 1:0:1:19FA:2BC:5000:DC00000:0:0:0::العروسة دراما
 #DESCRIPTION العروسة دراما
-#SERVICE 1:0:19:A8F:1:2A:DC00000:0:0:0::ألفا سينما 1
-#DESCRIPTION ألفا سينما 1
-#SERVICE 1:0:19:A90:1:2A:DC00000:0:0:0::ألفا سينما 2
-#DESCRIPTION ألفا سينما 2
-#SERVICE 1:0:19:A92:1:2A:DC00000:0:0:0::ألفا مسلسلات (HD)
-#DESCRIPTION ألفا مسلسلات (HD)
-#SERVICE 1:0:19:A91:1:2A:DC00000:0:0:0::ألفا مسلسلات +2 (HD)
-#DESCRIPTION ألفا مسلسلات +2 (HD)
 #SERVICE 1:0:1:1FAE:2BC:5000:DC00000:0:0:0::الكينج أفلام
 #DESCRIPTION الكينج أفلام
 #SERVICE 1:0:1:19C8:2BC:5000:DC00000:0:0:0::الكينج دراما
@@ -85,10 +57,6 @@
 #DESCRIPTION دولي سينما
 #SERVICE 1:0:1:1B8A:2BC:5000:DC00000:0:0:0::دولي دراما
 #DESCRIPTION دولي دراما
-#SERVICE 1:0:16:1BB2:2BC:5000:DC00000:0:0:0::دراما لايف
-#DESCRIPTION دراما لايف
-#SERVICE 1:0:1:1478:320:5000:DC00000:0:0:0::دريم سينما
-#DESCRIPTION دريم سينما
 #SERVICE 1:0:1:1FCC:2BC:5000:DC00000:0:0:0::العمدة أفلام
 #DESCRIPTION العمدة أفلام
 #SERVICE 1:0:1:1FD6:2BC:5000:DC00000:0:0:0::العمدة دراما
@@ -101,29 +69,17 @@
 #DESCRIPTION ميلودي أفلام
 #SERVICE 1:0:1:1A04:2BC:5000:DC00000:0:0:0::ميلودي دراما
 #DESCRIPTION ميلودي دراما
-#SERVICE 1:0:1:EEC:384:5000:DC00000:0:0:0::موجة سينما
-#DESCRIPTION موجة سينما
-#SERVICE 1:0:1:EF6:384:5000:DC00000:0:0:0::موجة دراما
-#DESCRIPTION موجة دراما
 #SERVICE 1:0:1:1FE0:2BC:5000:DC00000:0:0:0::وان دراما
 #DESCRIPTION وان دراما
-#SERVICE 1:0:1:19D2:2BC:5000:DC00000:0:0:0::وان موفيز
-#DESCRIPTION وان موفيز
-#SERVICE 1:0:1:F3C:384:5000:DC00000:0:0:0::فوكس دراما
-#DESCRIPTION فوكس دراما
 #SERVICE 1:0:1:19BE:2BC:5000:DC00000:0:0:0::العروسة سينما
 #DESCRIPTION العروسة سينما
 #SERVICE 1:0:19:146E:320:5000:DC00000:0:0:0::دراما برو
 #DESCRIPTION دراما برو
-#SERVICE 1:0:1:148C:320:5000:DC00000:0:0:0::أبل دراما
-#DESCRIPTION أبل دراما
 #SERVICE 1:0:1:1B58:2BC:5000:DC00000:0:0:0::لايت دراما
 #DESCRIPTION لايت دراما
 #SERVICE 1:0:19:14D2:320:5000:DC00000:0:0:0::ميلودي سينما (HD)
 #DESCRIPTION ميلودي سينما (HD)
-#SERVICE 1:0:1:F5A:384:5000:DC00000:0:0:0::وسط البلد دراما
-#DESCRIPTION وسط البلد دراما
-#SERVICE 1:64:1E2:0:0:0:0:0:0:0::| رياضة |
+#SERVICE 1:64:1E0:0:0:0:0:0:0:0::| رياضة |
 #DESCRIPTION | رياضة |
 #SERVICE 1:0:19:899:12C:77E:DC00000:0:0:0::بي إن 4K
 #DESCRIPTION بي إن 4K
@@ -137,18 +93,10 @@
 #DESCRIPTION بي إن سبورتس 3
 #SERVICE 1:0:19:836:C8:77E:DC00000:0:0:0::بي إن سبورتس 4
 #DESCRIPTION بي إن سبورتس 4
-#SERVICE 1:0:19:7D4:64:77E:DC00000:0:0:0::بي إن سبورتس 5
-#DESCRIPTION بي إن سبورتس 5
 #SERVICE 1:0:19:835:C8:77E:DC00000:0:0:0::بي إن سبورتس 6
 #DESCRIPTION بي إن سبورتس 6
-#SERVICE 1:0:19:839:C8:77E:DC00000:0:0:0::بي إن سبورتس 7
-#DESCRIPTION بي إن سبورتس 7
 #SERVICE 1:0:19:837:C8:77E:DC00000:0:0:0::بي إن سبورتس 8
 #DESCRIPTION بي إن سبورتس 8
-#SERVICE 1:0:19:7D6:64:77E:DC00000:0:0:0::بي إن سبورتس ماكس 2
-#DESCRIPTION بي إن سبورتس ماكس 2
-#SERVICE 1:0:19:7D7:64:77E:DC00000:0:0:0::بي إن سبورتس ماكس 2
-#DESCRIPTION بي إن سبورتس ماكس 2
 #SERVICE 1:0:19:7D5:64:77E:DC00000:0:0:0::بي إن سبورتس ماكس 3
 #DESCRIPTION بي إن سبورتس ماكس 3
 #SERVICE 1:0:19:89C:12C:77E:DC00000:0:0:0::بي إن سبورتس ماكس 4
@@ -159,31 +107,21 @@
 #DESCRIPTION بي إن سبورتس إكسترا 5
 #SERVICE 1:0:19:89D:12C:77E:DC00000:0:0:0::بي إن سبورتس إكسترا 6
 #DESCRIPTION بي إن سبورتس إكسترا 6
-#SERVICE 1:0:19:7D9:64:77E:DC00000:0:0:0::بي إن سبورتس إكسترا 7
-#DESCRIPTION بي إن سبورتس إكسترا 7
-#SERVICE 1:0:19:89A:12C:77E:DC00000:0:0:0::بي إن سبورتس إكسترا 8
-#DESCRIPTION بي إن سبورتس إكسترا 8
-#SERVICE 1:0:19:89B:12C:77E:DC00000:0:0:0::بي إن سبورتس إكسترا 9
-#DESCRIPTION بي إن سبورتس إكسترا 9
 #SERVICE 1:0:1:1C27:48:1:DC00000:0:0:0::العراقية الرياضية (HD)
 #DESCRIPTION العراقية الرياضية (HD)
-#SERVICE 1:0:16:348:3B6:5000:DC00000:0:0:0::قناة كسلا
-#DESCRIPTION قناة كسلا
 #SERVICE 1:0:19:450:7594:77E:DC00000:0:0:0::الكويت الرياضية
 #DESCRIPTION الكويت الرياضية
 #SERVICE 1:0:19:451:7594:77E:DC00000:0:0:0::الكويت الرياضية 2
 #DESCRIPTION الكويت الرياضية 2
 #SERVICE 1:0:19:D66:384:5000:DC00000:0:0:0::فلسطين الرياضية
 #DESCRIPTION فلسطين الرياضية
-#SERVICE 1:0:1:7:208:2BE:DC00000:0:0:0::الشارقة الرياضية SD
-#DESCRIPTION الشارقة الرياضية SD
 #SERVICE 1:0:19:6:208:2BE:DC00000:0:0:0::الشارقة الرياضية (HD)
 #DESCRIPTION الشارقة الرياضية (HD)
 #SERVICE 1:0:1:1CF4:4A:800:DC00000:0:0:0::السودان جواز التعلم 1 (SD)
 #DESCRIPTION السودان جواز التعلم 1 (SD)
 #SERVICE 1:0:1:1CF5:4A:800:DC00000:0:0:0::السودان جواز التعلم 2 (SD)
 #DESCRIPTION السودان جواز التعلم 2 (SD)
-#SERVICE 1:64:1E3:0:0:0:0:0:0:0::| اخبار |
+#SERVICE 1:64:1E1:0:0:0:0:0:0:0::| اخبار |
 #DESCRIPTION | اخبار |
 #SERVICE 1:0:2:10:3B:800:DC00000:0:0:0::العربية إف إم
 #DESCRIPTION العربية إف إم
@@ -215,22 +153,18 @@
 #DESCRIPTION بي بي سي (الإنجليزي)
 #SERVICE 1:0:16:1C98:49:800:DC00000:0:0:0::سي إن إن الدولية أوروبا
 #DESCRIPTION سي إن إن الدولية أوروبا
-#SERVICE 1:0:1:622:FFDC:1:DC00000:0:0:0::آي 24 نيوز عربية
-#DESCRIPTION آي 24 نيوز عربية
 #SERVICE 1:0:1:1C21:48:1:DC00000:0:0:0::العراقية الإخبارية (HD)
 #DESCRIPTION العراقية الإخبارية (HD)
 #SERVICE 1:0:19:44E:7594:77E:DC00000:0:0:0::قناة الكويت الإخبارية
 #DESCRIPTION قناة الكويت الإخبارية
 #SERVICE 1:0:1:1E:C3B4:77E:DC00000:0:0:0::كوردسات نيوز
 #DESCRIPTION كوردسات نيوز
-#SERVICE 1:64:1E4:0:0:0:0:0:0:0::| موسيقى |
+#SERVICE 1:64:1E2:0:0:0:0:0:0:0::| موسيقى |
 #DESCRIPTION | موسيقى |
 #SERVICE 1:0:A:244:3B6:5000:DC00000:0:0:0::إذاعة الخرطوم
 #DESCRIPTION إذاعة الخرطوم
 #SERVICE 1:0:2:19B:4EE8:77E:DC00000:0:0:0::إذاعة الريان
 #DESCRIPTION إذاعة الريان
-#SERVICE 1:0:19:A94:1:2A:DC00000:0:0:0::ألفا ميوزك ناو
-#DESCRIPTION ألفا ميوزك ناو
 #SERVICE 1:0:2:1CA9:49:800:DC00000:0:0:0::إذاعة الأمة
 #DESCRIPTION إذاعة الأمة
 #SERVICE 1:0:A:212:3B6:5000:DC00000:0:0:0::إذاعة السودانية 2
@@ -247,8 +181,6 @@
 #DESCRIPTION إذاعة دويتشه فيله A2
 #SERVICE 1:0:1:1C2B:48:1:DC00000:0:0:0::إذاعة الفرقان
 #DESCRIPTION إذاعة الفرقان
-#SERVICE 1:0:2:2A:C3B4:77E:DC00000:0:0:0::حياة إف إم
-#DESCRIPTION حياة إف إم
 #SERVICE 1:0:2:39:C3B4:77E:DC00000:0:0:0::كان كول هاموسيقا
 #DESCRIPTION كان كول هاموسيقا
 #SERVICE 1:0:2:F:7594:77E:DC00000:0:0:0::كويت إف إم
@@ -265,30 +197,20 @@
 #DESCRIPTION إم بي سي إف إم
 #SERVICE 1:0:2:12:3B:800:DC00000:0:0:0::إم بي سي لاود إف إم
 #DESCRIPTION إم بي سي لاود إف إم
-#SERVICE 1:0:2:1E:3B:800:DC00000:0:0:0::إم بي سي إف إم (فرعي 1)
-#DESCRIPTION إم بي سي إف إم (فرعي 1)
-#SERVICE 1:0:2:1F:3B:800:DC00000:0:0:0::إم بي سي إف إم (فرعي 2)
-#DESCRIPTION إم بي سي إف إم (فرعي 2)
 #SERVICE 1:0:1:1C3B:48:1:DC00000:0:0:0::إذاعة وزارة الداخلية
 #DESCRIPTION إذاعة وزارة الداخلية
-#SERVICE 1:0:1:FB6:1D:6E:DC00000:0:0:0::ميوزك العراق
-#DESCRIPTION ميوزك العراق
 #SERVICE 1:0:2:13:7594:77E:DC00000:0:0:0::أو إف إم
 #DESCRIPTION أو إف إم
 #SERVICE 1:0:2:F:3B:800:DC00000:0:0:0::بانوراما إف إم
 #DESCRIPTION بانوراما إف إم
 #SERVICE 1:0:1:1C2C:48:1:DC00000:0:0:0::إذاعة بغداد
 #DESCRIPTION إذاعة بغداد
-#SERVICE 1:0:2:190:1BC:1:DC00000:0:0:0::راديو كونتاكت
-#DESCRIPTION راديو كونتاكت
 #SERVICE 1:0:1:1C2A:48:1:DC00000:0:0:0::إذاعة العراقية
 #DESCRIPTION إذاعة العراقية
 #SERVICE 1:0:2:FC6:1D:6E:DC00000:0:0:0::راديو ميرايا
 #DESCRIPTION راديو ميرايا
 #SERVICE 1:0:A:138D:384:5000:DC00000:0:0:0::راديو نابلس
 #DESCRIPTION راديو نابلس
-#SERVICE 1:0:2:32:8:FFFF:DC00000:0:0:0::إذاعة صنعاء
-#DESCRIPTION إذاعة صنعاء
 #SERVICE 1:0:2:1CA2:49:800:DC00000:0:0:0::راديو زارا إف إم
 #DESCRIPTION راديو زارا إف إم
 #SERVICE 1:0:2:1CA4:49:800:DC00000:0:0:0::راديو زارا إف إم
@@ -299,8 +221,6 @@
 #DESCRIPTION روج آفا إف إم
 #SERVICE 1:0:2:32:C3B4:77E:DC00000:0:0:0::إذاعة ساهرون
 #DESCRIPTION إذاعة ساهرون
-#SERVICE 1:0:2:31:8:FFFF:DC00000:0:0:0::إذاعة صوت الشعب
-#DESCRIPTION إذاعة صوت الشعب
 #SERVICE 1:0:A:9:208:2BE:DC00000:0:0:0::إذاعة الشارقة
 #DESCRIPTION إذاعة الشارقة
 #SERVICE 1:0:2:1CA6:49:800:DC00000:0:0:0::التناصح إف إم
@@ -309,70 +229,30 @@
 #DESCRIPTION إذاعة وال
 #SERVICE 1:0:A:C:208:2BE:DC00000:0:0:0::وتر إف إم
 #DESCRIPTION وتر إف إم
-#SERVICE 1:64:1E5:0:0:0:0:0:0:0::| وثائقيات |
+#SERVICE 1:64:1E3:0:0:0:0:0:0:0::| وثائقيات |
 #DESCRIPTION | وثائقيات |
-#SERVICE 1:0:19:A9E:1:2A:DC00000:0:0:0::قناة اليمن الوثائقية
-#DESCRIPTION قناة اليمن الوثائقية
 #SERVICE 1:0:19:1356:1F4:5000:DC00000:0:0:0::كربلاء الوثائقية
 #DESCRIPTION كربلاء الوثائقية
-#SERVICE 1:64:1E6:0:0:0:0:0:0:0::| أطفال |
+#SERVICE 1:64:1E4:0:0:0:0:0:0:0::| أطفال |
 #DESCRIPTION | أطفال |
-#SERVICE 1:0:1:1B9E:2BC:5000:DC00000:0:0:0::كوكيز كيدز
-#DESCRIPTION كوكيز كيدز
-#SERVICE 1:0:16:12F2:1F4:5000:DC00000:0:0:0::قناة كيدزي
-#DESCRIPTION قناة كيدزي
-#SERVICE 1:64:1E7:0:0:0:0:0:0:0::| عام |
+#SERVICE 1:64:1E5:0:0:0:0:0:0:0::| عام |
 #DESCRIPTION | عام |
-#SERVICE 1:0:64:270B:64:77E:DC00000:0:0:0::11013H SID 0x270b
-#DESCRIPTION 11013H SID 0x270b
-#SERVICE 1:0:64:456:64:77E:DC00000:0:0:0::11013H SID 0x456
-#DESCRIPTION 11013H SID 0x456
 #SERVICE 1:0:1:1FC2:2BC:5000:DC00000:0:0:0::العروسة مسلسلات
 #DESCRIPTION العروسة مسلسلات
-#SERVICE 1:0:64:FFFE:64:77E:DC00000:0:0:0::11013H SID 0xfffe
-#DESCRIPTION 11013H SID 0xfffe
-#SERVICE 1:0:64:270D:C8:77E:DC00000:0:0:0::11054H SID 0x270d
-#DESCRIPTION 11054H SID 0x270d
-#SERVICE 1:0:64:270E:C8:77E:DC00000:0:0:0::11054H SID 0x270e
-#DESCRIPTION 11054H SID 0x270e
-#SERVICE 1:0:64:270F:C8:77E:DC00000:0:0:0::11054H SID 0x270f
-#DESCRIPTION 11054H SID 0x270f
 #SERVICE 1:0:1:1CE9:4A:800:DC00000:0:0:0::القناة 3 القاهرة
 #DESCRIPTION القناة 3 القاهرة
-#SERVICE 1:0:64:272F:C8:77E:DC00000:0:0:0::11054H SID 0x272f
-#DESCRIPTION 11054H SID 0x272f
 #SERVICE 1:0:1:1CEA:4A:800:DC00000:0:0:0::القناة 4 القنال
 #DESCRIPTION القناة 4 القنال
-#SERVICE 1:0:64:2730:C8:77E:DC00000:0:0:0::11054H SID 0x2730
-#DESCRIPTION 11054H SID 0x2730
 #SERVICE 1:0:1:1CEB:4A:800:DC00000:0:0:0::القناة 5 الإسكندرية
 #DESCRIPTION القناة 5 الإسكندرية
-#SERVICE 1:0:64:4B0:C8:77E:DC00000:0:0:0::11054H SID 0x4b0
-#DESCRIPTION 11054H SID 0x4b0
 #SERVICE 1:0:1:1CEC:4A:800:DC00000:0:0:0::القناة 6 الدلتا
 #DESCRIPTION القناة 6 الدلتا
-#SERVICE 1:0:64:FFFE:C8:77E:DC00000:0:0:0::11054H SID 0xfffe
-#DESCRIPTION 11054H SID 0xfffe
 #SERVICE 1:0:1:1CED:4A:800:DC00000:0:0:0::القناة 7 الصعيد
 #DESCRIPTION القناة 7 الصعيد
-#SERVICE 1:0:64:2708:12C:77E:DC00000:0:0:0::12604H SID 0x2708
-#DESCRIPTION 12604H SID 0x2708
 #SERVICE 1:0:1:1CEE:4A:800:DC00000:0:0:0::القناة 8 طيبة
 #DESCRIPTION القناة 8 طيبة
-#SERVICE 1:0:64:2709:12C:77E:DC00000:0:0:0::12604H SID 0x2709
-#DESCRIPTION 12604H SID 0x2709
-#SERVICE 1:0:64:270A:12C:77E:DC00000:0:0:0::12604H SID 0x270a
-#DESCRIPTION 12604H SID 0x270a
-#SERVICE 1:0:64:514:12C:77E:DC00000:0:0:0::12604H SID 0x514
-#DESCRIPTION 12604H SID 0x514
-#SERVICE 1:0:64:FFFE:12C:77E:DC00000:0:0:0::12604H SID 0xfffe
-#DESCRIPTION 12604H SID 0xfffe
 #SERVICE 1:0:19:1496:320:5000:DC00000:0:0:0::قناة 1TV
 #DESCRIPTION قناة 1TV
-#SERVICE 1:0:1:1F4:3B6:5000:DC00000:0:0:0::قناة ABC الخليجية
-#DESCRIPTION قناة ABC الخليجية
-#SERVICE 1:0:19:AA1:1:2A:DC00000:0:0:0::قناة عدن 33
-#DESCRIPTION قناة عدن 33
 #SERVICE 1:0:1:D:C3B4:77E:DC00000:0:0:0::قناة إفريقيا 1
 #DESCRIPTION قناة إفريقيا 1
 #SERVICE 1:0:1:1FA4:2BC:5000:DC00000:0:0:0::دوللي كلاسيك
@@ -381,14 +261,10 @@
 #DESCRIPTION قناة الأحواز الفضائية
 #SERVICE 1:0:16:47E:3B6:5000:DC00000:0:0:0::قناة أحوازنا الفضائية
 #DESCRIPTION قناة أحوازنا الفضائية
-#SERVICE 1:0:1:154A:320:5000:DC00000:0:0:0::قناة العقيلة
-#DESCRIPTION قناة العقيلة
 #SERVICE 1:0:19:1932:1F4:5000:DC00000:0:0:0::قناة الأوحد
 #DESCRIPTION قناة الأوحد
 #SERVICE 1:0:16:196E:2BC:5000:DC00000:0:0:0::حكايات العروسة
 #DESCRIPTION حكايات العروسة
-#SERVICE 1:0:19:12AC:1F4:5000:DC00000:0:0:0::قناة البحراني
-#DESCRIPTION قناة البحراني
 #SERVICE 1:0:2:1CA8:49:800:DC00000:0:0:0::البصرة
 #DESCRIPTION البصرة
 #SERVICE 1:0:19:1C86:49:800:DC00000:0:0:0::قناة البصرة
@@ -397,20 +273,8 @@
 #DESCRIPTION قناة الدولة
 #SERVICE 1:0:19:1450:320:5000:DC00000:0:0:0::قناة الحوار
 #DESCRIPTION قناة الحوار
-#SERVICE 1:0:1:F:8:FFFF:DC00000:0:0:0::قناة الحرية
-#DESCRIPTION قناة الحرية
-#SERVICE 1:0:1:12B6:1F4:5000:DC00000:0:0:0::قناة الحرية يمين
-#DESCRIPTION قناة الحرية يمين
-#SERVICE 1:0:2:1F54:1F4:5000:DC00000:0:0:0::الكفيل
-#DESCRIPTION الكفيل
-#SERVICE 1:0:1:E:C3B4:77E:DC00000:0:0:0::الخليج 24
-#DESCRIPTION الخليج 24
-#SERVICE 1:0:19:137E:1F4:5000:DC00000:0:0:0::قناة الكوت
-#DESCRIPTION قناة الكوت
 #SERVICE 1:0:19:1C85:49:800:DC00000:0:0:0::قناة الموصلية (HD)
 #DESCRIPTION قناة الموصلية (HD)
-#SERVICE 1:0:1:28:8:FFFF:DC00000:0:0:0::قناة الأنس
-#DESCRIPTION قناة الأنس
 #SERVICE 1:0:1:668:FFDC:1:DC00000:0:0:0::القناة 9
 #DESCRIPTION القناة 9
 #SERVICE 1:0:19:1FE:EAC4:77E:DC00000:0:0:0::الريان (HD)
@@ -419,42 +283,12 @@
 #DESCRIPTION الريان القديم (HD)
 #SERVICE 1:0:1:FC4:1D:6E:DC00000:0:0:0::قناة السلام
 #DESCRIPTION قناة السلام
-#SERVICE 1:0:1:19B4:2BC:5000:DC00000:0:0:0::الشاشة ألوان
-#DESCRIPTION الشاشة ألوان
-#SERVICE 1:0:1:1F5E:2BC:5000:DC00000:0:0:0::الشاشة حكايات
-#DESCRIPTION الشاشة حكايات
-#SERVICE 1:0:1:1946:2BC:5000:DC00000:0:0:0::الشاشة مسلسلات
-#DESCRIPTION الشاشة مسلسلات
-#SERVICE 1:0:1:1A22:2BC:5000:DC00000:0:0:0::السكرية كلاسيك
-#DESCRIPTION السكرية كلاسيك
-#SERVICE 1:0:1:1928:2BC:5000:DC00000:0:0:0::السكرية حكايات
-#DESCRIPTION السكرية حكايات
-#SERVICE 1:0:1:1964:2BC:5000:DC00000:0:0:0::السكرية زمان
-#DESCRIPTION السكرية زمان
-#SERVICE 1:0:1:2B:C3B4:77E:DC00000:0:0:0::الوطنية 24
-#DESCRIPTION الوطنية 24
 #SERVICE 1:0:19:5:208:2BE:DC00000:0:0:0::قناة الوسطى (HD)
 #DESCRIPTION قناة الوسطى (HD)
-#SERVICE 1:0:19:134C:1F4:5000:DC00000:0:0:0::قناة العسكري
-#DESCRIPTION قناة العسكري
-#SERVICE 1:0:19:AA0:1:2A:DC00000:0:0:0::قناة الإيمان
-#DESCRIPTION قناة الإيمان
-#SERVICE 1:0:1:E:8:FFFF:DC00000:0:0:0::قناة الفادي
-#DESCRIPTION قناة الفادي
-#SERVICE 1:0:1:258:3B6:5000:DC00000:0:0:0::تلفزيون الجزيرة
-#DESCRIPTION تلفزيون الجزيرة
-#SERVICE 1:0:16:32A:3B6:5000:DC00000:0:0:0::الخليج اليوم
-#DESCRIPTION الخليج اليوم
 #SERVICE 1:0:19:1464:320:5000:DC00000:0:0:0::قناة المهدي الفضائية
 #DESCRIPTION قناة المهدي الفضائية
-#SERVICE 1:0:1:4:8:FFFF:DC00000:0:0:0::قناة الساحات
-#DESCRIPTION قناة الساحات
-#SERVICE 1:0:1:44C:3B6:5000:DC00000:0:0:0::قناة الشاهد HD
-#DESCRIPTION قناة الشاهد HD
 #SERVICE 1:0:19:1676:320:5000:DC00000:0:0:0::قناة الأنوار
 #DESCRIPTION قناة الأنوار
-#SERVICE 1:0:1:11:8:FFFF:DC00000:0:0:0::قناة الأنوار 2
-#DESCRIPTION قناة الأنوار 2
 #SERVICE 1:0:1:3:3B:800:DC00000:0:0:0::العربية
 #DESCRIPTION العربية
 #SERVICE 1:0:19:C:3B:800:DC00000:0:0:0::العربية بزنس
@@ -473,54 +307,24 @@
 #DESCRIPTION قناة كربلاء
 #SERVICE 1:0:19:42E:3B6:5000:DC00000:0:0:0::قناة البوادي
 #DESCRIPTION قناة البوادي
-#SERVICE 1:0:16:2F8:3B6:5000:DC00000:0:0:0::قناة الإغاثية
-#DESCRIPTION قناة الإغاثية
 #SERVICE 1:0:1:1C8E:49:800:DC00000:0:0:0::قناة الإرث النبوي
 #DESCRIPTION قناة الإرث النبوي
-#SERVICE 1:0:19:A8E:1:2A:DC00000:0:0:0::ألفا الصفوة
-#DESCRIPTION ألفا الصفوة
-#SERVICE 1:0:19:A8D:1:2A:DC00000:0:0:0::ألفا اليوم
-#DESCRIPTION ألفا اليوم
-#SERVICE 1:0:19:A93:1:2A:DC00000:0:0:0::ألفا فن
-#DESCRIPTION ألفا فن
 #SERVICE 1:0:19:1C94:49:800:DC00000:0:0:0::قناة الفرات (HD)
 #DESCRIPTION قناة الفرات (HD)
-#SERVICE 1:0:19:2C6:3B6:5000:DC00000:0:0:0::قناة الغربية الآن
-#DESCRIPTION قناة الغربية الآن
-#SERVICE 1:0:1:6:8:FFFF:DC00000:0:0:0::قناة الهوية
-#DESCRIPTION قناة الهوية
-#SERVICE 1:0:16:178E:190:5000:DC00000:0:0:0::قناة علي جيت
-#DESCRIPTION قناة علي جيت
 #SERVICE 1:0:19:14C8:320:5000:DC00000:0:0:0::قناة الجماهيرية
 #DESCRIPTION قناة الجماهيرية
-#SERVICE 1:0:1:2:8:FFFF:DC00000:0:0:0::قناة الكرمة الشرق الأوسط
-#DESCRIPTION قناة الكرمة الشرق الأوسط
 #SERVICE 1:0:A:26C:3B6:5000:DC00000:0:0:0::الكوثر
 #DESCRIPTION الكوثر
 #SERVICE 1:0:1:F0A:384:5000:DC00000:0:0:0::قناة الكرازة
 #DESCRIPTION قناة الكرازة
-#SERVICE 1:0:1:15:8:FFFF:DC00000:0:0:0::قناة اللحظة
-#DESCRIPTION قناة اللحظة
 #SERVICE 1:0:19:182E:190:5000:DC00000:0:0:0::قناة الليبية
 #DESCRIPTION قناة الليبية
-#SERVICE 1:0:16:46A:3B6:5000:DC00000:0:0:0::قناة المدنية
-#DESCRIPTION قناة المدنية
-#SERVICE 1:0:1:10:8:FFFF:DC00000:0:0:0::المسيرة مباشر
-#DESCRIPTION المسيرة مباشر
-#SERVICE 1:0:1:20:8:FFFF:DC00000:0:0:0::قناة المسيرة
-#DESCRIPTION قناة المسيرة
 #SERVICE 1:0:19:12C0:1F4:5000:DC00000:0:0:0::قناة النجف الأشرف
 #DESCRIPTION قناة النجف الأشرف
-#SERVICE 1:0:1:1A0E:2BC:5000:DC00000:0:0:0::قناة الرأي
-#DESCRIPTION قناة الرأي
 #SERVICE 1:0:19:1694:320:5000:DC00000:0:0:0::قناة الشعائر
 #DESCRIPTION قناة الشعائر
-#SERVICE 1:0:19:64A:FFDC:1:DC00000:0:0:0::قناة الشعوب
-#DESCRIPTION قناة الشعوب
 #SERVICE 1:0:19:2A8:3B6:5000:DC00000:0:0:0::قناة الشمالية
 #DESCRIPTION قناة الشمالية
-#SERVICE 1:0:1:28A:3B6:5000:DC00000:0:0:0::قناة الوادي
-#DESCRIPTION قناة الوادي
 #SERVICE 1:0:19:173E:1F4:5000:DC00000:0:0:0::قناة الواقع (HD)
 #DESCRIPTION قناة الواقع (HD)
 #SERVICE 1:0:19:488:3B6:5000:DC00000:0:0:0::قناة الوسام
@@ -529,12 +333,6 @@
 #DESCRIPTION قناة اليوم
 #SERVICE 1:0:19:29E:3B6:5000:DC00000:0:0:0::قناة الزرقاء
 #DESCRIPTION قناة الزرقاء
-#SERVICE 1:0:1:15:C3B4:77E:DC00000:0:0:0::قناة آموزگاري
-#DESCRIPTION قناة آموزگاري
-#SERVICE 1:0:1:640:FFDC:1:DC00000:0:0:0::أنيوز
-#DESCRIPTION أنيوز
-#SERVICE 1:0:1:276:3B6:5000:DC00000:0:0:0::قناة الشروق
-#DESCRIPTION قناة الشروق
 #SERVICE 1:0:1:127A:1F4:5000:DC00000:0:0:0::قناة أصيل
 #DESCRIPTION قناة أصيل
 #SERVICE 1:0:A:138E:384:5000:DC00000:0:0:0::أذان طولكرم
@@ -551,8 +349,6 @@
 #DESCRIPTION تلفزيون البحرين (HD)
 #SERVICE 1:0:1:198C:2BC:5000:DC00000:0:0:0::بيروت اليوم
 #DESCRIPTION بيروت اليوم
-#SERVICE 1:0:2:192:1BC:1:DC00000:0:0:0::بل أر تي إل
-#DESCRIPTION بل أر تي إل
 #SERVICE 1:0:1:1C89:49:800:DC00000:0:0:0::قناة بن عثيمين
 #DESCRIPTION قناة بن عثيمين
 #SERVICE 1:0:1:1717:1D:6E:DC00000:0:0:0::سي سات
@@ -579,10 +375,6 @@
 #DESCRIPTION دوللي اليوم
 #SERVICE 1:0:1:1B94:2BC:5000:DC00000:0:0:0::دوللي مسلسلات
 #DESCRIPTION دوللي مسلسلات
-#SERVICE 1:0:1:1586:320:5000:DC00000:0:0:0::أبل حكايات
-#DESCRIPTION أبل حكايات
-#SERVICE 1:0:1:157C:320:5000:DC00000:0:0:0::أبل زمان
-#DESCRIPTION أبل زمان
 #SERVICE 1:0:1:A98:1:2A:DC00000:0:0:0::دي دبليو عربية (HD)
 #DESCRIPTION دي دبليو عربية (HD)
 #SERVICE 1:0:2:E:7594:77E:DC00000:0:0:0::إيزي 92.5
@@ -597,10 +389,6 @@
 #DESCRIPTION الشرق
 #SERVICE 1:0:1:1C8A:49:800:DC00000:0:0:0::إري تي في 1
 #DESCRIPTION إري تي في 1
-#SERVICE 1:0:1:636:FFDC:1:DC00000:0:0:0::إري سات
-#DESCRIPTION إري سات
-#SERVICE 1:0:16:186A:190:5000:DC00000:0:0:0::قناة إيسان
-#DESCRIPTION قناة إيسان
 #SERVICE 1:0:1:AEF:1:2A:DC00000:0:0:0::Eutelsat Data 1
 #DESCRIPTION Eutelsat Data 1
 #SERVICE 1:0:1:1630:320:5000:DC00000:0:0:0::قناة فلسطيني
@@ -609,32 +397,18 @@
 #DESCRIPTION قناة فلسطيننا
 #SERVICE 1:0:1:195A:2BC:5000:DC00000:0:0:0::قناة فوكس بالعربي
 #DESCRIPTION قناة فوكس بالعربي
-#SERVICE 1:0:1:1734:1F4:5000:DC00000:0:0:0::فرانس 24 عربي
-#DESCRIPTION فرانس 24 عربي
 #SERVICE 1:0:19:177A:190:5000:DC00000:0:0:0::قناة كلي كردستان (HD)
 #DESCRIPTION قناة كلي كردستان (HD)
-#SERVICE 1:0:16:F32:384:5000:DC00000:0:0:0::جلفسات
-#DESCRIPTION جلفسات
 #SERVICE 1:0:19:1680:320:5000:DC00000:0:0:0::هلا عربية
 #DESCRIPTION هلا عربية
-#SERVICE 1:0:1:19:C3B4:77E:DC00000:0:0:0::قناة هاملتن
-#DESCRIPTION قناة هاملتن
 #SERVICE 1:0:16:49C:3B6:5000:DC00000:0:0:0::قناة الخليل سات
 #DESCRIPTION قناة الخليل سات
 #SERVICE 1:0:16:3FC:3B6:5000:DC00000:0:0:0::قناة هنا العراق الفضائية
 #DESCRIPTION قناة هنا العراق الفضائية
 #SERVICE 1:0:1:1888:190:5000:DC00000:0:0:0::قناة هدى
 #DESCRIPTION قناة هدى
-#SERVICE 1:0:16:41A:3B6:5000:DC00000:0:0:0::قناة إيكا
-#DESCRIPTION قناة إيكا
-#SERVICE 1:0:16:17D4:190:5000:DC00000:0:0:0::قناة الإمام علي
-#DESCRIPTION قناة الإمام علي
 #SERVICE 1:0:1:FAA:1D:6E:DC00000:0:0:0::قناة الإمام الحسين 2
 #DESCRIPTION قناة الإمام الحسين 2
-#SERVICE 1:0:16:4B0:3B6:5000:DC00000:0:0:0::قناة العراق أولاً 207
-#DESCRIPTION قناة العراق أولاً 207
-#SERVICE 1:0:1:23:8:FFFF:DC00000:0:0:0::قناة مستقبل العراق
-#DESCRIPTION قناة مستقبل العراق
 #SERVICE 1:0:A:1F40:2BC:5000:DC00000:0:0:0::الإذاعة الصحية العراقية
 #DESCRIPTION الإذاعة الصحية العراقية
 #SERVICE 1:0:1:1C29:48:1:DC00000:0:0:0::العراقية العامة (HD)
@@ -665,14 +439,10 @@
 #DESCRIPTION كان تاربيت
 #SERVICE 1:0:16:280:3B6:5000:DC00000:0:0:0::قناة كانون السودان
 #DESCRIPTION قناة كانون السودان
-#SERVICE 1:0:1:A96:1:2A:DC00000:0:0:0::خليجيات
-#DESCRIPTION خليجيات
 #SERVICE 1:0:19:316:3B6:5000:DC00000:0:0:0::تلفزيون الخرطوم
 #DESCRIPTION تلفزيون الخرطوم
 #SERVICE 1:0:19:1784:190:5000:DC00000:0:0:0::قناة كركوك (HD)
 #DESCRIPTION قناة كركوك (HD)
-#SERVICE 1:0:1:1A:8:FFFF:DC00000:0:0:0::قناة كوجي
-#DESCRIPTION قناة كوجي
 #SERVICE 1:0:19:44D:7594:77E:DC00000:0:0:0::قناة الكويت الأولى
 #DESCRIPTION قناة الكويت الأولى
 #SERVICE 1:0:19:44F:7594:77E:DC00000:0:0:0::قناة الكويت الثانية
@@ -683,44 +453,18 @@
 #DESCRIPTION كوردماكس شو
 #SERVICE 1:0:1:1D:C3B4:77E:DC00000:0:0:0::كوردسات (HD)
 #DESCRIPTION كوردسات (HD)
-#SERVICE 1:0:16:189C:190:5000:DC00000:0:0:0::قناة ليبيا الميدان
-#DESCRIPTION قناة ليبيا الميدان
 #SERVICE 1:0:19:1C88:49:800:DC00000:0:0:0::قناة ليبيا المختار
 #DESCRIPTION قناة ليبيا المختار
 #SERVICE 1:0:19:1C87:49:800:DC00000:0:0:0::ليبيا المستقبل
 #DESCRIPTION ليبيا المستقبل
-#SERVICE 1:0:19:12FC:1F4:5000:DC00000:0:0:0::ليبيا جي بلس
-#DESCRIPTION ليبيا جي بلس
-#SERVICE 1:0:19:1842:190:5000:DC00000:0:0:0::تلفزيون حكومة ليبيا
-#DESCRIPTION تلفزيون حكومة ليبيا
-#SERVICE 1:0:1:17:8:FFFF:DC00000:0:0:0::قناة لوغوس
-#DESCRIPTION قناة لوغوس
-#SERVICE 1:0:1:1:8:FFFF:DC00000:0:0:0::لوف وورلد بالعربية
-#DESCRIPTION لوف وورلد بالعربية
-#SERVICE 1:0:1:CF8:384:5000:DC00000:0:0:0::قناة معا
-#DESCRIPTION قناة معا
 #SERVICE 1:0:1:1CF1:4A:800:DC00000:0:0:0::مدرستنا 2
 #DESCRIPTION مدرستنا 2
-#SERVICE 1:0:1:5:8:FFFF:DC00000:0:0:0::قناة ظهر المهدي
-#DESCRIPTION قناة ظهر المهدي
 #SERVICE 1:0:1:33:C3B4:77E:DC00000:0:0:0::قناة مكان
 #DESCRIPTION قناة مكان
-#SERVICE 1:0:1:6:C3B4:77E:DC00000:0:0:0::قناة كورد (HD)
-#DESCRIPTION قناة كورد (HD)
 #SERVICE 1:0:1:FAD:1D:6E:DC00000:0:0:0::مانو شات
 #DESCRIPTION مانو شات
-#SERVICE 1:0:1:26:8:FFFF:DC00000:0:0:0::قناة مريم
-#DESCRIPTION قناة مريم
-#SERVICE 1:0:19:438:3B6:5000:DC00000:0:0:0::مارينا تي في (HD)
-#DESCRIPTION مارينا تي في (HD)
 #SERVICE 1:0:19:1482:320:5000:DC00000:0:0:0::قناة المرجعية العربية (HD)
 #DESCRIPTION قناة المرجعية العربية (HD)
-#SERVICE 1:0:1:1:D48:EB:DC00000:0:0:0::ماركور
-#DESCRIPTION ماركور
-#SERVICE 1:0:1:1388:1F4:5000:DC00000:0:0:0::قناة مسايا
-#DESCRIPTION قناة مسايا
-#SERVICE 1:0:2:191:1BC:1:DC00000:0:0:0::ماكسيموم
-#DESCRIPTION ماكسيموم
 #SERVICE 1:0:1:4:3B:800:DC00000:0:0:0::إم بي سي
 #DESCRIPTION إم بي سي
 #SERVICE 1:0:1:9:3B:800:DC00000:0:0:0::إم بي سي 2
@@ -737,48 +481,16 @@
 #DESCRIPTION إم بي سي مصر (HD)
 #SERVICE 1:0:1:8:C3B4:77E:DC00000:0:0:0::ميد موزيك
 #DESCRIPTION ميد موزيك
-#SERVICE 1:0:1:2D:C3B4:77E:DC00000:0:0:0::قناة ميدان
-#DESCRIPTION قناة ميدان
 #SERVICE 1:0:1:5AA:FFDC:1:DC00000:0:0:0::قناة مكملين
 #DESCRIPTION قناة مكملين
-#SERVICE 1:0:1:3:C3B4:77E:DC00000:0:0:0::تلفزيون منليك الفضائي
-#DESCRIPTION تلفزيون منليك الفضائي
 #SERVICE 1:0:1:A:C3B4:77E:DC00000:0:0:0::قناة ميريزا
 #DESCRIPTION قناة ميريزا
-#SERVICE 1:0:16:1C92:49:800:DC00000:0:0:0::قناة مسك
-#DESCRIPTION قناة مسك
-#SERVICE 1:0:1:12:8:FFFF:DC00000:0:0:0::مصر البلد
-#DESCRIPTION مصر البلد
-#SERVICE 1:0:1:F1E:384:5000:DC00000:0:0:0::موجة كوميدي
-#DESCRIPTION موجة كوميدي
-#SERVICE 1:0:1:F28:384:5000:DC00000:0:0:0::موجة توداي
-#DESCRIPTION موجة توداي
-#SERVICE 1:0:1:A97:1:2A:DC00000:0:0:0::منوعات
-#DESCRIPTION منوعات
-#SERVICE 1:0:2:172A:1F4:5000:DC00000:0:0:0::مونت كارلو الدولية
-#DESCRIPTION مونت كارلو الدولية
 #SERVICE 1:0:1:BA4:384:5000:DC00000:0:0:0::مساواة
 #DESCRIPTION مساواة
 #SERVICE 1:0:19:18B0:190:5000:DC00000:0:0:0::قناة مساواة (HD)
 #DESCRIPTION قناة مساواة (HD)
-#SERVICE 1:0:16:492:3B6:5000:DC00000:0:0:0::نبض
-#DESCRIPTION نبض
-#SERVICE 1:0:16:17B6:190:5000:DC00000:0:0:0::قناة ليبيا الجديدة
-#DESCRIPTION قناة ليبيا الجديدة
-#SERVICE 1:0:16:2D0:3B6:5000:DC00000:0:0:0::قناة نينوى
-#DESCRIPTION قناة نينوى
-#SERVICE 1:0:1:A:8:FFFF:DC00000:0:0:0::قناة شمال أفريقيا
-#DESCRIPTION قناة شمال أفريقيا
-#SERVICE 1:0:1:2D:8:FFFF:DC00000:0:0:0::نور القداس
-#DESCRIPTION نور القداس
-#SERVICE 1:0:1:2C:8:FFFF:DC00000:0:0:0::تيلي لوميير
-#DESCRIPTION تيلي لوميير
-#SERVICE 1:0:1:14:C3B4:77E:DC00000:0:0:0::إن آر تي (HD)
-#DESCRIPTION إن آر تي (HD)
 #SERVICE 1:0:1:21:C3B4:77E:DC00000:0:0:0::أن آر تي 2 (HD)
 #DESCRIPTION أن آر تي 2 (HD)
-#SERVICE 1:0:1:C:C3B4:77E:DC00000:0:0:0::إن آر تي 4
-#DESCRIPTION إن آر تي 4
 #SERVICE 1:0:19:5E6:FFDC:1:DC00000:0:0:0::قناة نوجه
 #DESCRIPTION قناة نوجه
 #SERVICE 1:0:C:1A04:3B:800:DC00000:0:0:0::OTA
@@ -807,22 +519,10 @@
 #DESCRIPTION تلفزيون فلسطين (HD)
 #SERVICE 1:0:A:B:208:2BE:DC00000:0:0:0::بالس 95
 #DESCRIPTION بالس 95
-#SERVICE 1:0:1:8:8:FFFF:DC00000:0:0:0::قناة رمضان
-#DESCRIPTION قناة رمضان
 #SERVICE 1:0:1:17:C3B4:77E:DC00000:0:0:0::قناة روج آفا (HD)
 #DESCRIPTION قناة روج آفا (HD)
-#SERVICE 1:0:16:33E:3B6:5000:DC00000:0:0:0::روشتة
-#DESCRIPTION روشتة
 #SERVICE 1:0:1:67C:FFDC:1:DC00000:0:0:0::روداو
 #DESCRIPTION روداو
-#SERVICE 1:0:19:424:3B6:5000:DC00000:0:0:0::قناة صلاح الدين
-#DESCRIPTION قناة صلاح الدين
-#SERVICE 1:0:19:14AA:320:5000:DC00000:0:0:0::قناة سلام
-#DESCRIPTION قناة سلام
-#SERVICE 1:0:1:3:8:FFFF:DC00000:0:0:0::قناة الخلاص الشرق الأوسط
-#DESCRIPTION قناة الخلاص الشرق الأوسط
-#SERVICE 1:0:19:3F2:3B6:5000:DC00000:0:0:0::قناة المنبر الحسيني
-#DESCRIPTION قناة المنبر الحسيني
 #SERVICE 1:0:19:1324:1F4:5000:DC00000:0:0:0::قناة صوت العقيلة
 #DESCRIPTION قناة صوت العقيلة
 #SERVICE 1:0:19:A9C:1:2A:DC00000:0:0:0::سات تي في
@@ -837,16 +537,8 @@
 #DESCRIPTION شرم
 #SERVICE 1:0:19:3:208:2BE:DC00000:0:0:0::قناة الشرقية (HD)
 #DESCRIPTION قناة الشرقية (HD)
-#SERVICE 1:0:19:A9F:1:2A:DC00000:0:0:0::قناة سبأ
-#DESCRIPTION قناة سبأ
 #SERVICE 1:0:1:16:3B:800:DC00000:0:0:0::تسوق 3
 #DESCRIPTION تسوق 3
-#SERVICE 1:0:19:89E:12C:77E:DC00000:0:0:0::spare
-#DESCRIPTION spare
-#SERVICE 1:0:19:89F:12C:77E:DC00000:0:0:0::spare
-#DESCRIPTION spare
-#SERVICE 1:0:19:8A0:12C:77E:DC00000:0:0:0::spare
-#DESCRIPTION spare
 #SERVICE 1:0:1:1:C3B4:77E:DC00000:0:0:0::قناة سيبدا (HD)
 #DESCRIPTION قناة سيبدا (HD)
 #SERVICE 1:0:1:B:C3B4:77E:DC00000:0:0:0::قناة ستيرك (HD)
@@ -857,33 +549,21 @@
 #DESCRIPTION السودان التعليم الأساسي
 #SERVICE 1:0:2:10:7594:77E:DC00000:0:0:0::سوبر ستيشن
 #DESCRIPTION سوبر ستيشن
-#SERVICE 1:0:1:2E:C3B4:77E:DC00000:0:0:0::قناة سورويو
-#DESCRIPTION قناة سورويو
-#SERVICE 1:0:1:145A:320:5000:DC00000:0:0:0::تلفزيون سوريا
-#DESCRIPTION تلفزيون سوريا
 #SERVICE 1:0:16:1C90:49:800:DC00000:0:0:0::قناة التناصح التعليمية
 #DESCRIPTION قناة التناصح التعليمية
 #SERVICE 1:0:16:1C8D:49:800:DC00000:0:0:0::قناة التناصح
 #DESCRIPTION قناة التناصح
-#SERVICE 1:0:1:A95:1:2A:DC00000:0:0:0::طربيات
-#DESCRIPTION طربيات
 #SERVICE 1:0:1:1B5B:46:800:DC00000:0:0:0::قناة طيبة
 #DESCRIPTION قناة طيبة
 #SERVICE 1:0:1:7:3B:800:DC00000:0:0:0::TEST
 #DESCRIPTION TEST
 #SERVICE 1:0:1:17:3B:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
-#SERVICE 1:0:1:1D4E:4B:800:DC00000:0:0:0::Test
-#DESCRIPTION Test
 #SERVICE 1:0:1:1D4F:4B:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
 #SERVICE 1:0:1:1D50:4B:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
 #SERVICE 1:0:1:1D51:4B:800:DC00000:0:0:0::Test
-#DESCRIPTION Test
-#SERVICE 1:0:1:1D52:4B:800:DC00000:0:0:0::Test
-#DESCRIPTION Test
-#SERVICE 1:0:1:1D53:4B:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
 #SERVICE 1:0:1:1D54:4B:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
@@ -906,8 +586,6 @@
 #SERVICE 1:0:1:1B64:46:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
 #SERVICE 1:0:1:1B65:46:800:DC00000:0:0:0::Test
-#DESCRIPTION Test
-#SERVICE 1:0:1:1B66:46:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
 #SERVICE 1:0:1:1C93:49:800:DC00000:0:0:0::Test
 #DESCRIPTION Test
@@ -957,17 +635,9 @@
 #DESCRIPTION قناة صوت فلسطين (HD)
 #SERVICE 1:0:19:1284:1F4:5000:DC00000:0:0:0::قناة وار (HD)
 #DESCRIPTION قناة وار (HD)
-#SERVICE 1:0:19:1C:8:FFFF:DC00000:0:0:0::قناة الوسط (HD)
-#DESCRIPTION قناة الوسط (HD)
 #SERVICE 1:0:1:604:FFDC:1:DC00000:0:0:0::قناة وطن
 #DESCRIPTION قناة وطن
 #SERVICE 1:0:1:1978:2BC:5000:DC00000:0:0:0::وسط البلد زمان
 #DESCRIPTION وسط البلد زمان
 #SERVICE 1:0:1:5B4:FFDC:1:DC00000:0:0:0::القناة التعليمية اليمنية
 #DESCRIPTION القناة التعليمية اليمنية
-#SERVICE 1:0:19:7:8:FFFF:DC00000:0:0:0::قناة اليمن (HD)
-#DESCRIPTION قناة اليمن (HD)
-#SERVICE 1:0:1:456:3B6:5000:DC00000:0:0:0::قناة اليمنية
-#DESCRIPTION قناة اليمنية
-#SERVICE 1:0:19:410:3B6:5000:DC00000:0:0:0::قناة زوم
-#DESCRIPTION قناة زوم
