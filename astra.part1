@@ -82,48 +82,6 @@ make_channel({
 })
 
 make_channel({
-  name = "Abertis@11674H15750 PID 431",
-  input = {
-    "http://localhost:8001/1:0:1:597:EA64:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 431",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid431",
-  },
-})
-
-make_channel({
-  name = "Abertis@11674H15750 PID 433",
-  input = {
-    "http://localhost:8001/1:0:1:599:EA64:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 433",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid433",
-  },
-})
-
-make_channel({
-  name = "Abertis@11674H15750 PID 440",
-  input = {
-    "http://localhost:8001/1:0:1:5A0:EA64:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 440",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid440",
-  },
-})
-
-make_channel({
   name = "Abertis@12548V29600 PID 701",
   input = {
     "http://localhost:8001/1:0:1:6A5:EA67:1:CE40000:0:0:0:",
@@ -334,76 +292,6 @@ make_channel({
 })
 
 make_channel({
-  name = "Abertis@11302H30000 PID 2281",
-  input = {
-    "http://localhost:8001/1:0:1:CD1:EA76:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2281",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2281",
-  },
-})
-
-make_channel({
-  name = "Abertis@11302H30000 PID 2282",
-  input = {
-    "http://localhost:8001/1:0:1:CD2:EA76:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2282",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2282",
-  },
-})
-
-make_channel({
-  name = "Abertis@11302H30000 PID 2283",
-  input = {
-    "http://localhost:8001/1:0:1:CD3:EA76:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2283",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2283",
-  },
-})
-
-make_channel({
-  name = "Abertis@11302H30000 PID 2284",
-  input = {
-    "http://localhost:8001/1:0:1:CD4:EA76:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2284",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2284",
-  },
-})
-
-make_channel({
-  name = "Abertis@11347H20858 PID 2301",
-  input = {
-    "http://localhost:8001/1:0:1:CE5:EA77:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2301",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2301",
-  },
-})
-
-make_channel({
   name = "Abertis@11347H20858 PID 2302",
   input = {
     "http://localhost:8001/1:0:1:CE6:EA77:1:CE40000:0:0:0:",
@@ -428,20 +316,6 @@ make_channel({
   }},
   output = {
     "http://0.0.0.0:9999/abertis/pid2303",
-  },
-})
-
-make_channel({
-  name = "Abertis@11347H20858 PID 2304",
-  input = {
-    "http://localhost:8001/1:0:1:CE8:EA77:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2304",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2304",
   },
 })
 
@@ -554,62 +428,6 @@ make_channel({
   }},
   output = {
     "http://0.0.0.0:9999/abertis/pid2524",
-  },
-})
-
-make_channel({
-  name = "Abertis@11382H30000 PID 2531",
-  input = {
-    "http://localhost:8001/1:0:1:DCB:EA79:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2531",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2531",
-  },
-})
-
-make_channel({
-  name = "Abertis@11382H30000 PID 2532",
-  input = {
-    "http://localhost:8001/1:0:1:DCC:EA79:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2532",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2532",
-  },
-})
-
-make_channel({
-  name = "Abertis@11382H30000 PID 2533",
-  input = {
-    "http://localhost:8001/1:0:1:DCD:EA79:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2533",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2533",
-  },
-})
-
-make_channel({
-  name = "Abertis@11382H30000 PID 2534",
-  input = {
-    "http://localhost:8001/1:0:1:DCE:EA79:1:CE40000:0:0:0:",
-  },
-  transform = {{
-    format = "pipe",
-      command = "/etc/astra/scripts/abertis 2534",
-  }},
-  output = {
-    "http://0.0.0.0:9999/abertis/pid2534",
   },
 })
 
