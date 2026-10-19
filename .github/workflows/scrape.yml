@@ -3,7 +3,7 @@ name: Orion Scraper Daily Update
 on:
   schedule:
     - cron: '0 12 * * *' # Everyday at 3:00 PM Egypt Time (12:00 UTC)
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
     inputs:
       start_pos:
         description: 'Start Position (e.g. 45.0W)'
@@ -24,13 +24,19 @@ on:
 
 jobs:
   build:
+    concurrency:
+      group: orion-scraper
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+        with:
+          ref: scripts
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: '3.13'
 
@@ -39,15 +45,17 @@ jobs:
           pip install requests beautifulsoup4 cloudscraper
 
       - name: Run Orion Scraper CI & Process Satellites Scripts
+        shell: bash
         run: |
-          # Determine parameters based on trigger type
+          set -euo pipefail
+
           START="${{ github.event.inputs.start_pos || '45.0W' }}"
           END="${{ github.event.inputs.end_pos || '108.2E' }}"
           SEP_FLAG=""
           if [[ "${{ github.event.inputs.separate_bands || 'true' }}" == "true" ]]; then SEP_FLAG="--separate"; fi
           ADV_FLAG=""
           if [[ "${{ github.event.inputs.add_advanced || 'true' }}" == "true" ]]; then ADV_FLAG="--advanced"; fi
-          
+
           python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG
 
           # Safety check: stop workflow if scraped output is empty or has no transponders.
@@ -67,9 +75,17 @@ jobs:
           python CI/process_satellites.py satellites.xml
 
       - name: Commit and Push satellites.xml
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin scripts || true
+          git checkout scripts || git checkout -b scripts origin/scripts
+          git pull --rebase origin scripts || true
+
           git add satellites.xml
           git commit -m "Update satellites.xml - $(date -u)" || echo "No changes to commit"
-          git push
+          git push origin HEAD:scripts
