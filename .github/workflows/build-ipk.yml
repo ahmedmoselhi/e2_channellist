@@ -1,0 +1,150 @@
+name: Build IPK Package
+
+on:
+  push:
+    branches: [ 'ipk' ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ github.token }}
+
+      - name: Configure git and remote with token
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote set-url origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+
+      - name: Capture commit hash and date (ipk branch HEAD)
+        id: vars
+        run: |
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          COMMIT_DATE=$(date +%Y%m%d)
+          echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
+          echo "commit_date=$COMMIT_DATE" >> $GITHUB_OUTPUT
+
+      - name: Update master branch with latest channels submodule
+        run: |
+          rm -rf astra .git/modules/astra
+          git checkout -f master 2>/dev/null || git checkout -b master origin/master
+          git pull --ff-only origin master || true
+          if ! git ls-files --error-unmatch channels >/dev/null 2>&1; then
+            rm -rf channels .git/modules/channels
+            git submodule add --force -b master https://github.com/ahmedmoselhi/e2_channellist.git channels
+          fi
+          cd channels
+          git fetch origin
+          git checkout -f master
+          git merge --ff-only origin/master || git reset --hard origin/master
+          cd ..
+          git add channels .gitmodules
+          git commit -m "chore: update channels submodule to latest master" || echo "No changes to commit on master"
+          git push origin master
+
+      - name: Update astra branch with latest astra submodule
+        run: |
+          rm -rf channels .git/modules/channels
+          git checkout -f astra 2>/dev/null || git checkout -b astra origin/astra
+          git pull --ff-only origin astra || true
+          if ! git ls-files --error-unmatch astra >/dev/null 2>&1; then
+            rm -rf astra .git/modules/astra
+            git submodule add --force -b astra https://github.com/ahmedmoselhi/e2_channellist.git astra
+          fi
+          cd astra
+          git fetch origin
+          git checkout -f astra
+          git merge --ff-only origin/astra || git reset --hard origin/astra
+          cd ..
+          git add astra .gitmodules
+          git commit -m "chore: update astra submodule to latest astra" || echo "No changes to commit on astra"
+          git push origin astra
+
+      - name: Return to ipk branch and refresh submodules to latest
+        run: |
+          git checkout -f ipk
+          git submodule update --init --recursive
+          cd channels && git fetch origin && git checkout -f master && git merge --ff-only origin/master || git reset --hard origin/master; cd ..
+          cd astra && git fetch origin && git checkout -f astra && git merge --ff-only origin/astra || git reset --hard origin/astra; cd ..
+          echo "=== Submodule status ==="
+          git submodule status
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binutils tar gzip
+
+      - name: Prepare IPK build directory
+        run: |
+          rm -rf ipk-build
+          mkdir -p ipk-build/CONTROL
+          mkdir -p ipk-build/data/etc/enigma2
+          mkdir -p ipk-build/data/etc/astra
+
+      - name: Copy channel files to data/etc/enigma2
+        run: |
+          cp channels/lamedb ipk-build/data/etc/enigma2/
+          cp channels/satellites.xml ipk-build/data/etc/enigma2/
+          cp channels/terrestrial.xml ipk-build/data/etc/enigma2/
+          cp channels/cables.xml ipk-build/data/etc/enigma2/
+          cp channels/bouquets.tv ipk-build/data/etc/enigma2/
+          cp channels/bouquets.radio ipk-build/data/etc/enigma2/
+          cp channels/userbouquet.*.tv ipk-build/data/etc/enigma2/
+          cp channels/userbouquet.*.radio ipk-build/data/etc/enigma2/
+          cp channels/blacklist ipk-build/data/etc/enigma2/ 2>/dev/null || true
+          [ -f channels/whitelist ] && cp channels/whitelist ipk-build/data/etc/enigma2/ || true
+
+      - name: Copy astra files to data/etc/astra
+        run: |
+          cp astra/astra.conf ipk-build/data/etc/astra/
+          mkdir -p ipk-build/data/etc/astra/scripts
+          cp astra/scripts/abertis ipk-build/data/etc/astra/scripts/abertis
+          chmod +x ipk-build/data/etc/astra/scripts/abertis
+
+      - name: Copy control and maintainer scripts
+        run: |
+          cp control ipk-build/CONTROL/control
+          cp preinst ipk-build/CONTROL/preinst
+          cp postinst ipk-build/CONTROL/postinst
+          chmod +x ipk-build/CONTROL/preinst ipk-build/CONTROL/postinst
+
+      - name: Build IPK package
+        id: build
+        run: |
+          cd ipk-build
+          echo "2.0" > debian-binary
+          tar czf control.tar.gz -C CONTROL control preinst postinst
+          tar czf data.tar.gz -C data etc
+          IPK_NAME="enigma2-channellist-midoo2026_${{ steps.vars.outputs.commit_hash }}-${{ steps.vars.outputs.commit_date }}.ipk"
+          ar r "../$IPK_NAME" debian-binary control.tar.gz data.tar.gz
+          echo "ipk_name=$IPK_NAME" >> $GITHUB_OUTPUT
+          echo "ipk_path=$IPK_NAME" >> $GITHUB_OUTPUT
+          echo "=== Package contents ==="
+          ar t "../$IPK_NAME"
+          ls -lh "../$IPK_NAME"
+
+      - name: Create GitHub release and upload IPK
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: "ipk-${{ steps.vars.outputs.commit_hash }}-${{ steps.vars.outputs.commit_date }}"
+          name: "Enigma2 Channel List IPK ${{ steps.vars.outputs.commit_hash }}-${{ steps.vars.outputs.commit_date }}"
+          body: "Automated IPK build from commit ${{ steps.vars.outputs.commit_hash }} (${{ steps.vars.outputs.commit_date }})"
+          draft: false
+          prerelease: false
+          files: |
+            ${{ steps.build.outputs.ipk_path }}
+
+      - name: Upload IPK artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: enigma2-channellist
+          path: ${{ steps.build.outputs.ipk_path }}

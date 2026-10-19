@@ -1,0 +1,38 @@
+#!/bin/sh
+
+set -e
+
+# Stop Enigma2 before replacing channel files
+init 4 || true
+
+BACKUP_ROOT="/etc/enigma2-backup"
+BACKUP_DIR="${BACKUP_ROOT}/$(date +'%Y%m%d-%H%M%S')"
+
+# Backup existing config before wiping
+mkdir -p "${BACKUP_DIR}"
+for pattern in 'lamedb' 'lamedb5' '*.tv' '*.radio' 'satellites.xml' 'terrestrial.xml' 'cables.xml' 'bouquets.tv' 'bouquets.radio' 'userbouquet.*' 'blacklist' 'whitelist'; do
+  for file in /etc/enigma2/${pattern}; do
+    [ -e "${file}" ] || continue
+    cp -a "${file}" "${BACKUP_DIR}/" 2>/dev/null || true
+  done
+done
+
+# Remove all existing Enigma2 channel files so new ones replace them cleanly
+rm -f /etc/enigma2/lamedb
+rm -f /etc/enigma2/lamedb5
+rm -f /etc/enigma2/satellites.xml
+rm -f /etc/enigma2/terrestrial.xml
+rm -f /etc/enigma2/cables.xml
+rm -f /etc/enigma2/bouquets.tv
+rm -f /etc/enigma2/bouquets.radio
+rm -f /etc/enigma2/*.tv
+rm -f /etc/enigma2/*.radio
+rm -f /etc/enigma2/*.xml
+rm -f /etc/enigma2/userbouquet.*
+rm -f /etc/enigma2/blacklist
+rm -f /etc/enigma2/whitelist
+
+# Remove existing astra config
+rm -f /etc/astra/astra.conf
+
+exit 0

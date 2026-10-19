@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Ensure astra scripts directory exists
+mkdir -p /etc/astra/scripts
+
+# Restart astra-sm service
+/etc/init.d/astra-sm restart || true
+
+init 3
+
+exit 0

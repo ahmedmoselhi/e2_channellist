@@ -1,0 +1,10 @@
+Package: enigma2-channellist-midoo2026
+Version: 1.0
+Description: Enigma2 channel list (bouquets, satellites.xml, lamedb, terrestrial.xml, cables.xml) from e2_channellist
+Section: base
+Priority: optional
+Maintainer: ahmedmoselhi
+Architecture: all
+Depends: astra-sm
+OE: enigma2-channellist
+Homepage: https://github.com/ahmedmoselhi/e2_channellist.git
