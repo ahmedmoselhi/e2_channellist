@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <satellites>
-    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-11-04 19:00:17 GMT -->
+    <!-- created by Absolute Edition (Orion v6.0 Enhanced) on 2026-11-05 19:11:28 GMT -->
     <sat name="(49) 45.0W KU-band Intelsat 14" flags="1" position="-450">
         <transponder frequency="11788000" symbol_rate="2500000" polarization="0" fec_inner="3" system="1" modulation="2"/>
     </sat>
@@ -1725,11 +1725,7 @@
     </sat>
     <sat name="(10) 36.0E KU-band Eutelsat 36D &amp; Express AMU1" flags="1" position="360">
         <transponder frequency="10960000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="2"/>
-        <transponder frequency="10968000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
-        <transponder frequency="10995000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
-        <transponder frequency="11004000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
         <transponder frequency="11013000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
-        <transponder frequency="11022000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="1"/>
         <transponder frequency="11031000" symbol_rate="2000000" polarization="0" fec_inner="4" system="1" modulation="2"/>
         <transponder frequency="11105000" symbol_rate="3333000" polarization="1" fec_inner="7" system="1" modulation="2"/>
         <transponder frequency="11171000" symbol_rate="7200000" polarization="1" fec_inner="3" system="1" modulation="2"/>
