@@ -77,7 +77,7 @@ class SatellitesProcessor:
             {"pos": "310", "new_name": "(8) 31.0E KU-band Türksat 5A"},
             {"pos": "330", "new_name": "(9) 33.0E KU-band Eutelsat 33F"},
             {"pos": "360", "new_name": "(10) 36.0E KU-band Eutelsat 36D &amp; Express AMU1"},
-            {"pos": "382", "new_name": "(102) 38.2E C-band Paksat 1R/MM1"},
+            {"pos": "383", "new_name": "(102) 38.2E C-band Paksat 1R/MM1"},
             {"pos": "390", "new_name": "(11) 39.0E KU-band Hellas Sat 3/4"},
             {"pos": "401", "new_name": "(103) 40.0E C-band Express AM7"},
             {"pos": "400", "new_name": "(12) 40.0E KU-band Express AM7"},

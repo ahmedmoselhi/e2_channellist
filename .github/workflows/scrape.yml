@@ -28,6 +28,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONUNBUFFERED: "1"
 
     concurrency:
       group: orion-scraper
@@ -35,23 +38,27 @@ jobs:
 
     steps:
       - name: Checkout target branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: scripts
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 cloudscraper
+          pip install requests beautifulsoup4 cloudscraper curl_cffi
 
       - name: Run scraper and validate output
         shell: bash
+        env:
+          # Optional: raises the Jina Reader rate limit if direct LyngSat
+          # access is blocked from GitHub's runners.
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
         run: |
           set -euo pipefail
 
@@ -67,7 +74,29 @@ jobs:
             ADV_FLAG="--advanced"
           fi
 
-          python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG
+          PREVIOUS_COUNT=$(git show HEAD:satellites.xml 2>/dev/null | grep -c '<sat ' || true)
+
+          # The scraper retries individual pages itself. Retry the whole process
+          # as a final safety net for unexpected crashes/network outages.
+          SCRAPE_OK=0
+          for attempt in 1 2 3; do
+            echo "::group::Scrape attempt $attempt"
+            if python CI/orion_ci.py --start "$START" --end "$END" $SEP_FLAG $ADV_FLAG; then
+              SCRAPE_OK=1
+              echo "::endgroup::"
+              break
+            fi
+            echo "::endgroup::"
+            echo "WARNING: scrape attempt $attempt failed."
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 30))
+            fi
+          done
+
+          if [[ "$SCRAPE_OK" -ne 1 ]]; then
+            echo "ERROR: scraper failed after 3 attempts. Existing satellites.xml was not replaced."
+            exit 1
+          fi
 
           if [[ ! -s satellites.xml ]]; then
             echo "ERROR: satellites.xml is empty after scraping. Stopping workflow to avoid overwriting valid data."
@@ -77,10 +106,24 @@ jobs:
           SATELLITE_COUNT=$(grep -c '<sat ' satellites.xml || true)
           TRANSPONDER_COUNT=$(grep -c '<transponder ' satellites.xml || true)
 
+          echo "Scraped satellites=$SATELLITE_COUNT transponders=$TRANSPONDER_COUNT (previous satellites=$PREVIOUS_COUNT)"
+
           if [[ "$SATELLITE_COUNT" -eq 0 || "$TRANSPONDER_COUNT" -eq 0 ]]; then
             echo "ERROR: satellites.xml has no satellites/transponders (satellites=$SATELLITE_COUNT, transponders=$TRANSPONDER_COUNT)."
             echo "Stopping workflow to avoid committing invalid scraped data."
             exit 1
+          fi
+
+          # Guard against a partial scrape being committed. The scraper already
+          # merges previous data for failed pages, so a large drop means
+          # something went badly wrong.
+          if [[ "$START" == "45.0W" && "$END" == "108.2E" && "${PREVIOUS_COUNT:-0}" -gt 0 ]]; then
+            MIN_COUNT=$(( PREVIOUS_COUNT * 8 / 10 ))
+            if [[ "$SATELLITE_COUNT" -lt "$MIN_COUNT" ]]; then
+              echo "ERROR: satellite count dropped from $PREVIOUS_COUNT to $SATELLITE_COUNT (below 80%)."
+              echo "Refusing to commit an incomplete scrape."
+              exit 1
+            fi
           fi
 
           python CI/process_satellites.py satellites.xml
