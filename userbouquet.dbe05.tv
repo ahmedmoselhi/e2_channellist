@@ -13,9 +13,3 @@
 #DESCRIPTION القناة الثانية المغربية (HD)
 #SERVICE 1:0:1:67:1:1:1E2D88:0:0:0::القناة الثانية المغربية (HD)
 #DESCRIPTION القناة الثانية المغربية (HD)
-#SERVICE 1:0:1:1:1:FFFF:1E2D99:0:0:0::قناة الرابعة
-#DESCRIPTION قناة الرابعة
-#SERVICE 1:0:1:1:1:FFFF:1E2DAE:0:0:0::قناة العهد
-#DESCRIPTION قناة العهد
-#SERVICE 1:0:1:1:1:FFFF:1E2D9D:0:0:0::قناة الإمام علي (HD)
-#DESCRIPTION قناة الإمام علي (HD)
