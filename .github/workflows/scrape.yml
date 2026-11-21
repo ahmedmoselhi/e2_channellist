@@ -1,8 +1,6 @@
 name: Orion Scraper Daily Update
 
 on:
-  schedule:
-    - cron: '0 12 * * *' # Everyday at 3:00 PM Egypt Time (12:00 UTC)
   workflow_dispatch:
     inputs:
       start_pos:
